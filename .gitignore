@@ -1,0 +1,23 @@
+# Python, Django, Postgres
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.psql
+*.pg_dump
+*.pyc
+*.pyo
+__pycache__/
+local_settings.py
+
+# Media
+media/
+
+# Static files
+static/
+
+# Vue.js
+node_modules/
+package-lock.json
+/dist/
+npm-debug.log
