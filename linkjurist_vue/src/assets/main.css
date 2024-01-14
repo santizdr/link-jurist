@@ -45,3 +45,39 @@
     background-color: var(--secondary-color);
     color: #FFFFFF;
 }
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+}
+
+.top-ranking-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px; 
+    height: 36px; 
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.ranking-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px; 
+    height: 36px; 
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.top-ranking-icon {
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.ranking-icon {
+    color: var(--primary-color);
+    font-size: 16px; 
+}
+
