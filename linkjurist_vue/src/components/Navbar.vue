@@ -8,6 +8,7 @@
   <div class="navbar-brand">
     <RouterLink to="/" class="navbar-item is-size-4-desktop is-size-5-touch mr-5">
       <img src="../assets/logo.png" width="58" height="112">
+      <!-- <i class="fa-solid fa-scale-balanced"></i> -->
       <span class="has-text-weight-medium is-hidden-touch secondary-text-color">Link Jurist</span>
       <span class="has-text-weight-normal is-hidden-desktop secondary-text-color">Link Jurist</span>
     </RouterLink>
@@ -27,9 +28,10 @@
 
   <div id="navbarMenu" class="navbar-menu" :class="{ 'is-active': showMobileMenu}">
     <div class="navbar-start">
-      <RouterLink to="/" class="navbar-item white-text is-hidden-touch">Inicio</RouterLink>
+      <RouterLink to="/" class="navbar-item white-text is-hidden-touch mx-3">Inicio</RouterLink>
+      <RouterLink  v-if="store.authenticated" to="/cases" class="navbar-item white-text is-hidden-touch mx-3">Casos</RouterLink>
+      <RouterLink  v-if="store.authenticated" to="/files" class="navbar-item white-text is-hidden-touch mx-3">Escritos</RouterLink>
       <RouterLink to="/" class="navbar-item is-hidden-desktop">Inicio</RouterLink>
-
       <RouterLink to="/login" class="navbar-item is-hidden-desktop">Identificate</RouterLink>
     </div>
 
