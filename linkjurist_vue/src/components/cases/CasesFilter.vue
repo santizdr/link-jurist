@@ -46,8 +46,5 @@
                 <button class="button is-rounded secondary-form-button">Filtrar</button>
             </div>
         </div>
-
     </form>
-
-
 </template>
