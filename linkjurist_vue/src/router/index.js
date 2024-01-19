@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import CasesView from '../views/CasesView.vue'
+import FilesView from '../views/FilesView.vue'
 import AccountView from '../views/AccountView.vue'
 
 const router = createRouter({
@@ -11,27 +12,32 @@ const router = createRouter({
     {
       path: '/',
       name: 'HomeView',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/signup',
       name: 'SignUp',
-      component: SignUp
+      component: SignUp,
     },
     {
       path: '/login',
       name: 'LogIn',
-      component: LogIn
+      component: LogIn,
     },
     {
       path: '/cases',
       name: 'CasesView',
-      component: CasesView
+      component: CasesView,
+    },
+    {
+      path: '/files',
+      name: 'FilesView',
+      component: FilesView,
     },
     {
       path: '/account',
       name: 'AccountView',
-      component: AccountView
+      component: AccountView,
     },
     {
       path: '/about',
