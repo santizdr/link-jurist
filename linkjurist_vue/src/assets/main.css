@@ -31,7 +31,7 @@
 }
 
 .white-text {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 .navbar-button {
