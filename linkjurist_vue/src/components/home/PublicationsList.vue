@@ -39,7 +39,7 @@
 </script>
 
 <template>
-    <div class="box" style="overflow: auto; max-height: 720px;">
+    <div class="box scrollable-div">
 
     <h1 class="title">Lista de publicaciones</h1>
     <h2 class="subtitle">Listado de publicaciones de contactos y cuentas relacionadas. </h2>

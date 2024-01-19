@@ -68,12 +68,21 @@
       "expiryDate": "2024-01-19",
       "postedBy": "Vanguardia Legal",
     },
+    {
+    "id": 8,
+    "title": "Caso Civil: Divorcio por Mutuo Acuerdo",
+    "description": "Proceso de divorcio amistoso entre Juan Pérez y María González. Acuerdo de custodia de hijos y división de bienes.",
+    "type": "caso judicial",
+    "postDate": "2024-01-17",
+    "expiryDate": "2024-01-23",
+    "postedBy": "Prudencio Sáez"
+    },
   ]
 </script>
 
 
 <template>
-    <div class="box" style="overflow: auto; max-height: 720px;">
+    <div class="box scrollable-div">
 
     <h1 class="title">Casos abiertos</h1>
     <h2 class="subtitle">Listado de oferta y demanda de servicios para todos los casos publicados por los usuarios en la plataforma. </h2>

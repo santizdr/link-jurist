@@ -11,7 +11,7 @@
 
 <template>
     <div>
-        <div class="card my-5">
+        <div class="card my-5 mx-2">
         <div  v-if="publication.img != ''" class="card-image">
             <figure class="image is-4by3">
             <img :src="publication.img" alt="Placeholder image">
