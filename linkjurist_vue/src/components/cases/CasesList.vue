@@ -13,6 +13,8 @@
       "postDate": "2024-01-15",
       "expiryDate": "2024-01-19",
       "postedBy": "Prudencio Sáez",
+      "applications": 456,
+      "visualizations": 778,
     },
     {
       "id": 2,
@@ -22,6 +24,8 @@
       "postDate": "2024-01-16",
       "expiryDate": "2024-01-19",
       "postedBy": "S&P Asociados",
+      "applications": 324,
+      "visualizations": 784,
     },
     {
       "id": 3,
@@ -31,6 +35,8 @@
       "postDate": "2024-01-17",
       "expiryDate": "2024-01-19",
       "postedBy": "Summa Legal",
+      "applications": 256,
+      "visualizations": 626,
     },
     {
       "id": 4,
@@ -40,6 +46,8 @@
       "postDate": "2024-01-18",
       "expiryDate": "2024-01-19",
       "postedBy": "Lucio Anneo Séneca",
+      "applications": 398,
+      "visualizations": 780,
     },
     {
       "id": 5,
@@ -49,6 +57,8 @@
       "postDate": "2024-01-19",
       "expiryDate": "2024-01-19",
       "postedBy": "Diego Velázquez",
+      "applications": 271,
+      "visualizations": 878,
     },
     {
       "id": 6,
@@ -58,6 +68,8 @@
       "postDate": "2024-01-20",
       "expiryDate": "2024-01-19",
       "postedBy": "Caparros Abogados",
+      "applications": 26,
+      "visualizations": 78,
     },
     {
       "id": 7,
@@ -67,6 +79,8 @@
       "postDate": "2024-01-17",
       "expiryDate": "2024-01-19",
       "postedBy": "Vanguardia Legal",
+      "applications": 76,
+      "visualizations": 198,
     },
     {
     "id": 8,
@@ -75,7 +89,9 @@
     "type": "caso judicial",
     "postDate": "2024-01-17",
     "expiryDate": "2024-01-23",
-    "postedBy": "Prudencio Sáez"
+    "postedBy": "Prudencio Sáez",
+    "applications": 26,
+    "visualizations": 154,
     },
   ]
 </script>

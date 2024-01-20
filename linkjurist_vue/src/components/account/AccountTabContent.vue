@@ -2,7 +2,7 @@
     import AccountTeamCard from '../account/AccountTeamCard.vue'
     import FileUpload from '../account/FileUpload.vue'
     import AccountFileCard from '../account/AccountFileCard.vue'
-    import CaseCard from '../cases/CaseCard.vue'
+    import AccountCaseCard from '../account/AccountCaseCard.vue'
 
     import { useAuthStore } from '@/stores/auth';
 
@@ -19,33 +19,41 @@
       "postDate": "2024-01-16",
       "expiryDate": "2024-01-19",
       "postedBy": "Prudencio Sáez",
+      "applications": 456,
+      "visualizations": 778,
     },
     {
         "id": 2,
         "title": "Caso Civil: Divorcio por Mutuo Acuerdo",
         "description": "Proceso de divorcio amistoso entre Juan Pérez y María González. Acuerdo de custodia de hijos y división de bienes.",
-        "type": "caso judicial",
+        "type": "oferta",
         "postDate": "2024-01-17",
         "expiryDate": "2024-01-23",
-        "postedBy": "Prudencio Sáez"
+        "postedBy": "Prudencio Sáez",
+        "applications": 201,
+        "visualizations": 478,
     },
     {
         "id": 3,
         "title": "Caso Laboral: Despido Injustificado",
         "description": "Demandante reclama despido injustificado contra la empresa XYZ. Se busca una compensación justa por la terminación del empleo.",
-        "type": "caso judicial",
+        "type": "oferta",
         "postDate": "2024-01-19",
         "expiryDate": "2024-01-28",
-        "postedBy": "Prudencio Sáez"
+        "postedBy": "Prudencio Sáez",
+        "applications": 114,
+        "visualizations": 202,
     },
     {
         "id": 4,
         "title": "Caso de Familia: Custodia de Menores",
         "description": "Disputa legal por la custodia de menores entre los padres Laura Gómez y Carlos Rodríguez. La audiencia está programada para el próximo mes.",
-        "type": "caso judicial",
+        "type": "oferta",
         "postDate": "2024-01-20",
         "expiryDate": "2024-01-31",
-        "postedBy": "Prudencio Sáez"
+        "postedBy": "Prudencio Sáez",
+        "applications": 46,
+        "visualizations": 127,
     }
   ]
 
@@ -103,7 +111,7 @@
         </div>
         <div v-if="activeTab === 'case-tab'">
             <h1 class="title is-3">Nuestros casos</h1>
-            <CaseCard v-for="caso in accCases" :key="caso.id" :caso="caso" /> 
+            <AccountCaseCard v-for="caso in accCases" :key="caso.id" :caso="caso" /> 
         </div>
         <div v-if="activeTab === 'file-tab'">
             <FileUpload />

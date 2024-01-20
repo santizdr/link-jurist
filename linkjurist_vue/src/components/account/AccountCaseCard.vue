@@ -3,7 +3,6 @@
     const store = useAuthStore();
 
     const { props } = defineProps(['caso']);
-
 </script>
 
 <template>
@@ -17,21 +16,17 @@
         </div>
         <div class="content">
            <p>{{ caso.description }}</p>
-          <p><span class="secondary-text-color">Fecha de publicación: </span><time :datetime="caso.postDate">{{ caso.postDate }}</time></p>
-          <p><span class="secondary-text-color">Fecha de expiración: </span><time :datetime="caso.expiryDate">{{ caso.expiryDate }}</time></p>
-          <div class="columns is-vcentered">
+           <div class="columns is-vcentered">
             <div class="column">
-              <a id="signup_btn" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
-                <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Aplicar
-              </a>
+              <p><span class="secondary-text-color">Fecha de publicación: </span><time :datetime="caso.postDate">{{ caso.postDate }}</time></p>
+              <p><span class="secondary-text-color">Fecha de expiración: </span><time :datetime="caso.expiryDate">{{ caso.expiryDate }}</time></p>
             </div>
-            <div class="is-narrow">
-              <div class="has-text-right case-file-stats mr-4">
+
+              <div class="column is-narrow has-text-right case-file-stats mr-4">
                 <span class="secondary-text-color mx-3">{{ caso.visualizations }} <font-awesome-icon :icon="['fas', 'eye']" /></span>
                 <span class="secondary-text-color mx-3">{{ caso.applications }} <font-awesome-icon :icon="['fas', 'arrow-right']" /></span>
               </div>
             </div>
-           </div>
         </div>
       </div>
     </div>   
