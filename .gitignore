@@ -1,3 +1,7 @@
+# Virtual env
+ljenv/
+/ljenv/
+
 # Python, Django, Postgres
 __pycache__/
 *.pyc
