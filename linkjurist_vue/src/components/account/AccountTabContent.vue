@@ -4,11 +4,11 @@
     import AccountFileCard from '../account/AccountFileCard.vue'
     import AccountCaseCard from '../account/AccountCaseCard.vue'
 
-    import { useAuthStore } from '@/stores/auth';
+    import { useUserStore } from '@/stores/user';
 
     const { props } = defineProps(['account', 'activeTab', 'cases']);
 
-    const store = useAuthStore();
+    const store = useUserStore();
 
     const accCases = [
     {

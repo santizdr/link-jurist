@@ -1,8 +1,8 @@
 <script setup>
-  import { useAuthStore } from '@/stores/auth';
+  import { useUserStore } from '@/stores/user';
   import FileCard from '../files/FileCard.vue'
 
-  const store = useAuthStore();
+  const store = useUserStore();
 
   const files =  [
     {

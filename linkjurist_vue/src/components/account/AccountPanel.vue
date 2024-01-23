@@ -2,8 +2,8 @@
     import AccountHeader from '../account/AccountHeader.vue'
     import AccountTabs from '../account/AccountTabs.vue'
 
-    import { useAuthStore } from '@/stores/auth';
-    const store = useAuthStore();
+    import { useUserStore } from '@/stores/user';
+    const store = useUserStore();
 
     const account = {
       "id": 1,
@@ -25,7 +25,7 @@
 
 <template>
     <section class="section mt-4">
-    <div v-if="store.authenticated" class="columns is-centered">
+      <div v-if="store.user.isAuthenticated" class="columns is-centered">
       <div class="column is-three-quarters-desktop">
           <div class="box">
             <AccountHeader :account="account" />

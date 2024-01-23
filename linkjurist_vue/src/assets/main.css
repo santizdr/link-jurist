@@ -97,3 +97,18 @@
     overflow: auto;
     max-height: 720px;
 }
+
+.input-error {
+    border-color: #F14668;
+}
+
+.span-success {
+    background-color: #67A88A !important;
+    border-radius: 25px;
+}
+
+.span-error {
+    background-color: #F14668 !important;
+    border-radius: 25px;
+}
+

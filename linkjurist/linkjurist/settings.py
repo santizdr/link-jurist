@@ -28,20 +28,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'account.Account'
+AUTH_USER_MODEL = 'account.User'
 
 # Simple JWT configuration
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1 ),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'ROTATE_REFRESH_TOKEN': False,
 }
 
 # Django Rest Framwwork configuration
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -52,11 +52,13 @@ REST_FRAMEWORK = {
 # CORS configuration
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:5173'
+    'http://127.0.0.1:5173',
+    'http://localhost:5173',
 ]
 
 CORS_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:5173'
+    'http://127.0.0.1:5173',
+    'http://localhost:5173',
 ]
 
 # Application definition
@@ -112,9 +114,9 @@ WSGI_APPLICATION = 'linkjurist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lc_db',
-        'USER': 'lc_admin',
-        'PASSWORD': 'lc_secret11',
+        'NAME': 'lj_db',
+        'USER': 'lj_admin',
+        'PASSWORD': 'lj_secret11',
         'HOST': 'localhost',
         'PORT': '5432',
         }

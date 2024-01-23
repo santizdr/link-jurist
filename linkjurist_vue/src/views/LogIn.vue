@@ -1,6 +1,65 @@
 <script setup>
-    import { useAuthStore } from '@/stores/auth';
-    const store = useAuthStore();
+    import axios from 'axios';
+    import { ref } from 'vue'
+    import { useUserStore } from '@/stores/user';
+    import { useRouter } from 'vue-router'
+
+    const router = useRouter()
+
+    const store = useUserStore();
+
+    const alert = ref({
+        message: "",
+        class: "",
+    });
+
+    const error = ref({
+        field: "",
+        message: "",
+    });
+
+    const form = ref({
+        email: "",
+        password: "",
+    });
+
+    async function submitForm() {
+        error.value = {
+            field: "",
+            message: "",
+        };
+
+        if (form.value.email === "") {
+            error.value.field = "email";
+            error.value.message = "Introduce un email válido";
+        } else if (form.value.password === "") {
+            error.value.field = "password";
+            error.value.message = "Introduce una contraseña válida";
+        }
+
+        if (error.value.field === '' && error.value.message === '') {
+            await axios.post("/api/login/", form._rawValue)
+                .then(response => {
+                    this.store.setToken(response.data);
+
+                    axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+
+            await axios.get("/api/me")
+                .then(response => {
+                    this.store.setUserInfo(response.data);
+                    router.push("/");
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+        }
+
+    }
+
 </script>
 
 <template>
@@ -8,33 +67,30 @@
         <section class="section mt-6">
             <div class="columns is-centered">
                 <div class="column is-three-fifths-desktop">
-                    <form class="box">
+                    <form class="box" @submit.prevent="submitForm()">
                         <h1 class="title">Inicio de sesión</h1>
                         <h2 class="subtitle mt-3">Inicia sesión en tu cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span></h2>
                         <div class="field">
                             <label class="label">Correo electrónico</label>
                             <div class="control">
-                                <input class="input" type="email">
+                                <input class="input" :class="{ 'input-error' : error.field === 'email' }" type="email" v-model="form.email">
                             </div>
+                            <span v-if="error.field === 'email'" class="has-text-danger"> {{ error.message }}</span>
                         </div>
 
                         <div class="field">
                             <label class="label">Contraseña</label>
                             <div class="control">
-                                <input class="input" type="email">
+                                <input class="input" :class="{ 'input-error' : error.field === 'password' }" type="password" v-model="form.password">
                             </div>
+                            <span v-if="error.field === 'password'" class="has-text-danger"> {{ error.message }}</span>
                         </div> 
                         <div class="field is-grouped is-grouped-right mt-1">
-                            <!-- <div class="control">
+                            <div class="control">
                                 <button class="button is-rounded secondary-form-button">Confirmar</button>
-                            </div> -->
-
-                            <div class="control">
-                                <a v-on:click="store.changeAuthenticatedVal()" class="button is-rounded secondary-form-button">Confirmar</a>
                             </div>
-
                             <div class="control">
-                                <button class="button is-rounded main-form-button">Cancelar</button>
+                                <RouterLink to="/" class="button is-rounded main-form-button">Cancelar</RouterLink>
                             </div>
                         </div>
                         <p class="mt-3">No tienes cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span>? Crea tu cuenta haciendo click <RouterLink to="signup">aquí</RouterLink></p>
@@ -43,22 +99,5 @@
             </div>
         </section>
     </div>
-
-
 </template>
-<script>
-
-import axios from 'axios';
-
-export default {
-    name: 'LogIn',
-    data() {
-        return {
-            username: '',
-            password: '',
-            password: '',
-            errors: [],
-        }
-    },
-}
-</script>
+>

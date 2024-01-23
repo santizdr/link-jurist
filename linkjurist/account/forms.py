@@ -1,9 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Account
-
+from .models import User
 
 class SignupForm(UserCreationForm):
     class Meta:
-        model = Account
-        fields = ('email', 'name', 'password1', 'password2')
+        model = User
+        fields = ('email', 'firstname', 'lastname', 'password1', 'password2')

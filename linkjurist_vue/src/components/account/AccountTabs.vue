@@ -1,9 +1,9 @@
 <script setup>
     import { ref } from 'vue'
-    import { useAuthStore } from '@/stores/auth';
+    import { useUserStore } from '@/stores/user';
     import AccountTabContent from '../account/AccountTabContent.vue'
 
-    const store = useAuthStore();
+    const store = useUserStore();
 
     const { props } = defineProps(['account']);
 

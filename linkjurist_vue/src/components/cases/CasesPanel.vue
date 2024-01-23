@@ -3,14 +3,14 @@
     import CasesList from '../cases/CasesList.vue'
     import CasesRanking from '../cases/CasesRanking.vue'
 
-    import { useAuthStore } from '@/stores/auth';
-    const store = useAuthStore();
+    import { useUserStore } from '@/stores/user';
+    const store = useUserStore();
 </script>
 
 
 <template>
   <section class="section mt-6">
-    <div v-if="store.authenticated" class="columns is-centered">
+    <div v-if="store.user.isAuthenticated" class="columns is-centered">
         <div class="column is-three-quarters-desktop">
           <div class="columns">
             <div class="column">
