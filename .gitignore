@@ -2,6 +2,10 @@
 ljenv/
 /ljenv/
 
+# Migrations
+migrations/
+/migrations/
+
 # Python, Django, Postgres
 __pycache__/
 *.pyc
