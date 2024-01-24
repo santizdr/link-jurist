@@ -5,21 +5,6 @@
     import { useUserStore } from '@/stores/user';
     const store = useUserStore();
 
-    const account = {
-      "id": 1,
-      "name": "Prudencio Sáez y Asociados",
-      "accImg": "https://bulma.io/images/placeholders/256x256.png",
-      "slogan": "Soluciones innovadoras para desafíos legales",
-      "description": "Prudencio Sáez y Asociados es un despacho integrado por profesionales con máxima experiencia como Fiscales, Abogados del Estado, Magistrados, Docentes Universitarios o Representantes Sindicales de alto nivel, que te aportan la tranquilidad y seguridad de disponer del mejor equipo, competitivo y muy preparado para conseguir tus objetivos y cubrir tus necesidades. Prudencio Sáez y Asociados dispone de asistencia jurídica on line, a través de videollamadas y videoconferencia (Skype, Zoom, Whatsapp,..) y teléfono, así como otros métodos de comunicación. Para más información visitanos en persona. ", 
-      "address": "C/ Gastor nº 7",
-      "cp": "41007",
-      "locality": "Sevilla",
-      "country": "España",
-      "web": "www.example.com",
-      "email": "mail@psya.com",
-      "phone": "954575450",
-      "nif": "29548963V",
-    }
 </script>
 
 
@@ -28,8 +13,8 @@
       <div v-if="store.user.isAuthenticated" class="columns is-centered">
       <div class="column is-three-quarters-desktop">
           <div class="box">
-            <AccountHeader :account="account" />
-            <AccountTabs :account="account" />
+            <AccountHeader :account="store.account" />
+            <AccountTabs :account="store.account" />
         </div>
       </div>
   </div>

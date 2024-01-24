@@ -5,6 +5,7 @@ import LogIn from '../views/LogIn.vue'
 import CasesView from '../views/CasesView.vue'
 import FilesView from '../views/FilesView.vue'
 import AccountView from '../views/AccountView.vue'
+import AccountProfile from '../views/AccountProfile.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ const router = createRouter({
       path: '/',
       name: 'HomeView',
       component: HomeView,
+    },
+    {
+      path: '/accountprofile',
+      name: 'AccountProfile',
+      component: AccountProfile,
     },
     {
       path: '/signup',

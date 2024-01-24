@@ -112,3 +112,9 @@
     border-radius: 25px;
 }
 
+.span-price-percentage {
+    color: var(--secondary-color);
+    font-size: 26px;
+}
+
+

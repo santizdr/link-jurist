@@ -12,7 +12,21 @@ export const useUserStore = defineStore("user", {
             email: null,
             access: null,
             refresh: null,
-        }
+        },
+        account: {
+            id: null,
+            name: null,
+            description: null,
+            slogan: null,
+            web: null,
+            email: null,
+            phonenumber: null,
+            address: null,
+            cp: null,
+            locality: null,
+            country: null,
+        },
+        team: [],
     }),
 
     actions: {
@@ -29,7 +43,6 @@ export const useUserStore = defineStore("user", {
                 this.refreshToken();
 
                 console.log("Initialised user: ", this.user)
-
             }
         },
         setToken(data) {
@@ -60,18 +73,49 @@ export const useUserStore = defineStore("user", {
             localStorage.setItem("user.lastname", "");
             localStorage.setItem("user.email", "");
         },
-        setUserInfo(user) {
-            console.log("Set user info: ", user);
+        setStoreInfo(data) {
+            console.log("Set user info: ", data.user);
 
-            this.user.id = user.id;
-            this.user.firstname = user.firstname;
-            this.user.lastname = user.lastname;
-            this.user.email = user.email;
+            this.user.id = data.user.id;
+            this.user.firstname = data.user.firstname;
+            this.user.lastname = data.user.lastname;
+            this.user.email = data.user.email;
+
+            if(data.account !== '') {
+                this.setAccountInfo(data.account);
+            }
 
             localStorage.setItem("user.id", this.user.id);
             localStorage.setItem("user.firstname", this.user.firstname);
             localStorage.setItem("user.lastname", this.user.lastname);
             localStorage.setItem("user.email", this.user.email);
+        },
+        setAccountInfo(account) {
+            console.log("Set account info: ", account);
+
+            this.account.id = account.id;
+            this.account.name = account.name;
+            this.account.description = account.description;
+            this.account.slogan = account.slogan;
+            this.account.web = account.web;
+            this.account.email = account.email;
+            this.account.phonenumber = account.phonenumber;
+            this.account.address = account.address;
+            this.account.cp = account.cp;
+            this.account.locality = account.locality;
+            this.account.country = account.country;
+
+            localStorage.setItem("account.id", this.account.id);
+            localStorage.setItem("account.name", this.account.name);
+            localStorage.setItem("account.description", this.account.description);
+            localStorage.setItem("account.slogan", this.account.slogan);
+            localStorage.setItem("account.web", this.account.web);
+            localStorage.setItem("account.email", this.account.email);
+            localStorage.setItem("account.phonenumber", this.account.phonenumber);
+            localStorage.setItem("account.address", this.account.address);
+            localStorage.setItem("account.cp", this.account.cp);
+            localStorage.setItem("account.locality", this.account.locality);
+            localStorage.setItem("account.country", this.account.country);
         },
         refreshToken() {
             axios.post("/api/account/refresh", {

@@ -50,8 +50,13 @@
 
             await axios.get("/api/me")
                 .then(response => {
-                    this.store.setUserInfo(response.data);
-                    router.push("/");
+                    this.store.setStoreInfo(response.data);
+                    console.log(response.data);
+                    if(response.data.account === '') {
+                        router.push("accountprofile")
+                    } else {
+                        router.push("/");
+                    }
                 })
                 .catch(error => {
                     console.log("Error: ", error);

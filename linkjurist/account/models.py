@@ -9,15 +9,15 @@ from django.utils import timezone
 # Create your models here.
 
 class Account(models.Model):
-    uuid = models.UUIDField(unique=True, editable=False)
     name = models.CharField(unique=True, max_length=128)    
     description = models.TextField()
+    slogan = models.CharField(null=True, blank=True, max_length=128)
+    email = models.EmailField(null=True, blank=True)
     web = models.CharField(max_length=256, blank=True)
     address = models.CharField(max_length=256, blank=True)
     cp = models.CharField(max_length=256, blank=True)
-    city = models.CharField(max_length=256, blank=True)
+    locality = models.CharField(max_length=256, blank=True)
     country = models.CharField(max_length=256, blank=True)
-    email = models.EmailField(max_length=256)
     phonenumber = models.CharField(max_length=256, blank=True)
 
     def __str__(self):
@@ -40,6 +40,7 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
+
 class User(AbstractBaseUser):
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True)
@@ -61,4 +62,4 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
-
+    
