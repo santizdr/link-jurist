@@ -15,6 +15,7 @@ const { props } = defineProps(['file']);
         </div>
         <div class="content">
            <p class="default-font-size"><span class="secondary-text-color">Descripción: </span>{{ file.description }}</p>
+           <p><span class="secondary-text-color">Precio: </span>{{ file.price }}</p> 
            <div class="columns is-vcentered">
             <div class="column">
               <a id="signup_btn" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
@@ -27,7 +28,6 @@ const { props } = defineProps(['file']);
               </div>
             </div>
            </div>
-
         </div>
       </div>
     </div>  

@@ -10,13 +10,14 @@
     <div class="card my-3">
       <div class="card-content">
         <div class="media">
-          <div class="media-content">            
+          <div class="media-content">      
             <p class="title is-4">{{ caso.title }} - {{ caso.postedBy }}</p>
             <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type }}</p>
           </div>
         </div>
         <div class="content">
-           <p>{{ caso.description }}</p>
+          <p>{{ caso.description }}</p>
+          <p><span class="secondary-text-color">Porcentaje: </span>{{ caso.percentage }}</p> 
           <p><span class="secondary-text-color">Fecha de publicación: </span><time :datetime="caso.postDate">{{ caso.postDate }}</time></p>
           <p><span class="secondary-text-color">Fecha de expiración: </span><time :datetime="caso.expiryDate">{{ caso.expiryDate }}</time></p>
           <div class="columns is-vcentered">

@@ -15,6 +15,7 @@
       "postedBy": "Prudencio Sáez",
       "applications": 456,
       "visualizations": 778,
+      "percentage": "35%",
     },
     {
       "id": 2,
@@ -26,6 +27,7 @@
       "postedBy": "S&P Asociados",
       "applications": 324,
       "visualizations": 784,
+      "percentage": "50%",
     },
     {
       "id": 3,
@@ -37,6 +39,8 @@
       "postedBy": "Summa Legal",
       "applications": 256,
       "visualizations": 626,
+      "percentage": "50%",
+
     },
     {
       "id": 4,
@@ -48,6 +52,7 @@
       "postedBy": "Lucio Anneo Séneca",
       "applications": 398,
       "visualizations": 780,
+      "percentage": "40%",
     },
     {
       "id": 5,
@@ -59,6 +64,7 @@
       "postedBy": "Diego Velázquez",
       "applications": 271,
       "visualizations": 878,
+      "percentage": "40%",
     },
     {
       "id": 6,
@@ -70,6 +76,7 @@
       "postedBy": "Caparros Abogados",
       "applications": 26,
       "visualizations": 78,
+      "percentage": "30%",
     },
     {
       "id": 7,
@@ -81,6 +88,7 @@
       "postedBy": "Vanguardia Legal",
       "applications": 76,
       "visualizations": 198,
+      "percentage": "45%",
     },
     {
     "id": 8,
@@ -92,6 +100,7 @@
     "postedBy": "Prudencio Sáez",
     "applications": 26,
     "visualizations": 154,
+    "percentage": "50%",
     },
   ]
 </script>
