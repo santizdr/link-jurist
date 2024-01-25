@@ -85,6 +85,10 @@ export const useUserStore = defineStore("user", {
                 this.setAccountInfo(data.account);
             }
 
+            if (data.team.length > 0 ) {
+                this.setTeamInfo(data.team);
+            }
+
             localStorage.setItem("user.id", this.user.id);
             localStorage.setItem("user.firstname", this.user.firstname);
             localStorage.setItem("user.lastname", this.user.lastname);
@@ -116,6 +120,12 @@ export const useUserStore = defineStore("user", {
             localStorage.setItem("account.cp", this.account.cp);
             localStorage.setItem("account.locality", this.account.locality);
             localStorage.setItem("account.country", this.account.country);
+        },
+        setTeamInfo(team) {
+            console.log("Set team info: ", team);
+
+            this.team = team;
+            localStorage.setItem("team", team)
         },
         refreshToken() {
             axios.post("/api/account/refresh", {

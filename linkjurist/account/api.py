@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from . forms import SignupForm, AccountForm
+from . forms import SignupForm, AccountForm, AddUserForm
 from .models import User, Account
+from .serializers import UserSerializer
 
 
 @api_view(['GET'])
@@ -16,9 +17,19 @@ def me(request):
                 'lastname': request.user.lastname,
             },
             'account': '',
+            'team': [],
         })
     else:
         account = Account.objects.get(id=user.account.id)
+        team_data = User.objects.filter(account_id=account.id)
+        team = []
+        for member in team_data:
+            team.append({
+                'id': member.id,
+                'email': member.email,
+                'firstname': member.firstname,
+                'lastname': member.lastname,
+            })
         return JsonResponse({
             'user': {
                 'id': request.user.id,
@@ -27,6 +38,7 @@ def me(request):
                 'lastname': request.user.lastname,
             },
             'account': {
+                'id': account.id,
                 'name': account.name,
                 'description': account.description,
                 'slogan': account.slogan,
@@ -38,6 +50,7 @@ def me(request):
                 'locality': account.locality,
                 'country': account.country,
             },
+            'team': team,
         })
 
 
@@ -66,11 +79,48 @@ def signup(request):
 
 
 @api_view(['POST'])
+def adduser(request):
+    team = []
+    data = request.data.get('_rawValue')
+
+    message = 'success'
+    form = AddUserForm({
+        'account': data.get('account'),
+        'email': data.get('email'),
+        'firstname': data.get('firstname'),
+        'lastname': data.get('lastname'),
+        'password1': data.get('password1'),
+        'password2': data.get('password2'),
+    })
+
+    if form.is_valid():
+        form.save()
+
+        team_data = User.objects.filter(account_id=data.get('account'))
+        for member in team_data:
+            team.append({
+                'id': member.id,
+                'email': member.email,
+                'firstname': member.firstname,
+                'lastname': member.lastname,
+            })
+
+        # SEND VERIFICATION EMAIL LATER
+    else: 
+        message = 'error'
+
+    return JsonResponse({
+            'message': message,
+            'team': team,
+        })
+
+
+@api_view(['POST'])
 def account(request):
+    team = []
     data = request.data.get('_rawValue')
     user = User.objects.get(id=data.get('user'))
     data.pop('user', None)
-    print(data)
     message = 'success'
     form = AccountForm({
         'name': data.get('name'),
@@ -89,6 +139,16 @@ def account(request):
         account = form.save()
         user.account = account
         user.save()
+
+        team_data = User.objects.filter(account_id=account)
+        for member in team_data:
+            team.append({
+                'id': member.id,
+                'email': member.email,
+                'firstname': member.firstname,
+                'lastname': member.lastname,
+            })
+
         # SEND VERIFICATION EMAIL LATER
     else: 
         message = 'error'
@@ -97,6 +157,7 @@ def account(request):
         'message': message, 
         'account': 
             {
+                'id': account.id,
                 'name': account.name,
                 'description': account.description,
                 'slogan': account.slogan,
@@ -106,5 +167,6 @@ def account(request):
                 'cp': account.cp,
                 'locality': account.locality,
                 'country': account.country,
-                }
+                },
+        'team': team,
     })

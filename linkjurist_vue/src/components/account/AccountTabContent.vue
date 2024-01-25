@@ -1,14 +1,18 @@
 <script setup>
+    import { useUserStore } from '@/stores/user';
+    import { ref } from 'vue'
+
     import AccountTeamCard from '../account/AccountTeamCard.vue'
     import FileUpload from '../account/FileUpload.vue'
     import AccountFileCard from '../account/AccountFileCard.vue'
     import AccountCaseCard from '../account/AccountCaseCard.vue'
-
-    import { useUserStore } from '@/stores/user';
+    import AccountTeamModal from '../account/AccountTeamModal.vue'
 
     const { props } = defineProps(['account', 'activeTab', 'cases']);
 
     const store = useUserStore();
+
+    const showUserModal = ref(false);
 
     const accCases = [
     {
@@ -106,7 +110,21 @@
             </div>
         </div>
         <div v-if="activeTab === 'team-tab'">
-            <h1 class="title is-3">Nuestro equipo</h1>
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title is-3">Nuestro equipo</h1>
+                </div>
+                <div class="column is-narrow is-right">
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="control">
+                            <a @click="showUserModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                                <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Añadir integrante</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <AccountTeamCard v-for="user in store.team" :user="user" />
         </div>
         <div v-if="activeTab === 'case-tab'">
@@ -124,4 +142,6 @@
             </div>
         </div>
     </div>
+
+    <AccountTeamModal :showUserModal="showUserModal" @close-modal="showUserModal = false" />
 </template>

@@ -65,8 +65,9 @@
         if (error.value.field === '' && error.value.message === '') {
             await axios.post("/api/account/", form)
                 .then(response => {
-                    console.log(response.data.account)
                     this.store.setAccountInfo(response.data.account);
+                    this.store.setTeamInfo(response.data.team);
+
                     router.push("/account");
                 })
                 .catch(error => {

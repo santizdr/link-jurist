@@ -51,7 +51,6 @@
             await axios.get("/api/me")
                 .then(response => {
                     this.store.setStoreInfo(response.data);
-                    console.log(response.data);
                     if(response.data.account === '') {
                         router.push("accountprofile")
                     } else {
@@ -62,7 +61,6 @@
                     console.log("Error: ", error);
                 })
         }
-
     }
 
 </script>
