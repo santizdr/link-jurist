@@ -1,6 +1,8 @@
 <script setup>
   import { useUserStore } from '@/stores/user';
   import PublicationsList from './PublicationsList.vue';
+  import StatsPanel from './StatsPanel.vue';
+
   const store = useUserStore();
 </script>
 
@@ -9,9 +11,13 @@
   <section class="section mt-6">
     <div class="columns is-centered">
       <!-- CARTEL DE BIENVENIDA -->
+      <div v-if="store.user.isAuthenticated" class="column is-one-fifth-desktop">
+        <StatsPanel />
+      </div>
       <div v-if="store.user.isAuthenticated" class="column is-two-fifths-desktop">
         <PublicationsList />
       </div>
+      <div v-if="store.user.isAuthenticated" class="column is-one-fifth-desktop"></div>
 
       <div v-else class="column is-three-fifths-desktop">
         <div class="box">

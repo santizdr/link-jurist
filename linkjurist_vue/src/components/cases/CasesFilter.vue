@@ -20,7 +20,7 @@
             <h1 class="title is-4">Filtros</h1>
             <div class="columns">
                 <div class="column is-one-third">
-                    <label class="label">Filtrar por provincia</label>
+                    <label class="label">Filtrar por tipo de anuncio</label>
                     <div class="control is-expanded">
                         <div class="select is-fullwidth">
                             <select>
