@@ -3,7 +3,7 @@
     import { ref } from 'vue'
     import { useUserStore } from '@/stores/user';
 
-    const emit = defineEmits(['closeModal'])
+    const emit = defineEmits(['closeUserModal'])
     const { props } = defineProps(['showUserModal']);
 
     const store = useUserStore();
@@ -36,7 +36,7 @@
         form.value.password1 = "";
         form.value.password2 = "";
 
-        emit('closeModal');
+        emit('closeUserModal');
     }
 
     function submitForm() {
@@ -79,7 +79,7 @@
                         form.value.password2= "";
 
                         this.store.setTeamInfo(response.data.team);
-                        emit('closeModal');
+                        emit('closeUserModal');
                     } else {
                         alert.value.status = "error";
                         alert.value.message = "Se ha producido un error al añadir el usuario";

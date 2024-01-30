@@ -18,4 +18,4 @@ class AddUserForm(UserCreationForm):
 class AccountForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ('name', 'description', 'slogan', 'email', 'web', 'address', 'cp', 'locality', 'country')
+        fields = ('name', 'description', 'slogan', 'email', 'web', 'phonenumber', 'address', 'cp', 'locality', 'country')

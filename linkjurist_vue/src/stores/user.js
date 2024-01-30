@@ -27,6 +27,7 @@ export const useUserStore = defineStore("user", {
             country: null,
         },
         team: [],
+        files: [],
     }),
 
     actions: {
@@ -89,6 +90,10 @@ export const useUserStore = defineStore("user", {
                 this.setTeamInfo(data.team);
             }
 
+            if (data.files.length > 0 ) {
+                this.setFilesInfo(data.files);
+            }
+
             localStorage.setItem("user.id", this.user.id);
             localStorage.setItem("user.firstname", this.user.firstname);
             localStorage.setItem("user.lastname", this.user.lastname);
@@ -126,6 +131,12 @@ export const useUserStore = defineStore("user", {
 
             this.team = team;
             localStorage.setItem("team", team)
+        },
+        setFilesInfo(files) {
+            console.log("Set files info: ", files);
+
+            this.files = files;
+            localStorage.setItem("files", files)
         },
         refreshToken() {
             axios.post("/api/account/refresh", {

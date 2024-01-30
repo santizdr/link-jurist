@@ -67,6 +67,7 @@
                 .then(response => {
                     this.store.setAccountInfo(response.data.account);
                     this.store.setTeamInfo(response.data.team);
+                    this.store.setFilesInfo(response.data.files);
 
                     router.push("/account");
                 })

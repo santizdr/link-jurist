@@ -41,7 +41,7 @@
 <template>
     <div class="box scrollable-div">
 
-    <h1 class="title">Lista de publicaciones</h1>
+    <h1 class="title">Publicaciones</h1>
     <h2 class="subtitle">Listado de publicaciones de contactos y cuentas relacionadas. </h2>
     <hr>
     <PublicationCard v-for="publication in publications" :key="publication.id" :publication="publication" />

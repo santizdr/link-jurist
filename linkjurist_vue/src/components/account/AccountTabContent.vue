@@ -3,8 +3,8 @@
     import { ref } from 'vue'
 
     import AccountTeamCard from '../account/AccountTeamCard.vue'
-    import FileUpload from '../account/FileUpload.vue'
-    import AccountFileCard from '../account/AccountFileCard.vue'
+    import FileUploadModal from '../account/files/FileUploadModal.vue'
+    import AccountFileCard from '../account/files/AccountFileCard.vue'
     import AccountCaseCard from '../account/AccountCaseCard.vue'
     import AccountTeamModal from '../account/AccountTeamModal.vue'
 
@@ -13,6 +13,7 @@
     const store = useUserStore();
 
     const showUserModal = ref(false);
+    const showCreateFileModal = ref(false);
 
     const accCases = [
     {
@@ -59,27 +60,6 @@
         "applications": 46,
         "visualizations": 127,
     }
-  ]
-
-  const accFiles = [
-    {
-        "id": "1",
-        "name": "Modelo demanda de divorcio",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae soluta dolor maxime adipisci at quos quis quas corrupti voluptatum? Maxime nesciunt quos natus est eligendi quia repellat distinctio odit accusamus!",
-        "downloads": 521,
-    },
-    {
-        "id": "2",
-        "name": "Modelo caso despido injustificado",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae soluta dolor maxime adipisci at quos quis quas corrupti voluptatum? Maxime nesciunt quos natus est eligendi quia repellat distinctio odit accusamus!",
-        "downloads": 208,
-    },
-    {
-        "id": "3",
-        "name": "Modelo demanda laboral",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae soluta dolor maxime adipisci at quos quis quas corrupti voluptatum? Maxime nesciunt quos natus est eligendi quia repellat distinctio odit accusamus!",
-        "downloads": 140,
-    },
   ]
 
 </script>
@@ -132,16 +112,24 @@
             <AccountCaseCard v-for="caso in accCases" :key="caso.id" :caso="caso" /> 
         </div>
         <div v-if="activeTab === 'file-tab'">
-            <FileUpload />
+            <div class="mx-3">
+                <h1 class="title is-3">Sube un escrito</h1>
+                <a @click="showCreateFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                    <span><font-awesome-icon :icon="['fas', 'upload']" class="top-ranking-icon mr-2" />Subir archivo</span>
+                </a>
+            </div>
             <hr>
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros escritos</h1>
-                <div class="scrollable-div">
-                    <AccountFileCard v-for="file in accFiles" :key="file.id" :file="file" />
+                <div v-if="store.files.length > 0" class="scrollable-div">
+                    <AccountFileCard v-for="file in store.files" :key="file.id" :file="file" />
+                </div>
+                <div v-else>
+                    <p class="is-size-5 my-1">Aún no hay escritos</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <AccountTeamModal :showUserModal="showUserModal" @close-modal="showUserModal = false" />
+    <FileUploadModal :showCreateFileModal="showCreateFileModal" @close-file-modal="showCreateFileModal = false" />
+    <AccountTeamModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
 </template>

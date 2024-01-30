@@ -12,7 +12,7 @@ class Account(models.Model):
     name = models.CharField(unique=True, max_length=128)    
     description = models.TextField()
     slogan = models.CharField(null=True, blank=True, max_length=128)
-    email = models.EmailField(null=True, blank=True)
+    email = models.EmailField(blank=True)
     web = models.CharField(max_length=256, blank=True)
     address = models.CharField(max_length=256, blank=True)
     cp = models.CharField(max_length=256, blank=True)

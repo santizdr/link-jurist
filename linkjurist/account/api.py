@@ -1,7 +1,9 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from . forms import SignupForm, AccountForm, AddUserForm
+from files.forms import FileForm
 from .models import User, Account
+from files.models import File
 from .serializers import UserSerializer
 
 
@@ -18,11 +20,16 @@ def me(request):
             },
             'account': '',
             'team': [],
+            'files': [],
         })
     else:
         account = Account.objects.get(id=user.account.id)
         team_data = User.objects.filter(account_id=account.id)
+        files_data = File.objects.filter(account_id=account.id)
+
         team = []
+        files = []
+        
         for member in team_data:
             team.append({
                 'id': member.id,
@@ -30,6 +37,19 @@ def me(request):
                 'firstname': member.firstname,
                 'lastname': member.lastname,
             })
+
+        for file in files_data:
+            files.append({
+                'id': file.id,
+                'title': file.title,
+                'file': file.file.url,
+                'description': file.description,
+                'price': file.price,
+                'downloads': file.downloads,
+                'account': file.account.id,
+                'uploaded_by': file.uploaded_by.id,
+            })
+            
         return JsonResponse({
             'user': {
                 'id': request.user.id,
@@ -51,6 +71,7 @@ def me(request):
                 'country': account.country,
             },
             'team': team,
+            'files': files,
         })
 
 
@@ -118,6 +139,8 @@ def adduser(request):
 @api_view(['POST'])
 def account(request):
     team = []
+    files = []
+
     data = request.data.get('_rawValue')
     user = User.objects.get(id=data.get('user'))
     data.pop('user', None)
@@ -169,4 +192,6 @@ def account(request):
                 'country': account.country,
                 },
         'team': team,
+        'files': files,
     })
+
