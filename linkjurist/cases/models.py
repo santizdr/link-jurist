@@ -5,9 +5,8 @@ from account.models import Account
 # Create your models here.
 
 class Case(models.Model):
-    CASE_TYPES = ["OFFER", "DEMAND"]
-
-    uuid = models.UUIDField(unique=True, editable=False)
+    CASE_TYPES = (("OFFER", "Oferta"), ("DEMAND", "Demanda"))
+    
     title = models.CharField(null=False, max_length=256)    
     description = models.TextField(null=False)
     type = models.CharField(null=False, choices=CASE_TYPES)
@@ -15,7 +14,7 @@ class Case(models.Model):
     expiry_date = models.DateField(null=False, auto_now=False, auto_now_add=False)
     applitcations = models.PositiveIntegerField(null=False, default=0)
     visualizations = models.PositiveIntegerField(null=False, default=0)
-    percentage = models.DecimalField(null=False, max_digits=5, decimal_places=2)
+    percent = models.DecimalField(null=False, max_digits=5, decimal_places=2)
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
 

@@ -4,7 +4,7 @@ import { useUserStore } from '@/stores/user';
 import axios from 'axios';
 
 const emit = defineEmits(['closeFileModal'])
-const { props } = defineProps(['showCreateFileModal']);
+const { props } = defineProps(['showFileModal']);
 
 const store = useUserStore();
 
@@ -42,19 +42,19 @@ const form = ref({
     price: "",
 });
 
-function submitFileForm() {
+function submitForm() {
     error.value = {
         field: "",
         message: "",
     }
 
-    if(form.value.file === "" || form.value.file === null) {
+    if (form.value.file === "" || form.value.file === null) {
         error.value.field = "file";
         error.value.message = "Selecciona un archivo";
     } else if (form.value.title === "") {
         error.value.field = "title";
         error.value.message = "El campo título no puede estar vacío";
-    }else if (form.value.price === "") {
+    } else if (form.value.price === "") {
         error.value.field = "price";
         error.value.message = "El campo precio no puede estar vacío";
     }
@@ -96,10 +96,10 @@ function submitFileForm() {
 </script>
 
 <template>
-    <div class="modal" :class="{'is-active' : showCreateFileModal }">
+    <div class="modal" :class="{'is-active' : showFileModal }">
       <div class="modal-background"></div>
         <div class="modal-card">
-            <form class="mx-3" enctype="multipart/form-data" @submit.prevent="submitFileForm()">
+            <form class="mx-3" enctype="multipart/form-data" @submit.prevent="submitForm()">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Subir escrito</p>
                     <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
@@ -155,7 +155,7 @@ function submitFileForm() {
                 </section>
                 <footer class="modal-card-foot">
                     <div class="control">
-                        <button @click.prevent="submitFileForm()" class="button is-rounded secondary-form-button">Confirmar</button>
+                        <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button">Confirmar</button>
                     </div> 
                 </footer>
             </form>

@@ -28,6 +28,7 @@ export const useUserStore = defineStore("user", {
         },
         team: [],
         files: [],
+        cases: [],
     }),
 
     actions: {
@@ -90,6 +91,10 @@ export const useUserStore = defineStore("user", {
                 this.setTeamInfo(data.team);
             }
 
+            if (data.cases.length > 0 ) {
+                this.setCasesInfo(data.cases);
+            }
+
             if (data.files.length > 0 ) {
                 this.setFilesInfo(data.files);
             }
@@ -131,6 +136,12 @@ export const useUserStore = defineStore("user", {
 
             this.team = team;
             localStorage.setItem("team", team)
+        },
+        setCasesInfo(cases) {
+            console.log("Set cases info: ", cases);
+
+            this.cases = cases;
+            localStorage.setItem("cases", cases)
         },
         setFilesInfo(files) {
             console.log("Set files info: ", files);

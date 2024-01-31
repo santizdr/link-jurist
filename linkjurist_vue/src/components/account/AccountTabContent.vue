@@ -2,65 +2,20 @@
     import { useUserStore } from '@/stores/user';
     import { ref } from 'vue'
 
-    import AccountTeamCard from '../account/AccountTeamCard.vue'
+    import AccountTeamCard from '../account/team/AccountTeamCard.vue'
     import FileUploadModal from '../account/files/FileUploadModal.vue'
     import AccountFileCard from '../account/files/AccountFileCard.vue'
-    import AccountCaseCard from '../account/AccountCaseCard.vue'
-    import AccountTeamModal from '../account/AccountTeamModal.vue'
+    import AccountCaseCard from '../account/cases/AccountCaseCard.vue'
+    import AccountTeamModal from '../account/team/AccountTeamModal.vue'
+    import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
 
     const { props } = defineProps(['account', 'activeTab', 'cases']);
 
     const store = useUserStore();
 
     const showUserModal = ref(false);
-    const showCreateFileModal = ref(false);
-
-    const accCases = [
-    {
-      "id": 1,
-      "title": "Oferta de Servicios en Derecho de la Propiedad Intelectual",
-      "description": "Despacho especializado en derecho de la propiedad intelectual ofrece servicios para la protección de patentes, marcas registradas y derechos de autor.",
-      "type": "oferta",
-      "postDate": "2024-01-16",
-      "expiryDate": "2024-01-19",
-      "postedBy": "Prudencio Sáez",
-      "applications": 456,
-      "visualizations": 778,
-    },
-    {
-        "id": 2,
-        "title": "Caso Civil: Divorcio por Mutuo Acuerdo",
-        "description": "Proceso de divorcio amistoso entre Juan Pérez y María González. Acuerdo de custodia de hijos y división de bienes.",
-        "type": "oferta",
-        "postDate": "2024-01-17",
-        "expiryDate": "2024-01-23",
-        "postedBy": "Prudencio Sáez",
-        "applications": 201,
-        "visualizations": 478,
-    },
-    {
-        "id": 3,
-        "title": "Caso Laboral: Despido Injustificado",
-        "description": "Demandante reclama despido injustificado contra la empresa XYZ. Se busca una compensación justa por la terminación del empleo.",
-        "type": "oferta",
-        "postDate": "2024-01-19",
-        "expiryDate": "2024-01-28",
-        "postedBy": "Prudencio Sáez",
-        "applications": 114,
-        "visualizations": 202,
-    },
-    {
-        "id": 4,
-        "title": "Caso de Familia: Custodia de Menores",
-        "description": "Disputa legal por la custodia de menores entre los padres Laura Gómez y Carlos Rodríguez. La audiencia está programada para el próximo mes.",
-        "type": "oferta",
-        "postDate": "2024-01-20",
-        "expiryDate": "2024-01-31",
-        "postedBy": "Prudencio Sáez",
-        "applications": 46,
-        "visualizations": 127,
-    }
-  ]
+    const showFileModal = ref(false);
+    const showCaseModal = ref(false);
 
 </script>
 
@@ -108,13 +63,30 @@
             <AccountTeamCard v-for="user in store.team" :user="user" />
         </div>
         <div v-if="activeTab === 'case-tab'">
-            <h1 class="title is-3">Nuestros casos</h1>
-            <AccountCaseCard v-for="caso in accCases" :key="caso.id" :caso="caso" /> 
+
+
+            <div class="mx-3">
+                <h1 class="title is-3">Crea un caso</h1>
+                <a @click="showCaseModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                    <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Crear</span>
+                </a>
+            </div>
+            <hr>
+            <div class="mx-3">
+                <h1 class="title is-3">Nuestros casos</h1>
+                <div v-if="store.cases.length > 0" class="scrollable-div">
+                    <AccountCaseCard v-for="caso in store.cases" :key="caso.id" :caso="caso" /> 
+                </div>
+                <div v-else>
+                    <p class="is-size-5 my-1">Aún no has publicado casos</p>
+                </div>
+            </div>
+
         </div>
         <div v-if="activeTab === 'file-tab'">
             <div class="mx-3">
                 <h1 class="title is-3">Sube un escrito</h1>
-                <a @click="showCreateFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                <a @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                     <span><font-awesome-icon :icon="['fas', 'upload']" class="top-ranking-icon mr-2" />Subir archivo</span>
                 </a>
             </div>
@@ -130,6 +102,8 @@
             </div>
         </div>
     </div>
-    <FileUploadModal :showCreateFileModal="showCreateFileModal" @close-file-modal="showCreateFileModal = false" />
+    <FileUploadModal :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
     <AccountTeamModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
+    <CaseCreateModal :showCaseModal="showCaseModal" @close-case-modal="showCaseModal = false" />
+
 </template>

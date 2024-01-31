@@ -10,8 +10,8 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">            
-            <p class="title is-4">{{ caso.title }} - {{ caso.postedBy }}</p>
-            <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type }}</p>
+            <p class="title is-4">{{ caso.title }}</p>
+            <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type === "OFFER" ? "Oferta"  : "Demanda" }}</p>
           </div>
         </div>
         <div class="content">

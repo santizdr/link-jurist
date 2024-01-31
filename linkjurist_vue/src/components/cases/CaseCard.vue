@@ -17,7 +17,7 @@
         </div>
         <div class="content">
           <p>{{ caso.description }}</p>
-          <p><span class="secondary-text-color">Porcentaje: </span>{{ caso.percentage }}</p> 
+          <p><span class="secondary-text-color">Porcentaje: </span>{{ caso.percent }}</p> 
           <p><span class="secondary-text-color">Fecha de publicación: </span><time :datetime="caso.postDate">{{ caso.postDate }}</time></p>
           <p><span class="secondary-text-color">Fecha de expiración: </span><time :datetime="caso.expiryDate">{{ caso.expiryDate }}</time></p>
           <div class="columns is-vcentered">

@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from . forms import SignupForm, AccountForm, AddUserForm
 from files.forms import FileForm
 from .models import User, Account
+from cases.models import Case
 from files.models import File
 from .serializers import UserSerializer
 
@@ -20,15 +21,18 @@ def me(request):
             },
             'account': '',
             'team': [],
+            'cases': [],
             'files': [],
         })
     else:
         account = Account.objects.get(id=user.account.id)
         team_data = User.objects.filter(account_id=account.id)
+        cases_data = Case.objects.filter(account_id=account.id)
         files_data = File.objects.filter(account_id=account.id)
 
         team = []
         files = []
+        cases = []
         
         for member in team_data:
             team.append({
@@ -36,6 +40,20 @@ def me(request):
                 'email': member.email,
                 'firstname': member.firstname,
                 'lastname': member.lastname,
+            })
+
+        for case in cases_data:
+            cases.append({
+                'id': case.id,
+                'title': case.title,
+                'description': case.description,
+                'type': case.type,
+                'postDate': case.expiry_date,
+                'expiryDate': case.expiry_date,
+                'percent': case.percent,
+                'applications': case.applitcations,
+                'visualizations': case.visualizations,
+                'account': case.account.id,
             })
 
         for file in files_data:
@@ -71,6 +89,7 @@ def me(request):
                 'country': account.country,
             },
             'team': team,
+            'cases': cases,
             'files': files,
         })
 
