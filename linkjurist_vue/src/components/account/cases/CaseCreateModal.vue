@@ -1,90 +1,107 @@
 <script setup>
-import { ref } from 'vue'
-import { useUserStore } from '@/stores/user';
-import axios from 'axios';
+    import { ref } from 'vue'
+    import { useUserStore } from '@/stores/user';
+    import axios from 'axios';
 
-const emit = defineEmits(['closeCaseModal'])
-const { props } = defineProps(['showCaseModal']);
+    const emit = defineEmits(['closeCaseModal'])
+    const { props } = defineProps(['showCaseModal']);
 
-const store = useUserStore();
-const account_id = store.account.id;
+    const store = useUserStore();
+    const account_id = store.account.id;
 
-function handleCloseModal() {
-    form.value.title = "";
-    form.value.description = "";
-    form.value.type = "";
-    form.value.expiryDate = "";
-    form.value.percent = "";
+    const alert = ref({
+        message: "",
+        class: "",
+    });
 
-    emit('closeCaseModal');
-}
-
-
-const alert = ref({
-    message: "",
-    class: "",
-});
-
-const error = ref({
-    field: "",
-    message: "",
-});
-
-const form = ref({
-    account: account_id,
-    title: '',
-    description: '',
-    type: '',
-    expiryDate: '',
-    percent: "",
-});
-
-function submitForm() {
-    error.value = {
+    const error = ref({
         field: "",
         message: "",
+    });
+
+    const form = ref({
+        account: account_id,
+        title: '',
+        description: '',
+        type: '',
+        expiryDate: '',
+        percent: "",
+    });
+
+    function submitForm() {
+        error.value = {
+            field: "",
+            message: "",
+        }
+
+        if (form.value.title === "") {
+            error.value.field = "title";
+            error.value.message = "El campo título no puede estar vacío";
+        } else if (form.value.description === "") {
+            error.value.field = "description";
+            error.value.message = "El campo descripción no puede estar vacío";
+        } else if (form.value.type === '') {
+            error.value.field = "type";
+            error.value.message = "Selecciona un tipo para la publicación";
+        } else if (form.value.expiryDate === '') {
+            error.value.field = "expiryDate";
+            error.value.message = "El campo fecha de expiración no puede estar vacío";
+        } else if (!validateDate(form.value.expiryDate)) {
+            error.value.field = "expiryDate";
+            error.value.message = "La fecha de expiración debe ser posterior al día de hoy";
+        } else if (form.value.percent === '') {
+            error.value.field = "percent";
+            error.value.message = "El campo comisión no puede estar vacío";
+        } else if (!validatePercent(form.value.percent)) {
+            error.value.field = "percent";
+            error.value.message = "El formato de la comisión debe ser dos dígitos numéricos";
+        }
+
+        if (error.value.field === '' && error.value.message === '') {
+            axios.post("/api/postcase/", form)
+                .then(response => {
+                    if(response.data.message === "success") {
+                            form.value.title = "";
+                            form.value.description = "";
+                            form.value.type = "";
+                            form.value.date = "";
+                            form.value.percent= "";
+
+                            this.store.setCasesInfo(response.data.cases);
+                            emit('closeCaseModal');
+                        } else {
+                            alert.value.status = "error";
+                            alert.value.message = "Se ha producido un error al publicar el caso";
+                            alert.value.class = "span-error";
+                        }            })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+        }
     }
 
-    if (form.value.title === "") {
-        error.value.field = "title";
-        error.value.message = "El campo título no puede estar vacío";
-    } else if (form.value.description === "") {
-        error.value.field = "description";
-        error.value.message = "El campo descripción no puede estar vacío";
-    } else if (form.value.type === '') {
-        error.value.field = "type";
-        error.value.message = "Selecciona un tipo para la publicación";
-    } else if (form.value.expiryDate === '') {
-        error.value.field = "expiryDate";
-        error.value.message = "El campo fecha de expiración no puede estar vacío";
-    } else if (form.value.percent === '') {
-        error.value.field = "percent";
-        error.value.message = "El campo comisión no puede estar vacío";
+    function handleCloseModal() {
+        form.value.title = "";
+        form.value.description = "";
+        form.value.type = "";
+        form.value.expiryDate = "";
+        form.value.percent = "";
+
+        emit('closeCaseModal');
     }
 
-    if (error.value.field === '' && error.value.message === '') {
-        axios.post("/api/postcase/", form)
-            .then(response => {
-                if(response.data.message === "success") {
-                        form.value.title = "";
-                        form.value.description = "";
-                        form.value.type = "";
-                        form.value.date = "";
-                        form.value.percent= "";
+    function validateDate(date) {
+        var today = new Date();
+        var date = new Date(date.value);
 
-                        this.store.setCasesInfo(response.data.cases);
-                        emit('closeCaseModal');
-                    } else {
-                        alert.value.status = "error";
-                        alert.value.message = "Se ha producido un error al publicar el caso";
-                        alert.value.class = "span-error";
-                    }            })
-            .catch(error => {
-                console.log("Error: ", error);
-            })
+        return date > today;
     }
-}
 
+    function validatePercent(percent) {
+        var regex = /^\d{2}$/;
+
+        return regex.test(percent);
+    }
 </script>
 
 <template>

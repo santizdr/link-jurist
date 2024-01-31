@@ -7,6 +7,7 @@
     const { props } = defineProps(['showUserModal']);
 
     const store = useUserStore();
+    const account_id = store.account.id;
 
     const alert = ref({
         message: "",
@@ -18,8 +19,6 @@
         message: "",
     });
 
-    const account_id = store.account.id;
-
     const form = ref({
         account: account_id,
         email: "",
@@ -28,16 +27,6 @@
         password1: "",
         password2: "",
     });
-
-    function handleCloseModal() {
-        form.value.email = "";
-        form.value.firstname = "";
-        form.value.lastname = "";
-        form.value.password1 = "";
-        form.value.password2 = "";
-
-        emit('closeUserModal');
-    }
 
     function submitForm() {
         error.value = {
@@ -90,6 +79,16 @@
                     console.log("Error: ", error);
                 })
         }
+    }
+
+    function handleCloseModal() {
+        form.value.email = "";
+        form.value.firstname = "";
+        form.value.lastname = "";
+        form.value.password1 = "";
+        form.value.password2 = "";
+
+        emit('closeUserModal');
     }
 </script>
 

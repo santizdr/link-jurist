@@ -41,6 +41,9 @@
         } else if (form.value.price === "") {
             error.value.field = "price";
             error.value.message = "El campo precio no puede estar vacío";
+        } else if (!validatePrice(form.value.price)) {
+            error.value.field = "price";
+            error.value.message = "El precio debe tener dos dígitos decimales y estar separado por un punto";
         }
 
         if (error.value.field === '' && error.value.message === '') {
@@ -88,6 +91,12 @@
     function handleFileChange(event) {
         file.value = event.target.files[0];
         selectedFileName.value = file.value ? file.value.name : '';
+    }
+
+    function validatePrice(price) {
+        var regex = /^\d{1,3}(\.\d{2})?$/;
+
+        return regex.test(price)
     }
 </script>
 

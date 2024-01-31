@@ -7,7 +7,6 @@ from .forms import CaseForm
 @api_view(['POST'])
 def postcase(request):
     data = request.data.get('_rawValue')
-    print(data)
 
     cases = []
     message = 'success'
@@ -20,10 +19,6 @@ def postcase(request):
         'expiry_date': data.get('expiryDate'),
         'percent': data.get('percent'),
     })
-
-
-    print(form.is_valid())
-    print(form.errors)
 
     if form.is_valid():
         form.save()
