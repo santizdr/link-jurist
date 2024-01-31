@@ -5,7 +5,6 @@
     import { useRouter } from 'vue-router'
 
     const router = useRouter()
-
     const store = useUserStore();
 
     const alert = ref({
@@ -45,7 +44,9 @@
                     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
                 })
                 .catch(error => {
-                    console.log("Error: ", error);
+                    alert.value.status = "error";
+                    alert.value.message = "Se ha producido un error al iniciar sesión";
+                    alert.value.class = "span-error";
                 })
 
             await axios.get("/api/me")
@@ -71,6 +72,14 @@
             <div class="columns is-centered">
                 <div class="column is-three-fifths-desktop">
                     <form class="box" @submit.prevent="submitForm()">
+                        <div v-if="alert.message !== ''" class="my-3">
+                            <article class="message">
+                                <div class="message-header"  :class="alert.class">
+                                    <p>{{ alert.message }}</p>
+                                    <button class="delete" aria-label="delete"></button>
+                                </div>
+                            </article>  
+                        </div> 
                         <h1 class="title">Inicio de sesión</h1>
                         <h2 class="subtitle mt-3">Inicia sesión en tu cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span></h2>
                         <div class="field">

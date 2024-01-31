@@ -1,5 +1,6 @@
 <script setup>
   import { useUserStore } from '@/stores/user';
+  
   import PublicationsList from './PublicationsList.vue';
   import StatsPanel from './StatsPanel.vue';
 

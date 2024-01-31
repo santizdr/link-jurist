@@ -1,12 +1,5 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
-    const store = useUserStore();
-
     const { props } = defineProps(['publication']);
-
-    function toCapitalNoun(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
 </script>
 
 <template>

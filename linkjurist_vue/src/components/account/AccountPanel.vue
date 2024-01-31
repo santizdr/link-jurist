@@ -1,8 +1,8 @@
 <script setup>
     import AccountHeader from '../account/AccountHeader.vue'
     import AccountTabs from '../account/AccountTabs.vue'
-
     import { useUserStore } from '@/stores/user';
+    
     const store = useUserStore();
 
 </script>

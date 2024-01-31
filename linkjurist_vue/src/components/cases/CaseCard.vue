@@ -1,9 +1,5 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
-    const store = useUserStore();
-
     const { props } = defineProps(['caso']);
-
 </script>
 
 <template>

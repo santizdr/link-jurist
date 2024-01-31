@@ -1,8 +1,5 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
     import PublicationCard from '../home/PublicationCard.vue'
-
-    const store = useUserStore();
 
     const publications = [
         {

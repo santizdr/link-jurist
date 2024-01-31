@@ -5,7 +5,6 @@
     import { useRouter } from 'vue-router'
 
     const router = useRouter()
-
     const store = useUserStore();
 
     const error = ref({
@@ -75,7 +74,6 @@
                     console.log("Error: ", error);
                 })
         }
-
     }
 </script>
 

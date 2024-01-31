@@ -1,10 +1,11 @@
 <script setup>
-    import FilesFilter from '../files/FilesFilter.vue'
-    import FilesList from '../files/FilesList.vue'
-    import FilesRanking from '../files/FilesRanking.vue'
+  import { useUserStore } from '@/stores/user';
 
-    import { useUserStore } from '@/stores/user';
-    const store = useUserStore();
+  import FilesFilter from '../files/FilesFilter.vue'
+  import FilesList from '../files/FilesList.vue'
+  import FilesRanking from '../files/FilesRanking.vue'
+
+  const store = useUserStore();
 </script>
 
 

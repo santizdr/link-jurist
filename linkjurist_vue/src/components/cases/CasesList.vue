@@ -1,8 +1,5 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
     import CaseCard from '../cases/CaseCard.vue'
-
-    const store = useUserStore();
 
     const cases = [
       {

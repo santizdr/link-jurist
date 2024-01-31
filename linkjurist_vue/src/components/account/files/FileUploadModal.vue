@@ -1,98 +1,94 @@
 <script setup>
-import { ref } from 'vue'
-import { useUserStore } from '@/stores/user';
-import axios from 'axios';
+    import { ref } from 'vue'
+    import { useUserStore } from '@/stores/user';
+    import axios from 'axios';
 
-const emit = defineEmits(['closeFileModal'])
-const { props } = defineProps(['showFileModal']);
+    const emit = defineEmits(['closeFileModal'])
+    const { props } = defineProps(['showFileModal']);
+    const store = useUserStore();
 
-const store = useUserStore();
+    const account_id = store.account.id;
+    const user_id = store.user.id;
+    const selectedFileName = ref('');
+    const file = ref(null);
 
-function handleCloseModal() {
-    form.value.description = "";
-    form.value.price = "";
-
-    file.value = null;
-
-    emit('closeFileModal');
-}
-
-function handleFileChange(event) {
-    file.value = event.target.files[0];
-    selectedFileName.value = file.value ? file.value.name : '';
-}
-
-const selectedFileName = ref('');
-const file = ref(null);
-
-const account_id = store.account.id;
-const user_id = store.user.id;
-
-const error = ref({
-    field: "",
-    message: "",
-});
-
-const form = ref({
-    account: account_id,
-    uploaded_by: user_id,
-    title: '',
-    file: file,
-    description: "",
-    price: "",
-});
-
-function submitForm() {
-    error.value = {
+    const error = ref({
         field: "",
         message: "",
+    });
+
+    const form = ref({
+        account: account_id,
+        uploaded_by: user_id,
+        title: '',
+        file: file,
+        description: "",
+        price: "",
+    });
+
+    function submitForm() {
+        error.value = {
+            field: "",
+            message: "",
+        }
+
+        if (form.value.file === "" || form.value.file === null) {
+            error.value.field = "file";
+            error.value.message = "Selecciona un archivo";
+        } else if (form.value.title === "") {
+            error.value.field = "title";
+            error.value.message = "El campo título no puede estar vacío";
+        } else if (form.value.price === "") {
+            error.value.field = "price";
+            error.value.message = "El campo precio no puede estar vacío";
+        }
+
+        if (error.value.field === '' && error.value.message === '') {
+            const formData = new FormData();
+
+            // Agrega cada campo de tu formulario a formData
+            formData.append('title', form.value.title);
+            formData.append('account', form.value.account);
+            formData.append('uploaded_by', form.value.uploaded_by);
+            formData.append('description', form.value.description);
+            formData.append('price', form.value.price);
+            formData.append('file', form.value.file);
+
+            axios.post("/api/uploadfile/", formData)
+                .then(response => {
+                    console.log(response);
+
+                    if(response.data.message === "success") {
+                        form.value.title = "";
+                        form.value.description = "";
+                        form.value.price = "";
+
+                        this.store.setFilesInfo(response.data.files);
+                        emit('closeFileModal');
+                    } else {
+                        alert.value.status = "error";
+                        alert.value.message = "Se ha producido un error subir el escrito";
+                        alert.value.class = "span-error";
+                    }
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+        }
     }
 
-    if (form.value.file === "" || form.value.file === null) {
-        error.value.field = "file";
-        error.value.message = "Selecciona un archivo";
-    } else if (form.value.title === "") {
-        error.value.field = "title";
-        error.value.message = "El campo título no puede estar vacío";
-    } else if (form.value.price === "") {
-        error.value.field = "price";
-        error.value.message = "El campo precio no puede estar vacío";
+    function handleCloseModal() {
+        form.value.description = "";
+        form.value.price = "";
+        file.value = null;
+
+        emit('closeFileModal');
     }
 
-    if (error.value.field === '' && error.value.message === '') {
-        const formData = new FormData();
-
-        // Agrega cada campo de tu formulario a formData
-        formData.append('title', form.value.title);
-        formData.append('account', form.value.account);
-        formData.append('uploaded_by', form.value.uploaded_by);
-        formData.append('description', form.value.description);
-        formData.append('price', form.value.price);
-        formData.append('file', form.value.file);
-
-        axios.post("/api/uploadfile/", formData)
-            .then(response => {
-                console.log(response);
-
-                if(response.data.message === "success") {
-                    form.value.title = "";
-                    form.value.description = "";
-                    form.value.price = "";
-
-                    this.store.setFilesInfo(response.data.files);
-                    emit('closeFileModal');
-                } else {
-                    alert.value.status = "error";
-                    alert.value.message = "Se ha producido un error subir el escrito";
-                    alert.value.class = "span-error";
-                }
-            })
-            .catch(error => {
-                console.log("Error: ", error);
-            })
+    function handleFileChange(event) {
+        file.value = event.target.files[0];
+        selectedFileName.value = file.value ? file.value.name : '';
     }
-}
-
 </script>
 
 <template>

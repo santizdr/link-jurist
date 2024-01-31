@@ -1,9 +1,10 @@
 <script setup>
+    import { useUserStore } from '@/stores/user';
+
     import CasesFilter from '../cases/CasesFilter.vue'
     import CasesList from '../cases/CasesList.vue'
     import CasesRanking from '../cases/CasesRanking.vue'
 
-    import { useUserStore } from '@/stores/user';
     const store = useUserStore();
 </script>
 

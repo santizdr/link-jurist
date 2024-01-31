@@ -10,13 +10,11 @@
     import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
 
     const { props } = defineProps(['account', 'activeTab', 'cases']);
-
     const store = useUserStore();
 
     const showUserModal = ref(false);
     const showFileModal = ref(false);
     const showCaseModal = ref(false);
-
 </script>
 
 <template>

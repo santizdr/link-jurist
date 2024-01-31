@@ -7,6 +7,7 @@ const emit = defineEmits(['closeCaseModal'])
 const { props } = defineProps(['showCaseModal']);
 
 const store = useUserStore();
+const account_id = store.account.id;
 
 function handleCloseModal() {
     form.value.title = "";
@@ -18,7 +19,6 @@ function handleCloseModal() {
     emit('closeCaseModal');
 }
 
-const account_id = store.account.id;
 
 const alert = ref({
     message: "",
@@ -54,7 +54,7 @@ function submitForm() {
     } else if (form.value.type === '') {
         error.value.field = "type";
         error.value.message = "Selecciona un tipo para la publicación";
-    }else if (form.value.expiryDate === '') {
+    } else if (form.value.expiryDate === '') {
         error.value.field = "expiryDate";
         error.value.message = "El campo fecha de expiración no puede estar vacío";
     } else if (form.value.percent === '') {
@@ -63,11 +63,7 @@ function submitForm() {
     }
 
     if (error.value.field === '' && error.value.message === '') {
-        console.log("Todo bien");
-        console.log(form.value);
-    }
-
-    axios.post("/api/postcase/", form)
+        axios.post("/api/postcase/", form)
             .then(response => {
                 if(response.data.message === "success") {
                         form.value.title = "";
@@ -86,6 +82,7 @@ function submitForm() {
             .catch(error => {
                 console.log("Error: ", error);
             })
+    }
 }
 
 </script>

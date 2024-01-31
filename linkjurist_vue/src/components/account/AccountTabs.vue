@@ -1,12 +1,8 @@
 <script setup>
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
     import AccountTabContent from '../account/AccountTabContent.vue'
 
-    const store = useUserStore();
-
     const { props } = defineProps(['account']);
-
     const activeTab = ref("info-tab");
 
     function handleActiveTab(id) {

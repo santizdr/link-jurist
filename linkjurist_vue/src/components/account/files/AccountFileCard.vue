@@ -1,19 +1,18 @@
 <script setup>
+  import axios from 'axios';
+  const { props } = defineProps(['file']);
 
-const { props } = defineProps(['file']);
-import axios from 'axios';
-
-function openFile(id) {
-    axios.get("/api/getfile/" + id, { responseType: 'arraybuffer' })
-      .then(response => {
-          const file = new Blob([response.data], { type: 'application/pdf' });
-          const fileURL = URL.createObjectURL(file);
-          window.open(fileURL, '_blank');
-      })
-      .catch(error => {
-          console.log("Error: ", error);
-      })
-}
+  function openFile(id) {
+      axios.get("/api/getfile/" + id, { responseType: 'arraybuffer' })
+        .then(response => {
+            const file = new Blob([response.data], { type: 'application/pdf' });
+            const fileURL = URL.createObjectURL(file);
+            window.open(fileURL, '_blank');
+        })
+        .catch(error => {
+            console.log("Error: ", error);
+        })
+  }
 </script>
 
 <template>
