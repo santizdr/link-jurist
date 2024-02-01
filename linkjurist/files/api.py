@@ -2,7 +2,7 @@ from django.http import FileResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from files.forms import FileForm
-from .models import User, Account
+from .serializers import FileSerializer
 from files.models import File
 
 
@@ -17,16 +17,7 @@ def uploadfile(request):
         form.save()
 
         files_data = File.objects.filter(account_id=account)
-        for file in files_data:
-            files.append({
-                'id': file.id,
-                'title': file.title,
-                'description': file.description,
-                'price': file.price,
-                'downloads': file.downloads,
-                'account': file.account.id,
-                'uploaded_by': file.uploaded_by.id,
-            })
+        files = FileSerializer(files_data, many=True).data
 
     else: 
         message = 'error'
