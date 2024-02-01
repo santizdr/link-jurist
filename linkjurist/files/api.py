@@ -11,7 +11,6 @@ def uploadfile(request):
     account = request.data.get('account')[0]
     files = []
     message = 'success'
-    
     form = FileForm(request.POST, request.FILES)
 
     if form.is_valid():

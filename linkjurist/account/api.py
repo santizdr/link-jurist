@@ -205,6 +205,7 @@ def account(request):
                 'slogan': account.slogan,
                 'email': account.email,
                 'web': account.web,
+                'phonenumber': account.phonenumber,
                 'address': account.address,
                 'cp': account.cp,
                 'locality': account.locality,

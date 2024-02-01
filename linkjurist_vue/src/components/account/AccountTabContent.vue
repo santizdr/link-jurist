@@ -26,7 +26,7 @@
                     <h2 class="subtitle is-4">Contacto</h2>
                     <p class="is-size-5 my-1"><span class="secondary-text-color">Web: </span>{{ account.web }}</p>
                     <p class="is-size-5 my-1"><span class="secondary-text-color">Email : </span>{{ account.email }}</p>
-                    <p class="is-size-5 my-1"><span class="secondary-text-color">Teléfono : </span>{{ account.phone }}</p>
+                    <p class="is-size-5 my-1"><span class="secondary-text-color">Teléfono : </span>{{ account.phonenumber }}</p>
                 </div>
                 <div class="column is-half">
                     <h2 class="subtitle is-4">Dirección</h2>

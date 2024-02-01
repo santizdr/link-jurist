@@ -31,7 +31,7 @@
             field: "",
             message: "",
         }
-
+        
         if (form.value.file === "" || form.value.file === null) {
             error.value.field = "file";
             error.value.message = "Selecciona un archivo";
@@ -94,8 +94,8 @@
     }
 
     function validatePrice(price) {
-        var regex = /^\d{1,3}(\.\d{2})?$/;
-
+        var regex = /^\d{1,3}(\.\d{2})$/;
+        
         return regex.test(price)
     }
 </script>

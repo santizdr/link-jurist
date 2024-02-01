@@ -91,11 +91,21 @@
     }
 
     function validateDate(date) {
-        var today = new Date();
-        var date = new Date(date.value);
+    var today = new Date();
+    var dateSplits = date.split('-');
+    
+    if (dateSplits.length === 3) {
+        var year = parseInt(dateSplits[0], 10);
+        var month = parseInt(dateSplits[1], 10) - 1; // Los meses en JavaScript son 0-indexados
+        var day = parseInt(dateSplits[2], 10);
+        
+        var inputDate = new Date(year, month, day);
 
-        return date > today;
+        return inputDate > today;
+    } else {
+        return false;
     }
+}
 
     function validatePercent(percent) {
         var regex = /^\d{2}$/;

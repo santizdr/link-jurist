@@ -15,7 +15,7 @@ class FileForm(forms.ModelForm):
 
         parts = price_str.split('.')
 
-        if len(parts[0]) != 3 or len(parts[1]) != 2:
+        if len(parts[0]) > 3 or len(parts[1]) != 2:
             raise forms.ValidationError("El campo 'price' debe tener 3 dígitos en la parte entera y 2 en la decimal.")
 
         return price
