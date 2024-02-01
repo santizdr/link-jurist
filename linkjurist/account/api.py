@@ -5,89 +5,41 @@ from files.forms import FileForm
 from .models import User, Account
 from cases.models import Case
 from files.models import File
-from .serializers import UserSerializer
+from .serializers import UserSerializer, AccountSerializer
+from cases.serializers import CaseSerializer
+from files.serializers import FileSerializer
 
 
 @api_view(['GET'])
 def me(request):
-    user = User.objects.get(id=request.user.id)
-    if user.account is None:
+    my_user = User.objects.get(id=request.user.id)
+    print(my_user.account)
+    user = UserSerializer(my_user).data
+
+    if my_user.account is None:
         return JsonResponse({
-            'user': {
-                'id': request.user.id,
-                'email': request.user.email,
-                'firstname': request.user.firstname,
-                'lastname': request.user.lastname,
-            },
+            'user': user,
             'account': '',
             'team': [],
             'cases': [],
             'files': [],
         })
     else:
-        account = Account.objects.get(id=user.account.id)
-        team_data = User.objects.filter(account_id=account.id)
-        cases_data = Case.objects.filter(account_id=account.id)
-        files_data = File.objects.filter(account_id=account.id)
-
-        team = []
-        files = []
-        cases = []
+        my_account = Account.objects.get(id=my_user.account.id)
+        account = AccountSerializer(my_account).data
         
-        for member in team_data:
-            team.append({
-                'id': member.id,
-                'email': member.email,
-                'firstname': member.firstname,
-                'lastname': member.lastname,
-            })
+        team_data = User.objects.filter(account_id=account['id'])
+        team = UserSerializer(team_data, many=True).data
 
-        for case in cases_data:
-            cases.append({
-                'id': case.id,
-                'title': case.title,
-                'description': case.description,
-                'type': case.type,
-                'postDate': case.expiry_date,
-                'expiryDate': case.expiry_date,
-                'percent': case.percent,
-                'applications': case.applitcations,
-                'visualizations': case.visualizations,
-                'account': case.account.id,
-            })
+        cases_data = Case.objects.filter(account_id=account['id'])
+        cases = CaseSerializer(cases_data, many=True).data
 
-        for file in files_data:
-            files.append({
-                'id': file.id,
-                'title': file.title,
-                'file': file.file.url,
-                'description': file.description,
-                'price': file.price,
-                'downloads': file.downloads,
-                'account': file.account.id,
-                'uploaded_by': file.uploaded_by.id,
-            })
+        files_data = File.objects.filter(account_id=account['id'])
+        files = FileSerializer(files_data, many=True).data
             
         return JsonResponse({
-            'user': {
-                'id': request.user.id,
-                'email': request.user.email,
-                'firstname': request.user.firstname,
-                'lastname': request.user.lastname,
-            },
-            'account': {
-                'id': account.id,
-                'name': account.name,
-                'description': account.description,
-                'slogan': account.slogan,
-                'email': account.email,
-                'web': account.web,
-                'phonenumber': account.phonenumber,
-                'address': account.address,
-                'cp': account.cp,
-                'locality': account.locality,
-                'country': account.country,
-            },
+            'user': user,
+            'account': account,
             'team': team,
             'cases': cases,
             'files': files,
@@ -137,15 +89,8 @@ def adduser(request):
         form.save()
 
         team_data = User.objects.filter(account_id=data.get('account'))
-        for member in team_data:
-            team.append({
-                'id': member.id,
-                'email': member.email,
-                'firstname': member.firstname,
-                'lastname': member.lastname,
-            })
+        team = UserSerializer(team_data, many=True).data
 
-        # SEND VERIFICATION EMAIL LATER
     else: 
         message = 'error'
 
@@ -178,39 +123,21 @@ def account(request):
     })
 
     if form.is_valid():
-        account = form.save()
-        user.account = account
+        my_account = form.save()
+        account = AccountSerializer(my_account).data
+
+        user.account = my_account
         user.save()
 
-        team_data = User.objects.filter(account_id=account)
-        for member in team_data:
-            team.append({
-                'id': member.id,
-                'email': member.email,
-                'firstname': member.firstname,
-                'lastname': member.lastname,
-            })
+        team_data = User.objects.filter(account_id=account['id'])
+        team = UserSerializer(team_data, many=True).data
 
-        # SEND VERIFICATION EMAIL LATER
     else: 
         message = 'error'
 
     return JsonResponse({
         'message': message, 
-        'account': 
-            {
-                'id': account.id,
-                'name': account.name,
-                'description': account.description,
-                'slogan': account.slogan,
-                'email': account.email,
-                'web': account.web,
-                'phonenumber': account.phonenumber,
-                'address': account.address,
-                'cp': account.cp,
-                'locality': account.locality,
-                'country': account.country,
-                },
+        'account': account,
         'team': team,
         'files': files,
     })

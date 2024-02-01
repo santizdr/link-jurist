@@ -6,8 +6,6 @@ from django.db import models
 from django.utils import timezone
 
 
-# Create your models here.
-
 class Account(models.Model):
     name = models.CharField(unique=True, max_length=128)    
     description = models.TextField()
@@ -63,3 +61,11 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
     
+
+class Follow(models.Model):
+    follower = models.ForeignKey(Account, related_name='followers', on_delete=models.CASCADE)
+    following = models.ForeignKey(Account, related_name='following', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('follower', 'following')
