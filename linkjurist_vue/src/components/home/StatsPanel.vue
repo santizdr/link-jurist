@@ -13,6 +13,13 @@
         <hr class="my-3">
         <div class="my-3">
             <h1 class="is-size-6 has-text-weight-semibold my-2">
+                Estadísticas de publicaciones:
+            </h1>
+            <p>Visualizaciones totales: 14502</p>
+            <p>Likes totales: 9793</p>
+        </div>
+        <div class="my-3">
+            <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de casos:
             </h1>
             <p>Visualizaciones totales: 17085</p>
