@@ -1,0 +1,1358 @@
+[
+    {    
+        "model": "account.account",
+        "pk": 1,
+        "fields": {
+            "name": "Prudencio Sáez y asociados",
+            "description": "Somos un despacho legal con sede en Madrid, dedicado a ofrecer servicios jurídicos integrales a empresas y particulares. Contamos con un equipo de abogados especializados en diversas áreas del derecho, como derecho mercantil, laboral, inmobiliario y penal. Nuestra misión es brindar asesoramiento legal de calidad, adaptado a las necesidades específicas de cada cliente, con un enfoque proactivo y resolutivo.\nCon más de 20 años de experiencia, nuestro bufete ha establecido una sólida reputación por su compromiso con la excelencia y la defensa efectiva de los intereses de nuestros clientes. Nos esforzamos por mantenernos actualizados con las últimas tendencias legales y ofrecer soluciones innovadoras a los desafíos legales en constante evolución.",
+            "slogan": "Soluciones innovadoras para problemas legales",
+            "email": "psaezya@gmail.com",
+            "web": "www.psaezya.es",
+            "phonenumber": "954677480",
+            "address": "C/ Arfe",
+            "cp": "41012",
+            "locality": "Sevilla",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 2,
+        "fields": {
+            "name": "LegalPro Solutions",
+            "description": "LegalPro Solutions es una firma legal con sede en Barcelona, especializada en proporcionar servicios legales a empresas de todos los tamaños. Nuestro equipo de abogados altamente calificados se especializa en áreas como derecho corporativo, propiedad intelectual, contratos comerciales y litigios.\nNos enorgullece ofrecer soluciones legales personalizadas y estratégicas que ayudan a nuestros clientes a alcanzar sus objetivos comerciales. Con un enfoque centrado en el cliente, trabajamos estrechamente con empresas emergentes y establecidas para abordar sus desafíos legales de manera eficiente y efectiva.\nEn LegalPro Solutions, creemos en la transparencia, la ética y la excelencia jurídica.",
+            "slogan": "Transformando desafíos legales en oportunidades",
+            "email": "info@legalprosolutions.com",
+            "web": "www.legalprosolutions.com",
+            "phonenumber": "932345678",
+            "address": "Av. Diagonal",
+            "cp": "08001",
+            "locality": "Barcelona",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 3,
+        "fields": {
+            "name": "Gómez & Asociados Abogados",
+            "description": "Gómez & Asociados Abogados es un prestigioso despacho legal con sede en Valencia, especializado en derecho civil, familia y sucesiones. Nuestro equipo de abogados está comprometido con la defensa de los derechos de nuestros clientes y la resolución efectiva de disputas legales.\nCon más de 15 años de experiencia, hemos logrado éxitos significativos en casos de divorcio, custodia, herencias y reclamaciones civiles. Nuestra misión es proporcionar asesoramiento legal integral y personalizado, priorizando la satisfacción y tranquilidad de nuestros clientes.\nEstamos ubicados en el centro histórico de Valencia y ofrecemos consultas gratuitas para evaluar su situación legal.",
+            "slogan": "Compromiso y excelencia en la defensa legal",
+            "email": "info@gomezabogados.es",
+            "web": "www.gomezabogados.es",
+            "phonenumber": "963456789",
+            "address": "Plaza de la Virgen",
+            "cp": "46001",
+            "locality": "Valencia",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 4,
+        "fields": {
+            "name": "JurisTech Innovations",
+            "description": "JurisTech Innovations es un bufete legal vanguardista con oficinas en Madrid y Barcelona. Nos especializamos en derecho tecnológico, protección de datos y ciberseguridad. Nuestro equipo está compuesto por abogados expertos que comprenden las complejidades legales en el ámbito digital.\nAyudamos a empresas a navegar por el panorama legal en constante cambio relacionado con la tecnología, brindando asesoramiento en contratos tecnológicos, propiedad intelectual y cumplimiento normativo.\nEn JurisTech, combinamos el conocimiento legal tradicional con una comprensión profunda de las tecnologías emergentes para ofrecer soluciones innovadoras y adaptadas a nuestros clientes.",
+            "slogan": "Transformando desafíos tecnológicos en soluciones legales",
+            "email": "contact@juristechinnovations.com",
+            "web": "www.juristechinnovations.com",
+            "phonenumber": "910987654",
+            "address": "Paseo de la Castellana",
+            "cp": "28046",
+            "locality": "Madrid",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 5,
+        "fields": {
+            "name": "LegalEase Consultancy",
+            "description": "LegalEase Consultancy es una firma de consultoría legal con sede en Bilbao, especializada en proporcionar asesoramiento estratégico a empresas en expansión. Nuestro equipo de consultores legales trabaja estrechamente con los líderes empresariales para comprender sus objetivos y desafíos, brindando soluciones legales personalizadas.\nOfrecemos servicios en áreas como fusiones y adquisiciones, contratos comerciales y cumplimiento normativo. En LegalEase, creemos en la simplicidad y eficacia para abordar las complejidades legales y facilitar el crecimiento sostenible de nuestros clientes.",
+            "slogan": "Simplicidad y eficacia en la consultoría legal",
+            "email": "info@legaleaseconsultancy.com",
+            "web": "www.legaleaseconsultancy.com",
+            "phonenumber": "944123456",
+            "address": "Gran Vía",
+            "cp": "48001",
+            "locality": "Bilbao",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 6,
+        "fields": {
+            "name": "Martínez Legal Solutions",
+            "description": "Martínez Legal Solutions es un bufete de abogados con sede en Málaga, especializado en derecho de la familia y derecho de sucesiones. Nuestro equipo de abogados comprometidos se esfuerza por proporcionar soluciones legales efectivas y personalizadas para nuestros clientes.\nCon más de una década de experiencia, hemos manejado con éxito casos de divorcio, custodia, testamentos y herencias. En Martínez Legal Solutions, nos enorgullece ofrecer un servicio centrado en el cliente y mantener una comunicación transparente durante todo el proceso legal.",
+            "slogan": "Soluciones legales que importan",
+            "email": "info@martinezlegalsolutions.com",
+            "web": "www.martinezlegalsolutions.com",
+            "phonenumber": "952345678",
+            "address": "Calle Larios",
+            "cp": "29015",
+            "locality": "Málaga",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 7,
+        "fields": {
+            "name": "TechJuris Consultancy",
+            "description": "TechJuris Consultancy es una firma legal innovadora con sede en Sevilla, especializada en asesoramiento jurídico para empresas tecnológicas y startups. Nuestro equipo de abogados y consultores comprende las complejidades legales que enfrentan las empresas en el sector tecnológico.\nOfrecemos servicios en propiedad intelectual, contratos tecnológicos, cumplimiento normativo y resolución de conflictos. En TechJuris, combinamos la pasión por la tecnología con un enfoque legal sólido para ayudar a nuestros clientes a alcanzar sus objetivos de manera segura y eficiente.",
+            "slogan": "Desafíos tecnológicos, soluciones legales",
+            "email": "contact@techjurisconsultancy.com",
+            "web": "www.techjurisconsultancy.com",
+            "phonenumber": "955987654",
+            "address": "Avenida de la Constitución",
+            "cp": "41004",
+            "locality": "Sevilla",
+            "country": "España"
+        }
+    },
+    {    
+        "model": "account.account",
+        "pk": 8,
+        "fields": {
+            "name": "LegalHarbor Advisors",
+            "description": "LegalHarbor Advisors es una firma de asesoría legal con oficinas en Madrid y Valencia. Nos especializamos en derecho empresarial, fusiones y adquisiciones, y asesoramiento financiero. Nuestro equipo de abogados y consultores trabaja en estrecha colaboración con empresas para lograr transacciones exitosas y brindar orientación estratégica.\nEn LegalHarbor, valoramos la integridad, la eficiencia y la confidencialidad en nuestros servicios. Estamos comprometidos a ayudar a las empresas a navegar por el complejo entorno legal y alcanzar sus metas comerciales.",
+            "slogan": "Navegando el mar legal para su éxito",
+            "email": "info@legalharboradvisors.com",
+            "web": "www.legalharboradvisors.com",
+            "phonenumber": "911234567",
+            "address": "Paseo del Prado",
+            "cp": "28014",
+            "locality": "Madrid",
+            "country": "España"
+        }
+    },
+    {
+        "model": "account.account",
+        "pk": 9,
+        "fields": {
+            "name": "Bufete Legal García",
+            "description": "Bufete Legal García es un despacho de abogados ubicado en Madrid, especializado en derecho empresarial y propiedad intelectual. Con un equipo altamente calificado, ofrecemos asesoramiento legal integral a empresas en áreas como contratos comerciales, litigios empresariales y protección de propiedad intelectual.\nNos esforzamos por brindar soluciones legales estratégicas y adaptadas a las necesidades específicas de nuestros clientes, contribuyendo al éxito y crecimiento sostenible de sus negocios.",
+            "slogan": "Defendiendo sus intereses, impulsando su éxito",
+            "email": "info@bufetelegalgarcia.com",
+            "web": "www.bufetelegalgarcia.com",
+            "phonenumber": "917876543",
+            "address": "Calle Gran Vía",
+            "cp": "28013",
+            "locality": "Madrid",
+            "country": "España"
+        }
+    },
+    {
+        "model": "account.account",
+        "pk": 10,
+        "fields": {
+            "name": "Mediación Familiar Valencia",
+            "description": "Mediación Familiar Valencia es un centro especializado en resolver conflictos familiares a través de la mediación. Nuestro equipo de mediadores profesionales trabaja para facilitar acuerdos amigables en casos de divorcio, custodia y reparto de bienes. Enfocados en el bienestar de las familias, promovemos soluciones pacíficas y duraderas.\nEn Mediación Familiar Valencia, creemos en la importancia de construir puentes y encontrar soluciones colaborativas para superar las dificultades familiares.",
+            "slogan": "Construyendo puentes hacia la armonía familiar",
+            "email": "info@mediacionfamiliarvalencia.com",
+            "web": "www.mediacionfamiliarvalencia.com",
+            "phonenumber": "963234567",
+            "address": "Calle Paz",
+            "cp": "46001",
+            "locality": "Valencia",
+            "country": "España"
+        }
+    },
+    {
+        "model": "account.account",
+        "pk": 11,
+        "fields": {
+            "name": "EcoLegal Solutions Barcelona",
+            "description": "EcoLegal Solutions Barcelona es un despacho legal comprometido con la sostenibilidad ambiental y el derecho ambiental. Nos especializamos en proporcionar asesoramiento legal a empresas y organizaciones que buscan operar de manera ética y sostenible. Ofrecemos servicios en regulaciones ambientales, permisos ecológicos y litigios ambientales.\nEn EcoLegal Solutions, fusionamos la experiencia legal con una perspectiva ambiental consciente para ayudar a nuestros clientes a cumplir con las normativas y contribuir al cuidado del medio ambiente.",
+            "slogan": "Derecho ambiental para un futuro sostenible",
+            "email": "info@ecolegalsolutions.com",
+            "web": "www.ecolegalsolutions.com",
+            "phonenumber": "934345678",
+            "address": "Rambla de Catalunya",
+            "cp": "08008",
+            "locality": "Barcelona",
+            "country": "España"
+        }
+    },
+    {
+        "model": "account.account",
+        "pk": 12,
+        "fields": {
+            "name": "Arbitraje Empresarial Andaluz",
+            "description": "Arbitraje Empresarial Andaluz es un despacho especializado en la resolución alternativa de conflictos para empresas en Sevilla. Nuestro equipo de árbitros y mediadores ofrece soluciones eficientes en litigios comerciales y disputas empresariales. Nos comprometemos a proporcionar procesos de arbitraje transparentes y justos, permitiendo a las empresas resolver conflictos de manera rápida y efectiva.\nEn Arbitraje Empresarial Andaluz, creemos en la importancia de encontrar soluciones fuera de los tribunales tradicionales para fomentar la resolución colaborativa de disputas.",
+            "slogan": "Resolviendo conflictos, impulsando negocios",
+            "email": "info@arbitrajeandaluz.com",
+            "web": "www.arbitrajeandaluz.com",
+            "phonenumber": "954987654",
+            "address": "Plaza Nueva",
+            "cp": "41001",
+            "locality": "Sevilla",
+            "country": "España"
+        }
+    },
+
+    {
+        "model": "account.user",
+        "pk": 1,
+        "fields": {
+            "email": "jmcarrasco@psaezya.com",
+            "firstname": "Jose María",
+            "lastname": "Carrasco",
+            "password": "hashed_password",
+            "description": "Abogado con más de 10 años de experiencia en el ámbito jurídico, especializado en derecho penal. He trabajado en casos de gran complejidad, logrando resultados exitosos para mis clientes. Mi enfoque se centra en la defensa de los derechos individuales y la justicia. Actualmente, formo parte del equipo de JMC Legal, un despacho comprometido con la excelencia y la integridad en la práctica legal.",
+            "is_manager": false,
+            "account": 1
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 2,
+        "fields": {
+            "email": "lgonzalez@psaezya.com",
+            "firstname": "Laura",
+            "lastname": "González",
+            "password": "hashed_password",
+            "description": "Especialista en derecho corporativo y transacciones comerciales. Con una sólida formación y experiencia, he asesorado a empresas en diversas industrias para lograr acuerdos legales sólidos y cumplir con los requisitos normativos. En Prudencio Sáez y asociados, estoy comprometida con brindar soluciones legales estratégicas para el éxito empresarial.",
+            "is_manager": true,
+            "account": 1
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 3,
+        "fields": {
+            "email": "flopez@psaezya.com",
+            "firstname": "Francisco",
+            "lastname": "López",
+            "password": "hashed_password",
+            "description": "Abogado especializado en derecho tecnológico y propiedad intelectual. He trabajado con empresas tecnológicas emergentes, proporcionando asesoramiento legal en contratos, licencias y protección de activos intelectuales. Mi pasión por la tecnología se combina con un enfoque legal sólido en Prudencio Sáez y Asociados.",
+            "is_manager": false,
+            "account": 1
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 4,
+        "fields": {
+            "email": "mrodriguez@legalprosolutions.es",
+            "firstname": "María",
+            "lastname": "Rodríguez",
+            "password": "hashed_password",
+            "description": "Abogada especializada en derecho de familia y sucesiones en Gómez & Asociados Abogados. Mi enfoque está en brindar apoyo legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para garantizar que los clientes atraviesen procesos legales difíciles con la menor carga posible.",
+            "is_manager": false,
+            "account": 2
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 5,
+        "fields": {
+            "email": "nlopez@legalprosolutions.com",
+            "firstname": "Natalia",
+            "lastname": "López",
+            "password": "hashed_password",
+            "description": "Consultora legal en LegalEase Consultancy, con experiencia en fusiones y adquisiciones. Mi enfoque se centra en brindar asesoramiento estratégico a empresas en crecimiento. Trabajo en estrecha colaboración con líderes empresariales para facilitar transacciones exitosas y garantizar el cumplimiento normativo.",
+            "is_manager": false,
+            "account": 2
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 6,
+        "fields": {
+            "email": "agallego@gomezabogados.com",
+            "firstname": "Ana",
+            "lastname": "Gallego",
+            "password": "hashed_password",
+            "description": "Abogada en Gómez Abogados, con enfoque en derecho de familia y sucesiones. Mi objetivo es brindar asesoramiento legal sensible y resolver disputas de manera eficiente. En nuestro bufete, nos esforzamos por mantener una comunicación transparente y centrarnos en las necesidades individuales de cada cliente.",
+            "is_manager": false,
+            "account": 3
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 7,
+        "fields": {
+            "email": "cperez@gomezabogados.com",
+            "firstname": "Carlos",
+            "lastname": "Pérez",
+            "password": "hashed_password",
+            "description": "Abogado especializado en derecho tecnológico en Gómez Abogadoss. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
+            "is_manager": false,
+            "account": 3
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 8,
+        "fields": {
+            "email": "cperez@juristechinnovations.com",
+            "firstname": "Manuel",
+            "lastname": "Juárez",
+            "password": "hashed_password",
+            "description": "Abogado especializado en derecho tecnológico en JurisTech Innovations. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
+            "is_manager": false,
+            "account": 4
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 9,
+        "fields": {
+            "email": "jnavarro@legaleaseconsultancy.com",
+            "firstname": "Julia",
+            "lastname": "Navarro",
+            "password": "hashed_password",
+            "description": "Consultora legal en LegalEase Consultancy, especializada en fusiones y adquisiciones. Mi enfoque se centra en proporcionar asesoramiento estratégico y soluciones legales eficientes para empresas en expansión. Trabajo para garantizar transacciones exitosas y cumplimiento normativo.",
+            "is_manager": false,
+            "account": 5
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 10,
+        "fields": {
+            "email": "jmartinez@martinezlegalsolutions.com",
+            "firstname": "Juan",
+            "lastname": "Martínez",
+            "password": "hashed_password",
+            "description": "Abogado en Martínez Legal Solutions, especializado en derecho de familia y sucesiones. Mi objetivo es proporcionar asesoramiento legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para asegurar que cada cliente reciba atención individualizada y soluciones personalizadas.",
+            "is_manager": false,
+            "account": 6
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 11,
+        "fields": {
+            "email": "rmolina@techjurisconsultancy.com",
+            "firstname": "Raquel",
+            "lastname": "Molina",
+            "password": "hashed_password",
+            "description": "Abogada en TechJuris Consultancy, con experiencia en propiedad intelectual y contratos tecnológicos. Mi enfoque se centra en proteger los activos intelectuales de nuestros clientes y proporcionar soluciones legales innovadoras para desafíos tecnológicos en constante evolución.",
+            "is_manager": false,
+            "account": 7
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 12,
+        "fields": {
+            "email": "cfernandez@techjurisconsultancy.com",
+            "firstname": "Carmen",
+            "lastname": "Fernández",
+            "password": "hashed_password",
+            "description": "Abogada especializada en derecho tecnológico en TechJuris Consultancy. Mi enfoque se centra en resolver desafíos legales relacionados con la tecnología, desde contratos tecnológicos hasta ciberseguridad. Trabajo para ofrecer soluciones innovadoras y adaptadas a las necesidades de nuestros clientes.",
+            "is_manager": false,
+            "account": 7
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 13,
+        "fields": {
+            "email": "lramirez@legalharboradvisors.com",
+            "firstname": "Luisa",
+            "lastname": "Ramírez",
+            "password": "hashed_password",
+            "description": "Abogada en LegalHarbor Advisors, especializada en derecho empresarial y fusiones y adquisiciones. Mi objetivo es brindar asesoramiento legal estratégico y orientación financiera para lograr transacciones exitosas y el éxito a largo plazo de nuestros clientes.",
+            "is_manager": false,
+            "account": 8
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 14,
+        "fields": {
+            "email": "jmoreno@legalharboradvisors.es",
+            "firstname": "Javier",
+            "lastname": "Moreno",
+            "password": "hashed_password",
+            "description": "Abogado en LegalHarbor Advisors, especializado en derecho civil y familiar. Mi enfoque se centra en brindar asesoramiento legal integral y resolver disputas de manera efectiva. Trabajo para proteger los derechos de mis clientes en situaciones legales desafiantes.",
+            "is_manager": false,
+            "account": 8
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 15,
+        "fields": {
+            "email": "aperez@gomezabogados.com",
+            "firstname": "Antonio",
+            "lastname": "Pérez",
+            "password": "hashed_password",
+            "description": "Abogado especializado en propiedad intelectual en Gomez Abogados Sevilla. Mi experiencia se centra en la protección de derechos de autor, marcas registradas y patentes. Trabajo para brindar asesoramiento legal sólido y estratégico en un mundo cada vez más digitalizado.",
+            "is_manager": false,
+            "account": 11
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 16,
+        "fields": {
+            "email": "amartinez@arbitrajeandaluz.com",
+            "firstname": "Ana",
+            "lastname": "Martínez",
+            "password": "hashed_password",
+            "description": "Especialista en arbitraje en Arbitraje Empresarial Andaluz. Mi enfoque se centra en facilitar la resolución rápida y justa de disputas comerciales. Trabajo para proporcionar procesos de arbitraje transparentes y efectivos, permitiendo a las empresas resolver conflictos de manera colaborativa.",
+            "is_manager": false,
+            "account": 12
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 17,
+        "fields": {
+            "email": "cgomez@arbitrajeandaluz.com",
+            "firstname": "Carlos",
+            "lastname": "Gómez",
+            "password": "hashed_password",
+            "description": "Mediador empresarial en Arbitraje Empresarial Andaluz. Mi objetivo es facilitar acuerdos justos y equitativos en disputas empresariales. Trabajo para promover la resolución colaborativa de conflictos, contribuyendo al éxito a largo plazo de las empresas.",
+            "is_manager": false,
+            "account": 12
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 19,
+        "fields": {
+            "email": "msanchez@arbitrajeandaluz.com",
+            "firstname": "Marta",
+            "lastname": "Sánchez",
+            "password": "hashed_password",
+            "description": "Abogada especializada en litigios en Arbitraje Empresarial Andaluz. Mi enfoque se centra en representar a las empresas en disputas comerciales y litigios. Trabajo para garantizar que los intereses de mis clientes estén protegidos y abogar por soluciones justas.",
+            "is_manager": false,
+            "account": 12
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 20,
+        "fields": {
+            "email": "agomez@psaezya.es",
+            "firstname": "Ana",
+            "lastname": "Gómez",
+            "password": "hashed_password",
+            "description": "Abogada en Prudencio Sáez y asociados, especializada en derecho mercantil. Mi enfoque se centra en ofrecer asesoramiento legal integral y resolutivo a empresas y particulares. Trabajo para adaptar nuestras soluciones legales a las necesidades específicas de cada cliente.",
+            "is_manager": false,
+            "account": 1
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 21,
+        "fields": {
+            "email": "cmendoza@psaezya.es",
+            "firstname": "Carlos",
+            "lastname": "Mendoza",
+            "password": "hashed_password",
+            "description": "Abogado especializado en derecho inmobiliario en Prudencio Sáez y asociados. Mi misión es proporcionar asesoramiento experto en transacciones inmobiliarias y resolver desafíos legales en este campo. Trabajo para garantizar la seguridad y éxito en las operaciones inmobiliarias de nuestros clientes.",
+            "is_manager": false,
+            "account": 1
+        }
+    },
+    {
+        "model": "account.user",
+        "pk": 22,
+        "fields": {
+            "email": "pmartinez@psaezya.es",
+            "firstname": "Pablo",
+            "lastname": "Martínez",
+            "password": "hashed_password",
+            "description": "Consultor legal en Prudencio Sáez y asociados. Mi papel es proporcionar análisis y asesoramiento estratégico en cuestiones legales complejas. Trabajo para garantizar que nuestros clientes reciban soluciones innovadoras y adaptadas a sus necesidades.",
+            "is_manager": false,
+            "account": 1
+        }
+    },
+
+    {
+        "model": "account.follow",
+        "pk": 1,
+        "fields": {
+            "follower": 1,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 2,
+        "fields": {
+            "follower": 1,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 3,
+        "fields": {
+            "follower": 1,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 4,
+        "fields": {
+            "follower": 1,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 5,
+        "fields": {
+            "follower": 1,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 6,
+        "fields": {
+            "follower": 1,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 7,
+        "fields": {
+            "follower": 1,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 8,
+        "fields": {
+            "follower": 1,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 9,
+        "fields": {
+            "follower": 1,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 10,
+        "fields": {
+            "follower": 1,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 11,
+        "fields": {
+            "follower": 2,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 12,
+        "fields": {
+            "follower": 2,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 13,
+        "fields": {
+            "follower": 2,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 14,
+        "fields": {
+            "follower": 2,
+            "following": 7,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 15,
+        "fields": {
+            "follower": 2,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 16,
+        "fields": {
+            "follower": 2,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 17,
+        "fields": {
+            "follower": 2,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 18,
+        "fields": {
+            "follower": 2,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 19,
+        "fields": {
+            "follower": 3,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 20,
+        "fields": {
+            "follower": 3,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 21,
+        "fields": {
+            "follower": 3,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 22,
+        "fields": {
+            "follower": 3,
+            "following": 7,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 23,
+        "fields": {
+            "follower": 3,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 24,
+        "fields": {
+            "follower": 3,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 25,
+        "fields": {
+            "follower": 3,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 26,
+        "fields": {
+            "follower": 4,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 27,
+        "fields": {
+            "follower": 4,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 27,
+        "fields": {
+            "follower": 4,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 28,
+        "fields": {
+            "follower": 4,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 29,
+        "fields": {
+            "follower": 4,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 30,
+        "fields": {
+            "follower": 4,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 31,
+        "fields": {
+            "follower": 4,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 32,
+        "fields": {
+            "follower": 5,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 33,
+        "fields": {
+            "follower": 5,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 33,
+        "fields": {
+            "follower": 5,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 34,
+        "fields": {
+            "follower": 5,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 35,
+        "fields": {
+            "follower": 5,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 36,
+        "fields": {
+            "follower": 5,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 37,
+        "fields": {
+            "follower": 5,
+            "following": 7,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 38,
+        "fields": {
+            "follower": 5,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 39,
+        "fields": {
+            "follower": 5,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 40,
+        "fields": {
+            "follower": 5,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 41,
+        "fields": {
+            "follower": 5,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 42,
+        "fields": {
+            "follower": 6,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 43,
+        "fields": {
+            "follower": 6,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 44,
+        "fields": {
+            "follower": 6,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 45,
+        "fields": {
+            "follower": 6,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 46,
+        "fields": {
+            "follower": 6,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 47,
+        "fields": {
+            "follower": 6,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 48,
+        "fields": {
+            "follower": 6,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 49,
+        "fields": {
+            "follower": 6,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 50,
+        "fields": {
+            "follower": 6,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 51,
+        "fields": {
+            "follower": 6,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 52,
+        "fields": {
+            "follower": 7,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 53,
+        "fields": {
+            "follower": 7,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 54,
+        "fields": {
+            "follower": 7,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 55,
+        "fields": {
+            "follower": 7,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 56,
+        "fields": {
+            "follower": 7,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 57,
+        "fields": {
+            "follower": 7,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 58,
+        "fields": {
+            "follower": 7,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 59,
+        "fields": {
+            "follower": 7,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 60,
+        "fields": {
+            "follower": 7,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 61,
+        "fields": {
+            "follower": 7,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 62,
+        "fields": {
+            "follower": 8,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 63,
+        "fields": {
+            "follower": 8,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 64,
+        "fields": {
+            "follower": 8,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 65,
+        "fields": {
+            "follower": 8,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 66,
+        "fields": {
+            "follower": 9,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 67,
+        "fields": {
+            "follower": 10,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 68,
+        "fields": {
+            "follower": 10,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 69,
+        "fields": {
+            "follower": 10,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 70,
+        "fields": {
+            "follower": 10,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 71,
+        "fields": {
+            "follower": 10,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 72,
+        "fields": {
+            "follower": 10,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 73,
+        "fields": {
+            "follower": 10,
+            "following": 7,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 74,
+        "fields": {
+            "follower": 10,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 75,
+        "fields": {
+            "follower": 10,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 76,
+        "fields": {
+            "follower": 10,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 77,
+        "fields": {
+            "follower": 10,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 78,
+        "fields": {
+            "follower": 11,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 79,
+        "fields": {
+            "follower": 11,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 80,
+        "fields": {
+            "follower": 11,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 81,
+        "fields": {
+            "follower": 11,
+            "following": 4,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 82,
+        "fields": {
+            "follower": 11,
+            "following": 5,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 83,
+        "fields": {
+            "follower": 11,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 84,
+        "fields": {
+            "follower": 11,
+            "following": 7,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 85,
+        "fields": {
+            "follower": 11,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 86,
+        "fields": {
+            "follower": 11,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 87,
+        "fields": {
+            "follower": 11,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 88,
+        "fields": {
+            "follower": 11,
+            "following": 12,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 89,
+        "fields": {
+            "follower": 12,
+            "following": 1,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 90,
+        "fields": {
+            "follower": 12,
+            "following": 2,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 91,
+        "fields": {
+            "follower": 12,
+            "following": 3,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 92,
+        "fields": {
+            "follower": 12,
+            "following": 6,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 93,
+        "fields": {
+            "follower": 12,
+            "following": 8,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 94,
+        "fields": {
+            "follower": 12,
+            "following": 9,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 95,
+        "fields": {
+            "follower": 12,
+            "following": 10,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    },
+    {
+        "model": "account.follow",
+        "pk": 96,
+        "fields": {
+            "follower": 12,
+            "following": 11,
+            "created_at": "2024-02-02 00:00:00"
+        }
+    }
+]
+
+
+
+
+
+
+
