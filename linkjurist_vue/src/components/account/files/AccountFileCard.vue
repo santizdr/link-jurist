@@ -34,7 +34,7 @@
           </div>
           <div class="is-narrow">
             <div class="has-text-right case-file-stats mr-4">
-              <span class="secondary-text-color">{{ file.downloads }} <font-awesome-icon :icon="['fas', 'download']" /></span>
+              <span class="secondary-text-color">{{ file.downloads }} <font-awesome-icon class="mx-1" :icon="['fas', 'download']" /></span>
             </div>
           </div>
           </div>

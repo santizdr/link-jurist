@@ -29,7 +29,7 @@
                     </div>
                     <div class="is-narrow">
                         <div class="has-text-right case-file-stats mr-4">
-                            <span class="secondary-text-color mx-3">{{ publication.likes }} <font-awesome-icon :icon="['fas', 'heart']" /></span>
+                            <span class="secondary-text-color mx-3">{{ publication.likes }} <font-awesome-icon class="mx-1"  :icon="['fas', 'heart']" /></span>
                         </div>
                     </div>
                 </div>
