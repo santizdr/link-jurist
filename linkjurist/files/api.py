@@ -8,7 +8,6 @@ from files.models import File
 
 @api_view(['POST'])
 def uploadfile(request):
-    account = request.data.get('account')[0]
     files = []
     message = 'success'
     form = FileForm(request.POST, request.FILES)
@@ -16,7 +15,7 @@ def uploadfile(request):
     if form.is_valid():
         form.save()
 
-        files_data = File.objects.filter(account_id=account)
+        files_data = File.objects.filter(account_id=request.data.get('account'))
         files = FileSerializer(files_data, many=True).data
 
     else: 

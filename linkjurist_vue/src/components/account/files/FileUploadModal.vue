@@ -59,7 +59,6 @@
 
             axios.post("/api/uploadfile/", formData)
                 .then(response => {
-                    console.log(response);
 
                     if(response.data.message === "success") {
                         form.value.title = "";
@@ -83,7 +82,8 @@
         form.value.description = "";
         form.value.price = "";
         file.value = null;
-
+        selectedFileName.value = "";
+        
         emit('closeFileModal');
     }
 
