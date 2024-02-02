@@ -1,11 +1,11 @@
 <script setup>
     import axios from 'axios';
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import { useRouter } from 'vue-router'
 
     const router = useRouter()
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
     const error = ref({
         field: "",
@@ -23,7 +23,7 @@
         cp: "",
         locality: "",
         country: "",
-        user: store.user.id,
+        user: authStore.user.id,
     });
 
     async function submitForm() {
@@ -64,9 +64,9 @@
         if (error.value.field === '' && error.value.message === '') {
             await axios.post("/api/account/", form)
                 .then(response => {
-                    this.store.setAccountInfo(response.data.account);
-                    this.store.setTeamInfo(response.data.team);
-                    this.store.setFilesInfo(response.data.files);
+                    this.authStore.setAccountInfo(response.data.account);
+                    this.authStore.setTeamInfo(response.data.team);
+                    this.authStore.setFilesInfo(response.data.files);
 
                     router.push("/account");
                 })

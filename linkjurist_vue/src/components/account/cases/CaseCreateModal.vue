@@ -1,13 +1,13 @@
 <script setup>
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import axios from 'axios';
 
     const emit = defineEmits(['closeCaseModal'])
     const { props } = defineProps(['showCaseModal']);
 
-    const store = useUserStore();
-    const account_id = store.account.id;
+    const authStore = useAuthStore();
+    const account_id = authStore.account.id;
 
     const alert = ref({
         message: "",
@@ -67,7 +67,7 @@
                             form.value.date = "";
                             form.value.percent= "";
 
-                            this.store.setCasesInfo(response.data.cases);
+                            this.authStore.setCasesInfo(response.data.cases);
                             emit('closeCaseModal');
                         } else {
                             alert.value.status = "error";

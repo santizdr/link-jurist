@@ -1,13 +1,13 @@
 <script setup>
     import axios from 'axios';
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
 
     const emit = defineEmits(['closeUserModal'])
     const { props } = defineProps(['showUserModal']);
 
-    const store = useUserStore();
-    const account_id = store.account.id;
+    const authStore = useAuthStore();
+    const account_id = authStore.account.id;
 
     const alert = ref({
         message: "",
@@ -67,7 +67,7 @@
                         form.value.password1 = "";
                         form.value.password2= "";
 
-                        this.store.setTeamInfo(response.data.team);
+                        this.authStore.setTeamInfo(response.data.team);
                         emit('closeUserModal');
                     } else {
                         alert.value.status = "error";

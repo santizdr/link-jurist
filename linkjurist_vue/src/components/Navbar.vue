@@ -1,9 +1,9 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import { RouterLink } from 'vue-router';
     import { ref } from 'vue'
 
-    const store = useUserStore();
+    const authStore = useAuthStore();
     
     const showMobileMenu = ref(false);
     const showDropdownMenu = ref(false);
@@ -28,7 +28,7 @@
   </div>
 
   <div id="navbarMenu" class="navbar-menu" :class="{ 'is-active': showMobileMenu }">
-    <div v-if="store.user.isAuthenticated" class="navbar-start">
+    <div v-if="authStore.user.isAuthenticated" class="navbar-start">
       <!-- ENLACES PARA PANTALLA GRANDE -->
       <RouterLink to="/" class="navbar-item white-text is-hidden-touch mx-3">Inicio</RouterLink>
       <RouterLink to="/cases" class="navbar-item white-text is-hidden-touch mx-3">Casos</RouterLink>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="navbar-end">
-      <div v-if="store.user.isAuthenticated" class="navbar-item has-dropdown is-hoverable" @click="showDropdownMenu = !showDropdownMenu">
+      <div v-if="authStore.user.isAuthenticated" class="navbar-item has-dropdown is-hoverable" @click="showDropdownMenu = !showDropdownMenu">
         <a class="navbar-link white-text is-hidden-touch">
           Menú
         </a>
@@ -61,7 +61,7 @@
 
         <div class="navbar-dropdown is-right">
           <RouterLink to="/account" class="navbar-item">Mi cuenta</RouterLink>
-          <a v-on:click="store.changeAuthenticatedVal()" class="navbar-item">Cerrar sesión</a>
+          <a v-on:click="authStorechangeAuthenticatedVal()" class="navbar-item">Cerrar sesión</a>
 
         </div>
       </div>

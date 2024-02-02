@@ -1,20 +1,20 @@
 <script setup>
     import AccountHeader from '../account/AccountHeader.vue'
     import AccountTabs from '../account/AccountTabs.vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
 </script>
 
 
 <template>
     <section class="section mt-4">
-      <div v-if="store.user.isAuthenticated" class="columns is-centered">
+      <div v-if="authStore.user.isAuthenticated" class="columns is-centered">
       <div class="column is-three-quarters-desktop">
           <div class="box">
-            <AccountHeader :account="store.account" />
-            <AccountTabs :account="store.account" />
+            <AccountHeader :account="authStore.account" />
+            <AccountTabs :account="authStore.account" />
         </div>
       </div>
   </div>

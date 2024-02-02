@@ -1,5 +1,5 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import { ref } from 'vue'
 
     import AccountTeamCard from '../account/team/AccountTeamCard.vue'
@@ -10,7 +10,7 @@
     import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
 
     const { props } = defineProps(['account', 'activeTab', 'cases']);
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
     const showUserModal = ref(false);
     const showFileModal = ref(false);
@@ -58,7 +58,7 @@
 
                 </div>
             </div>
-            <AccountTeamCard v-for="user in store.team" :user="user" />
+            <AccountTeamCard v-for="user in authStore.team" :user="user" />
         </div>
         <div v-if="activeTab === 'case-tab'">
 
@@ -72,8 +72,8 @@
             <hr>
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros casos</h1>
-                <div v-if="store.cases.length > 0" class="scrollable-div">
-                    <AccountCaseCard v-for="caso in store.cases" :key="caso.id" :caso="caso" /> 
+                <div v-if="authStore.cases.length > 0" class="scrollable-div">
+                    <AccountCaseCard v-for="caso in authStore.cases" :key="caso.id" :caso="caso" /> 
                 </div>
                 <div v-else>
                     <p class="is-size-5 my-1">Aún no has publicado casos</p>
@@ -91,8 +91,8 @@
             <hr>
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros escritos</h1>
-                <div v-if="store.files.length > 0" class="scrollable-div">
-                    <AccountFileCard v-for="file in store.files" :key="file.id" :file="file" />
+                <div v-if="authStore.files.length > 0" class="scrollable-div">
+                    <AccountFileCard v-for="file in authStore.files" :key="file.id" :file="file" />
                 </div>
                 <div v-else>
                     <p class="is-size-5 my-1">Aún no hay escritos</p>

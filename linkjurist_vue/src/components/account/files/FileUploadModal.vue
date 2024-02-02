@@ -1,14 +1,14 @@
 <script setup>
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import axios from 'axios';
 
     const emit = defineEmits(['closeFileModal'])
     const { props } = defineProps(['showFileModal']);
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
-    const account_id = store.account.id;
-    const user_id = store.user.id;
+    const account_id = authStore.account.id;
+    const user_id = authStore.user.id;
     const selectedFileName = ref('');
     const file = ref(null);
 
@@ -66,7 +66,7 @@
                         form.value.description = "";
                         form.value.price = "";
 
-                        this.store.setFilesInfo(response.data.files);
+                        this.authStore.setFilesInfo(response.data.files);
                         emit('closeFileModal');
                     } else {
                         alert.value.status = "error";

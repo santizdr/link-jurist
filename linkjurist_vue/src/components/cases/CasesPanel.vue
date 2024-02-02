@@ -1,17 +1,17 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
 
     import CasesFilter from '../cases/CasesFilter.vue'
     import CasesList from '../cases/CasesList.vue'
     import CasesRanking from '../cases/CasesRanking.vue'
 
-    const store = useUserStore();
+    const authStore = useAuthStore();
 </script>
 
 
 <template>
   <section class="section mt-6">
-    <div v-if="store.user.isAuthenticated" class="columns is-centered">
+    <div v-if="authStore.user.isAuthenticated" class="columns is-centered">
         <div class="column is-three-quarters-desktop">
           <div class="columns">
             <div class="column">

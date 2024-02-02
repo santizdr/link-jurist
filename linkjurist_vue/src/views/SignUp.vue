@@ -1,9 +1,9 @@
 <script setup>
     import axios from 'axios';
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
 
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
     const alert = ref({
         message: "",

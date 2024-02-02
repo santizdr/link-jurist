@@ -11,3 +11,9 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = '__all__'
+
+
+class ContactsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = ('id', 'name', 'web', 'locality')

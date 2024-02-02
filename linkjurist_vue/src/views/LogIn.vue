@@ -1,11 +1,11 @@
 <script setup>
     import axios from 'axios';
     import { ref } from 'vue'
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
     import { useRouter } from 'vue-router'
 
     const router = useRouter()
-    const store = useUserStore();
+    const authStore = useAuthStore();
 
     const alert = ref({
         message: "",
@@ -39,7 +39,7 @@
         if (error.value.field === '' && error.value.message === '') {
             await axios.post("/api/login/", form._rawValue)
                 .then(response => {
-                    this.store.setToken(response.data);
+                    this.authStore.setToken(response.data);
 
                     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
                 })
@@ -51,7 +51,7 @@
 
             await axios.get("/api/me")
                 .then(response => {
-                    this.store.setStoreInfo(response.data);
+                    this.authStore.setStoreInfo(response.data);
                     if(response.data.account === '') {
                         router.push("accountprofile")
                     } else {

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useUserStore } from '@/stores/user'
+import { useAuthStore } from '@/stores/auth'
+import { useIndexStore } from '@/stores/index'
 
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -59,15 +60,19 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const store = useUserStore()
+  const authStore = useAuthStore()
+  const indexStore = useIndexStore()
 
-  if (!store.user.isAuthenticated) {
+  if (!authStore.user.isAuthenticated) {
     if (to.path !== '/login' && to.path !== '/signup' && to.path !== '/') {
       next('/login');
     } else {
       next();
     }
   } else {
+    if(to.path === '/') {
+      indexStore.fetchIndexData(authStore.account.id);
+    }
     next();
   }
   return false

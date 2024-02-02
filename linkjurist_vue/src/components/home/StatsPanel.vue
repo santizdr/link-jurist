@@ -1,13 +1,13 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
-    const store = useUserStore();
+    import { useAuthStore } from '@/stores/auth';
+    const authStore = useAuthStore();
 </script>
 
 <template>
     <div class="box">
         <div class="mb-4">
             <h1 class="is-size-5 has-text-weight-semibold">
-                Bienvenido a <span class="secondary-text-color">Link Jurist</span> {{ store.user.firstname }}
+                Bienvenido a <span class="secondary-text-color">Link Jurist</span> {{ authStore.user.firstname }}
             </h1>
         </div>
         <hr class="my-3">

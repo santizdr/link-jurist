@@ -1,7 +1,7 @@
 <script setup>
-    import { useUserStore } from '@/stores/user';
+    import { useAuthStore } from '@/stores/auth';
 
-    const store = useUserStore();
+    const authStore = useAuthStore();
     const { props } = defineProps(['caso']);
 </script>
 
