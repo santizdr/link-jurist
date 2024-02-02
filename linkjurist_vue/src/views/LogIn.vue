@@ -44,7 +44,6 @@
                     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
                 })
                 .catch(error => {
-                    alert.value.status = "error";
                     alert.value.message = "Se ha producido un error al iniciar sesión";
                     alert.value.class = "span-error";
                 })

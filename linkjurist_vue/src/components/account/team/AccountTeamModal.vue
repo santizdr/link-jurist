@@ -70,7 +70,6 @@
                         this.authStore.setTeamInfo(response.data.team);
                         emit('closeUserModal');
                     } else {
-                        alert.value.status = "error";
                         alert.value.message = "Se ha producido un error al añadir el usuario";
                         alert.value.class = "span-error";
                     }

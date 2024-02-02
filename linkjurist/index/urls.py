@@ -5,4 +5,5 @@ from . import api
 
 urlpatterns = [
     path('index/<int:id>/', api.index, name='index'),
+    path('createpost', api.createpost, name='createpost'),
 ]

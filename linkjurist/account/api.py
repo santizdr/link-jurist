@@ -13,7 +13,6 @@ from files.serializers import FileSerializer
 @api_view(['GET'])
 def me(request):
     my_user = User.objects.get(id=request.user.id)
-    print(my_user.account)
     user = UserSerializer(my_user).data
 
     if my_user.account is None:

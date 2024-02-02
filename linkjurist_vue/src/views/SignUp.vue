@@ -61,7 +61,6 @@
                         form.value.password1 = "";
                         form.value.password2= "";
                     } else {
-                        alert.value.status = "error";
                         alert.value.message = "Se ha producido un error en el registro";
                         alert.value.class = "span-error";
                     }

@@ -5,7 +5,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from account.models import Account, Follow
 from account.serializers import ContactsSerializer
+from .serializers import PostSerializer
 from .models import Post
+from .forms import PostForm
 
 
 @api_view(['GET'])
@@ -24,20 +26,43 @@ def index(request, id):
         contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
 
         publications_data = Post.objects.filter(Q(account__id__in=contact_ids))
-        publications = ContactsSerializer(publications_data, many=True).data
+        publications = PostSerializer(publications_data, many=True).data
 
     else:
-        contacts_data = Account.objects.filter(locality=account.locality)[:5]
+        contacts_data = Account.objects.filter(locality=account.locality).exclude(id=id)[:5]
         contacts = ContactsSerializer(contacts_data, many=True).data
 
         last_week = timezone.now() - timezone.timedelta(days=7)
 
         publication_suggestions_data = Post.objects.filter(post_date__gte=last_week).annotate(total_likes=Sum('likes')).order_by('-total_likes')
-        publication_suggestions = ContactsSerializer(publication_suggestions_data, many=True).data
+        publication_suggestions = PostSerializer(publication_suggestions_data, many=True).data
 
     return JsonResponse({
         "contacts": contacts,
         "contact_suggestions": contact_suggestions,
         "publications": publications,
         "publication_suggestions": publication_suggestions,
+    })
+
+
+@api_view(['POST'])
+def createpost(request):
+    data = request.data.get('_rawValue')
+
+    message = 'success'
+    
+    form = PostForm({
+        'account': data.get('account'),
+        'posted_by': data.get('posted_by'),
+        'content': data.get('content'),
+    })
+
+    if form.is_valid():
+        form.save()
+
+    else: 
+        message = 'error'
+
+    return JsonResponse({
+        'message': message,
     })

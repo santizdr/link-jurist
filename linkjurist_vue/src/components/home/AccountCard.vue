@@ -8,7 +8,7 @@
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
-                        <p class="title is-5">{{ account.name }}</p>
+                        <p class="account-card-title has-text-weight-semibold">{{ account.name }}</p>
                         <p class="subtitle is-6">{{ account.locality }}</p>
                     </div>
                 </div>

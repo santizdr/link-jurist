@@ -2,6 +2,7 @@
   import { useAuthStore } from '@/stores/auth';
   
   import WelcomePanel from './WelcomePanel.vue';
+  import CreatePost from './CreatePost.vue';
   import PublicationsList from './PublicationsList.vue';
   import StatsPanel from './StatsPanel.vue';
   import OtherAccounts from './OtherAccounts.vue';
@@ -18,6 +19,7 @@
         <StatsPanel />
       </div>
       <div v-if="authStore.user.isAuthenticated" class="column is-two-fifths-desktop">
+        <CreatePost />
         <PublicationsList />
       </div>
       <div v-if="authStore.user.isAuthenticated" class="column is-one-fifth-desktop">

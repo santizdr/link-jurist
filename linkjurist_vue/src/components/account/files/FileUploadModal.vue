@@ -69,7 +69,6 @@
                         this.authStore.setFilesInfo(response.data.files);
                         emit('closeFileModal');
                     } else {
-                        alert.value.status = "error";
                         alert.value.message = "Se ha producido un error subir el escrito";
                         alert.value.class = "span-error";
                     }

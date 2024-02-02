@@ -70,7 +70,6 @@
                             this.authStore.setCasesInfo(response.data.cases);
                             emit('closeCaseModal');
                         } else {
-                            alert.value.status = "error";
                             alert.value.message = "Se ha producido un error al publicar el caso";
                             alert.value.class = "span-error";
                         }            })
