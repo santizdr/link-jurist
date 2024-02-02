@@ -7,7 +7,7 @@ export const useIndexStore = defineStore("index", {
         contacts: [],
         contact_suggestions: [],
         publications: [],
-        publications_suggestions: [],
+        publication_suggestions: [],
     }),
 
     actions: {
@@ -18,7 +18,7 @@ export const useIndexStore = defineStore("index", {
                     this.contacts = response.data.contacts;
                     this.contact_suggestions = response.data.contact_suggestions;
                     this.publications = response.data.publications;
-                    this.publications_suggestions = response.data.publications_suggestions;
+                    this.publication_suggestions = response.data.publication_suggestions;
 
                 })
                 .catch(error => {

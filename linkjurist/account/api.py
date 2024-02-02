@@ -35,7 +35,7 @@ def me(request):
 
         files_data = File.objects.filter(account_id=account['id'])
         files = FileSerializer(files_data, many=True).data
-            
+
         return JsonResponse({
             'user': user,
             'account': account,

@@ -1,0 +1,151 @@
+[
+    {    
+        "model": "index.post",
+        "pk": 1,
+        "fields": {
+            "account": 4,
+            "posted_by": 8,
+            "content": "El 1 de enero de 2023 entró en vigor la 12ª edición de la Clasificación de Niza de marcas. Por primera vez, se incluyeron los NFTs dentro de la Clase 9, bajo el epígrafe 'archivos digitales descargables autenticados por tokens no fungibles'. La firma Burberry quiso ser de las primeras en tener su marca registrada como NFT y solicitó la marca figurativa de su icónico estampado de cuadros de líneas rojas, negras y blancas sobre fondo beige ante la EUIPO. La EUIPO se ha pronunciado al respecto y ha denegado la solicitud de marca europea. Sus razones: los artículos virtuales emulan los productos físicos y el público los va a percibir como un bolso o un pañuelo, pero no como un NFT. La EUIPO concluye que la solicitud carece de distintividad y la rechaza. Conoce todos los detalles de la resolución y de esta solicitud, que promete ser la primera de muchas, en el siguiente enlace: https://lnkd.in/e7jmr5jd",
+            "likes": "486",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 2,
+        "fields": {
+            "account": 4,
+            "posted_by": 8,
+            "content": "El año pasado se conocía la noticia de que la firma francesa Hermès había iniciado acciones legales contra el artista Mason Rothschild. ¿El motivo? El artista neoyorkino había acuñado y vendido en la plataforma Opensea una colección de 100 NFTs que eran una representación digital del icónico modelo de bolso Birkin. Los denominó 'Metabirkins' y al artista le supuso unas ventas por valor de 1,1 millones de dólares. Hermès reaccionó y el pasado 30 de enero de 2023 se conocía la sentencia, dictada por el Juzgado Federal de Manhattan. La conclusión: los Metabirkins impactan en los derechos de propiedad industrial de Hermès y suponen una infracción a sus derechos de marca. Conoce todos los detalles de esta importante sentencia en el siguiente enlace: https://lnkd.in/eFujAzBw",
+            "likes": "315",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 3,
+        "fields": {
+            "account": 1,
+            "posted_by": 1,
+            "content": "¡La comunicación jurídica está en constante evolución y los nuevos formatos de comunicación han llegado para quedarse! Con la implementación de nuevas herramientas digitales, como los Reels de Instagram, vídeos de Tiktok, los podcasts y los YouTube shorts, los abogados y bufetes de abogados tienen la oportunidad de ampliar su alcance y conectar con una audiencia más amplia. Estos nuevos formatos permiten que los abogados puedan compartir su conocimiento y experiencia de manera más accesible y entretenida para el público en general.\nDesde recomendaciones prácticas para transitar el camino de jurista a influencer, hasta análisis de casos complejos, estos formatos ofrecen una oportunidad única para que los abogados demuestren su experiencia y habilidades. Son muchas las posibilidades que ofrecen hoy en día las redes sociales.",
+            "likes": "112",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 4,
+        "fields": {
+            "account": 1,
+            "posted_by": 1,
+            "content": "Algunos juristas pensamos que los Estados miembros en el Tratado de Lisboa podrían haber hecho más por la integración económica europea en la redacción del Tratado de Funcionamiento de la UE. Se le dio mucha ambición política a la modificación del TUE y mucho protagonismo al principio de subsidiariedad, y bien está, en su justa medida. Algunos seguimos echando de menos hablar de codecisión y no de “procedimiento legislativo ordinario”, y algunos seguimos nostálgicos de la simplicidad del TCE, tan bien interpretado históricamente por el Tribunal de Justicia.\nPero el Tratado de Lisboa fue todo un hito y costó mucho esfuerzo cerrarlo y firmarlo en aquel diciembre de 2007, tras la adhesión de todo el bloque del países del este. Y pienso que fue una gran obra de Derecho Internacional para poner de acuerdo a tantos países. Tuve el honor de vivir en Bruselas por entonces y vivirlo. Vive l'Europe!",
+            "likes": "351",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 4,
+        "fields": {
+            "account": 2,
+            "posted_by": 5,
+            "content": "La resolución mezcla conceptos de derecho civil y de derecho administrativo sancionador. Con el art. 52.4 de la LO de protección de la infancia en la pantalla, lo que parece es que el menor de catorce años no tiene responsabilidad administrativa por infracciones en materia de protección de datos.\nEsa ley declara que los mayores de catorce años sí la tendrán, y también que cuando un menor de dieciocho años (pero mayor de catorce, se entiende) sea considerado responsable, los padres responderán solidariamente de la multa, pero no por la infracción. El padre del menor de catorce responderá de la eventual indemnización por daños y perjuicios. Pero no veo habilitación legal para imponer al padre la multa que no cabe imponer al hijo. Esto es coherente con la ausencia de responsabilidad penal del un menor de catorce.\nPor otro lado, invocar el art. 1903 del Código Civil (que dice que los padres responden de los 'daños' causados por los hijos, pero no dice nada de las infracciones administrativas) como fundamento de responsabilidad administrativa sancionadora... Para echarse a temblar. Y lo de citar una st. del Supremo de 1984 en un asunto de protección de datos... No se menciona de qué sala es, pero he tirado de aranzadi (vid. foto) y resulta que es de la sala civil, como era de esperar.",
+            "likes": "201",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 5,
+        "fields": {
+            "account": 3,
+            "posted_by": 4,
+            "content": "Se necesitan órdenes de arresto de la Corte Penal Internacional por los asesinatos masivos, la tortura y los 'juicios' de prisioneros de guerra ucranianos por parte de Rusia. Rusia ha bloqueado la investigación de la explosión en Olenivka que mató a más de 50 prisioneros de guerra ucranianos. Sin embargo, sus 'juicios' masivos de prisioneros de guerra ucranianos también constituyen una violación flagrante del derecho internacional y tienen perpetradores que deben responder por Halya Coynash. \nGrupo de Protección de los Derechos Humanos de Járkov: https://lnkd.in/gZRxqxvj",
+            "likes": "337",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 6,
+        "fields": {
+            "account": 5,
+            "posted_by": 9,
+            "content": "Ayer, World Justice Project presentó el Rule Of Law Index 2023, o Índice de Estado de Derecho (aunque bien podría ser Índice de Imperio de la Ley, dos conceptos íntimamente ligados con orígenes distintos).\nDe los 8 factores analizados, hay 2 factores resultan claves en la medición independiente y confiable del efectivo combate al crimen organizado y las organizaciones delictivas, estos son el Factor 5: Orden y Seguridad, y el Factor 8: Justicia Penal.\nEn quiénes se mantienen encabezando el top del Factor 8 son los países escandinavos, y en cuanto al Factor 5, Luxemburgo, Irlanda, y Singapur encabezan el ranking. En Latinoamérica y el Caribe, el Factor 5 es dominado por Barbados, Granada y Antigua y Barbuda (hallándose Uruguay en el puesto 10), y el Factor 8 lo es por San Vicente y las Granadinas, San Kitts y Nieves, y Las Bahamas (encontrándose Uruguay en la posición 6).",
+            "likes": "179",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 7,
+        "fields": {
+            "account": 5,
+            "posted_by": 9,
+            "content": "Ayer, World Justice Project presentó el Rule Of Law Index 2023, o Índice de Estado de Derecho (aunque bien podría ser Índice de Imperio de la Ley, dos conceptos íntimamente ligados con orígenes distintos).\nDe los 8 factores analizados, hay 2 factores resultan claves en la medición independiente y confiable del efectivo combate al crimen organizado y las organizaciones delictivas, estos son el Factor 5: Orden y Seguridad, y el Factor 8: Justicia Penal.\nEn quiénes se mantienen encabezando el top del Factor 8 son los países escandinavos, y en cuanto al Factor 5, Luxemburgo, Irlanda, y Singapur encabezan el ranking. En Latinoamérica y el Caribe, el Factor 5 es dominado por Barbados, Granada y Antigua y Barbuda (hallándose Uruguay en el puesto 10), y el Factor 8 lo es por San Vicente y las Granadinas, San Kitts y Nieves, y Las Bahamas (encontrándose Uruguay en la posición 6).",
+            "likes": "145",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 8,
+        "fields": {
+            "account": 6,
+            "posted_by": 10,
+            "content": "Hoy se lanza la campaña de la Autoridad Laboral Europea #EU4FairCosntruction dirigida a difundir los derechos, información sobre la cobertura social y obligaciones de las empresas del sector de la construcción en relación con sus trabajadores desplazados a otros países europeos para realizar obras. Sigue todas las actividades de la campaña en las cuentas de la #EULabourauthority. #EU4FairConstruction. Más información: https://europa.eu/!Bc7Gxr",
+            "likes": "654",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 9,
+        "fields": {
+            "account": 6,
+            "posted_by": 10,
+            "content": "España tenía pendiente, mediante la trasposición de la Directiva (UE) 2019/1937 del Parlamento Europeo y del Consejo, de 23 de octubre de 2019, relativa a la protección de las personas que informen sobre infracciones del Derecho de la Unión, este Proyecto de Ley que desde septiembre, y tras varias enmiendas, fue finalmente aprobado ayer.\nEsta norma tiene como objeto, según su exposición de motivos, 'proteger a las personas que en un contexto laboral o profesional detecten infracciones penales o administrativas graves o muy graves y las comuniquen mediante los mecanismos regulados en la misma'",
+            "likes": "443",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 10,
+        "fields": {
+            "account": 7,
+            "posted_by": 11,
+            "content": "Denuncian errores en procesos de selección de empresas públicas en Gijón, todos cometemos errores ¿Intencionados?\nEl Grupo municipal de Foro Asturias ha denunciado la existencia de errores en los procesos de selección de personal de las empresas públicas.\nJesús Martínez Salvador, portavoz del grupo, junto con el concejal Pelayo Barcia, han señalado una reciente sentencia del Juzgado de lo Social nº 3 de Gijón que anuló un proceso de selección de personal en la EMA por vulnerar los derechos de las personas con discapacidad.\nQuieres leer más? te dejamos el link: https://lnkd.in/dP3jdc-s",
+            "likes": "247",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 11,
+        "fields": {
+            "account": 7,
+            "posted_by": 12,
+            "content": "La oferta de formación en derecho y tecnología en las universidades públicas españolas es limitada, lo que pone a los estudiantes con menos recursos en una situación de desventaja competitiva y supone una gran limitación para las empresas privadas y los despachos de abogados.",
+            "likes": "533",
+            "post_date": "2024-02-02"
+        }
+    },
+    {    
+        "model": "index.post",
+        "pk": 12,
+        "fields": {
+            "account": 8,
+            "posted_by": 13,
+            "content": "Finalmente aquí un borrador consolidado acordado del Reglamento (Ley) sobre IA en la UE. La propuesta original había sido presentada por la Comisión Europea en abril de 2021. Durante las negociaciones de estos casi 3 años se han evidenciado los distintos intereses y perspectivas sobre la materia y el dinamismo del progreso tecnológico, como la irrupción de los modelos fundacionales de IA y sus aplicaciones de IA Generativa como GPT que plantearon nuevos riesgos y paradigmas para los legisladores y grupos de interés afectados. Este texto deberá ser aprobado ahora en la reunión del grupo de trabajo de Telecomunicaciones del Consejo de la UE del 24 de enero.",
+            "likes": "247",
+            "post_date": "2024-02-02"
+        }
+    }
+]
+
+
+
+
+
+

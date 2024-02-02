@@ -22,7 +22,7 @@
 
         </div>
         <div v-else>
-            <h2 class="subtitle">Aún no tienes contactos. Estas son algunas cuentas recomendaciones para tí</h2>
+            <h2 class="subtitle">Aún no tienes contactos. Estas son algunas publicaciones recomendadas para tí</h2>
             <hr>
             <PublicationCard v-for="publication in indexStore.publication_suggestions" :key="publication.id" :publication="publication" />
         </div>

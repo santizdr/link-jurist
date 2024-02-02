@@ -25,17 +25,16 @@ def index(request, id):
         suggestions_data = Account.objects.exclude(id=id).annotate(num_following=Count('following')).order_by('-num_following')[:5]
         contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
 
-        publications_data = Post.objects.filter(Q(account__id__in=contact_ids))
-        publications = PostSerializer(publications_data, many=True).data
+        publication_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
+        publication_suggestions = PostSerializer(publication_suggestions_data, many=True).data
 
     else:
         contacts_data = Account.objects.filter(locality=account.locality).exclude(id=id)[:5]
         contacts = ContactsSerializer(contacts_data, many=True).data
 
-        last_week = timezone.now() - timezone.timedelta(days=7)
+        publications_data = Post.objects.filter(Q(account__id__in=contact_ids))
+        publications = PostSerializer(publications_data, many=True).data
 
-        publication_suggestions_data = Post.objects.filter(post_date__gte=last_week).annotate(total_likes=Sum('likes')).order_by('-total_likes')
-        publication_suggestions = PostSerializer(publication_suggestions_data, many=True).data
 
     return JsonResponse({
         "contacts": contacts,
@@ -48,7 +47,6 @@ def index(request, id):
 @api_view(['POST'])
 def createpost(request):
     data = request.data.get('_rawValue')
-
     message = 'success'
     
     form = PostForm({

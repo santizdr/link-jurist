@@ -5,7 +5,7 @@ from datetime import date
 
 class Post(models.Model):    
     content = models.TextField(null=False, max_length=512)    
-    post_date = models.DateField(null=False, auto_now=False, auto_now_add=date.today())
+    post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
     visualizations = models.PositiveIntegerField(null=False, default=0)
     likes = models.PositiveIntegerField(null=False, default=0)
 

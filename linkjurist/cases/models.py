@@ -10,7 +10,7 @@ class Case(models.Model):
     title = models.CharField(null=False, max_length=256)    
     description = models.TextField(null=False)
     type = models.CharField(null=False, choices=CASE_TYPES)
-    post_date = models.DateField(null=False, auto_now=False, auto_now_add=date.today())
+    post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
     expiry_date = models.DateField(null=False, auto_now=False, auto_now_add=False)
     applitcations = models.PositiveIntegerField(null=False, default=0)
     visualizations = models.PositiveIntegerField(null=False, default=0)

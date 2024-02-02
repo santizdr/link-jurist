@@ -11,7 +11,7 @@ class File(models.Model):
     title = models.CharField(max_length=128)
     file = models.FileField(null=False, upload_to='uploads/')
     description = models.TextField(blank=True)
-    post_date = models.DateField(null=False, auto_now=False, auto_now_add=date.today())
+    post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
     downloads = models.PositiveIntegerField(null=False, default=0)
     price = models.DecimalField(null=False, max_digits=5, decimal_places=2)
 
