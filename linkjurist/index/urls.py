@@ -5,5 +5,6 @@ from . import api
 
 urlpatterns = [
     path('index/<int:id>/', api.index, name='index'),
+    path('accountdetails/<int:id>/', api.accountdetails, name='accountdetails'),
     path('createpost', api.createpost, name='createpost'),
 ]

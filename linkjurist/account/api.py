@@ -140,4 +140,3 @@ def account(request):
         'team': team,
         'files': files,
     })
-

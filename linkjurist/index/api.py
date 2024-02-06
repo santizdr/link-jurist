@@ -1,13 +1,20 @@
 from django.http import JsonResponse
-from django.utils import timezone
-from django.db.models import Count, Q, Sum
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from account.models import Account, Follow
-from account.serializers import ContactsSerializer
-from .serializers import PostSerializer
+from django.db.models import Count, Q, Sum
+
 from .models import Post
 from .forms import PostForm
+from .serializers import PostSerializer
+
+from account.models import Account, User, Follow
+from account.serializers import UserSerializer, AccountSerializer, ContactsSerializer
+
+from cases.models import Case
+from cases.serializers import CaseSerializer
+
+from files.models import File
+from files.serializers import FileSerializer
 
 
 @api_view(['GET'])
@@ -63,4 +70,31 @@ def createpost(request):
 
     return JsonResponse({
         'message': message,
+    })
+
+
+@api_view(['GET'])
+def accountdetails(request, id):
+    my_account = Account.objects.get(id=id)
+    account = AccountSerializer(my_account).data
+    
+    team_data = User.objects.filter(account_id=id)
+    team = UserSerializer(team_data, many=True).data
+
+    cases_data = Case.objects.filter(account_id=id)
+    cases = CaseSerializer(cases_data, many=True).data
+
+    files_data = File.objects.filter(account_id=id)
+    files = FileSerializer(files_data, many=True).data
+
+    print(account)
+    print(team)
+    print(cases)
+    print(files)
+
+    return JsonResponse({
+        'account': account,
+        'team': team,
+        'cases': cases,
+        'files': files,
     })

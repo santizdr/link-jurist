@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useIndexStore } from '@/stores/index'
+import { useDetailsStore } from '@/stores/details'
 
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -8,6 +9,7 @@ import LogIn from '../views/LogIn.vue'
 import CasesView from '../views/CasesView.vue'
 import FilesView from '../views/FilesView.vue'
 import AccountView from '../views/AccountView.vue'
+import AccountDetails from '../views/AccountDetails.vue'
 import AccountProfile from '../views/AccountProfile.vue'
 
 const router = createRouter({
@@ -49,6 +51,11 @@ const router = createRouter({
       component: AccountView,
     },
     {
+      path: '/account/:id',
+      name: 'AccountDetails',
+      component: AccountDetails,
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -62,6 +69,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const indexStore = useIndexStore()
+  const detailsStore = useDetailsStore()
 
   if (!authStore.user.isAuthenticated) {
     if (to.path !== '/login' && to.path !== '/signup' && to.path !== '/') {
@@ -72,6 +80,10 @@ router.beforeEach((to, from, next) => {
   } else {
     if(to.path === '/') {
       indexStore.fetchIndexData(authStore.account.id);
+    } else if (to.path.match(/^\/account\/\d+$/)) {
+      const id = to.params.id; 
+      detailsStore.fetchAccountData(id);
+      console.log(detailsStore);
     }
     next();
   }

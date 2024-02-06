@@ -8,7 +8,7 @@
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
-                        <p class="account-card-title has-text-weight-semibold">{{ account.name }}</p>
+                        <RouterLink :to="'/account/' + account.id" class="black-text account-card-title has-text-weight-semibold">{{ account.name }}</RouterLink>
                         <p class="subtitle is-6">{{ account.locality }}</p>
                     </div>
                 </div>

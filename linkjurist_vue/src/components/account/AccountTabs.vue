@@ -2,7 +2,7 @@
     import { ref } from 'vue'
     import AccountTabContent from '../account/AccountTabContent.vue'
 
-    const { props } = defineProps(['account']);
+    const { props } = defineProps(['viewData']);
     const activeTab = ref("info-tab");
 
     function handleActiveTab(id) {
@@ -38,7 +38,7 @@
 
                 </ul>
             </div>
-                <AccountTabContent :activeTab="activeTab" :account="account" />
+                <AccountTabContent :activeTab="activeTab" :viewData="viewData" />
         </div>
     </div>
 
