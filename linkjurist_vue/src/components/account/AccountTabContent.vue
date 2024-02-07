@@ -63,15 +63,13 @@
             <AccountTeamCard v-for="user in viewData.team" :user="user" />
         </div>
         <div v-if="activeTab === 'case-tab'">
-
-
-            <div class="mx-3">
+            <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Crea un caso</h1>
-                <a v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" @click="showCaseModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                <a @click="showCaseModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                     <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Crear</span>
                 </a>
+                <hr>
             </div>
-            <hr>
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros casos</h1>
                 <div v-if="viewData.cases.length > 0" class="scrollable-div">
@@ -84,16 +82,16 @@
 
         </div>
         <div v-if="activeTab === 'file-tab'">
-            <div class="mx-3">
+            <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Sube un escrito</h1>
-                <a v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                <a @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                     <span><font-awesome-icon :icon="['fas', 'upload']" class="top-ranking-icon mr-2" />Subir archivo</span>
                 </a>
+                <hr>
             </div>
-            <hr>
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros escritos</h1>
-                <div v-if="authStore.files.length > 0" class="scrollable-div">
+                <div v-if="viewData.files.length > 0" class="scrollable-div">
                     <AccountFileCard v-for="file in viewData.files" :key="file.id" :file="file" />
                 </div>
                 <div v-else>
