@@ -162,6 +162,41 @@ export const useAuthStore = defineStore("auth", {
                 console.log(error);
                 this.removeToken();
             })
-        }
+        },
+        logOut() {
+            this.removeToken();
+
+            this.account.id = null;
+            this.account.name = null;
+            this.account.description = null;
+            this.account.slogan = null;
+            this.account.web = null;
+            this.account.email = null;
+            this.account.phonenumber = null;
+            this.account.address = null;
+            this.account.cp = null;
+            this.account.locality = null;
+            this.account.country = null;
+      
+            this.team = [];
+            this.files = [];
+            this.cases = [];
+
+            localStorage.setItem("account.id", "");
+            localStorage.setItem("account.name", "");
+            localStorage.setItem("account.description", "");
+            localStorage.setItem("account.slogan", "");
+            localStorage.setItem("account.web", "");
+            localStorage.setItem("account.email", "");
+            localStorage.setItem("account.phonenumber", "");
+            localStorage.setItem("account.address", "");
+            localStorage.setItem("account.cp", "");
+            localStorage.setItem("account.locality", "");
+            localStorage.setItem("account.country", "");
+
+            localStorage.setItem("team", []);
+            localStorage.setItem("files", []);
+            localStorage.setItem("cases", []);
+        },
     }
 })
