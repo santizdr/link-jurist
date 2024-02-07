@@ -17,17 +17,21 @@ export const useDetailsStore = defineStore("details", {
             locality: null,
             country: null,
         },
+        follow: null,
         team: [],    
         cases: [],      
         files: [],        
     }),
 
     actions: {
-        async fetchAccountData(id) {
-          await axios.get("/api/accountdetails/" + id)
+        setFollow() {
+            this.follow = !this.follow;
+        },
+        async fetchAccountData(me, id) {
+          await axios.get("/api/accountdetails/" + me + "/" + id)
                 .then(response => {
-                    console.log(response.data)
                     this.account = response.data.account;
+                    this.follow = response.data.follow;
                     this.team = response.data.team;
                     this.cases = response.data.cases;
                     this.files = response.data.files;

@@ -33,7 +33,6 @@
             error.value.field = "content";
             error.value.message = "Introduce contenido a la publicación";
         } 
-        console.log(form.value);
 
         if (error.value.field === '' && error.value.message === '') {
             axios.post("/api/createpost", form)

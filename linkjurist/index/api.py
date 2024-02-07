@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from django.db.models import Count, Q, Sum
+from datetime import date
 
 from .models import Post
 from .forms import PostForm
@@ -9,6 +10,7 @@ from .serializers import PostSerializer
 
 from account.models import Account, User, Follow
 from account.serializers import UserSerializer, AccountSerializer, ContactsSerializer
+from account.forms import FollowForm
 
 from cases.models import Case
 from cases.serializers import CaseSerializer
@@ -25,18 +27,17 @@ def index(request, id):
     publications = []
     publication_suggestions = []
 
-    account = Account.objects.get(id=id)
     contact_ids = Follow.objects.filter(follower=id).values_list('following', flat=True)
 
+    suggestions_data = Account.objects.exclude(id__in=contact_ids).exclude(id=id).annotate(num_following=Count('following')).order_by('-num_following')[:5]
+    contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
+    
     if contact_ids.count() == 0:
-        suggestions_data = Account.objects.exclude(id=id).annotate(num_following=Count('following')).order_by('-num_following')[:5]
-        contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
-
         publication_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
         publication_suggestions = PostSerializer(publication_suggestions_data, many=True).data
 
     else:
-        contacts_data = Account.objects.filter(locality=account.locality).exclude(id=id)[:5]
+        contacts_data = Account.objects.filter(id__in=contact_ids)
         contacts = ContactsSerializer(contacts_data, many=True).data
 
         publications_data = Post.objects.filter(Q(account__id__in=contact_ids))
@@ -74,10 +75,13 @@ def createpost(request):
 
 
 @api_view(['GET'])
-def accountdetails(request, id):
+def accountdetails(request, me, id):
     my_account = Account.objects.get(id=id)
     account = AccountSerializer(my_account).data
     
+    follow_data = Follow.objects.filter(follower=me, following=id)
+    follow = follow_data.exists()
+
     team_data = User.objects.filter(account_id=id)
     team = UserSerializer(team_data, many=True).data
 
@@ -87,14 +91,43 @@ def accountdetails(request, id):
     files_data = File.objects.filter(account_id=id)
     files = FileSerializer(files_data, many=True).data
 
-    print(account)
-    print(team)
-    print(cases)
-    print(files)
-
     return JsonResponse({
         'account': account,
+        'follow': follow,
         'team': team,
         'cases': cases,
         'files': files,
     })
+
+
+@api_view(['POST'])
+def follow(request):
+    message = 'error'
+    follower = request.data.get('follower')
+    following = request.data.get('following')
+
+    follow = Follow.objects.filter(follower=follower, following=following)
+
+    if follow.exists():
+        follow.delete()
+        message = 'unfollowed'
+
+    else: 
+        form = FollowForm({
+            'follower': request.data.get('follower'),
+            'following': request.data.get('following'),
+        })
+
+        if form.is_valid():
+            form.save()
+            message = 'followed'
+
+        else: 
+            message = 'error'
+
+    return JsonResponse({
+        'message': message,
+    })
+
+
+

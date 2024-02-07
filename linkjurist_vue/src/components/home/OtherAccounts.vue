@@ -7,7 +7,7 @@
 
 <template>
     <div class="box">
-        <div v-if="indexStore.contacts.length > 0">
+        <div v-if="indexStore.contacts.length >= 5">
             <div class="mb-4">
                 <h1 class="is-size-5 has-text-weight-semibold">
                     Tus contactos
@@ -19,6 +19,26 @@
             </div>
         </div>
 
+        <div v-else-if="indexStore.contacts.length > 0">
+            <div class="mb-4">
+                <h1 class="is-size-5 has-text-weight-semibold">
+                    Tus contactos
+                </h1>
+            </div>
+            <hr class="my-3">
+            <div class="my-3">
+                <AccountCard v-for="account in indexStore.contacts" :key="account.id" :account="account" />
+            </div>
+            <div class="mb-4">
+                <h1 class="is-size-5 has-text-weight-semibold">
+                    Cuentas recomendadas
+                </h1>
+            </div>
+            <hr class="my-3">
+            <div class="my-3">
+                <AccountCard v-for="account in indexStore.contact_suggestions" :key="account.id" :account="account" />
+            </div>
+        </div>
         <div v-else>
             <div class="mb-4">
                 <h1 class="is-size-5 has-text-weight-semibold">
