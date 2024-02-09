@@ -86,7 +86,7 @@ def accountdetails(request, me, id):
     team = UserSerializer(team_data, many=True).data
 
     cases_data = Case.objects.filter(account_id=id)
-    cases = CaseSerializer(cases_data, many=True).data
+    cases = CaseSerializer(cases_data, many=True,context={'account': me}).data
 
     files_data = File.objects.filter(account_id=id)
     files = FileSerializer(files_data, many=True).data

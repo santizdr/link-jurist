@@ -1,12 +1,15 @@
 <script setup>
     import axios from 'axios'
     import { ref } from 'vue'
+    import router from '@/router'
     import { useAuthStore } from '@/stores/auth';
     import { useCasesStore } from '@/stores/cases';
+    import { useDetailsStore } from '@/stores/details';
 
     const { props } = defineProps(['caso']);
     const authStore = useAuthStore();
     const caseStore = useCasesStore();
+    const detailsStore = useDetailsStore();
 
     const alert = ref({
         message: "",
@@ -14,7 +17,7 @@
     });
 
 
-    function applyToCase(case_id) {
+    function applyToCase(case_id, acc_id) {
       const me = authStore.account.id;
       const data = {
         "applicant": me,
@@ -26,15 +29,19 @@
                 if(response.data.message === "applied") {
                   alert.value.message = "Has aplicado para la asiganción del caso";
                   alert.value.class = "span-success";
-                  caseStore.fetchCasesData(me);
                 } else if (response.data.message === "delete") {
                   alert.value.message = "Has cancelado tu solicitud de asiganción al caso";
                   alert.value.class = "span-success";
-                  caseStore.fetchCasesData(me)
                 } else {
                   console.log("Error")
                   alert.value.message = "Se ha producido un error";
                   alert.value.class = "span-error";
+                }
+
+                if (router.currentRoute.value.path.match("/cases")) {
+                  caseStore.fetchCasesData(authStore.account.id);
+                } else {
+                  detailsStore.fetchAccountData(authStore.account.id, detailsStore.account.id);
                 }
             })
             .catch(error => {
@@ -72,7 +79,7 @@
                 <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Aplicar
               </a>
               <a v-else @click.prevent="applyToCase(caso.id)" class="button is-rounded main-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
-                <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Cancelar
+                <font-awesome-icon :icon="['fas', 'minus']" class="top-ranking-icon mr-2" />Cancelar
               </a>
             </div>
             <div class="is-narrow">

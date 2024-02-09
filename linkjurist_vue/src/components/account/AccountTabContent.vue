@@ -10,6 +10,8 @@
     import AccountTeamModal from '../account/team/AccountTeamModal.vue'
     import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
 
+    import CaseCard from '../cases/CaseCard.vue'
+
     const { props } = defineProps(['viewData', 'activeTab']);
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
@@ -73,7 +75,12 @@
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros casos</h1>
                 <div v-if="viewData.cases.length > 0" class="scrollable-div">
-                    <AccountCaseCard v-for="caso in viewData.cases" :key="caso.id" :caso="caso" /> 
+                    <div v-if="authStore.account.id === viewData.account.id">
+                        <AccountCaseCard v-for="caso in viewData.cases" :key="caso.id" :caso="caso" /> 
+                    </div>
+                    <div v-else>
+                        <CaseCard v-for="caso in viewData.cases" :key="caso.id" :caso="caso" /> 
+                    </div>
                 </div>
                 <div v-else>
                     <p class="is-size-5 my-1">Aún no has publicado casos</p>
