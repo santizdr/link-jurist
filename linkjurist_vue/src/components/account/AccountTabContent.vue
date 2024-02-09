@@ -99,6 +99,13 @@
                 </div>
             </div>
         </div>
+        <div v-if="activeTab === 'applications-tab'">
+            <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
+                <h1 class="title is-3">Tus solicitudes</h1>
+
+                <hr>
+            </div>
+        </div>
     </div>
     <FileUploadModal :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
     <AccountTeamModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />

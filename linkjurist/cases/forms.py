@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from .models import Case
+from .models import Case, Apply
 
 class CaseForm(forms.ModelForm):
     class Meta:
@@ -18,3 +18,9 @@ class CaseForm(forms.ModelForm):
         if expiry_date and expiry_date <= datetime.date.today():
             raise forms.ValidationError("La fecha de vencimiento debe ser posterior a la fecha actual.")
         return expiry_date
+    
+
+class ApplyForm(forms.ModelForm):
+    class Meta:
+        model = Apply
+        fields = ('applicant', 'case')

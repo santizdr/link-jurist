@@ -16,7 +16,7 @@
            <p><span class="secondary-text-color">Precio: </span>{{ file.price }}</p> 
            <div class="columns is-vcentered">
             <div class="column">
-              <a id="signup_btn" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+              <a class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
                 <font-awesome-icon :icon="['fas', 'download']" class="top-ranking-icon mr-2" />Descargar
             </a>
             </div>

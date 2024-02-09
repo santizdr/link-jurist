@@ -1,0 +1,257 @@
+[
+    {    
+        "model": "cases.case",
+        "pk": 1,
+        "fields": {
+            "title": "Caso de Defensa Criminal",
+            "description": "El cliente enfrenta cargos criminales y busca representación legal para su defensa en el tribunal. Se necesita experiencia en derecho penal y juicios criminales.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "35",
+            "account": 1
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 2,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho de la Propiedad Intelectual",
+            "description": "Despacho especializado en derecho de la propiedad intelectual ofrece servicios para la protección de patentes, marcas registradas y derechos de autor.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "25",
+            "account": 1
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 3,
+        "fields": {
+            "title": "Caso de Accidente de Tráfico",
+            "description": "Se busca asesoramiento legal para un caso de accidente de tráfico. El cliente ha sufrido lesiones y busca una compensación justa. Experiencia en derecho de lesiones personales es esencial.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "40",
+            "account": 2
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 4,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho Inmobiliario",
+            "description": "Despacho de abogados especializado en derecho inmobiliario ofrece asesoramiento para transacciones de bienes raíces, contratos de arrendamiento y litigios relacionados con propiedades.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "45",
+            "account": 3
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 5,
+        "fields": {
+            "title": "Caso de Discriminación en el Trabajo",
+            "description": "El cliente ha experimentado discriminación en el lugar de trabajo y busca representación legal para presentar una demanda por discriminación laboral.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "40",
+            "account": 4
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 5,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho Ambiental",
+            "description": "Despacho especializado en derecho ambiental ofrece servicios para casos relacionados con regulaciones ambientales, cumplimiento y litigios ambientales.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "30",
+            "account": 5
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 6,
+        "fields": {
+            "title": "Caso de Herencia y Testamento",
+            "description": "Se necesita representación legal en un caso de herencia y testamento. Hay disputas entre los herederos sobre la distribución de los bienes.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "45",
+            "account": 6
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 7,
+        "fields": {
+            "title": "Caso Civil: Divorcio por Mutuo Acuerdo",
+            "description": "Proceso de divorcio amistoso entre Juan Pérez y María González. Acuerdo de custodia de hijos y división de bienes.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "50",
+            "account": 6
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 8,
+        "fields": {
+            "title": "Caso de Conflicto de Intereses en una Empresa Familiar",
+            "description": "Familia propietaria de una empresa enfrenta un conflicto de intereses entre los miembros sobre la dirección y gestión del negocio. Se requiere asesoramiento legal para resolver la disputa interna.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 4,
+            "visualizations": 8,
+            "percent": "30",
+            "account": 7
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 9,
+        "fields": {
+            "title": "Caso de Fraude Financiero",
+            "description": "Una empresa busca representación legal debido a un presunto fraude financiero por parte de uno de sus ex empleados. Se necesita experiencia en derecho comercial y financiero.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "20",
+            "account": 7
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 10,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho Laboral",
+            "description": "Bufete de abogados especializado en derecho laboral ofrece asesoramiento para empleados y empleadores en casos de despidos injustificados, acoso laboral y negociación colectiva.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "30",
+            "account": 8
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 11,
+        "fields": {
+            "title": "Caso de Quiebra Empresarial",
+            "description": "Una empresa enfrenta dificultades financieras y busca asesoramiento legal para presentar una solicitud de quiebra. Se necesita experiencia en derecho mercantil y procedimientos de insolvencia.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "25",
+            "account": 9
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 12,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho Laboral",
+            "description": "Despacho de abogados especializado en derecho laboral ofrece representación legal para sindicatos en negociaciones colectivas, huelgas y conflictos laborales.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "15",
+            "account": 10
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 13,
+        "fields": {
+            "title": "Caso de Responsabilidad Médica",
+            "description": "Paciente busca asesoramiento legal para presentar una demanda por negligencia médica luego de sufrir complicaciones tras una cirugía. Se necesita experiencia en derecho sanitario.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "35",
+            "account": 11
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 14,
+        "fields": {
+            "title": "Caso de Violencia Doméstica",
+            "description": "Cliente busca representación legal para obtener una orden de protección contra su agresor en un caso de violencia doméstica. Se requiere experiencia en derecho familiar y protección de víctimas.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "25",
+            "account": 11
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 15,
+        "fields": {
+            "title": "Caso de Quiebra Empresarial",
+            "description": "Una empresa enfrenta dificultades financieras y busca asesoramiento legal para presentar una solicitud de quiebra. Se necesita experiencia en derecho mercantil y procedimientos de insolvencia.",
+            "type": "DEMAND",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "50",
+            "account": 12
+        }
+    },
+    {    
+        "model": "cases.case",
+        "pk": 16,
+        "fields": {
+            "title": "Oferta de Servicios en Derecho Laboral",
+            "description": "Despacho de abogados especializado en derecho laboral ofrece representación legal para sindicatos en negociaciones colectivas, huelgas y conflictos laborales.",
+            "type": "OFFER",
+            "post_date": "2024-02-02",
+            "expiry_date": "2024-03-02",
+            "applications": 0,
+            "visualizations": 0,
+            "percent": "20",
+            "account": 12
+        }
+    }
+]

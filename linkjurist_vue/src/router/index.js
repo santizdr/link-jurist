@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useIndexStore } from '@/stores/index'
 import { useDetailsStore } from '@/stores/details'
+import { useCasesStore } from '@/stores/cases'
 
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -70,6 +71,7 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const indexStore = useIndexStore()
   const detailsStore = useDetailsStore()
+  const casesStore = useCasesStore()
 
   if (!authStore.user.isAuthenticated) {
     if (to.path !== '/login' && to.path !== '/signup' && to.path !== '/') {
@@ -83,6 +85,8 @@ router.beforeEach((to, from, next) => {
     } else if (to.path.match(/^\/account\/\d+$/)) {
       const id = to.params.id; 
       detailsStore.fetchAccountData(authStore.account.id, id);
+    } else if (to.path === '/cases') {
+      casesStore.fetchCasesData(authStore.account.id);
     }
     next();
   }

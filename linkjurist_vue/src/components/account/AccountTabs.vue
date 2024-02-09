@@ -1,7 +1,9 @@
 <script setup>
     import { ref } from 'vue'
     import AccountTabContent from '../account/AccountTabContent.vue'
-
+    import { useAuthStore } from '@/stores/auth';
+    
+    const authStore = useAuthStore();
     const { props } = defineProps(['viewData']);
     const activeTab = ref("info-tab");
 
@@ -35,10 +37,14 @@
                             <font-awesome-icon :icon="['fas', 'file']" class="tabs-icon mr-2" /><span>Escritos</span>
                         </a>
                     </li>
-
+                    <li v-if="viewData.account.id === authStore.account.id" :class="{'is-active': activeTab === 'applications-tab'}" @click="handleActiveTab('applications-tab')">
+                        <a>
+                            <font-awesome-icon :icon="['fas', 'arrow-right']" class="tabs-icon mr-2" /><span>Solicitudes</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
-                <AccountTabContent :activeTab="activeTab" :viewData="viewData" />
+            <AccountTabContent :activeTab="activeTab" :viewData="viewData" />
         </div>
     </div>
 

@@ -20,3 +20,12 @@ class Case(models.Model):
 
     def __str__(self):
         return str(self.title)
+    
+
+class Apply(models.Model):
+    STATUSES = (("PENDING", "Pendiente"), ("ACCEPTED", "Aceptada"), ("DENIED", "Rechazada"))
+
+    status = models.CharField(null=False, choices=STATUSES, default="PENDING")
+    applicant = models.ForeignKey(Account, related_name='applicant', on_delete=models.CASCADE)
+
+    case = models.ForeignKey(Case, on_delete=models.CASCADE, null=False)

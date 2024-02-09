@@ -5,4 +5,6 @@ from . import api
 
 urlpatterns = [
     path('postcase/', api.postcase, name='postcase'),
+    path('cases/', api.cases, name='cases'),
+    path('apply/', api.apply, name='apply'),
 ]

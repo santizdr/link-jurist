@@ -181,6 +181,7 @@ export const useAuthStore = defineStore("auth", {
             this.team = [];
             this.files = [];
             this.cases = [];
+            this.applications = [];
 
             localStorage.setItem("account.id", "");
             localStorage.setItem("account.name", "");
@@ -197,6 +198,7 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("team", []);
             localStorage.setItem("files", []);
             localStorage.setItem("cases", []);
+            localStorage.setItem("applications", []);
         },
     }
 })
