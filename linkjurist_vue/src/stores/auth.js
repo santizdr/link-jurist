@@ -29,6 +29,7 @@ export const useAuthStore = defineStore("auth", {
         team: [],
         files: [],
         cases: [],
+        applications: []
     }),
 
     actions: {
@@ -99,6 +100,10 @@ export const useAuthStore = defineStore("auth", {
                 this.setFilesInfo(data.files);
             }
 
+            if (data.applications.length > 0 ) {
+                this.setApplicationsInfo(data.applications);
+            }
+
             localStorage.setItem("user.id", this.user.id);
             localStorage.setItem("user.firstname", this.user.firstname);
             localStorage.setItem("user.lastname", this.user.lastname);
@@ -148,6 +153,12 @@ export const useAuthStore = defineStore("auth", {
 
             this.files = files;
             localStorage.setItem("files", files)
+        },
+        setApplicationsInfo(applications) {
+            console.log("Set applications info: ", applications);
+
+            this.applications = applications;
+            localStorage.setItem("applications", applications)
         },
         refreshToken() {
             axios.post("/api/account/refresh", {

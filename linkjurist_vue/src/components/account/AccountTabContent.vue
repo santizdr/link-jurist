@@ -9,6 +9,7 @@
     import AccountCaseCard from '../account/cases/AccountCaseCard.vue'
     import AccountTeamModal from '../account/team/AccountTeamModal.vue'
     import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
+    import ApplicationCard from '../account/cases/ApplicationCard.vue'
 
     import CaseCard from '../cases/CaseCard.vue'
 
@@ -46,6 +47,7 @@
                 <p class="is-size-5 my-1">{{ viewData.account.description }}</p>
             </div>
         </div>
+
         <div v-if="activeTab === 'team-tab'">
             <div class="columns">
                 <div class="column">
@@ -64,6 +66,7 @@
             </div>
             <AccountTeamCard v-for="user in viewData.team" :user="user" />
         </div>
+
         <div v-if="activeTab === 'case-tab'">
             <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Crea un caso</h1>
@@ -86,8 +89,8 @@
                     <p class="is-size-5 my-1">Aún no has publicado casos</p>
                 </div>
             </div>
-
         </div>
+
         <div v-if="activeTab === 'file-tab'">
             <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Sube un escrito</h1>
@@ -106,11 +109,16 @@
                 </div>
             </div>
         </div>
-        <div v-if="activeTab === 'applications-tab'">
-            <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
-                <h1 class="title is-3">Tus solicitudes</h1>
 
-                <hr>
+        <div v-if="activeTab === 'applications-tab'">
+            <div class="mx-3">
+                <h1 class="title is-3">Solicitudes a tus casos. </h1>
+                <div v-if="viewData.applications.length > 0" class="scrollable-div">
+                    <ApplicationCard v-for="application in viewData.applications" :key="application.id" :application="application" />
+                </div>
+                <div v-else>
+                    <p class="is-size-5 my-1">Aún no hay solicitudes</p>
+                </div>
             </div>
         </div>
     </div>

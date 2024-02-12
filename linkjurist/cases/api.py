@@ -51,10 +51,10 @@ def cases(request):
 @api_view(['POST'])
 def apply(request):
     message = 'error'
-    case = request.data.get('case')
+    case_id = request.data.get('case')
     applicant = request.data.get('applicant')
 
-    apply = Apply.objects.filter(case=case, applicant=applicant)
+    apply = Apply.objects.filter(case=case_id, applicant=applicant)
 
     if apply.exists():
         apply.delete()
@@ -62,13 +62,17 @@ def apply(request):
 
     else: 
         form = ApplyForm({
-            'case': case,
+            'case': case_id,
             'applicant': applicant,
         })
 
         if form.is_valid():
             form.save()
             message = 'applied'
+
+            case = Case.objects.get(id=case_id)
+            case.applications += case.applications
+            case.save()
 
         else: 
             message = 'error'

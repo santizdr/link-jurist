@@ -1,13 +1,16 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from . forms import SignupForm, AccountForm, AddUserForm
-from files.forms import FileForm
+
 from .models import User, Account
-from cases.models import Case
-from files.models import File
+from .forms import SignupForm, AccountForm, AddUserForm
 from .serializers import UserSerializer, AccountSerializer
-from cases.serializers import CaseSerializer
+
+from files.models import File
+from files.forms import FileForm
 from files.serializers import FileSerializer
+
+from cases.models import Case, Apply
+from cases.serializers import CaseSerializer, ApplySerializer
 
 
 @api_view(['GET'])
@@ -22,6 +25,7 @@ def me(request):
             'team': [],
             'cases': [],
             'files': [],
+            'applications': []
         })
     else:
         my_account = Account.objects.get(id=my_user.account.id)
@@ -36,12 +40,23 @@ def me(request):
         files_data = File.objects.filter(account_id=account['id'])
         files = FileSerializer(files_data, many=True).data
 
+        case_ids = [case['id'] for case in cases]
+
+        print("CASE IDS")
+        print(case_ids)
+
+        applications_data = Apply.objects.filter(case_id__in=case_ids)
+        print("APPLICATIONS")
+        print(applications_data)
+        applications = ApplySerializer(applications_data, many=True).data
+
         return JsonResponse({
             'user': user,
             'account': account,
             'team': team,
             'cases': cases,
             'files': files,
+            'applications': applications
         })
 
 

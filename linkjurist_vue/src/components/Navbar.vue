@@ -61,7 +61,7 @@
 
         <div class="navbar-dropdown is-right">
           <RouterLink to="/account" class="navbar-item">Mi cuenta</RouterLink>
-          <a v-on:click="authStore.logOut()" class="navbar-item">Cerrar sesión</a>
+          <RouterLink v-on:click="authStore.logOut()" to="/" class="navbar-item">Cerrar sesión</RouterLink>
 
         </div>
       </div>

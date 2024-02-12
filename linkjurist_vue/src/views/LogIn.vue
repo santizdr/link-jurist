@@ -42,24 +42,25 @@
                     this.authStore.setToken(response.data);
 
                     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
+
+                    axios.get("/api/me")
+                        .then(response => {
+                            this.authStore.setStoreInfo(response.data);
+                            if(response.data.account === '') {
+                                router.push("accountprofile")
+                            } else {
+                                router.push("/");
+                            }
+                        })
+                        .catch(error => {
+                            console.log("Error: ", error);
+                        })
                 })
                 .catch(error => {
                     alert.value.message = "Se ha producido un error al iniciar sesión";
                     alert.value.class = "span-error";
                 })
 
-            await axios.get("/api/me")
-                .then(response => {
-                    this.authStore.setStoreInfo(response.data);
-                    if(response.data.account === '') {
-                        router.push("accountprofile")
-                    } else {
-                        router.push("/");
-                    }
-                })
-                .catch(error => {
-                    console.log("Error: ", error);
-                })
         }
     }
 
