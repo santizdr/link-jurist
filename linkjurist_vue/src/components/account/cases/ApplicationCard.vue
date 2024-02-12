@@ -1,7 +1,8 @@
 <script setup>
-    import { useAuthStore } from '@/stores/auth';
+    import { ref } from 'vue'
+    import HandleApplicationModal from '@/components/account/cases/HandleApplicationModal.vue'
 
-    const authStore = useAuthStore();
+    const showApplicationModal = ref(false);
     const { props } = defineProps(['application']);
 </script>
 
@@ -10,10 +11,11 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content"> 
-            <p class="title is-4 my-5">{{ application.case_title }}</p>           
-            <p class="subtitle is-5 my-5"><span class="secondary-text-color">{{ application.applied_by }} </span> ha aplicado a tu caso</p> 
-
-            <span v-if="application.status === 'PENDING'" class="tag is-medium is-light mr-2">Pendiente<font-awesome-icon class="ml-2" :icon="['fas', 'clock']" /></span>
+            <p class="title is-4 my-5">{{ application.case_title }}</p>       
+            <p class="subtitle is-5 my-5">
+              <RouterLink :to="'/account/' + application.applicant" class="secondary-text-color account-card-title has-text-weight-semibold">{{ application.applied_by }}</RouterLink> ha aplicado a tu caso</p> 
+            <span class="secondary-text-color">Estado: </span>
+            <span v-if="application.status === 'PENDING'" class="tag is-medium is-light mr-2"><a @click="showApplicationModal = true" class="black-text">Pendiente<font-awesome-icon class="ml-2" :icon="['fas', 'clock']" /></a></span>
             <span v-else-if="application.status === 'DENIED'" class="tag is-medium is-danger mr-2">Rechazada<font-awesome-icon class="ml-2" :icon="['fas', 'xmark']" /></span>
             <span v-else class="tag is-medium is-success mr-2">Aceptada<font-awesome-icon class="ml-2" :icon="['fas', 'check']" /></span>
           </div>
@@ -33,4 +35,6 @@
         </div>
       </div>
     </div>   
+    <HandleApplicationModal :showApplicationModal="showApplicationModal" :applicationData="application" @close-application-modal="showApplicationModal = false" />
+
 </template>

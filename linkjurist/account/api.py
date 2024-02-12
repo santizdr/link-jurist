@@ -36,18 +36,12 @@ def me(request):
 
         cases_data = Case.objects.filter(account_id=account['id'])
         cases = CaseSerializer(cases_data, many=True).data
+        case_ids = [case['id'] for case in cases]
 
         files_data = File.objects.filter(account_id=account['id'])
         files = FileSerializer(files_data, many=True).data
 
-        case_ids = [case['id'] for case in cases]
-
-        print("CASE IDS")
-        print(case_ids)
-
         applications_data = Apply.objects.filter(case_id__in=case_ids)
-        print("APPLICATIONS")
-        print(applications_data)
         applications = ApplySerializer(applications_data, many=True).data
 
         return JsonResponse({

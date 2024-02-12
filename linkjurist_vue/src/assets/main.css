@@ -99,7 +99,7 @@
 }
 
 .input-error {
-    border-color: #F14668;
+    border-color: #F14668 !important;
 }
 
 .span-success {

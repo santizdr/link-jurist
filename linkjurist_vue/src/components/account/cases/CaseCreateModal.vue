@@ -111,6 +111,11 @@
 
         return regex.test(percent);
     }
+
+    function handleChangeSelect() {
+        error.value.field = "";
+        error.value.message = "";
+    }
 </script>
 
 <template>
@@ -133,19 +138,20 @@
                     <div class="field">
                         <label class="label">Descripción</label>
                         <div class="control">
-                            <textarea class="textarea" :class="{ 'input-error' : error.field === 'title' }" v-model="form.description"></textarea>
+                            <textarea class="textarea" :class="{ 'input-error' : error.field === 'description' }" v-model="form.description"></textarea>
                         </div>
                         <span v-if="error.field === 'description'" class="has-text-danger"> {{ error.message }}</span>
                     </div>
                     <div class="field">
                         <label class="label">Tipo</label>
                         <div class="select is-fullwidth">
-                            <select v-model="form.type">
+                            <select @change="handleChangeSelect()" :class="{ 'input-error' : error.field === 'type' }" v-model="form.type">
                                 <option value="">Nada seleccionado</option>
                                 <option value="OFFER">Oferta</option>
                                 <option value="DEMAND">Demanda</option>
                             </select>
                         </div>
+                        <span v-if="error.field === 'type'" class="has-text-danger"> {{ error.message }}</span>
                     </div>
                     <div class="field">
                         <label class="label">Fecha de expiración</label>
