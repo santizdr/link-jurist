@@ -82,6 +82,9 @@ router.beforeEach((to, from, next) => {
   } else {
     if(to.path === '/') {
       indexStore.fetchIndexData(authStore.account.id);
+    } else if(to.path === '/account' ) {
+      detailsStore.clearDetailsInfo();
+      authStore.reloadAccountInfo();
     } else if (to.path.match(/^\/account\/\d+$/)) {
       const id = to.params.id; 
       detailsStore.fetchAccountData(authStore.account.id, id);

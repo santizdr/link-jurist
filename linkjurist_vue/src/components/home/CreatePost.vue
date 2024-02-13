@@ -42,6 +42,7 @@
 
                             alert.value.message = "Publicación creada correctamente";
                             alert.value.class = "span-success";
+                            this.authStore.setPostsInfo(response.data.posts)
                         } else {
                             alert.value.message = "Se ha producido un error crear la publicación";
                             alert.value.class = "span-error";

@@ -27,6 +27,11 @@
                             <font-awesome-icon :icon="['fas', 'user']" class="tabs-icon mr-2" /><span>Equipo</span>
                         </a>
                     </li>
+                    <li :class="{'is-active': activeTab === 'posts-tab'}" @click="handleActiveTab('posts-tab')">
+                        <a>
+                            <font-awesome-icon :icon="['fas', 'keyboard']" class="tabs-icon mr-2" /><span>Publicaciones</span>
+                        </a>
+                    </li>
                     <li :class="{'is-active': activeTab === 'case-tab'}" @click="handleActiveTab('case-tab')">
                         <a>
                             <font-awesome-icon :icon="['fas', 'scale-balanced']" class="tabs-icon mr-2" /><span>Casos</span>

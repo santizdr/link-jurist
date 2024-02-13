@@ -6,19 +6,18 @@ export const useIndexStore = defineStore("index", {
     state: () => ({
         contacts: [],
         contact_suggestions: [],
-        publications: [],
-        publication_suggestions: [],
+        posts: [],
+        post_suggestions: [],
     }),
 
     actions: {
         async fetchIndexData(id) {
           await axios.get("/api/index/" + id)
                 .then(response => {
-                    console.log(response.data)
                     this.contacts = response.data.contacts;
                     this.contact_suggestions = response.data.contact_suggestions;
-                    this.publications = response.data.publications;
-                    this.publication_suggestions = response.data.publication_suggestions;
+                    this.posts = response.data.posts;
+                    this.post_suggestions = response.data.post_suggestions;
 
                 })
                 .catch(error => {

@@ -6,11 +6,13 @@ from .forms import SignupForm, AccountForm, AddUserForm
 from .serializers import UserSerializer, AccountSerializer
 
 from files.models import File
-from files.forms import FileForm
 from files.serializers import FileSerializer
 
 from cases.models import Case, Apply
 from cases.serializers import CaseSerializer, ApplySerializer
+
+from index.models import Post
+from index.serializers import PostSerializer
 
 
 @api_view(['GET'])
@@ -23,6 +25,7 @@ def me(request):
             'user': user,
             'account': '',
             'team': [],
+            'posts': [],
             'cases': [],
             'files': [],
             'applications': []
@@ -33,6 +36,9 @@ def me(request):
         
         team_data = User.objects.filter(account_id=account['id'])
         team = UserSerializer(team_data, many=True).data
+
+        posts_data = Post.objects.filter(account_id=account['id'])
+        posts = PostSerializer(posts_data, many=True).data
 
         cases_data = Case.objects.filter(account_id=account['id'])
         cases = CaseSerializer(cases_data, many=True).data
@@ -48,6 +54,7 @@ def me(request):
             'user': user,
             'account': account,
             'team': team,
+            'posts': posts,
             'cases': cases,
             'files': files,
             'applications': applications

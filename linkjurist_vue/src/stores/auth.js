@@ -27,6 +27,7 @@ export const useAuthStore = defineStore("auth", {
             country: null,
         },
         team: [],
+        posts: [],
         files: [],
         cases: [],
         applications: []
@@ -92,6 +93,10 @@ export const useAuthStore = defineStore("auth", {
                 this.setTeamInfo(data.team);
             }
 
+            if (data.posts.length > 0 ) {
+                this.setPostsInfo(data.posts);
+            }
+
             if (data.cases.length > 0 ) {
                 this.setCasesInfo(data.cases);
             }
@@ -142,6 +147,12 @@ export const useAuthStore = defineStore("auth", {
             this.team = team;
             localStorage.setItem("team", team)
         },
+        setPostsInfo(posts) {
+            console.log("Set posts info: ", posts);
+
+            this.posts = posts;
+            localStorage.setItem("posts", posts)
+        },
         setCasesInfo(cases) {
             console.log("Set cases info: ", cases);
 
@@ -190,6 +201,7 @@ export const useAuthStore = defineStore("auth", {
             this.account.country = null;
       
             this.team = [];
+            this.posts = [];
             this.files = [];
             this.cases = [];
             this.applications = [];
@@ -207,9 +219,19 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("account.country", "");
 
             localStorage.setItem("team", []);
+            localStorage.setItem("posts", []);
             localStorage.setItem("files", []);
             localStorage.setItem("cases", []);
             localStorage.setItem("applications", []);
         },
+        reloadAccountInfo() {
+            axios.get("/api/me")
+            .then(response => {
+                this.authStore.setStoreInfo(response.data);
+            })
+            .catch(error => {
+                console.log("Error: ", error);
+            })
+        }
     }
 })

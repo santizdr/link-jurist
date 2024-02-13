@@ -3,7 +3,7 @@
   
   import WelcomePanel from './WelcomePanel.vue';
   import CreatePost from './CreatePost.vue';
-  import PublicationsList from './PublicationsList.vue';
+  import PostsList from './PostsList.vue';
   import StatsPanel from './StatsPanel.vue';
   import OtherAccounts from './OtherAccounts.vue';
 
@@ -20,7 +20,7 @@
       </div>
       <div v-if="authStore.user.isAuthenticated" class="column is-two-fifths-desktop">
         <CreatePost />
-        <PublicationsList />
+        <PostsList />
       </div>
       <div v-if="authStore.user.isAuthenticated" class="column is-one-fifth-desktop">
         <OtherAccounts />

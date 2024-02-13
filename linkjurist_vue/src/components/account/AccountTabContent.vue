@@ -7,11 +7,13 @@
     import FileUploadModal from '../account/files/FileUploadModal.vue'
     import AccountFileCard from '../account/files/AccountFileCard.vue'
     import AccountCaseCard from '../account/cases/AccountCaseCard.vue'
+    import AccountPostCard from '../account/posts/AccountPostCard.vue'
     import AccountTeamModal from '../account/team/AccountTeamModal.vue'
     import CaseCreateModal from '../account/cases/CaseCreateModal.vue'
     import ApplicationCard from '../account/cases/ApplicationCard.vue'
-
     import CaseCard from '../cases/CaseCard.vue'
+    import PostCard from '@/components/home/PostCard.vue'
+    import CreatePost from '@/components/home/CreatePost.vue'
 
     const { props } = defineProps(['viewData', 'activeTab']);
     const authStore = useAuthStore();
@@ -65,6 +67,32 @@
                 </div>
             </div>
             <AccountTeamCard v-for="user in viewData.team" :user="user" />
+        </div>
+
+        <div v-if="activeTab === 'posts-tab'">
+            <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
+                <CreatePost />
+                <hr>
+            </div>
+            <div class="mx-3">
+                <h1 class="title is-3">Nuestras publicaciones</h1>
+                <div v-if="authStore.account.id === viewData.account.id">
+                    <div v-if="viewData.posts.length > 0" class="scrollable-div">
+                        <AccountPostCard v-for="post in viewData.posts" :key="post.id" :post="post" /> 
+                    </div>
+                    <div v-else>
+                        <p class="is-size-5 my-1">Aún no has realizado ninguna publicación</p>
+                    </div>
+                </div>
+                <div v-else>
+                    <div v-if="viewData.posts.length > 0" class="scrollable-div">
+                        <PostCard v-for="post in viewData.posts" :key="post.id" :post="post" /> 
+                    </div>
+                    <div v-else>
+                        <p class="is-size-5 my-1">Aún no hay publicaciones en esta cuenta</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div v-if="activeTab === 'case-tab'">

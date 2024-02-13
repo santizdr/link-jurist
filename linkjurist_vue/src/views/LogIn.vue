@@ -40,7 +40,6 @@
             await axios.post("/api/login/", form._rawValue)
                 .then(response => {
                     this.authStore.setToken(response.data);
-
                     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
 
                     axios.get("/api/me")

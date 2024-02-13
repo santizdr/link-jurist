@@ -18,14 +18,17 @@ from cases.serializers import CaseSerializer
 from files.models import File
 from files.serializers import FileSerializer
 
+from index.models import Post
+from index.serializers import PostSerializer
+
 
 @api_view(['GET'])
 def index(request, id):
 
     contacts = []
     contact_suggestions = []
-    publications = []
-    publication_suggestions = []
+    posts = []
+    post_suggestions = []
 
     contact_ids = Follow.objects.filter(follower=id).values_list('following', flat=True)
 
@@ -33,22 +36,22 @@ def index(request, id):
     contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
     
     if contact_ids.count() == 0:
-        publication_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
-        publication_suggestions = PostSerializer(publication_suggestions_data, many=True).data
+        post_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
+        post_suggestions = PostSerializer(post_suggestions_data, many=True).data
 
     else:
         contacts_data = Account.objects.filter(id__in=contact_ids)
         contacts = ContactsSerializer(contacts_data, many=True).data
 
-        publications_data = Post.objects.filter(Q(account__id__in=contact_ids))
-        publications = PostSerializer(publications_data, many=True).data
+        posts_data = Post.objects.filter(Q(account__id__in=contact_ids))
+        posts = PostSerializer(posts_data, many=True).data
 
 
     return JsonResponse({
         "contacts": contacts,
         "contact_suggestions": contact_suggestions,
-        "publications": publications,
-        "publication_suggestions": publication_suggestions,
+        "posts": posts,
+        "post_suggestions": post_suggestions,
     })
 
 
@@ -69,8 +72,12 @@ def createpost(request):
     else: 
         message = 'error'
 
+    posts_data = Post.objects.filter(account_id=data.get('account'))
+    posts = PostSerializer(posts_data, many=True).data
+
     return JsonResponse({
         'message': message,
+        'posts': posts,
     })
 
 
@@ -85,6 +92,9 @@ def accountdetails(request, me, id):
     team_data = User.objects.filter(account_id=id)
     team = UserSerializer(team_data, many=True).data
 
+    posts_data = Post.objects.filter(account_id=account['id'])
+    posts = PostSerializer(posts_data, many=True).data
+    
     cases_data = Case.objects.filter(account_id=id)
     cases = CaseSerializer(cases_data, many=True,context={'account': me}).data
 
@@ -95,6 +105,7 @@ def accountdetails(request, me, id):
         'account': account,
         'follow': follow,
         'team': team,
+        'posts': posts,
         'cases': cases,
         'files': files,
     })
