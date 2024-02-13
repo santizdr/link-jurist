@@ -30,7 +30,7 @@
           <div class="column">
             <a @click="openFile(file.id)" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
               <font-awesome-icon :icon="['fas', 'file']" class="top-ranking-icon mr-2" />Abrir
-          </a>
+            </a>
           </div>
           <div class="is-narrow">
             <div class="has-text-right case-file-stats mr-4">

@@ -3,6 +3,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useIndexStore } from '@/stores/index'
 import { useDetailsStore } from '@/stores/details'
 import { useCasesStore } from '@/stores/cases'
+import { useFilesStore } from '@/stores/files'
 
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -72,6 +73,7 @@ router.beforeEach((to, from, next) => {
   const indexStore = useIndexStore()
   const detailsStore = useDetailsStore()
   const casesStore = useCasesStore()
+  const filesStore = useFilesStore()
 
   if (!authStore.user.isAuthenticated) {
     if (to.path !== '/login' && to.path !== '/signup' && to.path !== '/') {
@@ -90,6 +92,8 @@ router.beforeEach((to, from, next) => {
       detailsStore.fetchAccountData(authStore.account.id, id);
     } else if (to.path === '/cases') {
       casesStore.fetchCasesData(authStore.account.id);
+    } else if (to.path === '/files') {
+      filesStore.fetchFilesData(authStore.account.id);
     }
     next();
   }

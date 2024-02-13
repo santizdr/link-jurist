@@ -6,6 +6,18 @@ from .serializers import FileSerializer
 from files.models import File
 
 
+@api_view(['GET'])
+def files(request):
+    id = request.query_params.get('id')
+    files_data = File.objects.all().exclude(id=id)
+    files = FileSerializer(files_data, many=True, context={'account': id}).data
+    print(files)
+
+    return JsonResponse({
+        'files': files
+    })
+
+
 @api_view(['POST'])
 def uploadfile(request):
     files = []
