@@ -7,9 +7,12 @@ from account.models import Account, User
 
 # Create your models here.
 
+def user_directory_path(instance, filename):
+    return f'uploads/{instance.account.id}/{filename}'
+
 class File(models.Model):
     title = models.CharField(max_length=128)
-    file = models.FileField(null=False, upload_to='uploads/')
+    file = models.FileField(null=False, upload_to=user_directory_path)
     description = models.TextField(blank=True)
     post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
     downloads = models.PositiveIntegerField(null=False, default=0)
