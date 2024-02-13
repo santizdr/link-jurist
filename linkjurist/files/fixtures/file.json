@@ -1,0 +1,311 @@
+[
+    {
+        "model": "files.file",
+        "pk": 1,
+        "fields": {
+            "title": "Demanda de Divorcio",
+            "file": "uploads/1/pdf-prueba.pdf",
+            "description": "Modelo de demanda presentada por Juan Pérez solicitando el divorcio de María González.",
+            "post_date": "2023-01-01",
+            "downloads": 0,
+            "price": "10.50",
+            "account_id": 1,
+            "uploaded_by_id": 1
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 2,
+        "fields": {
+            "title": "Escrito de Alegaciones",
+            "file": "uploads/1/pdf-prueba.pdf",
+            "description": "Alegaciones presentadas por la defensa en el caso 'Estado vs. Rodríguez'.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 1,
+            "uploaded_by_id": 2
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 3,
+        "fields": {
+            "title": "Recurso de Amparo",
+            "file": "uploads/1/pdf-prueba.pdf",
+            "description": "Recurso de amparo interpuesto por Ana Martínez ante el Tribunal Constitucional.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 1,
+            "uploaded_by_id": 21
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 4,
+        "fields": {
+            "title": "Escrito de Defensa Penal",
+            "file": "uploads/1/pdf-prueba.pdf",
+            "description": "Defensa penal de Roberto Jiménez en el caso 'Estado vs. Jiménez'.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 1,
+            "uploaded_by_id": 22
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 5,
+        "fields": {
+            "title": "Sentencia de Custodia",
+            "file": "uploads/2/pdf-prueba.pdf",
+            "description": "Defensa penal de Roberto Jiménez en el caso 'Estado vs. Jiménez'.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 2,
+            "uploaded_by_id": 5
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 6,
+        "fields": {
+            "title": "Sentencia de Custodia",
+            "file": "uploads/2/pdf-prueba.pdf",
+            "description": "Sentencia dictada por el juez García en el caso de custodia de los hijos de Laura Torres.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 2,
+            "uploaded_by_id": 5
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 7,
+        "fields": {
+            "title": "Reclamación de Daños",
+            "file": "uploads/3/pdf-prueba.pdf",
+            "description": "Modelo utilizado en reclamación de daños y perjuicios presentada por Carlos Fernández contra la compañía XYZ.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "8.00",
+            "account_id": 3,
+            "uploaded_by_id": 6
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 8,
+        "fields": {
+            "title": "Testamento",
+            "file": "uploads/3/pdf-prueba.pdf",
+            "description": "Testamento de Isabel Ramírez, otorgado ante notario el 15 de marzo de 2023.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "7.25",
+            "account_id": 3,
+            "uploaded_by_id": 7
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 9,
+        "fields": {
+            "title": "Recurso Administrativo",
+            "file": "uploads/5/pdf-prueba.pdf",
+            "description": "Recurso administrativo presentado por la empresa ABC contra la resolución del organismo regulador.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "7.25",
+            "account_id": 5,
+            "uploaded_by_id": 9
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 10,
+        "fields": {
+            "title": "Contrato de Arrendamiento",
+            "file": "uploads/5/pdf-prueba.pdf",
+            "description": "Contrato de arrendamiento entre Juan López (arrendador) y Marta Sánchez (arrendataria) para la propiedad ubicada en Calle Principal.",
+            "post_date": "2023-02-01",
+            "downloads": 0,
+            "price": "7.25",
+            "account_id": 6,
+            "uploaded_by_id": 10
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 11,
+        "fields": {
+            "title": "Informe de Auditoría Financiera",
+            "file": "uploads/7/pdf-prueba.pdf",
+            "description": "Informe detallado sobre la situación financiera de la empresa X para el ejercicio fiscal de 2023.",
+            "post_date": "2023-03-15",
+            "downloads": 0,
+            "price": "15.00",
+            "account_id": 7,
+            "uploaded_by_id": 11
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 12,
+        "fields": {
+            "title": "Memoria de Tesis",
+            "file": "uploads/7/pdf-prueba.pdf",
+            "description": "Memoria final de la tesis doctoral de María Gómez sobre el impacto ambiental de la deforestación en la región amazónica.",
+            "post_date": "2023-04-30",
+            "downloads": 0,
+            "price": "0.00",
+            "account_id": 7,
+            "uploaded_by_id": 12
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 13,
+        "fields": {
+            "title": "Contrato de Compra-Venta",
+            "file": "uploads/8/pdf-prueba.pdf",
+            "description": "Contrato de compra-venta de un vehículo entre Ana Pérez (vendedora) y Juan García (comprador).",
+            "post_date": "2023-05-10",
+            "downloads": 0,
+            "price": "20.00",
+            "account_id": 8,
+            "uploaded_by_id": 13
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 14,
+        "fields": {
+            "title": "Presentación de Proyecto",
+            "file": "uploads/8/pdf-prueba.pdf",
+            "description": "Presentación detallada del proyecto de desarrollo de software para la empresa Y.",
+            "post_date": "2023-06-20",
+            "downloads": 0,
+            "price": "0.00",
+            "account_id": 8,
+            "uploaded_by_id": 14
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 16,
+        "fields": {
+            "title": "Modelo de Contrato de Trabajo",
+            "file": "uploads/11/pdf-prueba.pdf",
+            "description": "Modelo estándar de contrato de trabajo para empleados a tiempo completo.",
+            "post_date": "2023-08-10",
+            "downloads": 0,
+            "price": "5.00",
+            "account_id": 11,
+            "uploaded_by_id": 15
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 17,
+        "fields": {
+            "title": "Modelo de Escritura de Testamento",
+            "file": "uploads/11/pdf-prueba.pdf",
+            "description": "Modelo de documento legal para la redacción de testamentos.",
+            "post_date": "2023-09-15",
+            "downloads": 0,
+            "price": "3.00",
+            "account_id": 11,
+            "uploaded_by_id": 15
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 18,
+        "fields": {
+            "title": "Modelo de Carta de Presentación",
+            "file": "uploads/12/pdf-prueba.pdf",
+            "description": "Modelo de carta de presentación para solicitudes de empleo.",
+            "post_date": "2023-10-20",
+            "downloads": 0,
+            "price": "2.50",
+            "account_id": 12,
+            "uploaded_by_id": 16
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 19,
+        "fields": {
+            "title": "Modelo de Recurso de Reposición",
+            "file": "uploads/12/pdf-prueba.pdf",
+            "description": "Modelo de recurso administrativo para impugnar resoluciones administrativas.",
+            "post_date": "2023-11-25",
+            "downloads": 0,
+            "price": "4.00",
+            "account_id": 12,
+            "uploaded_by_id": 17
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 20,
+        "fields": {
+            "title": "Modelo de Presentación de Proyecto",
+            "file": "uploads/12/pdf-prueba.pdf",
+            "description": "Modelo de presentación para exponer proyectos de inversión.",
+            "post_date": "2023-12-30",
+            "downloads": 0,
+            "price": "3.50",
+            "account_id": 12,
+            "uploaded_by_id": 17
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 21,
+        "fields": {
+            "title": "Modelo de Declaración Jurada",
+            "file": "uploads/12/pdf-prueba.pdf",
+            "description": "Modelo de declaración jurada para certificar información personal o legal.",
+            "post_date": "2024-01-05",
+            "downloads": 0,
+            "price": "2.00",
+            "account_id": 12,
+            "uploaded_by_id": 19
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 22,
+        "fields": {
+            "title": "Modelo de Recibo de Pago",
+            "file": "uploads/12/pdf-prueba.pdf",
+            "description": "Modelo estándar de recibo para confirmar el pago de bienes o servicios.",
+            "post_date": "2024-02-10",
+            "downloads": 0,
+            "price": "1.50",
+            "account_id": 12,
+            "uploaded_by_id": 16
+        }
+    },
+    {
+        "model": "files.file",
+        "pk": 23,
+        "fields": {
+            "title": "Modelo de Acta de Reunión",
+            "file": "uploads/14/pdf-prueba.pdf",
+            "description": "Modelo de acta para registrar los puntos discutidos y las decisiones tomadas en una reunión.",
+            "post_date": "2024-03-15",
+            "downloads": 0,
+            "price": "3.00",
+            "account_id": 14,
+            "uploaded_by_id": 24
+        }
+    }
+]
+
