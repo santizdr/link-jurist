@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Case, Apply
 
+
 class CaseSerializer(serializers.ModelSerializer):
     account_name = serializers.SerializerMethodField()
     is_applied = serializers.SerializerMethodField()
@@ -45,7 +46,6 @@ class ApplySerializer(serializers.ModelSerializer):
     def get_case_visualizations(self, obj):
         return obj.case.visualizations
     
-
     class Meta:
         model = Apply
         fields = '__all__'

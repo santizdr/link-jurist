@@ -1,5 +1,5 @@
 <script setup>
-    import CaseCard from '../cases/CaseCard.vue'
+    import CaseCard from '@/components/cases/CaseCard.vue'
     import { useCasesStore } from '@/stores/cases';
 
     const casesStore = useCasesStore();

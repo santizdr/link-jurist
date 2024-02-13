@@ -1,5 +1,6 @@
 <script setup>
   import axios from 'axios';
+  
   const { props } = defineProps(['file']);
 
   function openFile(id) {

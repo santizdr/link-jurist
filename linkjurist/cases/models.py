@@ -2,7 +2,6 @@ from django.db import models
 from datetime import date
 from account.models import Account
 
-# Create your models here.
 
 class Case(models.Model):
     CASE_TYPES = (("OFFER", "Oferta"), ("DEMAND", "Demanda"))

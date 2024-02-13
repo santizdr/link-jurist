@@ -1,5 +1,5 @@
 <script setup>
-  import HomePanel from '../components/home/HomePanel.vue'
+  import HomePanel from '@/components/home/HomePanel.vue'
 </script>
 
 <template>

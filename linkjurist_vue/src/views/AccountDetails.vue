@@ -1,5 +1,5 @@
 <script setup>
-  import AccountPanel from '../components/account/AccountPanel.vue'   
+  import AccountPanel from '@/components/account/AccountPanel.vue'   
 
   import { useDetailsStore } from '@/stores/details';
 

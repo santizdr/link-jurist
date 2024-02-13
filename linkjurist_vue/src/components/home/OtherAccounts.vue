@@ -1,6 +1,6 @@
 <script setup>
     import { useIndexStore } from '@/stores/index';
-    import AccountCard from '../home/AccountCard.vue'
+    import AccountCard from '@/components/home/AccountCard.vue'
 
     const indexStore = useIndexStore();
 </script>

@@ -2,6 +2,7 @@ import datetime
 from django import forms
 from .models import Case, Apply
 
+
 class CaseForm(forms.ModelForm):
     class Meta:
         model = Case

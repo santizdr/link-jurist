@@ -1,8 +1,8 @@
 <script setup>
     const { props } = defineProps(['viewData']);
 
-    import AccountHeader from '../account/AccountHeader.vue'
-    import AccountTabs from '../account/AccountTabs.vue'
+    import AccountHeader from '@/components/account/AccountHeader.vue'
+    import AccountTabs from '@/components/account/AccountTabs.vue'
 </script>
 
 

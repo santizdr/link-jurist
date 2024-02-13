@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
+
 from .forms import CaseForm, ApplyForm
 from .models import Case, Apply
 from .serializers import ApplySerializer, CaseSerializer
@@ -86,7 +87,6 @@ def apply(request):
 def assigncase(request):
     data = request.data.get('_rawValue')
     message = 'error'
-    print(data)
 
     application = Apply.objects.get(id=data.get('id'))
     previous_status = application.status

@@ -1,6 +1,6 @@
 <script setup>
     import { useIndexStore } from '@/stores/index';
-    import PostCard from '../home/PostCard.vue'
+    import PostCard from '@/components/home/PostCard.vue'
 
     const indexStore = useIndexStore();
 </script>

@@ -3,6 +3,7 @@ from django import forms
 
 from .models import Account, User, Follow
 
+
 class SignupForm(UserCreationForm):
     class Meta:
         model = User

@@ -1,9 +1,9 @@
 <script setup>
     import { useAuthStore } from '@/stores/auth';
 
-    import CasesFilter from '../cases/CasesFilter.vue'
-    import CasesList from '../cases/CasesList.vue'
-    import CasesRanking from '../cases/CasesRanking.vue'
+    import CasesFilter from '@/components/cases/CasesFilter.vue'
+    import CasesList from '@/components/cases/CasesList.vue'
+    import CasesRanking from '@/components/cases/CasesRanking.vue'
 
     const authStore = useAuthStore();
 </script>

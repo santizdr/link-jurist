@@ -95,9 +95,8 @@
     
     if (dateSplits.length === 3) {
         var year = parseInt(dateSplits[0], 10);
-        var month = parseInt(dateSplits[1], 10) - 1; // Los meses en JavaScript son 0-indexados
-        var day = parseInt(dateSplits[2], 10);
-        
+        var month = parseInt(dateSplits[1], 10) - 1; 
+        var day = parseInt(dateSplits[2], 10); 
         var inputDate = new Date(year, month, day);
 
         return inputDate > today;
@@ -108,7 +107,6 @@
 
     function validatePercent(percent) {
         var regex = /^\d{2}$/;
-
         return regex.test(percent);
     }
 

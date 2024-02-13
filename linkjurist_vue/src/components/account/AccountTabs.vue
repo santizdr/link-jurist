@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    import AccountTabContent from '../account/AccountTabContent.vue'
+    import AccountTabContent from '@/components/account/AccountTabContent.vue'
     import { useAuthStore } from '@/stores/auth';
     
     const authStore = useAuthStore();

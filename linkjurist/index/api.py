@@ -2,7 +2,6 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from django.db.models import Count, Q, Sum
-from datetime import date
 
 from .models import Post
 from .forms import PostForm

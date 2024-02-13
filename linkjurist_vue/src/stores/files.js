@@ -14,9 +14,7 @@ export const useFilesStore = defineStore("files", {
                 }
               })
             .then(response => {
-                console.log(response);
                 this.files = response.data.files;
-
             })
             .catch(error => {
                 console.log("Error: ", error);

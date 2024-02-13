@@ -1,5 +1,5 @@
 <script setup>
-import CasesPanel from '../components/cases/CasesPanel.vue'
+import CasesPanel from '@/components/cases/CasesPanel.vue'
 </script>
 
 <template>

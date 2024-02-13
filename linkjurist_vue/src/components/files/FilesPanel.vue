@@ -1,9 +1,9 @@
 <script setup>
   import { useAuthStore } from '@/stores/auth';
 
-  import FilesFilter from '../files/FilesFilter.vue'
-  import FilesList from '../files/FilesList.vue'
-  import FilesRanking from '../files/FilesRanking.vue'
+  import FilesFilter from '@/components/files/FilesFilter.vue'
+  import FilesList from '@/components/files/FilesList.vue'
+  import FilesRanking from '@/components/files/FilesRanking.vue'
 
   const authStore = useAuthStore();
 </script>

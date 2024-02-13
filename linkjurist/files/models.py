@@ -1,11 +1,6 @@
-from datetime import date
 from django.db import models
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
-
 from account.models import Account, User
 
-# Create your models here.
 
 def user_directory_path(instance, filename):
     return f'uploads/{instance.account.id}/{filename}'

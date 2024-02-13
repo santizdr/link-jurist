@@ -94,7 +94,6 @@
 
     function validatePrice(price) {
         var regex = /^\d{1,3}(\.\d{2})$/;
-        
         return regex.test(price)
     }
 </script>

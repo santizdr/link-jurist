@@ -1,9 +1,10 @@
 from django.http import FileResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
+
+from files.models import File
 from files.forms import FileForm
 from .serializers import FileSerializer
-from files.models import File
 
 
 @api_view(['GET'])
@@ -11,7 +12,6 @@ def files(request):
     id = request.query_params.get('id')
     files_data = File.objects.all().exclude(id=id)
     files = FileSerializer(files_data, many=True, context={'account': id}).data
-    print(files)
 
     return JsonResponse({
         'files': files
