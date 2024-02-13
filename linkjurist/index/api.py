@@ -22,7 +22,8 @@ from index.serializers import PostSerializer
 
 
 @api_view(['GET'])
-def index(request, id):
+def index(request):
+    id = request.query_params.get('id')
 
     contacts = []
     contact_suggestions = []
@@ -81,7 +82,10 @@ def createpost(request):
 
 
 @api_view(['GET'])
-def accountdetails(request, me, id):
+def accountdetails(request):
+    id = request.query_params.get('id')
+    me = request.query_params.get('me')
+
     my_account = Account.objects.get(id=id)
     account = AccountSerializer(my_account).data
     

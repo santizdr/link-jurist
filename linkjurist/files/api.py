@@ -40,6 +40,8 @@ def uploadfile(request):
 
 
 @api_view(['GET'])
-def getfile(request, id):
+def getfile(request):
+    id = request.query_params.get('id')
+
     file = get_object_or_404(File, id=id)
     return FileResponse(file.file, as_attachment=True, content_type='application/pdf')

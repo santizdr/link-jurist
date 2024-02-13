@@ -28,19 +28,25 @@ export const useDetailsStore = defineStore("details", {
             this.follow = !this.follow;
         },
         async fetchAccountData(me, id) {
-          await axios.get("/api/accountdetails/" + me + "/" + id)
-                .then(response => {
-                    this.account = response.data.account;
-                    this.follow = response.data.follow;
-                    this.team = response.data.team;
-                    this.posts = response.data.posts;
-                    this.cases = response.data.cases;
-                    this.files = response.data.files;
+          await axios.get("/api/accountdetails/", 
+            {
+                params: {
+                    id: id,
+                    me: me
+                }
+            }
+          ).then(response => {
+                this.account = response.data.account;
+                this.follow = response.data.follow;
+                this.team = response.data.team;
+                this.posts = response.data.posts;
+                this.cases = response.data.cases;
+                this.files = response.data.files;
 
-                })
-                .catch(error => {
-                    console.log("Error: ", error);
-                })
+            })
+            .catch(error => {
+                console.log("Error: ", error);
+            })
         },
         clearDetailsInfo() {
             this.account.id = null;

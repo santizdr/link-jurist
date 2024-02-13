@@ -4,7 +4,11 @@
   const { props } = defineProps(['file']);
 
   function openFile(id) {
-      axios.get("/api/getfile/" + id, { responseType: 'arraybuffer' })
+      axios.get("/api/getfile/", { 
+          responseType: 'arraybuffer',
+          params: {id: id}
+        }
+        )
         .then(response => {
             const file = new Blob([response.data], { type: 'application/pdf' });
             const fileURL = URL.createObjectURL(file);

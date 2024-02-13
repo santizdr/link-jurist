@@ -12,17 +12,19 @@ export const useIndexStore = defineStore("index", {
 
     actions: {
         async fetchIndexData(id) {
-          await axios.get("/api/index/" + id)
-                .then(response => {
-                    this.contacts = response.data.contacts;
-                    this.contact_suggestions = response.data.contact_suggestions;
-                    this.posts = response.data.posts;
-                    this.post_suggestions = response.data.post_suggestions;
+          await axios.get("/api/index/", {
+            params: {id: id}
+          })
+            .then(response => {
+                this.contacts = response.data.contacts;
+                this.contact_suggestions = response.data.contact_suggestions;
+                this.posts = response.data.posts;
+                this.post_suggestions = response.data.post_suggestions;
 
-                })
-                .catch(error => {
-                    console.log("Error: ", error);
-                })
+            })
+            .catch(error => {
+                console.log("Error: ", error);
+            })
           }
     },
 })
