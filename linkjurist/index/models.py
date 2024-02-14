@@ -1,5 +1,6 @@
 from django.db import models
 from account.models import Account, User
+from tags.models import Tag
 
 
 class Post(models.Model):    
@@ -10,6 +11,7 @@ class Post(models.Model):
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return str("Publicado por: " + self.posted_by)

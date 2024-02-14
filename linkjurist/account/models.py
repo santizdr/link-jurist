@@ -2,6 +2,7 @@ import uuid
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from tags.models import Tag
 
 
 class Account(models.Model):
@@ -48,6 +49,7 @@ class User(AbstractBaseUser):
     user_img = models.ImageField(upload_to='user_images/', blank=True, null=True)
 
     account = models.ForeignKey(Account, null=True, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag)
 
     is_active = models.BooleanField(default=True)
 

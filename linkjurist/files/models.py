@@ -1,5 +1,6 @@
 from django.db import models
 from account.models import Account, User
+from tags.models import Tag
 
 
 def user_directory_path(instance, filename):
@@ -15,6 +16,8 @@ class File(models.Model):
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    tags = models.ManyToManyField(Tag)
+
 
     def __str__(self):
         return str(self.name)

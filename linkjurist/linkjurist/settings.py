@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'index',
     'files',
     'cases',
+    'tags',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',

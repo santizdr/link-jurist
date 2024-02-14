@@ -1,6 +1,6 @@
 from django.db import models
-from datetime import date
 from account.models import Account
+from tags.models import Tag
 
 
 class Case(models.Model):
@@ -16,6 +16,7 @@ class Case(models.Model):
     percent = models.DecimalField(null=False, max_digits=5, decimal_places=2)
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return str(self.title)
