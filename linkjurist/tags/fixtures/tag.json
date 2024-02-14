@@ -1,0 +1,44 @@
+[
+    {
+      "model": "tags.tag",
+      "pk": 1,
+      "fields": {
+        "tag": "Derecho penal"
+      }
+    },
+    {
+      "model": "tags.tag",
+      "pk": 2,
+      "fields": {
+        "tag": "Derecho civil"
+      }
+    },
+    {
+      "model": "tags.tag",
+      "pk": 3,
+      "fields": {
+        "tag": "Derecho laboral"
+      }
+    },
+    {
+      "model": "tags.tag",
+      "pk": 4,
+      "fields": {
+        "tag": "Derecho mercantil"
+      }
+    },
+    {
+      "model": "tags.tag",
+      "pk": 5,
+      "fields": {
+        "tag": "Derecho administrativo"
+      }
+    },
+    {
+      "model": "tags.tag",
+      "pk": 6,
+      "fields": {
+        "tag": "Derecho internacional"
+      }
+    }
+  ]

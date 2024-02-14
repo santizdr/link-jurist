@@ -202,7 +202,8 @@
             "password": "hashed_password",
             "description": "Abogado con más de 10 años de experiencia en el ámbito jurídico, especializado en derecho penal. He trabajado en casos de gran complejidad, logrando resultados exitosos para mis clientes. Mi enfoque se centra en la defensa de los derechos individuales y la justicia. Actualmente, formo parte del equipo de JMC Legal, un despacho comprometido con la excelencia y la integridad en la práctica legal.",
             "is_manager": false,
-            "account": 1
+            "account": 1,
+            "tags": [1, 2]
         }
     },
     {
@@ -215,7 +216,8 @@
             "password": "hashed_password",
             "description": "Especialista en derecho corporativo y transacciones comerciales. Con una sólida formación y experiencia, he asesorado a empresas en diversas industrias para lograr acuerdos legales sólidos y cumplir con los requisitos normativos. En Prudencio Sáez y asociados, estoy comprometida con brindar soluciones legales estratégicas para el éxito empresarial.",
             "is_manager": true,
-            "account": 1
+            "account": 1,
+            "tags": []
         }
     },
     {
@@ -228,7 +230,8 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico y propiedad intelectual. He trabajado con empresas tecnológicas emergentes, proporcionando asesoramiento legal en contratos, licencias y protección de activos intelectuales. Mi pasión por la tecnología se combina con un enfoque legal sólido en Prudencio Sáez y Asociados.",
             "is_manager": false,
-            "account": 1
+            "account": 1,
+            "tags": [5]
         }
     },
     {
@@ -241,7 +244,8 @@
             "password": "hashed_password",
             "description": "Abogada especializada en derecho de familia y sucesiones en Gómez & Asociados Abogados. Mi enfoque está en brindar apoyo legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para garantizar que los clientes atraviesen procesos legales difíciles con la menor carga posible.",
             "is_manager": false,
-            "account": 2
+            "account": 2,
+            "tags": [4]
         }
     },
     {
@@ -254,7 +258,8 @@
             "password": "hashed_password",
             "description": "Consultora legal en LegalEase Consultancy, con experiencia en fusiones y adquisiciones. Mi enfoque se centra en brindar asesoramiento estratégico a empresas en crecimiento. Trabajo en estrecha colaboración con líderes empresariales para facilitar transacciones exitosas y garantizar el cumplimiento normativo.",
             "is_manager": false,
-            "account": 2
+            "account": 2,
+            "tags": [3, 5]
         }
     },
     {
@@ -267,7 +272,8 @@
             "password": "hashed_password",
             "description": "Abogada en Gómez Abogados, con enfoque en derecho de familia y sucesiones. Mi objetivo es brindar asesoramiento legal sensible y resolver disputas de manera eficiente. En nuestro bufete, nos esforzamos por mantener una comunicación transparente y centrarnos en las necesidades individuales de cada cliente.",
             "is_manager": false,
-            "account": 3
+            "account": 3,
+            "tags": []
         }
     },
     {
@@ -280,7 +286,8 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico en Gómez Abogadoss. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
             "is_manager": false,
-            "account": 3
+            "account": 3,
+            "tags": [2, 3, 6]
         }
     },
     {
@@ -293,7 +300,8 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico en JurisTech Innovations. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
             "is_manager": false,
-            "account": 4
+            "account": 4,
+            "tags": [1, 3, 6]
         }
     },
     {
@@ -306,7 +314,8 @@
             "password": "hashed_password",
             "description": "Consultora legal en LegalEase Consultancy, especializada en fusiones y adquisiciones. Mi enfoque se centra en proporcionar asesoramiento estratégico y soluciones legales eficientes para empresas en expansión. Trabajo para garantizar transacciones exitosas y cumplimiento normativo.",
             "is_manager": false,
-            "account": 5
+            "account": 5,
+            "tags": []
         }
     },
     {
@@ -319,7 +328,8 @@
             "password": "hashed_password",
             "description": "Abogado en Martínez Legal Solutions, especializado en derecho de familia y sucesiones. Mi objetivo es proporcionar asesoramiento legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para asegurar que cada cliente reciba atención individualizada y soluciones personalizadas.",
             "is_manager": false,
-            "account": 6
+            "account": 6,
+            "tags": [2, 5]
         }
     },
     {
@@ -332,7 +342,8 @@
             "password": "hashed_password",
             "description": "Abogada en TechJuris Consultancy, con experiencia en propiedad intelectual y contratos tecnológicos. Mi enfoque se centra en proteger los activos intelectuales de nuestros clientes y proporcionar soluciones legales innovadoras para desafíos tecnológicos en constante evolución.",
             "is_manager": false,
-            "account": 7
+            "account": 7,
+            "tags": [4]
         }
     },
     {
@@ -345,7 +356,8 @@
             "password": "hashed_password",
             "description": "Abogada especializada en derecho tecnológico en TechJuris Consultancy. Mi enfoque se centra en resolver desafíos legales relacionados con la tecnología, desde contratos tecnológicos hasta ciberseguridad. Trabajo para ofrecer soluciones innovadoras y adaptadas a las necesidades de nuestros clientes.",
             "is_manager": false,
-            "account": 7
+            "account": 7,
+            "tags": [5, 6]
         }
     },
     {
@@ -358,7 +370,8 @@
             "password": "hashed_password",
             "description": "Abogada en LegalHarbor Advisors, especializada en derecho empresarial y fusiones y adquisiciones. Mi objetivo es brindar asesoramiento legal estratégico y orientación financiera para lograr transacciones exitosas y el éxito a largo plazo de nuestros clientes.",
             "is_manager": false,
-            "account": 8
+            "account": 8,
+            "tags": [1, 3, 4]
         }
     },
     {
@@ -371,7 +384,8 @@
             "password": "hashed_password",
             "description": "Abogado en LegalHarbor Advisors, especializado en derecho civil y familiar. Mi enfoque se centra en brindar asesoramiento legal integral y resolver disputas de manera efectiva. Trabajo para proteger los derechos de mis clientes en situaciones legales desafiantes.",
             "is_manager": false,
-            "account": 8
+            "account": 8,
+            "tags": [3]
         }
     },
     {
@@ -384,7 +398,8 @@
             "password": "hashed_password",
             "description": "Abogado especializado en propiedad intelectual en Gomez Abogados Sevilla. Mi experiencia se centra en la protección de derechos de autor, marcas registradas y patentes. Trabajo para brindar asesoramiento legal sólido y estratégico en un mundo cada vez más digitalizado.",
             "is_manager": false,
-            "account": 11
+            "account": 11,
+            "tags": [5]
         }
     },
     {
@@ -397,7 +412,8 @@
             "password": "hashed_password",
             "description": "Especialista en arbitraje en Arbitraje Empresarial Andaluz. Mi enfoque se centra en facilitar la resolución rápida y justa de disputas comerciales. Trabajo para proporcionar procesos de arbitraje transparentes y efectivos, permitiendo a las empresas resolver conflictos de manera colaborativa.",
             "is_manager": false,
-            "account": 12
+            "account": 12,
+            "tags": [6]
         }
     },
     {
@@ -410,7 +426,8 @@
             "password": "hashed_password",
             "description": "Mediador empresarial en Arbitraje Empresarial Andaluz. Mi objetivo es facilitar acuerdos justos y equitativos en disputas empresariales. Trabajo para promover la resolución colaborativa de conflictos, contribuyendo al éxito a largo plazo de las empresas.",
             "is_manager": false,
-            "account": 12
+            "account": 12,
+            "tags": [4]
         }
     },
     {
@@ -423,7 +440,8 @@
             "password": "hashed_password",
             "description": "Abogada especializada en litigios en Arbitraje Empresarial Andaluz. Mi enfoque se centra en representar a las empresas en disputas comerciales y litigios. Trabajo para garantizar que los intereses de mis clientes estén protegidos y abogar por soluciones justas.",
             "is_manager": false,
-            "account": 12
+            "account": 12,
+            "tags": []
         }
     },
     {
@@ -436,7 +454,8 @@
             "password": "hashed_password",
             "description": "Abogada en Prudencio Sáez y asociados, especializada en derecho mercantil. Mi enfoque se centra en ofrecer asesoramiento legal integral y resolutivo a empresas y particulares. Trabajo para adaptar nuestras soluciones legales a las necesidades específicas de cada cliente.",
             "is_manager": false,
-            "account": 1
+            "account": 1,
+            "tags": []
         }
     },
     {
@@ -449,7 +468,8 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho inmobiliario en Prudencio Sáez y asociados. Mi misión es proporcionar asesoramiento experto en transacciones inmobiliarias y resolver desafíos legales en este campo. Trabajo para garantizar la seguridad y éxito en las operaciones inmobiliarias de nuestros clientes.",
             "is_manager": false,
-            "account": 1
+            "account": 1,
+            "tags": [1, 4, 5]
         }
     },
     {
@@ -462,7 +482,8 @@
             "password": "hashed_password",
             "description": "Consultor legal en Prudencio Sáez y asociados. Mi papel es proporcionar análisis y asesoramiento estratégico en cuestiones legales complejas. Trabajo para garantizar que nuestros clientes reciban soluciones innovadoras y adaptadas a sus necesidades.",
             "is_manager": false,
-            "account": 1
+            "account": 1,
+            "tags": [2, 4]
         }
     },
 

@@ -10,7 +10,8 @@
             "downloads": 0,
             "price": "10.50",
             "account_id": 1,
-            "uploaded_by_id": 1
+            "uploaded_by_id": 1,
+            "tags": [1, 2]
         }
     },
     {
@@ -24,7 +25,8 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 1,
-            "uploaded_by_id": 2
+            "uploaded_by_id": 2,
+            "tags": [2, 4]
         }
     },
     {
@@ -38,7 +40,8 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 1,
-            "uploaded_by_id": 21
+            "uploaded_by_id": 21,
+            "tags": [6]
         }
     },
     {
@@ -52,7 +55,8 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 1,
-            "uploaded_by_id": 22
+            "uploaded_by_id": 22,
+            "tags": [4, 5]
         }
     },
     {
@@ -66,7 +70,8 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 2,
-            "uploaded_by_id": 5
+            "uploaded_by_id": 5,
+            "tags": [5]
         }
     },
     {
@@ -80,7 +85,8 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 2,
-            "uploaded_by_id": 5
+            "uploaded_by_id": 5,
+            "tags": [1, 6]
         }
     },
     {
@@ -94,7 +100,8 @@
             "downloads": 0,
             "price": "8.00",
             "account_id": 3,
-            "uploaded_by_id": 6
+            "uploaded_by_id": 6,
+            "tags": []
         }
     },
     {
@@ -108,7 +115,8 @@
             "downloads": 0,
             "price": "7.25",
             "account_id": 3,
-            "uploaded_by_id": 7
+            "uploaded_by_id": 7,
+            "tags": [1]
         }
     },
     {
@@ -122,7 +130,8 @@
             "downloads": 0,
             "price": "7.25",
             "account_id": 5,
-            "uploaded_by_id": 9
+            "uploaded_by_id": 9,
+            "tags": [2, 6]
         }
     },
     {
@@ -136,7 +145,8 @@
             "downloads": 0,
             "price": "7.25",
             "account_id": 6,
-            "uploaded_by_id": 10
+            "uploaded_by_id": 10,
+            "tags": [5, 6]
         }
     },
     {
@@ -150,7 +160,8 @@
             "downloads": 0,
             "price": "15.00",
             "account_id": 7,
-            "uploaded_by_id": 11
+            "uploaded_by_id": 11, 
+            "tags": [5]
         }
     },
     {
@@ -164,7 +175,8 @@
             "downloads": 0,
             "price": "0.00",
             "account_id": 7,
-            "uploaded_by_id": 12
+            "uploaded_by_id": 12,
+            "tags": []
         }
     },
     {
@@ -178,7 +190,8 @@
             "downloads": 0,
             "price": "20.00",
             "account_id": 8,
-            "uploaded_by_id": 13
+            "uploaded_by_id": 13,
+            "tags": [1, 4]
         }
     },
     {
@@ -192,7 +205,8 @@
             "downloads": 0,
             "price": "0.00",
             "account_id": 8,
-            "uploaded_by_id": 14
+            "uploaded_by_id": 14,
+            "tags": [1, 5]
         }
     },
     {
@@ -206,7 +220,9 @@
             "downloads": 0,
             "price": "5.00",
             "account_id": 11,
-            "uploaded_by_id": 15
+            "uploaded_by_id": 15,
+            "tags": [4]
+
         }
     },
     {
@@ -220,7 +236,8 @@
             "downloads": 0,
             "price": "3.00",
             "account_id": 11,
-            "uploaded_by_id": 15
+            "uploaded_by_id": 15,
+            "tags": [4]
         }
     },
     {
@@ -234,7 +251,8 @@
             "downloads": 0,
             "price": "2.50",
             "account_id": 12,
-            "uploaded_by_id": 16
+            "uploaded_by_id": 16,
+            "tags": [1, 6]
         }
     },
     {
@@ -248,7 +266,8 @@
             "downloads": 0,
             "price": "4.00",
             "account_id": 12,
-            "uploaded_by_id": 17
+            "uploaded_by_id": 17,
+            "tags": [1, 4]
         }
     },
     {
@@ -262,7 +281,8 @@
             "downloads": 0,
             "price": "3.50",
             "account_id": 12,
-            "uploaded_by_id": 17
+            "uploaded_by_id": 17,
+            "tags": [5]
         }
     },
     {
@@ -276,7 +296,8 @@
             "downloads": 0,
             "price": "2.00",
             "account_id": 12,
-            "uploaded_by_id": 19
+            "uploaded_by_id": 19,
+            "tags": []
         }
     },
     {
@@ -290,21 +311,8 @@
             "downloads": 0,
             "price": "1.50",
             "account_id": 12,
-            "uploaded_by_id": 16
-        }
-    },
-    {
-        "model": "files.file",
-        "pk": 23,
-        "fields": {
-            "title": "Modelo de Acta de Reunión",
-            "file": "uploads/14/pdf-prueba.pdf",
-            "description": "Modelo de acta para registrar los puntos discutidos y las decisiones tomadas en una reunión.",
-            "post_date": "2024-03-15",
-            "downloads": 0,
-            "price": "3.00",
-            "account_id": 14,
-            "uploaded_by_id": 24
+            "uploaded_by_id": 16,
+            "tags": []
         }
     }
 ]
