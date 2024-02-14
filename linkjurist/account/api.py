@@ -47,7 +47,7 @@ def me(request):
         files_data = File.objects.filter(account_id=account['id'])
         files = FileSerializer(files_data, many=True).data
 
-        applications_data = Apply.objects.filter(case_id__in=case_ids)
+        applications_data = Apply.objects.filter(case_id__in=case_ids) | Apply.objects.filter(applicant=my_account)
         applications = ApplySerializer(applications_data, many=True).data
 
         return JsonResponse({

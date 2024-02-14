@@ -1,3 +1,4 @@
+from datetime import date
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -41,7 +42,7 @@ def postcase(request):
 @api_view(['GET'])
 def cases(request):
     id = request.query_params.get('id')
-    cases_data = Case.objects.all().exclude(id=id)
+    cases_data = Case.objects.filter(expiry_date__gt=date.today())
     cases = CaseSerializer(cases_data, many=True, context={'account': id}).data
 
     return JsonResponse({

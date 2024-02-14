@@ -168,6 +168,13 @@ export const useAuthStore = defineStore("auth", {
         setApplicationsInfo(applications) {
             console.log("Set applications info: ", applications);
 
+            for (let application of applications) {
+                if(this.account.id === application.applicant) {
+                    application["type"] = "applicant"; 
+                } else {
+                    application["type"] = "request";
+                }
+              }            
             this.applications = applications;
             localStorage.setItem("applications", applications)
         },
@@ -227,7 +234,8 @@ export const useAuthStore = defineStore("auth", {
         reloadAccountInfo() {
             axios.get("/api/me")
             .then(response => {
-                this.authStore.setStoreInfo(response.data);
+                console.log(response);
+                this.setStoreInfo(response.data);
             })
             .catch(error => {
                 console.log("Error: ", error);

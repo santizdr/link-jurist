@@ -10,18 +10,25 @@
     import AccountPostCard from '@/components/account/posts/AccountPostCard.vue'
     import AccountTeamModal from '@/components/account/team/AccountTeamModal.vue'
     import CaseCreateModal from '@/components/account/cases/CaseCreateModal.vue'
-    import ApplicationCard from '@/components/account/cases/ApplicationCard.vue'
     import CaseCard from '@/components/cases/CaseCard.vue'
     import PostCard from '@/components/home/PostCard.vue'
     import CreatePost from '@/components/home/CreatePost.vue'
+    import ApplicationCard from '@/components/account/applications/ApplicationCard.vue'
+    import ApplicationsFilter from '@/components/account/applications/ApplicationsFilter.vue'
 
-    const { props } = defineProps(['viewData', 'activeTab']);
+    const props  = defineProps(['viewData', 'activeTab']);
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
 
     const showUserModal = ref(false);
     const showFileModal = ref(false);
     const showCaseModal = ref(false);
+    const applicationsType = ref("all");
+
+    function filterApplications(val) {
+        applicationsType.value = val;
+    }
+
 </script>
 
 <template>
@@ -140,9 +147,10 @@
 
         <div v-if="activeTab === 'applications-tab'">
             <div class="mx-3">
-                <h1 class="title is-3">Solicitudes a tus casos. </h1>
+                <ApplicationsFilter @filter-applications="filterApplications" />
+                <h1 class="title is-3">Estado de solicitudes. </h1>
                 <div v-if="viewData.applications.length > 0" class="scrollable-div">
-                    <ApplicationCard v-for="application in viewData.applications" :key="application.id" :application="application" />
+                    <ApplicationCard v-for="application in viewData.applications" :key="application.id" :application="application" :filter="applicationsType" />
                 </div>
                 <div v-else>
                     <p class="is-size-5 my-1">Aún no hay solicitudes</p>
