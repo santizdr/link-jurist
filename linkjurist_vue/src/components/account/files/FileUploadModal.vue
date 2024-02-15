@@ -2,6 +2,7 @@
     import { ref } from 'vue'
     import { useAuthStore } from '@/stores/auth';
     import axios from 'axios';
+    import TagsInput from '@/components/home/TagsInput.vue'
 
     const emit = defineEmits(['closeFileModal'])
     const { props } = defineProps(['showFileModal']);
@@ -24,7 +25,17 @@
         file: file,
         description: "",
         price: "",
+        tags: [],
     });
+
+    function handleSelectTag(id) {
+        const index = form.value.tags.indexOf(id);
+        if (index === -1) {
+            form.value.tags.push(id);
+        } else {
+            form.value.tags.splice(index, 1);
+        }
+    }
 
     function submitForm() {
         error.value = {
@@ -101,7 +112,7 @@
 <template>
     <div class="modal" :class="{'is-active' : showFileModal }">
       <div class="modal-background"></div>
-        <div class="modal-card">
+        <div class="modal-card" style="width: 720px;">
             <form class="mx-3" enctype="multipart/form-data" @submit.prevent="submitForm()">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Subir escrito</p>
@@ -155,6 +166,7 @@
                             <span v-if="error.field === 'price'" class="has-text-danger"> {{ error.message }}</span>
                         </p>
                     </div>
+                    <TagsInput @handle-select-tag="handleSelectTag" />
                 </section>
                 <footer class="modal-card-foot">
                     <div class="control">

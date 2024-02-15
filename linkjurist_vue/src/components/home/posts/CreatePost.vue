@@ -2,6 +2,7 @@
     import { useAuthStore } from '@/stores/auth';
     import { ref } from 'vue'
     import axios from 'axios';
+    import TagsInput from '@/components/home/TagsInput.vue'
 
     const authStore = useAuthStore();
     const account = authStore.account.id;
@@ -21,7 +22,17 @@
         account: account,
         posted_by: user,
         content: '',
+        tags: []
     });
+
+    function handleSelectTag(id) {
+        const index = form.value.tags.indexOf(id);
+        if (index === -1) {
+            form.value.tags.push(id);
+        } else {
+            form.value.tags.splice(index, 1);
+        }
+    }
 
     function submitForm() {
         error.value = {
@@ -72,10 +83,11 @@
             </div>
             <span v-if="error.field === 'content'" class="has-text-danger"> {{ error.message }}</span>
         </div>
+        <TagsInput @handle-select-tag="handleSelectTag"/>
         <div class="field is-grouped is-grouped-right">
-                <div class="control">
-                    <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button" style="width: 150px;">Crear</button>
-                </div>
+            <div class="control">
+                <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button" style="width: 150px;">Crear</button>
             </div>
+        </div>
     </form>
 </template>

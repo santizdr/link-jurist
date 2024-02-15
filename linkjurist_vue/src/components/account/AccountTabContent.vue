@@ -65,7 +65,7 @@
                 <div class="column is-narrow is-right">
                     <div class="field is-grouped is-grouped-right">
                         <div class="control">
-                            <a v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                            <a @click="showUserModal = true" v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                                 <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Añadir integrante</span>
                             </a>
                         </div>
@@ -161,5 +161,4 @@
     <FileUploadModal :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
     <AccountTeamModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
     <CaseCreateModal :showCaseModal="showCaseModal" @close-case-modal="showCaseModal = false" />
-
 </template>

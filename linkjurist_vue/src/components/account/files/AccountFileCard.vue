@@ -4,12 +4,12 @@
   const { props } = defineProps(['file']);
 
   const tags = {
-        1: "Derecho penal",
-        2: "Derecho civil",
-        3: "Derecho laboral",
-        4: "Derecho mercantil",
-        5: "Derecho administrativo",
-        6: "Derecho internacional",
+      1: "Derecho penal",
+      2: "Derecho civil",
+      3: "Derecho laboral",
+      4: "Derecho mercantil",
+      5: "Derecho administrativo",
+      6: "Derecho internacional",
     }
     
   function openFile(id) {

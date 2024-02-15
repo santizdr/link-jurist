@@ -2,6 +2,7 @@
     import axios from 'axios';
     import { ref } from 'vue'
     import { useAuthStore } from '@/stores/auth';
+    import TagsInput from '@/components/home/TagsInput.vue'
 
     const emit = defineEmits(['closeUserModal'])
     const { props } = defineProps(['showUserModal']);
@@ -26,8 +27,18 @@
         lastname: "",
         password1: "",
         password2: "",
+        tags: [],
     });
 
+    function handleSelectTag(id) {
+        const index = form.value.tags.indexOf(id);
+        if (index === -1) {
+            form.value.tags.push(id);
+        } else {
+            form.value.tags.splice(index, 1);
+        }
+    }
+    
     function submitForm() {
         error.value = {
             field: "",
@@ -94,7 +105,7 @@
 <template>
 <div class="modal" :class="{'is-active' : showUserModal }">
   <div class="modal-background"></div>
-    <div class="modal-card">
+    <div class="modal-card" style="width: 720px;">
         <form @submit.prevent="submitForm()">    
             <header class="modal-card-head">
                 <p class="modal-card-title">Añadir usuario</p>
@@ -148,7 +159,7 @@
                         <span v-if="error.field === 'password2'" class="has-text-danger"> {{ error.message }}</span>
                     </div>
                 </div>
-
+                <TagsInput @handle-select-tag="handleSelectTag"/>
             </section>
             <footer class="modal-card-foot">
                 <div class="control">
