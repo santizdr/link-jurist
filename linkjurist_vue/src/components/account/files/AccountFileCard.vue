@@ -3,6 +3,15 @@
   
   const { props } = defineProps(['file']);
 
+  const tags = {
+        1: "Derecho penal",
+        2: "Derecho civil",
+        3: "Derecho laboral",
+        4: "Derecho mercantil",
+        5: "Derecho administrativo",
+        6: "Derecho internacional",
+    }
+    
   function openFile(id) {
       axios.get("/api/getfile/", { 
           responseType: 'arraybuffer',
@@ -27,6 +36,9 @@
         <div class="media-content">            
           <p class="title is-4">{{ file.title }}</p>
           <p class="subtitle is-5 secondary-text-color"></p>
+          <div>
+              <span v-for="tag in file.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
+          </div>
         </div>
       </div>
       <div class="content">

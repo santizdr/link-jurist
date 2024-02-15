@@ -11,8 +11,8 @@
     import AccountTeamModal from '@/components/account/team/AccountTeamModal.vue'
     import CaseCreateModal from '@/components/account/cases/CaseCreateModal.vue'
     import CaseCard from '@/components/cases/CaseCard.vue'
-    import PostCard from '@/components/home/PostCard.vue'
-    import CreatePost from '@/components/home/CreatePost.vue'
+    import PostCard from '@/components/home/posts/PostCard.vue'
+    import CreatePost from '@/components/home/posts/CreatePost.vue'
     import ApplicationCard from '@/components/account/applications/ApplicationCard.vue'
     import ApplicationsFilter from '@/components/account/applications/ApplicationsFilter.vue'
 

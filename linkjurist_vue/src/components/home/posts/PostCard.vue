@@ -1,11 +1,19 @@
 <script setup>
     const { props } = defineProps(['post']);
+
+    const tags = {
+        1: "Derecho penal",
+        2: "Derecho civil",
+        3: "Derecho laboral",
+        4: "Derecho mercantil",
+        5: "Derecho administrativo",
+        6: "Derecho internacional",
+    }
 </script>
 
 <template>
     <div>
         <div class="card my-5 mx-2">
-
             <div class="card-content">
                 <div class="media">
                     <!-- <div class="media-left">
@@ -16,6 +24,9 @@
                     <div class="media-content">
                         <p class="title is-4">{{ post.posted_by_name }}</p>
                         <p class="subtitle is-6">{{ post.account_name }}</p>
+                        <div>
+                            <span v-for="tag in post.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
+                        </div>
                     </div>
                 </div>
 

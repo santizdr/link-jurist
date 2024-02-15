@@ -1,5 +1,14 @@
 <script setup>
     const { props } = defineProps(['user']);
+
+    const tags = {
+        1: "Derecho penal",
+        2: "Derecho civil",
+        3: "Derecho laboral",
+        4: "Derecho mercantil",
+        5: "Derecho administrativo",
+        6: "Derecho internacional",
+    }
 </script>
 
 <template>
@@ -20,9 +29,9 @@
                         </h2>
                         <hr>
                         <p class="subtitle is-5"><span class="secondary-text-color">Email personal: </span>{{ user.email }}</p>
-                        <span class="tag is-medium is-info mr-2">Derecho civil</span>
-                        <span class="tag is-medium is-success mr-2">Derecho penal</span>
-                        <span class="tag is-medium is-warning mr-2">Derecho laboral</span>
+                        <div>
+                            <span v-for="tag in user.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
+                        </div>
                     </div>
                 </div>
             </div>

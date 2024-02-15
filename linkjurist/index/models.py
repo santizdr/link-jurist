@@ -15,3 +15,4 @@ class Post(models.Model):
 
     def __str__(self):
         return str("Publicado por: " + self.posted_by)
+    

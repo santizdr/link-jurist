@@ -2,8 +2,8 @@
   import { useAuthStore } from '@/stores/auth';
   
   import WelcomePanel from '@/components/home/WelcomePanel.vue';
-  import CreatePost from '@/components/home/CreatePost.vue';
-  import PostsList from '@/components/home/PostsList.vue';
+  import CreatePost from '@/components/home/posts/CreatePost.vue';
+  import PostsList from '@/components/home/posts/PostsList.vue';
   import StatsPanel from '@/components/home/StatsPanel.vue';
   import OtherAccounts from '@/components/home/OtherAccounts.vue';
 
