@@ -1,10 +1,13 @@
+import json
 from django.http import FileResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
-from files.models import File
+from files.models import File, FileTag
 from files.forms import FileForm
 from .serializers import FileSerializer
+
+from tags.models import Tag
 
 
 @api_view(['GET'])
@@ -25,7 +28,16 @@ def uploadfile(request):
     form = FileForm(request.POST, request.FILES)
 
     if form.is_valid():
-        form.save()
+        
+        tags_str = request.POST.get('tags')
+        tags_str = tags_str.strip()
+        tags = json.loads(tags_str)
+
+        file = form.save()
+
+        for tag_id in tags:
+            filetag = FileTag(file_id=file.id, tag_id=tag_id)
+            filetag.save()
 
         files_data = File.objects.filter(account_id=request.data.get('account'))
         files = FileSerializer(files_data, many=True).data

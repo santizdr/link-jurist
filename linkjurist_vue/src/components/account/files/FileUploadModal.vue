@@ -1,11 +1,11 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch } from 'vue'
     import { useAuthStore } from '@/stores/auth';
     import axios from 'axios';
     import TagsInput from '@/components/home/TagsInput.vue'
 
     const emit = defineEmits(['closeFileModal'])
-    const { props } = defineProps(['showFileModal']);
+    const props = defineProps(['showFileModal']);
     const authStore = useAuthStore();
 
     const account_id = authStore.account.id;
@@ -27,6 +27,12 @@
         price: "",
         tags: [],
     });
+
+    const resetKey = ref(0);
+
+    function forceRerender() {
+        resetKey.value += 1;
+    };
 
     function handleSelectTag(id) {
         const index = form.value.tags.indexOf(id);
@@ -67,16 +73,15 @@
             formData.append('description', form.value.description);
             formData.append('price', form.value.price);
             formData.append('file', form.value.file);
+            formData.append('tags', JSON.stringify(form.value.tags));
 
             axios.post("/api/uploadfile/", formData)
                 .then(response => {
 
                     if(response.data.message === "success") {
-                        form.value.title = "";
-                        form.value.description = "";
-                        form.value.price = "";
-
                         this.authStore.setFilesInfo(response.data.files);
+
+                        handleCloseModal();
                         emit('closeFileModal');
                     } else {
                         alert.value.message = "Se ha producido un error subir el escrito";
@@ -90,11 +95,14 @@
     }
 
     function handleCloseModal() {
+        form.value.title = "";
         form.value.description = "";
         form.value.price = "";
+        form.value.tags = [];
         file.value = null;
         selectedFileName.value = "";
-        
+        forceRerender();
+
         emit('closeFileModal');
     }
 
@@ -166,7 +174,7 @@
                             <span v-if="error.field === 'price'" class="has-text-danger"> {{ error.message }}</span>
                         </p>
                     </div>
-                    <TagsInput @handle-select-tag="handleSelectTag" />
+                    <TagsInput :key="resetKey" :formTags="form.tags" @handle-select-tag="handleSelectTag" />
                 </section>
                 <footer class="modal-card-foot">
                     <div class="control">

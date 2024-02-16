@@ -158,3 +158,8 @@
     background-color: #ffcfcf !important;
     font-size: 15px;
 }
+
+.selected-tag {
+    border-color: #878787 !important;
+    border-width: 2px !important;
+}
