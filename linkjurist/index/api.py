@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from django.db.models import Count, Q, Sum
 
-from .models import Post
+from .models import Post, PostTag
 from .forms import PostForm
 from .serializers import PostSerializer
 
@@ -67,12 +67,16 @@ def createpost(request):
     })
 
     if form.is_valid():
-        form.save()
+        post = form.save()
+        tags = data.get('tags')
+        for tag_id in tags:
+            posttag = PostTag(post_id=post.id, tag_id=tag_id)
+            posttag.save()
 
     else: 
         message = 'error'
 
-    posts_data = Post.objects.filter(account_id=data.get('account'))
+    posts_data = Post.objects.all()
     posts = PostSerializer(posts_data, many=True).data
 
     return JsonResponse({

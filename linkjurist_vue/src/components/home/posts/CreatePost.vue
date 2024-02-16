@@ -1,12 +1,22 @@
 <script setup>
-    import { useAuthStore } from '@/stores/auth';
     import { ref } from 'vue'
     import axios from 'axios';
+
+    import { useAuthStore } from '@/stores/auth';
+    import { useIndexStore } from '@/stores/index';
+    import { useRouter } from 'vue-router'
+
     import TagsInput from '@/components/home/TagsInput.vue'
 
+    const router = useRouter();
+
     const authStore = useAuthStore();
+    const indexStore = useIndexStore();
+
     const account = authStore.account.id;
     const user = authStore.user.id;
+    
+    const resetKey = ref(0);
 
     const alert = ref({
         message: "",
@@ -49,15 +59,22 @@
             axios.post("/api/createpost", form)
                 .then(response => {
                     if(response.data.message === "success") {
-                            form.value.content = "";
+                        form.value.content = "";
+                        form.value.tags = [];
+                        
+                        alert.value.message = "Publicación creada correctamente";
+                        alert.value.class = "span-success";
+                        resetKey.value += 1;
 
-                            alert.value.message = "Publicación creada correctamente";
-                            alert.value.class = "span-success";
-                            this.authStore.setPostsInfo(response.data.posts)
-                        } else {
-                            alert.value.message = "Se ha producido un error crear la publicación";
-                            alert.value.class = "span-error";
-                        }            })
+                        this.authStore.setPostsInfo(response.data.posts);
+                        if (router.currentRoute.value.fullPath === "/"){
+                            this.indexStore.fetchIndexData(this.authStore.account.id);
+                        }
+                    } else {
+                        alert.value.message = "Se ha producido un error crear la publicación";
+                        alert.value.class = "span-error";
+                    }
+                })
                 .catch(error => {
                     console.log("Error: ", error);
                 })
@@ -83,7 +100,7 @@
             </div>
             <span v-if="error.field === 'content'" class="has-text-danger"> {{ error.message }}</span>
         </div>
-        <TagsInput @handle-select-tag="handleSelectTag"/>
+        <TagsInput :key="resetKey" @handle-select-tag="handleSelectTag"/>
         <div class="field is-grouped is-grouped-right">
             <div class="control">
                 <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button" style="width: 150px;">Crear</button>

@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import router from '@/router'
 
 export const useIndexStore = defineStore("index", {
     state: () => ({

@@ -11,8 +11,15 @@ class Post(models.Model):
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, through='PostTag', related_name='posts')
 
     def __str__(self):
         return str("Publicado por: " + self.posted_by)
     
+
+class PostTag(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.post.title} - {self.tag.name}"
