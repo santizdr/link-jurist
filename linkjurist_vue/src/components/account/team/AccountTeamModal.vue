@@ -10,6 +10,8 @@
     const authStore = useAuthStore();
     const account_id = authStore.account.id;
 
+    const resetKey = ref(0);
+
     const alert = ref({
         message: "",
         class: "",
@@ -69,17 +71,8 @@
             axios.post("/api/adduser/", form)
                 .then(response => {
                     if(response.data.message === "success") {
-                        alert.value.message = "Usuario añadido con éxito";
-                        alert.value.class = "span-success";
-
-                        form.value.email = "";
-                        form.value.firstname = "";
-                        form.value.lastname = "";
-                        form.value.password1 = "";
-                        form.value.password2= "";
-
                         this.authStore.setTeamInfo(response.data.team);
-                        emit('closeUserModal');
+                        handleCloseModal();
                     } else {
                         alert.value.message = "Se ha producido un error al añadir el usuario";
                         alert.value.class = "span-error";
@@ -97,7 +90,9 @@
         form.value.lastname = "";
         form.value.password1 = "";
         form.value.password2 = "";
-
+        form.value.tags = [];
+        
+        resetKey.value += 1;
         emit('closeUserModal');
     }
 </script>
@@ -159,7 +154,7 @@
                         <span v-if="error.field === 'password2'" class="has-text-danger"> {{ error.message }}</span>
                     </div>
                 </div>
-                <TagsInput @handle-select-tag="handleSelectTag"/>
+                <TagsInput :key="resetKey" @handle-select-tag="handleSelectTag"/>
             </section>
             <footer class="modal-card-foot">
                 <div class="control">

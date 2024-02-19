@@ -1,5 +1,14 @@
 <script setup>
-    const { props } = defineProps(['caso']);
+  const { props } = defineProps(['caso']);
+
+  const tags = {
+    1: "Derecho penal",
+    2: "Derecho civil",
+    3: "Derecho laboral",
+    4: "Derecho mercantil",
+    5: "Derecho administrativo",
+    6: "Derecho internacional",
+  }
 </script>
 
 <template>
@@ -9,6 +18,9 @@
           <div class="media-content">            
             <p class="title is-4">{{ caso.title }}</p>
             <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type === "OFFER" ? "Oferta"  : "Demanda" }}</p>
+            <div>
+              <span v-for="tag in caso.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
+            </div>
           </div>
         </div>
         <div class="content">

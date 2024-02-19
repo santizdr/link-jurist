@@ -10,6 +10,8 @@
     const authStore = useAuthStore();
     const account_id = authStore.account.id;
 
+    const resetKey = ref(0);
+
     const alert = ref({
         message: "",
         class: "",
@@ -72,14 +74,8 @@
             axios.post("/api/postcase/", form)
                 .then(response => {
                     if(response.data.message === "success") {
-                            form.value.title = "";
-                            form.value.description = "";
-                            form.value.type = "";
-                            form.value.date = "";
-                            form.value.percent= "";
-
                             this.authStore.setCasesInfo(response.data.cases);
-                            emit('closeCaseModal');
+                            handleCloseModal();
                         } else {
                             alert.value.message = "Se ha producido un error al publicar el caso";
                             alert.value.class = "span-error";
@@ -94,9 +90,12 @@
         form.value.title = "";
         form.value.description = "";
         form.value.type = "";
-        form.value.expiryDate = "";
+        form.value.date = "";
         form.value.percent = "";
+        form.value.expiryDate = "";
+        form.value.tags = [];
 
+        resetKey.value += 1;
         emit('closeCaseModal');
     }
 
@@ -179,7 +178,7 @@
                             <span v-if="error.field === 'percent'" class="has-text-danger"> {{ error.message }}</span>
                         </p>
                     </div>
-                    <TagsInput @handle-select-tag="handleSelectTag"/>
+                    <TagsInput :key="resetKey" @handle-select-tag="handleSelectTag"/>
                 </section>
                 <footer class="modal-card-foot">
                     <div class="control">

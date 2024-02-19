@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
     user_img = models.ImageField(upload_to='user_images/', blank=True, null=True)
 
     account = models.ForeignKey(Account, null=True, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, through='UserTag', related_name='users')
 
     is_active = models.BooleanField(default=True)
 
@@ -60,6 +60,14 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+    
+
+class UserTag(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.firstname} - {self.tag.name}"
     
 
 class Follow(models.Model):

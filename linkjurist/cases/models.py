@@ -16,10 +16,18 @@ class Case(models.Model):
     percent = models.DecimalField(null=False, max_digits=5, decimal_places=2)
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, through='CaseTag', related_name='cases')
 
     def __str__(self):
         return str(self.title)
+    
+
+class CaseTag(models.Model):
+    case = models.ForeignKey(Case, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.case.title} - {self.tag.name}"
     
 
 class Apply(models.Model):

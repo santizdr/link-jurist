@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from .forms import CaseForm, ApplyForm
-from .models import Case, Apply
+from .models import Case, Apply, CaseTag
 from .serializers import ApplySerializer, CaseSerializer
 
 
@@ -25,14 +25,19 @@ def postcase(request):
     })
 
     if form.is_valid():
-        form.save()
+        case = form.save()
+        tags = data.get('tags')
+
+        for tag_id in tags:
+            casetag = CaseTag(case_id=case.id, tag_id=tag_id)
+            casetag.save()
 
         cases_data = Case.objects.filter(account_id=data.get('account'))
         cases = CaseSerializer(cases_data, many=True).data
-
     else: 
         message = 'error'
 
+    
     return JsonResponse({
         'message': message,
         'cases': cases,

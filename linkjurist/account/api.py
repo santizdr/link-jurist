@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
-from .models import User, Account
+from .models import User, Account, UserTag
 from .forms import SignupForm, AccountForm, AddUserForm
 from .serializers import UserSerializer, AccountSerializer
 
@@ -101,7 +101,12 @@ def adduser(request):
     })
 
     if form.is_valid():
-        form.save()
+        user = form.save()
+        tags = data.get('tags')
+
+        for tag_id in tags:
+            usertag = UserTag(user_id=user.id, tag_id=tag_id)
+            usertag.save()
 
         team_data = User.objects.filter(account_id=data.get('account'))
         team = UserSerializer(team_data, many=True).data
