@@ -23,6 +23,11 @@
         password2: "",
     });
 
+    function closeAlert() {
+        alert.value.message = "";
+        alert.value.class = "";
+    }
+
     function submitForm() {
         error.value = {
             field: "",
@@ -66,6 +71,8 @@
                     }
                 })
                 .catch(error => {
+                    alert.value.message = "Se ha producido un error en el registro";
+                    alert.value.class = "span-error";
                     console.log("Error: ", error);
                 })
         }
@@ -83,7 +90,7 @@
                             <article class="message">
                                 <div class="message-header"  :class="alert.class">
                                     <p>{{ alert.message }}</p>
-                                    <button class="delete" aria-label="delete"></button>
+                                    <a @click="closeAlert()" class="delete" aria-label="delete"></a>
                                 </div>
                             </article>  
                         </div>          

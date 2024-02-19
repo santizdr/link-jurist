@@ -14,6 +14,11 @@
         class: "",
     });
 
+    function closeAlert() {
+        alert.value.message = "";
+        alert.value.class = "";
+    }
+
     function follow() {
         const data = {
             'follower': authStore.account.id,
@@ -53,7 +58,7 @@
                 <article class="message">
                     <div class="message-header"  :class="alert.class">
                         <p>{{ alert.message }}</p>
-                        <button class="delete" aria-label="delete"></button>
+                        <a @click="closeAlert()" class="delete" aria-label="delete"></a>
                     </div>
                 </article>  
             </div> 

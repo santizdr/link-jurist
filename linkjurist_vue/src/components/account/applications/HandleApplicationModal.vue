@@ -25,6 +25,11 @@
         status: '',
     });
 
+    function closeAlert() {
+        alert.value.message = "";
+        alert.value.class = "";
+    }
+
     function submitForm() {
         error.value = {
             field: "",
@@ -50,6 +55,8 @@
                     }            })
             .catch(error => {
                 console.log("Error: ", error);
+                alert.value.message = "Se ha producido un error al asignar el caso";
+                alert.value.class = "span-error";
             })
         }        
     }
@@ -80,7 +87,7 @@
                         <article class="message">
                             <div class="message-header"  :class="alert.class">
                                 <p>{{ alert.message }}</p>
-                                <button class="delete" aria-label="delete"></button>
+                                <a @click="closeAlert()" class="delete" aria-label="delete"></a>
                             </div>
                         </article>  
                     </div> 
