@@ -68,5 +68,5 @@
       </div>
     </div>
   </div>  
-  <ShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
+  <AccountShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
 </template>
