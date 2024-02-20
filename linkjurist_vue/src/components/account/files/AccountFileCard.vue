@@ -1,7 +1,12 @@
 <script setup>
+  import { ref } from 'vue'
   import axios from 'axios';
-  
+  import ShowFileModal from '@/components/account/files/ShowFileModal.vue';
+
   const { props } = defineProps(['file']);
+
+  const showFileModal = ref(false);
+  const fileSrc = ref(null);
 
   const tags = {
       1: "Derecho penal",
@@ -11,17 +16,21 @@
       5: "Derecho administrativo",
       6: "Derecho internacional",
     }
-    
+
   function openFile(id) {
       axios.get("/api/getfile/", { 
-          responseType: 'arraybuffer',
+          responseType: 'blob',
           params: {id: id}
         }
         )
         .then(response => {
-            const file = new Blob([response.data], { type: 'application/pdf' });
-            const fileURL = URL.createObjectURL(file);
-            window.open(fileURL, '_blank');
+          const reader = new FileReader();
+          reader.readAsDataURL(response.data); 
+          reader.onloadend = () => {
+              const base64data = reader.result; 
+              fileSrc.value = base64data;
+              showFileModal.value = true;
+          };
         })
         .catch(error => {
             console.log("Error: ", error);
@@ -46,6 +55,7 @@
           <div class="columns is-vcentered">
           <div class="column">
             <a @click="openFile(file.id)" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+            <!-- <a @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;"> -->
               <font-awesome-icon :icon="['fas', 'file']" class="top-ranking-icon mr-2" />Abrir
             </a>
           </div>
@@ -58,4 +68,5 @@
       </div>
     </div>
   </div>  
+  <ShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
 </template>
