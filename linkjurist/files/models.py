@@ -4,7 +4,7 @@ from tags.models import Tag
 
 
 def user_directory_path(instance, filename):
-    return f'uploads/{instance.account.id}/{filename}'
+    return f'/media/uploads/{instance.account.id}/{filename}'
 
 class File(models.Model):
     title = models.CharField(max_length=128)
@@ -20,7 +20,7 @@ class File(models.Model):
 
 
     def __str__(self):
-        return str(self.name)
+        return str(self.title)
     
 
 class FileTag(models.Model):

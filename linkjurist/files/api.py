@@ -1,4 +1,10 @@
+import io
 import json
+import os
+import PyPDF2
+import fitz
+from django.conf import settings
+from django.http import HttpResponse
 from django.http import FileResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -54,6 +60,45 @@ def uploadfile(request):
 @api_view(['GET'])
 def getfile(request):
     id = request.query_params.get('id')
+    account = int(request.query_params.get('account'))
 
     file = get_object_or_404(File, id=id)
-    return FileResponse(file.file, as_attachment=True, content_type='application/pdf')
+
+    if file.account.id == account:
+        return FileResponse(file.file, as_attachment=True, content_type='application/pdf')
+    else: 
+        preview = create_preview(file.file)
+        return FileResponse(preview, as_attachment=True, content_type='application/pdf')
+
+
+def create_preview(file):
+    file_data = io.BytesIO()
+    pdf = fitz.open()
+
+    file_path = os.path.join(settings.MEDIA_ROOT, str(file))
+    original_pdf = fitz.open(file_path)
+
+    page = pdf.new_page(width=original_pdf[0].rect.width, height=original_pdf[0].rect.height)
+    page.show_pdf_page(page.rect, original_pdf, 0)
+
+    original_pdf.close()
+
+    image_path = os.path.join(settings.MEDIA_ROOT, 'preview-banner.png')
+    image = fitz.open(image_path)
+
+    imagen_width = image[0].rect.width * 0.8
+    imagen_height = image[0].rect.height * 0.8
+    
+    page_width = page.rect.width
+    page_height = page.rect.height
+    x_pos = (page_width - imagen_width) / 2
+    y_pos = (page_height - imagen_height) / 2
+    
+    new_rect = fitz.Rect(x_pos, y_pos, x_pos + imagen_width, y_pos + imagen_height)
+    page.insert_image(new_rect, filename=image, overlay=True)
+    image.close()
+
+    pdf.save(file_data)
+    file_data.seek(0)
+
+    return file_data
