@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   import axios from 'axios';
-  import ShowFileModal from '@/components/account/files/ShowFileModal.vue';
+  import AccountShowFileModal from '@/components/account/files/AccountShowFileModal.vue';
 
   const { props } = defineProps(['file']);
 
