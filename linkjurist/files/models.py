@@ -18,7 +18,6 @@ class File(models.Model):
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     tags = models.ManyToManyField(Tag, through='FileTag', related_name='files')
 
-
     def __str__(self):
         return str(self.title)
     

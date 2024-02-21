@@ -113,3 +113,22 @@ def searchfiles(request):
     return JsonResponse({
         'files': files
     })
+
+
+@api_view(['POST'])
+def filterfiles(request):
+    locality = request.data.get('_rawValue').get('locality').capitalize()
+    speciality = request.data.get('_rawValue').get('speciality')
+
+    files_data = File.objects.all()
+    if(locality != ''):
+        files_data = files_data.filter(account__locality=locality)
+    if(speciality != ''):
+        files_data = files_data.filter(tags__id=speciality)
+
+    files = FileSerializer(files_data, many=True).data
+    
+    return JsonResponse({
+        'files': files
+    })
+
