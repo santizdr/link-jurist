@@ -8,4 +8,5 @@ urlpatterns = [
     path('apply/', api.apply, name='apply'),
     path('assigncase/', api.assigncase, name='assigncase'),
     path('searchcases/', api.searchcases, name='searchcases'),
+    path('filtercases/', api.filtercases, name='filtercases'),
 ]

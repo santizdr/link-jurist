@@ -123,3 +123,25 @@ def searchcases(request):
     return JsonResponse({
         'cases': cases
     })
+
+
+@api_view(['POST'])
+def filtercases(request):
+    type = request.data.get('_rawValue').get('type')
+    locality = request.data.get('_rawValue').get('locality').capitalize()
+    speciality = request.data.get('_rawValue').get('speciality')
+
+    cases_data = Case.objects.all()
+    if(type != ''):
+        cases_data = cases_data.filter(type=type)
+    if(locality != ''):
+        cases_data = cases_data.filter(account__locality=locality)
+    if(speciality != ''):
+        cases_data = cases_data.filter(tags__id=speciality)
+
+    cases = CaseSerializer(cases_data, many=True).data
+    
+    return JsonResponse({
+        'cases': cases
+    })
+
