@@ -102,3 +102,14 @@ def create_preview(file):
     file_data.seek(0)
 
     return file_data
+
+
+@api_view(['POST'])
+def searchfiles(request):
+    input = request.data.get('_rawValue').get('input')
+    files_data = File.objects.filter(title__icontains=input)
+    files = FileSerializer(files_data, many=True).data
+    
+    return JsonResponse({
+        'files': files
+    })

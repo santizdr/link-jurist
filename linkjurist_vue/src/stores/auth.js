@@ -238,7 +238,6 @@ export const useAuthStore = defineStore("auth", {
         reloadAccountInfo() {
             axios.get("/api/me")
             .then(response => {
-                console.log(response);
                 this.setStoreInfo(response.data);
             })
             .catch(error => {

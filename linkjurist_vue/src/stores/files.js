@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const useFilesStore = defineStore("files", {
     state: () => ({
-        cases: [],
+        files: [],
     }),
 
     actions: {

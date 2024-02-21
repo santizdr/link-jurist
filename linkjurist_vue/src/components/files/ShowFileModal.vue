@@ -6,7 +6,6 @@
 
     const emit = defineEmits(['closeFileModal'])
     const props = defineProps(['showFileModal', 'file']);
-    console.log(props.file)
 </script>
 
 

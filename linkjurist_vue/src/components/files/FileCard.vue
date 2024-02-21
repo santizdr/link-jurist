@@ -21,7 +21,6 @@
           reader.readAsDataURL(response.data); 
           reader.onloadend = () => {
               const base64data = reader.result; 
-              console.log(base64data);
               fileSrc.value = base64data;
               showFileModal.value = true;
           };
