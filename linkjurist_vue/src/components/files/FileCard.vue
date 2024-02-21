@@ -46,7 +46,9 @@
       <div class="media">
         <div class="media-content">            
           <p class="title is-4">{{ file.title }}</p>
-          <p class="subtitle is-5 secondary-text-color"></p>
+          <p class="subtitle is-5 secondary-text-color">
+            <RouterLink :to="'/account/' + file.account" class="black-text ">{{ file.account_name }}</RouterLink>
+          </p>
           <div>
             <span v-for="tag in file.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
           </div>

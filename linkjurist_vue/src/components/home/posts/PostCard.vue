@@ -22,8 +22,12 @@
                         </figure>
                     </div> -->
                     <div class="media-content">
-                        <p class="title is-4">{{ post.posted_by_name }}</p>
-                        <p class="subtitle is-6">{{ post.account_name }}</p>
+                        <p class="title is-4">
+                            <RouterLink :to="'/user/' + post.posted_by" class="black-text ">{{ post.posted_by_name }}</RouterLink>
+                        </p>
+                        <p class="subtitle is-6">
+                            <RouterLink :to="'/account/' + post.account" class="black-text ">{{ post.account_name }}</RouterLink>
+                        </p>
                         <div>
                             <span v-for="tag in post.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
                         </div>

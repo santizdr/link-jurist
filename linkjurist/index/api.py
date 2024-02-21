@@ -8,7 +8,7 @@ from .forms import PostForm
 from .serializers import PostSerializer
 
 from account.models import Account, User, Follow
-from account.serializers import UserSerializer, AccountSerializer, ContactsSerializer
+from account.serializers import UserSerializer, AccountSerializer, ContactsSerializer, UserDetailsSerializer
 from account.forms import FollowForm
 
 from cases.models import Case
@@ -115,6 +115,18 @@ def accountdetails(request):
         'posts': posts,
         'cases': cases,
         'files': files,
+    })
+
+
+@api_view(['GET'])
+def userdetails(request):
+    id = request.query_params.get('id')
+
+    my_user = User.objects.get(id=id)
+    user = UserDetailsSerializer(my_user).data
+
+    return JsonResponse({
+        'user': user,
     })
 
 

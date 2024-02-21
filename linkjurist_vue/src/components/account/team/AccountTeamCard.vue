@@ -25,7 +25,7 @@
                 <div class="card-content">
                     <div class="content">
                         <h2 class="title is-4">
-                            {{ user.firstname }} {{ user.lastname }}
+                            <RouterLink :to="'/user/' + user.id" class="black-text ">{{ user.firstname }} {{ user.lastname }}</RouterLink>
                         </h2>
                         <hr>
                         <p class="subtitle is-5"><span class="secondary-text-color">Email personal: </span>{{ user.email }}</p>

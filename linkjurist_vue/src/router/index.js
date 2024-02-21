@@ -11,6 +11,7 @@ import LogIn from '../views/LogIn.vue'
 import CasesView from '../views/CasesView.vue'
 import FilesView from '../views/FilesView.vue'
 import AccountView from '../views/AccountView.vue'
+import UserView from '../views/UserView.vue'
 import AccountDetails from '../views/AccountDetails.vue'
 import AccountProfile from '../views/AccountProfile.vue'
 
@@ -58,6 +59,11 @@ const router = createRouter({
       component: AccountDetails,
     },
     {
+      path: '/user/:id',
+      name: 'UserView',
+      component: UserView,
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -94,6 +100,9 @@ router.beforeEach((to, from, next) => {
       casesStore.fetchCasesData(authStore.account.id);
     } else if (to.path === '/files') {
       filesStore.fetchFilesData(authStore.account.id);
+    } else if (to.path.match(/^\/user\/\d+$/)) {
+      const id = to.params.id; 
+      detailsStore.fetchUserData(id);
     }
     next();
   }

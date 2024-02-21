@@ -42,7 +42,6 @@
             .catch(error => {
                 console.log("Error: ", error);
             })
-        
     }
 </script>
 

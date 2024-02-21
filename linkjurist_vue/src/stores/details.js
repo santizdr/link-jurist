@@ -16,6 +16,15 @@ export const useDetailsStore = defineStore("details", {
             locality: null,
             country: null,
         },
+        user: {
+            id: null,
+            email: null,
+            firstname: null,
+            lastname: null,
+            description: null,
+            account_name: null,
+            tags: [],
+        },
         follow: null,
         team: [],   
         posts: [], 
@@ -48,6 +57,19 @@ export const useDetailsStore = defineStore("details", {
                 console.log("Error: ", error);
             })
         },
+        async fetchUserData(id) {
+            await axios.get("/api/userdetails/", 
+              {
+                params: {id: id}
+              }
+            ).then(response => {
+                console.log(response.data)
+                this.user = response.data.user;
+              })
+              .catch(error => {
+                console.log("Error: ", error);
+              })
+          },
         clearDetailsInfo() {
             this.account.id = null;
             this.account.name = null;
@@ -61,6 +83,14 @@ export const useDetailsStore = defineStore("details", {
             this.account.locality = null;
             this.account.country = null;
       
+            this.user.id = null;
+            this.user.account_name = null;
+            this.user.email = null;
+            this.user.firstname = null;
+            this.user.lastname = null;
+            this.user.description = null;
+            this.user.tags = [];
+
             this.team = [];
             this.posts = [];
             this.files = [];
@@ -77,6 +107,14 @@ export const useDetailsStore = defineStore("details", {
             localStorage.setItem("account.cp", "");
             localStorage.setItem("account.locality", "");
             localStorage.setItem("account.country", "");
+
+            localStorage.setItem("user.id", "");
+            localStorage.setItem("user.email", "");
+            localStorage.setItem("user.fisrtname", "");
+            localStorage.setItem("user.lastname", "");
+            localStorage.setItem("user.description", "");
+            localStorage.setItem("user.account_name", "");
+            localStorage.setItem("user.tags", []);
 
             localStorage.setItem("team", []);
             localStorage.setItem("posts", []);
