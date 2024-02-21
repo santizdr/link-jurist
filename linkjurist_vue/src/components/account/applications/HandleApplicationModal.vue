@@ -43,21 +43,22 @@
 
         if (error.value.field === '' && error.value.message === '') {
             axios.post("/api/assigncase/", form)
-            .then(response => {
-                if(response.data.message === "success") {
-                        form.value.status = "PENDING";
+                .then(response => {
+                    if(response.data.message === "success") {
+                            form.value.status = "PENDING";
 
-                        this.authStore.setApplicationsInfo(response.data.applications);
-                        emit('closeApplicationModal');
-                    } else {
-                        alert.value.message = "Se ha producido un error al asignar el caso";
-                        alert.value.class = "span-error";
-                    }            })
-            .catch(error => {
-                console.log("Error: ", error);
-                alert.value.message = "Se ha producido un error al asignar el caso";
-                alert.value.class = "span-error";
-            })
+                            this.authStore.setApplicationsInfo(response.data.applications);
+                            emit('closeApplicationModal');
+                        } else {
+                            alert.value.message = "Se ha producido un error al asignar el caso";
+                            alert.value.class = "span-error";
+                        }
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                    alert.value.message = "Se ha producido un error al asignar el caso";
+                    alert.value.class = "span-error";
+                })
         }        
     }
 

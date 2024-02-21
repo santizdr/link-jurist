@@ -1,5 +1,41 @@
 <script setup>
+    import axios from 'axios';
+    import { ref } from 'vue';
+    import { useAuthStore } from '@/stores/auth'
+    import { useCasesStore } from '@/stores/cases'
 
+    const casesStore = useCasesStore()
+
+    const error = ref({
+        field: "",
+        message: "",
+    });
+
+    const searchForm = ref({
+        input: "",
+    }) 
+
+    function submitSearch() {
+        error.value = {
+            field: "",
+            message: "",
+        }
+
+        if (searchForm.value.input === "") {
+            error.value.field = "search";
+            error.value.message = "Introduce texto antes de buscar";
+        }
+
+        if (error.value.field === '' && error.value.message === '') {
+            axios.post("/api/searchcases/", searchForm)
+                .then(response => {
+                    casesStore.cases = response.data.cases;
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+        }
+    }
 </script>
 
 <template>
@@ -7,11 +43,12 @@
         <form>
             <h1 class="title is-4">Buscar</h1>
             <div class="control my-5">
-                <input class="input" type="text">
-            </div>            
+                <input class="input" type="text" :class="{ 'input-error' : error.field === 'search' }" v-model="searchForm.input">
+                <span v-if="error.field === 'search'" class="has-text-danger"> {{ error.message }}</span>         
+            </div>   
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
-                    <button class="button is-rounded secondary-form-button">Buscar</button>
+                    <a @click.prevent="submitSearch()" class="button is-rounded secondary-form-button">Buscar</a>
                 </div>
             </div>
         </form>

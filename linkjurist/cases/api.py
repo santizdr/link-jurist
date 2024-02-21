@@ -37,7 +37,6 @@ def postcase(request):
     else: 
         message = 'error'
 
-    
     return JsonResponse({
         'message': message,
         'cases': cases,
@@ -112,4 +111,15 @@ def assigncase(request):
     return JsonResponse({
         'message': message,
         'applications': applications
+    })
+
+
+@api_view(['POST'])
+def searchcases(request):
+    input = request.data.get('_rawValue').get('input')
+    cases_data = Case.objects.filter(expiry_date__gt=date.today(), title__icontains=input)
+    cases = CaseSerializer(cases_data, many=True).data
+    
+    return JsonResponse({
+        'cases': cases
     })
