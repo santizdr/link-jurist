@@ -1,4 +1,9 @@
 <script setup>
+    import { ref } from 'vue'
+    import { useAuthStore } from '@/stores/auth';
+    import ConfirmDeletePost from './ConfirmDeletePost.vue';
+
+    const authStore = useAuthStore();
     const { props } = defineProps(['post']);
 
     const tags = {
@@ -8,6 +13,15 @@
         4: "Derecho mercantil",
         5: "Derecho administrativo",
         6: "Derecho internacional",
+    }
+
+    const deletePostModal = ref(false);
+    const editPostModal = ref(false);
+    const deleteId = ref(null);
+
+    function deletePost(id) {
+        deleteId.value = id;
+        deletePostModal.value = true;
     }
 </script>
 
@@ -23,8 +37,20 @@
                         </figure>
                     </div> -->
                     <div class="media-content">
-                        <p class="title is-4">{{ post.account_name }}</p>
-                        <p class="subtitle is-6">{{ post.posted_by_name }}</p>
+                        <div class="columns">
+                            <div class="column">
+                                <p class="title is-4">{{ post.account_name }}</p>
+                                <p class="subtitle is-6">{{ post.posted_by_name }}</p>
+                            </div>
+                            <div class="column is-narrow">
+                                <a @click="editPost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                                </a>
+                                <a v-if="post.posted_by === authStore.user.id || authStore.user.is_manager" @click="deletePost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                                </a>
+                            </div>
+                        </div>
                         <div>
                             <span v-for="tag in post.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
                         </div>
@@ -49,4 +75,5 @@
         </div>    
         <hr>   
     </div>
+    <ConfirmDeletePost :deletePostModal="deletePostModal" @close-delete-post-modal="deletePostModal = false" :id="deleteId" />
 </template>

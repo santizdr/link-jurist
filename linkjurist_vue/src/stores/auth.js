@@ -12,6 +12,7 @@ export const useAuthStore = defineStore("auth", {
             email: null,
             access: null,
             refresh: null,
+            is_manager: null,
             tags: [],
         },
         account: {
@@ -43,6 +44,7 @@ export const useAuthStore = defineStore("auth", {
                 this.user.firstname = localStorage.getItem('user.firstname');
                 this.user.lastname = localStorage.getItem('user.lastname');
                 this.user.email = localStorage.getItem('user.email');
+                this.user.is_manager = localStorage.getItem('user.is_manager');
                 this.user.isAuthenticated = true;
 
                 this.refreshToken();
@@ -70,6 +72,7 @@ export const useAuthStore = defineStore("auth", {
             this.user.lastname = null;
             this.user.email = null;
             this.user.isAuthenticated = false;
+            this.user.is_manager = false;
             this.user.tags = []
 
             localStorage.setItem("user.access", "");
@@ -78,6 +81,7 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("user.firstname", "");
             localStorage.setItem("user.lastname", "");
             localStorage.setItem("user.email", "");
+            localStorage.setItem("user.is_manager", "");
             localStorage.setItem("user.tags", []);
         },
         setStoreInfo(data) {
@@ -87,6 +91,7 @@ export const useAuthStore = defineStore("auth", {
             this.user.firstname = data.user.firstname;
             this.user.lastname = data.user.lastname;
             this.user.email = data.user.email;
+            this.user.is_manager = data.user.is_manager;
             this.user.tags = data.user.tags;
 
             if(data.account !== '') {

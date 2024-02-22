@@ -160,4 +160,25 @@ def follow(request):
     })
 
 
+@api_view(['POST'])
+def deletepost(request):
+    message = "error"
+    post = []
+    id = request.data.get('id')
+    post = get_object_or_404(Post, id=id)
+    account_id = post.account.id
 
+    PostTag.objects.filter(post_id=id).delete()
+    post.delete()
+
+    check_deleted = Post.objects.filter(id=id)
+    if len(check_deleted) == 0:
+        message = "success"
+
+    posts_data = Post.objects.filter(account_id=account_id)
+    post = PostSerializer(posts_data, many=True).data
+
+    return JsonResponse({
+        'message': message,
+        'post': post,
+    })

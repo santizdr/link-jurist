@@ -5,8 +5,8 @@
 
     const authStore = useAuthStore();
 
-    const emit = defineEmits(['closeDeleteUserModal'])
-    const props = defineProps(['id', 'deleteUserModal']);
+    const emit = defineEmits(['closeDeletePostModal'])
+    const props = defineProps(['id', 'deletePostModal']);
 
     const alert = ref({
         message: "",
@@ -14,17 +14,17 @@
     });
 
     function handleCloseModal() {
-        emit('closeDeleteUserModal');
+        emit('closeDeletePostModal');
     }
 
     function confirmDelete(id) {
-        axios.post("/api/deleteuser/", {
+        axios.post("/api/deletepost/", {
             id: id
         })
         .then(response => {
             if(response.data.message === "success") {
-                authStore.team = response.data.team;
-                alert.value.message = "Has eliminado al usuario";
+                authStore.posts = response.data.post;
+                alert.value.message = "Has eliminado la publicación";
                 alert.value.class = "span-success";
                 handleCloseModal();
             } else {
@@ -39,7 +39,7 @@
 </script>
 
 <template>
-    <div class="modal" :class="{'is-active' : deleteUserModal }">
+    <div class="modal" :class="{'is-active' : deletePostModal }">
       <div class="modal-background"></div>
         <div class="modal-card">
             <form class="mx-3" @submit.prevent="submitForm()">
@@ -48,8 +48,7 @@
                     <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
                 </header>
                 <section class="modal-card-body">    
-                    <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar el usuario de la cuenta?</p>
-                    <p class="subtitle is-5 my-2">Esto implica la eliminación de sus publicaciones y de los escritos que ha subido.</p>
+                    <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar esta publicación?</p>
                 </section>
                 <footer class="modal-card-foot">
                     <div class="field is-grouped">

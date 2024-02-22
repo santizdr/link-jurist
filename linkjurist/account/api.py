@@ -174,7 +174,6 @@ def deleteuser(request):
     user = get_object_or_404(User, id=id)
     account_id = user.account.id
 
-    # Eliminamos los posts y escritos subidos por el usuario
     Post.objects.filter(posted_by=user).delete()
     File.objects.filter(uploaded_by=user).delete()
     UserTag.objects.filter(user_id=user).delete()
