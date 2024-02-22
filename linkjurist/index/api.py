@@ -76,7 +76,7 @@ def createpost(request):
     else: 
         message = 'error'
 
-    posts_data = Post.objects.all()
+    posts_data = Post.objects.filter(account_id=data.get('account'))
     posts = PostSerializer(posts_data, many=True).data
 
     return JsonResponse({

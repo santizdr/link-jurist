@@ -60,6 +60,7 @@
         </a>
 
         <div class="navbar-dropdown is-right">
+          <RouterLink :to="'/user/' + authStore.user.id" class="navbar-item">Mi perfil</RouterLink>
           <RouterLink to="/account" class="navbar-item">Mi cuenta</RouterLink>
           <RouterLink v-on:click="authStore.logOut()" to="/" class="navbar-item">Cerrar sesión</RouterLink>
 
