@@ -3,6 +3,7 @@
   import axios from 'axios';
   import { useAuthStore } from '@/stores/auth';
   import AccountShowFileModal from '@/components/account/files/AccountShowFileModal.vue';
+  import ConfirmDeleteFile from '@/components/account/files/ConfirmDeleteFile.vue';
 
   const authStore = useAuthStore();
 
@@ -12,13 +13,22 @@
   const fileSrc = ref(null);
 
   const tags = {
-      1: "Derecho penal",
-      2: "Derecho civil",
-      3: "Derecho laboral",
-      4: "Derecho mercantil",
-      5: "Derecho administrativo",
-      6: "Derecho internacional",
-    }
+    1: "Derecho penal",
+    2: "Derecho civil",
+    3: "Derecho laboral",
+    4: "Derecho mercantil",
+    5: "Derecho administrativo",
+    6: "Derecho internacional",
+  }
+
+  const deleteFileModal = ref(false);
+  const editFileModal = ref(false);
+  const deleteId = ref(null);
+
+  function deleteFile(id) {
+      deleteId.value = id;
+      deleteFileModal.value = true;
+  }
 
   function openFile(id, account) {
       axios.get("/api/getfile/", { 
@@ -45,9 +55,20 @@
   <div class="card my-4 mx-4">
     <div class="card-content">
       <div class="media">
-        <div class="media-content">            
-          <p class="title is-4">{{ file.title }}</p>
-          <p class="subtitle is-5 secondary-text-color"></p>
+        <div class="media-content">     
+          <div class="columns">
+            <div class="column">
+              <p class="title is-4">{{ file.title }}</p>
+            </div>
+            <div class="column is-narrow">
+                <a @click="editFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                </a>
+                <a v-if="file.uploaded_by === authStore.user.id || authStore.user.is_manager" @click="deleteFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                </a>
+            </div>
+          </div>
           <div>
               <span v-for="tag in file.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
           </div>
@@ -72,4 +93,5 @@
     </div>
   </div>  
   <AccountShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
+  <ConfirmDeleteFile :deleteFileModal="deleteFileModal" @close-delete-file-modal="deleteFileModal = false" :id="deleteId" />
 </template>

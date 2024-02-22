@@ -132,3 +132,26 @@ def filterfiles(request):
         'files': files
     })
 
+
+@api_view(['POST'])
+def deletefile(request):
+    message = "error"
+    file = []
+    id = request.data.get('id')
+    file = get_object_or_404(File, id=id)
+    account_id = file.account.id
+
+    FileTag.objects.filter(file_id=id).delete()
+    file.delete()
+
+    check_deleted = File.objects.filter(id=id)
+    if len(check_deleted) == 0:
+        message = "success"
+
+    files_data = File.objects.filter(account_id=account_id)
+    file = FileSerializer(files_data, many=True).data
+
+    return JsonResponse({
+        'message': message,
+        'file': file,
+    })
