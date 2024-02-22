@@ -44,11 +44,11 @@
 <template>
     Añade especialidades
     <div class="my-1">
-        <a @click="selectTag(1)" class="mr-3 mb-2 button is-rounded tag-1 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[1] }">Derecho penal</a>
-        <a @click="selectTag(2)" class="mr-3 mb-2 button is-rounded tag-2 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[2] }">Derecho civil</a>
-        <a @click="selectTag(3)" class="mr-3 mb-2 button is-rounded tag-3 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[3] }">Derecho laboral</a>
-        <a @click="selectTag(4)" class="mr-3 mb-2 button is-rounded tag-4 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[4] }">Derecho mercantil</a>
-        <a @click="selectTag(5)" class="mr-3 mb-2 button is-rounded tag-5 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[5] }">Derecho administrativo</a>
-        <a @click="selectTag(6)" class="mr-3 mb-2 button is-rounded tag-6 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[6] }">Derecho internacional</a>
+        <a @click="selectTag(1)" class="mr-3 mb-2 button tag-1 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[1] }">Derecho penal</a>
+        <a @click="selectTag(2)" class="mr-3 mb-2 button tag-2 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[2] }">Derecho civil</a>
+        <a @click="selectTag(3)" class="mr-3 mb-2 button tag-3 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[3] }">Derecho laboral</a>
+        <a @click="selectTag(4)" class="mr-3 mb-2 button tag-4 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[4] }">Derecho mercantil</a>
+        <a @click="selectTag(5)" class="mr-3 mb-2 button tag-5 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[5] }">Derecho administrativo</a>
+        <a @click="selectTag(6)" class="mr-3 mb-2 button tag-6 black-text" :class="{ 'has-text-weight-semibold selected-tag' : selectedTags[6] }">Derecho internacional</a>
     </div>
 </template>

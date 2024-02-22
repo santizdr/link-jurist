@@ -108,7 +108,7 @@
         <TagsInput :key="resetKey" @handle-select-tag="handleSelectTag"/>
         <div class="field is-grouped is-grouped-right">
             <div class="control">
-                <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button" style="width: 150px;">Crear</button>
+                <button @click.prevent="submitForm()" class="button secondary-form-button" style="width: 150px;">Crear</button>
             </div>
         </div>
     </form>

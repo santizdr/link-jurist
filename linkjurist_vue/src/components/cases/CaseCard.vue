@@ -92,15 +92,15 @@
           <div class="columns is-vcentered">
             <div class="column">
               <div v-if="caso.account !== authStore.account.id">
-                <a v-if="!caso.is_applied" @click.prevent="applyToCase(caso.id)" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text navbar-button" style="width: 150px;">
+                <a v-if="!caso.is_applied" @click.prevent="applyToCase(caso.id)" class="button secondary-bg-color has-text-weight-semibold white-text navbar-button" style="width: 150px;">
                   <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Aplicar
                 </a>
-                <a v-else @click.prevent="applyToCase(caso.id)" class="button is-rounded main-bg-color has-text-weight-semibold white-text navbar-button" style="width: 150px;">
+                <a v-else @click.prevent="applyToCase(caso.id)" class="button main-bg-color has-text-weight-semibold white-text navbar-button" style="width: 150px;">
                   <font-awesome-icon :icon="['fas', 'minus']" class="top-ranking-icon mr-2" />Cancelar
                 </a>
               </div>
               <div v-else>
-                <button class="button disabled disabled-btn is-rounded secondary-form-button">No puedes aplicar a tu caso</button>
+                <button class="button disabled disabled-btn secondary-form-button">No puedes aplicar a tu caso</button>
               </div>
             </div>
             <div class="is-narrow">

@@ -64,10 +64,10 @@
             <h1 class="title is-1">{{ account.name }}</h1>
             <h2 class="subtitle">{{ account.slogan }}</h2>
             <div v-if="authStore.account.id !== account.id">
-                <a v-if="!detailsStore.follow" @click.prevent="follow()" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+                <a v-if="!detailsStore.follow" @click.prevent="follow()" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
                     <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Seguir
                 </a>
-                <a v-else @click.prevent="follow()" class="button is-rounded main-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+                <a v-else @click.prevent="follow()" class="button main-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
                     <font-awesome-icon :icon="['fas', 'minus']" class="top-ranking-icon mr-2" />Dejar de seguir
                 </a>
             </div>

@@ -66,8 +66,8 @@
         </div>
       </div>
       <div v-else class="buttons buttons are-normal is-hidden-touch">
-        <RouterLink id="signup_btn" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" to="signup" style="width: 150px;">Registro</RouterLink>
-        <RouterLink id="login_btn" class="button is-rounded white-bg-color has-text-weight-semibold is-responsive navbar-button main-text-color" to="login" style="width: 150px;">Iniciar sesión</RouterLink>
+        <RouterLink id="signup_btn" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" to="signup" style="width: 150px;">Registro</RouterLink>
+        <RouterLink id="login_btn" class="button white-bg-color has-text-weight-semibold is-responsive navbar-button main-text-color" to="login" style="width: 150px;">Iniciar sesión</RouterLink>
       </div>
     </div>
   </div>

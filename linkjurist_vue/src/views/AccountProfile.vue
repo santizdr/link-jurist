@@ -163,7 +163,7 @@
                         </div>
                         <div class="field is-grouped is-grouped-right mt-4">
                             <div class="control">
-                                <button class="button is-rounded secondary-form-button">Confirmar</button>
+                                <button class="button secondary-form-button">Confirmar</button>
                             </div>
                         </div>
                     </form>

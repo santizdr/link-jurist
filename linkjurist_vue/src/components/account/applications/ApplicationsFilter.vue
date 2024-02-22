@@ -28,7 +28,7 @@
 
         <div class="field is-grouped is-grouped-right">
             <div class="control">
-                <a @click="handleApplicationsFilter()" class="button is-rounded secondary-form-button">Filtrar</a>
+                <a @click="handleApplicationsFilter()" class="button secondary-form-button">Filtrar</a>
             </div>
         </div>
     </div>

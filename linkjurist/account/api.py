@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from .models import User, Account, UserTag
@@ -13,6 +14,8 @@ from cases.serializers import CaseSerializer, ApplySerializer
 
 from index.models import Post
 from index.serializers import PostSerializer
+
+from tags.models import Tag
 
 
 @api_view(['GET'])
@@ -115,9 +118,9 @@ def adduser(request):
         message = 'error'
 
     return JsonResponse({
-            'message': message,
-            'team': team,
-        })
+        'message': message,
+        'team': team,
+    })
 
 
 @api_view(['POST'])
@@ -161,4 +164,28 @@ def account(request):
         'account': account,
         'team': team,
         'files': files,
+    })
+
+
+@api_view(['POST'])
+def deleteuser(request):
+    team = []
+    id = request.data.get('id')
+    user = get_object_or_404(User, id=id)
+    account_id = user.account.id
+
+    # Eliminamos los posts y escritos subidos por el usuario
+    Post.objects.filter(posted_by=user).delete()
+    File.objects.filter(uploaded_by=user).delete()
+    UserTag.objects.filter(user_id=user).delete()
+
+    user.delete()
+    message = 'success'
+
+    team_data = User.objects.filter(account_id=account_id)
+    team = UserSerializer(team_data, many=True).data
+
+    return JsonResponse({
+        'message': message,
+        'team': team,
     })

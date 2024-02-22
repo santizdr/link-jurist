@@ -75,7 +75,7 @@
             </div>   
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
-                    <a @click.prevent="submitSearch()" class="button is-rounded secondary-form-button">Buscar</a>
+                    <a @click.prevent="submitSearch()" class="button secondary-form-button">Buscar</a>
                 </div>
             </div>
         </form>
@@ -119,7 +119,7 @@
             <span v-if="error.field === 'filter'" class="has-text-danger"> {{ error.message }}</span>         
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
-                    <a @click.prevent="submitFilter()" class="button is-rounded secondary-form-button">Filtrar</a>
+                    <a @click.prevent="submitFilter()" class="button secondary-form-button">Filtrar</a>
                 </div>
             </div>
         </form>

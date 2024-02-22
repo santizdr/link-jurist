@@ -109,7 +109,7 @@
                 </section>
                 <footer class="modal-card-foot">
                     <div class="control">
-                        <button @click.prevent="submitForm()" class="button is-rounded secondary-form-button">Confirmar</button>
+                        <button @click.prevent="submitForm()" class="button secondary-form-button">Confirmar</button>
                     </div> 
                 </footer>
             </form>

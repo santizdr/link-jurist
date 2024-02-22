@@ -57,8 +57,8 @@
           <p class="default-font-size"><span class="secondary-text-color">Descripción: </span>{{ file.description }}</p>
           <div class="columns is-vcentered">
           <div class="column">
-            <a @click="openFile(file.id, authStore.account.id)" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
-            <!-- <a @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;"> -->
+            <a @click="openFile(file.id, authStore.account.id)" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+            <!-- <a @click="showFileModal = true" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;"> -->
               <font-awesome-icon :icon="['fas', 'file']" class="top-ranking-icon mr-2" />Abrir
             </a>
           </div>

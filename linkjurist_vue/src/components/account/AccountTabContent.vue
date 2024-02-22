@@ -65,7 +65,7 @@
                 <div class="column is-narrow is-right">
                     <div class="field is-grouped is-grouped-right">
                         <div class="control">
-                            <a @click="showUserModal = true" v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                            <a @click="showUserModal = true" v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                                 <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Añadir integrante</span>
                             </a>
                         </div>
@@ -105,7 +105,7 @@
         <div v-if="activeTab === 'case-tab'">
             <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Crea un caso</h1>
-                <a @click="showCaseModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                <a @click="showCaseModal = true" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                     <span><font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Crear</span>
                 </a>
                 <hr>
@@ -129,7 +129,7 @@
         <div v-if="activeTab === 'file-tab'">
             <div v-if="detailsStore.account.id === null || detailsStore.account.id === authStore.account.id" class="mx-3">
                 <h1 class="title is-3">Sube un escrito</h1>
-                <a @click="showFileModal = true" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
+                <a @click="showFileModal = true" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button">
                     <span><font-awesome-icon :icon="['fas', 'upload']" class="top-ranking-icon mr-2" />Subir archivo</span>
                 </a>
                 <hr>

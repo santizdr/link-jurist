@@ -103,10 +103,10 @@
                         </div> 
                         <div class="field is-grouped is-grouped-right mt-1">
                             <div class="control">
-                                <button class="button is-rounded secondary-form-button">Confirmar</button>
+                                <button class="button secondary-form-button">Confirmar</button>
                             </div>
                             <div class="control">
-                                <RouterLink to="/" class="button is-rounded main-form-button">Cancelar</RouterLink>
+                                <RouterLink to="/" class="button main-form-button">Cancelar</RouterLink>
                             </div>
                         </div>
                         <p class="mt-3">No tienes cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span>? Crea tu cuenta haciendo click <RouterLink to="signup">aquí</RouterLink></p>

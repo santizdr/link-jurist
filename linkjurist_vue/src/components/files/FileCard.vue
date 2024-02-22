@@ -59,7 +59,7 @@
           <p><span class="secondary-text-color">Precio: </span>{{ file.price }}</p> 
           <div class="columns is-vcentered">
           <div class="column">
-            <a @click="openFile(file.id, authStore.account.id)" class="button is-rounded secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+            <a @click="openFile(file.id, authStore.account.id)" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
               <font-awesome-icon :icon="['fas', 'download']" class="top-ranking-icon mr-2" />Comprar
             </a>
           </div>
