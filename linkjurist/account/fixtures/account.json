@@ -243,7 +243,7 @@
             "lastname": "Rodríguez",
             "password": "hashed_password",
             "description": "Abogada especializada en derecho de familia y sucesiones en Gómez & Asociados Abogados. Mi enfoque está en brindar apoyo legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para garantizar que los clientes atraviesen procesos legales difíciles con la menor carga posible.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 2,
             "tags": [4]
         }
@@ -271,7 +271,7 @@
             "lastname": "Gallego",
             "password": "hashed_password",
             "description": "Abogada en Gómez Abogados, con enfoque en derecho de familia y sucesiones. Mi objetivo es brindar asesoramiento legal sensible y resolver disputas de manera eficiente. En nuestro bufete, nos esforzamos por mantener una comunicación transparente y centrarnos en las necesidades individuales de cada cliente.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 3,
             "tags": []
         }
@@ -299,7 +299,7 @@
             "lastname": "Juárez",
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico en JurisTech Innovations. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 4,
             "tags": [1, 3, 6]
         }
@@ -313,7 +313,7 @@
             "lastname": "Navarro",
             "password": "hashed_password",
             "description": "Consultora legal en LegalEase Consultancy, especializada en fusiones y adquisiciones. Mi enfoque se centra en proporcionar asesoramiento estratégico y soluciones legales eficientes para empresas en expansión. Trabajo para garantizar transacciones exitosas y cumplimiento normativo.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 5,
             "tags": []
         }
@@ -327,7 +327,7 @@
             "lastname": "Martínez",
             "password": "hashed_password",
             "description": "Abogado en Martínez Legal Solutions, especializado en derecho de familia y sucesiones. Mi objetivo es proporcionar asesoramiento legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para asegurar que cada cliente reciba atención individualizada y soluciones personalizadas.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 6,
             "tags": [2, 5]
         }
@@ -341,7 +341,7 @@
             "lastname": "Molina",
             "password": "hashed_password",
             "description": "Abogada en TechJuris Consultancy, con experiencia en propiedad intelectual y contratos tecnológicos. Mi enfoque se centra en proteger los activos intelectuales de nuestros clientes y proporcionar soluciones legales innovadoras para desafíos tecnológicos en constante evolución.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 7,
             "tags": [4]
         }
@@ -369,7 +369,7 @@
             "lastname": "Ramírez",
             "password": "hashed_password",
             "description": "Abogada en LegalHarbor Advisors, especializada en derecho empresarial y fusiones y adquisiciones. Mi objetivo es brindar asesoramiento legal estratégico y orientación financiera para lograr transacciones exitosas y el éxito a largo plazo de nuestros clientes.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 8,
             "tags": [1, 3, 4]
         }
@@ -397,7 +397,7 @@
             "lastname": "Pérez",
             "password": "hashed_password",
             "description": "Abogado especializado en propiedad intelectual en Gomez Abogados Sevilla. Mi experiencia se centra en la protección de derechos de autor, marcas registradas y patentes. Trabajo para brindar asesoramiento legal sólido y estratégico en un mundo cada vez más digitalizado.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 11,
             "tags": [5]
         }
@@ -411,7 +411,7 @@
             "lastname": "Martínez",
             "password": "hashed_password",
             "description": "Especialista en arbitraje en Arbitraje Empresarial Andaluz. Mi enfoque se centra en facilitar la resolución rápida y justa de disputas comerciales. Trabajo para proporcionar procesos de arbitraje transparentes y efectivos, permitiendo a las empresas resolver conflictos de manera colaborativa.",
-            "is_manager": false,
+            "is_manager": true,
             "account": 12,
             "tags": [6]
         }

@@ -147,6 +147,7 @@ def account(request):
         account = AccountSerializer(my_account).data
 
         user.account = my_account
+        user.is_manager = True
         user.save()
 
         team_data = User.objects.filter(account_id=account['id'])

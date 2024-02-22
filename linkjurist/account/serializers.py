@@ -14,7 +14,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id' ,'email', 'firstname', 'lastname', 'tags', 'account', 'account_name')
 
     def get_account_name(self, obj):
-        return obj.account.name
+        if obj.account is not None:
+            return obj.account.name
     
 
 class AccountSerializer(serializers.ModelSerializer):
