@@ -145,3 +145,27 @@ def filtercases(request):
         'cases': cases
     })
 
+
+@api_view(['POST'])
+def deletecase(request):
+    message = "error"
+    file = []
+    id = request.data.get('id')
+    case = get_object_or_404(Case, id=id)
+    account_id = case.account.id
+
+    CaseTag.objects.filter(case_id=id).delete()
+    file.delete()
+
+    check_deleted = Case.objects.filter(id=id)
+    if len(check_deleted) == 0:
+        message = "success"
+
+    cases_data = Case.objects.filter(account_id=account_id)
+    case = CaseSerializer(cases_data, many=True).data
+
+    return JsonResponse({
+        'message': message,
+        'file': file,
+    })
+

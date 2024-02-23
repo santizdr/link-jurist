@@ -1,4 +1,6 @@
 <script setup>
+  import ConfirmDeleteCase from '@/components/account/cases/ConfirmDeleteCase.vue';
+
   const { props } = defineProps(['caso']);
 
   const tags = {
@@ -9,15 +11,38 @@
     5: "Derecho administrativo",
     6: "Derecho internacional",
   }
+
+  const deleteCaseModal = ref(false);
+  const editCaseModal = ref(false);
+  const deleteId = ref(null);
+
+  function deleteCase(id) {
+      deleteId.value = id;
+      deleteFileModal.value = true;
+  }
+
 </script>
 
 <template>
     <div class="card my-3">
       <div class="card-content">
         <div class="media">
-          <div class="media-content">            
-            <p class="title is-4">{{ caso.title }}</p>
-            <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type === "OFFER" ? "Oferta"  : "Demanda" }}</p>
+          <div class="media-content"> 
+            <div>
+              <div class="column">
+                <p class="title is-4">{{ caso.title }}</p>
+                <p class="subtitle is-5 secondary-text-color is-capitalized">{{ caso.type === "OFFER" ? "Oferta"  : "Demanda" }}</p>
+              </div>
+              <div class="column is-narrow">
+                <a @click="editFile(caso.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                </a>
+                <a v-if="authStore.user.is_manager" @click="deleteCase(caso.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                </a>
+              </div>
+            </div>           
+
             <div>
               <span v-for="tag in caso.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
             </div>
