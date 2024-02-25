@@ -39,6 +39,7 @@
             <h2 class="subtitle">
                 <RouterLink :to="'/account/' + user.account" class="secondary-text-color has-text-weight-semibold">{{ user.account_name }}</RouterLink>
             </h2>
+            <hr>
         </div>
     </div>
 </template>

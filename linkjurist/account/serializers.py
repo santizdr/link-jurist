@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id' ,'email', 'firstname', 'lastname', 'tags', 'account', 'account_name', 'is_manager')
+        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'is_manager')
 
     def get_account_name(self, obj):
         if obj.account is not None:
@@ -41,7 +41,7 @@ class UserDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id' ,'email', 'firstname', 'lastname', 'tags', 'account', 'account_name', 'posts', 'files')
+        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'posts', 'files')
 
     def get_account_name(self, obj):
         return obj.account.name

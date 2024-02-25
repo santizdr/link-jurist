@@ -10,6 +10,7 @@ export const useAuthStore = defineStore("auth", {
             firstname: null,
             lastname: null,
             email: null,
+            description: null,
             access: null,
             refresh: null,
             is_manager: null,
@@ -44,6 +45,7 @@ export const useAuthStore = defineStore("auth", {
                 this.user.firstname = localStorage.getItem('user.firstname');
                 this.user.lastname = localStorage.getItem('user.lastname');
                 this.user.email = localStorage.getItem('user.email');
+                this.user.description = localStorage.getItem('user.description');
                 this.user.is_manager = localStorage.getItem('user.is_manager');
                 this.user.isAuthenticated = true;
 
@@ -71,6 +73,7 @@ export const useAuthStore = defineStore("auth", {
             this.user.firstname = null;
             this.user.lastname = null;
             this.user.email = null;
+            this.user.description = null;
             this.user.isAuthenticated = false;
             this.user.is_manager = false;
             this.user.tags = []
@@ -81,6 +84,7 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("user.firstname", "");
             localStorage.setItem("user.lastname", "");
             localStorage.setItem("user.email", "");
+            localStorage.setItem("user.description", "");
             localStorage.setItem("user.is_manager", "");
             localStorage.setItem("user.tags", []);
         },
@@ -91,6 +95,7 @@ export const useAuthStore = defineStore("auth", {
             this.user.firstname = data.user.firstname;
             this.user.lastname = data.user.lastname;
             this.user.email = data.user.email;
+            this.user.description = data.user.description;
             this.user.is_manager = data.user.is_manager;
             this.user.tags = data.user.tags;
 
@@ -122,6 +127,9 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("user.firstname", this.user.firstname);
             localStorage.setItem("user.lastname", this.user.lastname);
             localStorage.setItem("user.email", this.user.email);
+            localStorage.setItem("user.description", this.user.description);
+            localStorage.setItem("user.is_manager", this.user.is_manager);
+            localStorage.setItem("user.tags", this.user.tags);
         },
         setAccountInfo(account) {
             console.log("Set account info: ", account);

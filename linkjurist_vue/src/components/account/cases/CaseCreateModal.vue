@@ -164,7 +164,7 @@
                     <div class="field">
                         <label class="label">Fecha de expiración</label>
                         <div class="control">
-                            <input class="input" :class="{ 'input-error' : error.field === 'expiryDate' }" type="date" v-model="form.expiryDate">
+                            <input class="input is-fullwidth" :class="{ 'input-error' : error.field === 'expiryDate' }" type="date" v-model="form.expiryDate">
                         </div>
                         <span v-if="error.field === 'expiryDate'" class="has-text-danger"> {{ error.message }}</span>
                     </div>

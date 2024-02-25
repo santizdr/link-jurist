@@ -48,7 +48,7 @@
                     <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
                 </header>
                 <section class="modal-card-body">    
-                    <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar el escrito?</p>
+                    <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar el caso?</p>
                 </section>
                 <footer class="modal-card-foot">
                     <div class="field is-grouped">
@@ -63,5 +63,4 @@
             </form>
         </div>
     </div>
-    <ConfirmDeleteCase :deleteCaseModal="deleteCaseModal" @close-delete-case-modal="deleteCaseModal = false" :id="deleteId" />
 </template>

@@ -149,13 +149,13 @@ def filtercases(request):
 @api_view(['POST'])
 def deletecase(request):
     message = "error"
-    file = []
+    case = []
     id = request.data.get('id')
     case = get_object_or_404(Case, id=id)
     account_id = case.account.id
 
     CaseTag.objects.filter(case_id=id).delete()
-    file.delete()
+    case.delete()
 
     check_deleted = Case.objects.filter(id=id)
     if len(check_deleted) == 0:
@@ -166,6 +166,6 @@ def deletecase(request):
 
     return JsonResponse({
         'message': message,
-        'file': file,
+        'case': case,
     })
 

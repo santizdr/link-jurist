@@ -41,7 +41,7 @@
                                 <h2 class="title is-4">
                                     <RouterLink :to="'/user/' + user.id" class="black-text ">{{ user.firstname }} {{ user.lastname }}</RouterLink>
                                 </h2>
-                                <p class="subtitle is-5 my-2"><span class="secondary-text-color">Email personal: </span>{{ user.email }}</p>
+                                <p class="subtitle is-5 mb-3"><span class="secondary-text-color">Email personal: </span>{{ user.email }}</p>
                                 <div>
                                     <span v-for="tag in user.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
                                 </div>
