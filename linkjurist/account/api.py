@@ -188,3 +188,40 @@ def deleteuser(request):
         'message': message,
         'team': team,
     })
+
+
+@api_view(['POST'])
+def editaccount(request):
+    data = request.data.get('_rawValue')
+    account = Account.objects.get(id=data.get('account'))
+    data.pop('account', None)
+    message = 'success'
+
+    form = AccountForm(
+        {
+            'name': data.get('name'),
+            'description': data.get('description'),
+            'slogan': data.get('slogan'),
+            'web': data.get('web'),
+            'email': data.get('email'),
+            'phonenumber': data.get('phonenumber'),
+            'address': data.get('address'),
+            'cp': data.get('cp'),
+            'locality': data.get('locality'),
+            'country': data.get('country'),
+        }, 
+        instance=account
+    )
+
+    print(form.is_valid())
+    print(form.errors)
+    if form.is_valid():
+        my_account = form.save()
+        account = AccountSerializer(my_account).data
+
+    message = 'success'
+
+    return JsonResponse({
+        'message': message,
+        'account' : account,
+    })

@@ -3,12 +3,16 @@
     import axios from 'axios'
     import { useAuthStore } from '@/stores/auth';
     import { useDetailsStore } from '@/stores/details';
+    import EditAccountModal from './EditAccountModal.vue';
 
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
 
     const { props } = defineProps(['account']);
-    
+
+    const editAccountModal = ref(false);
+    const editId = ref(null);
+
     const alert = ref({
         message: "",
         class: "",
@@ -18,6 +22,11 @@
         alert.value.message = "";
         alert.value.class = "";
     }
+
+    function editAccount(id) {
+      editId.value = id;
+      editAccountModal.value = true;
+  }
 
     function follow() {
         const data = {
@@ -61,8 +70,17 @@
                     </div>
                 </article>  
             </div> 
-            <h1 class="title is-1">{{ account.name }}</h1>
-            <h2 class="subtitle">{{ account.slogan }}</h2>
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title is-1">{{ account.name }}</h1>
+                    <h2 class="subtitle">{{ account.slogan }}</h2>
+                </div>
+                <div v-if="authStore.account.id === account.id" class="column is-narrow">
+                    <a v-if="authStore.user.is_manager" @click="editAccount(account.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                        <span>Editar cuenta <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon mx-1" /></span>
+                    </a>
+                </div>
+            </div>
             <div v-if="authStore.account.id !== account.id">
                 <a v-if="!detailsStore.follow" @click.prevent="follow()" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
                     <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Seguir
@@ -71,8 +89,8 @@
                     <font-awesome-icon :icon="['fas', 'minus']" class="top-ranking-icon mr-2" />Dejar de seguir
                 </a>
             </div>
-
         </div>
     </div>
+    <EditAccountModal :editAccountModal="editAccountModal" @close-edit-account-modal="editAccountModal = false" :account="account" />
 
 </template>

@@ -163,3 +163,7 @@
     border-color: #878787 !important;
     border-width: 2px !important;
 }
+
+.modal-footer-btns {
+    justify-content: flex-end;
+}
