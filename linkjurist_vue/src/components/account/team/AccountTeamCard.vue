@@ -1,6 +1,7 @@
 <script setup>
     import { ref } from 'vue'
     import ConfirmDeleteUser from '@/components/account/team/ConfirmDeleteUser.vue'
+    import EditUserModal from './EditUserModal.vue';
     
     const { props } = defineProps(['user']);
 
@@ -13,6 +14,8 @@
         6: "Derecho internacional",
     }
 
+    const resetKey = ref(0);
+
     const deleteUserModal = ref(false);
     const editUserModal = ref(false);
     const deleteId = ref(null);
@@ -20,6 +23,16 @@
     function deleteUser(id) {
         deleteId.value = id;
         deleteUserModal.value = true;
+    }
+
+    function editUser(id) {
+        editUserModal.value = true;
+    }
+
+    function handleCloseEditModal() {
+        resetKey.value += 1;
+
+        editUserModal.value = false;
     }
 </script>
 
@@ -61,4 +74,5 @@
         </div>
     </div>
     <ConfirmDeleteUser :deleteUserModal="deleteUserModal" @close-delete-user-modal="deleteUserModal = false" :id="deleteId" />
+    <EditUserModal :key="resetKey" :editUserModal="editUserModal" @close-edit-user-modal="handleCloseEditModal()" :user="user" />
 </template>

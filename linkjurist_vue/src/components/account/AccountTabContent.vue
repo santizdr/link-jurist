@@ -8,7 +8,7 @@
     import AccountFileCard from '@/components/account/files/AccountFileCard.vue'
     import AccountCaseCard from '@/components/account/cases/AccountCaseCard.vue'
     import AccountPostCard from '@/components/account/posts/AccountPostCard.vue'
-    import AccountTeamModal from '@/components/account/team/AccountTeamModal.vue'
+    import CreateUserModal from '@/components/account/team/CreateUserModal.vue'
     import CaseCreateModal from '@/components/account/cases/CaseCreateModal.vue'
     import CaseCard from '@/components/cases/CaseCard.vue'
     import PostCard from '@/components/home/posts/PostCard.vue'
@@ -159,6 +159,6 @@
         </div>
     </div>
     <FileUploadModal :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
-    <AccountTeamModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
+    <CreateUserModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
     <CaseCreateModal :showCaseModal="showCaseModal" @close-case-modal="showCaseModal = false" />
 </template>

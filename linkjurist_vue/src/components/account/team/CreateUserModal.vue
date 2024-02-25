@@ -32,7 +32,7 @@
         tags: [],
     });
 
-    function handleSelectTag(id) {
+    function selectTag(id) {
         const index = form.value.tags.indexOf(id);
         if (index === -1) {
             form.value.tags.push(id);
@@ -73,7 +73,7 @@
         }
 
         if (error.value.field === '' && error.value.message === '') {
-            axios.post("/api/adduser/", form)
+            axios.post("/api/user/", form)
                 .then(response => {
                     if(response.data.message === "success") {
                         this.authStore.setTeamInfo(response.data.team);
@@ -159,7 +159,15 @@
                         <span v-if="error.field === 'password2'" class="has-text-danger"> {{ error.message }}</span>
                     </div>
                 </div>
-                <TagsInput :key="resetKey" @handle-select-tag="handleSelectTag"/>
+                Añade especialidades
+                <div class="my-1">
+                    <a @click="selectTag(1)" class="mr-3 mb-2 button tag-1 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(1) }">Derecho penal</a>
+                    <a @click="selectTag(2)" class="mr-3 mb-2 button tag-2 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(2) }">Derecho civil</a>
+                    <a @click="selectTag(3)" class="mr-3 mb-2 button tag-3 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(3) }">Derecho laboral</a>
+                    <a @click="selectTag(4)" class="mr-3 mb-2 button tag-4 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(4) }">Derecho mercantil</a>
+                    <a @click="selectTag(5)" class="mr-3 mb-2 button tag-5 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(5) }">Derecho administrativo</a>
+                    <a @click="selectTag(6)" class="mr-3 mb-2 button tag-6 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(6) }">Derecho internacional</a>
+                </div>
             </section>
             <footer class="modal-card-foot">
                 <div class="control">

@@ -16,6 +16,12 @@ class AddUserForm(UserCreationForm):
         fields = ('email', 'firstname', 'lastname', 'password1', 'password2', 'account')
 
 
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('email', 'firstname', 'lastname', 'account')
+
+
 class AccountForm(forms.ModelForm):
     class Meta:
         model = Account

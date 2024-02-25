@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from .models import User, Account, UserTag
-from .forms import SignupForm, AccountForm, AddUserForm
+from .forms import SignupForm, AccountForm, AddUserForm, EditUserForm
 from .serializers import UserSerializer, AccountSerializer
 
 from files.models import File
@@ -89,36 +89,49 @@ def signup(request):
 
 
 @api_view(['POST'])
-def adduser(request):
+def user(request):
+    message = "success"
     team = []
+    user = ""
     data = request.data.get('_rawValue')
-
-    message = 'success'
-    form = AddUserForm({
-        'account': data.get('account'),
-        'email': data.get('email'),
-        'firstname': data.get('firstname'),
-        'lastname': data.get('lastname'),
-        'password1': data.get('password1'),
-        'password2': data.get('password2'),
-    })
+    user_id = data.get('id')
+    if user_id is None:
+        form = AddUserForm({
+            'account': data.get('account'),
+            'email': data.get('email'),
+            'firstname': data.get('firstname'),
+            'lastname': data.get('lastname'),
+            'password1': data.get('password1'),
+            'password2': data.get('password2'),
+        })
+    else:
+        user = User.objects.get(id=data.get('id'))
+        data.pop('user', None)
+        form = EditUserForm({
+            'account': data.get('account'),
+            'email': data.get('email'),
+            'firstname': data.get('firstname'),
+            'lastname': data.get('lastname'),
+        }, instance=user)
 
     if form.is_valid():
-        user = form.save()
+        user_data = form.save()
         tags = data.get('tags')
 
+        UserTag.objects.filter(user_id=user).delete()
         for tag_id in tags:
             usertag = UserTag(user_id=user.id, tag_id=tag_id)
             usertag.save()
 
+        user = UserSerializer(user_data).data
         team_data = User.objects.filter(account_id=data.get('account'))
         team = UserSerializer(team_data, many=True).data
-
     else: 
         message = 'error'
 
     return JsonResponse({
         'message': message,
+        'user': user,
         'team': team,
     })
 
@@ -213,8 +226,6 @@ def editaccount(request):
         instance=account
     )
 
-    print(form.is_valid())
-    print(form.errors)
     if form.is_valid():
         my_account = form.save()
         account = AccountSerializer(my_account).data
