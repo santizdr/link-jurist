@@ -41,7 +41,6 @@
             error.value.message = "El contenido de la publicación no puede estar vacío";
         } 
 
-        console.log("LLEGA");
         if (error.value.field === '' && error.value.message === '') {
             axios.post("/api/editpost/", form)
                 .then(response => {

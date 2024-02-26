@@ -4,6 +4,7 @@
   import { useAuthStore } from '@/stores/auth';
   import AccountShowFileModal from '@/components/account/files/AccountShowFileModal.vue';
   import ConfirmDeleteFile from '@/components/account/files/ConfirmDeleteFile.vue';
+  import EditFileModal from '@/components/account/files/EditFileModal.vue';
 
   const authStore = useAuthStore();
 
@@ -21,14 +22,11 @@
     6: "Derecho internacional",
   }
 
+  const resetKey = ref(0);
+
   const deleteFileModal = ref(false);
   const editFileModal = ref(false);
   const deleteId = ref(null);
-
-  function deleteFile(id) {
-      deleteId.value = id;
-      deleteFileModal.value = true;
-  }
 
   function openFile(id, account) {
       axios.get("/api/getfile/", { 
@@ -48,6 +46,21 @@
         .catch(error => {
             console.log("Error: ", error);
         })
+  }
+
+  function deleteFile(id) {
+      deleteId.value = id;
+      deleteFileModal.value = true;
+  }
+
+  function editFile() {
+      editFileModal.value = true;
+  }
+
+  function handleCloseEditModal() {
+    resetKey.value += 1;
+
+    editFileModal.value = false;
   }
 </script>
 
@@ -96,4 +109,5 @@
   </div>  
   <AccountShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
   <ConfirmDeleteFile :deleteFileModal="deleteFileModal" @close-delete-file-modal="deleteFileModal = false" :id="deleteId" />
+  <EditFileModal :key="resetKey" :editFileModal="editFileModal" @close-edit-file-modal="handleCloseEditModal()" :file="file"/>
 </template>

@@ -18,3 +18,20 @@ class FileForm(forms.ModelForm):
             raise forms.ValidationError("El campo 'price' debe tener 3 dígitos en la parte entera y 2 en la decimal.")
 
         return price
+    
+
+class EditFileForm(forms.ModelForm):
+    class Meta:
+        model = File
+        fields = ('title', 'description', 'price')
+
+    def clean_price(self):
+        price = self.cleaned_data['price']
+        price_str = str(price)
+
+        parts = price_str.split('.')
+
+        if len(parts[0]) > 3 or len(parts[1]) != 2:
+            raise forms.ValidationError("El campo 'price' debe tener 3 dígitos en la parte entera y 2 en la decimal.")
+
+        return price

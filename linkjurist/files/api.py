@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from files.models import File, FileTag
-from files.forms import FileForm
+from files.forms import FileForm, EditFileForm
 from .serializers import FileSerializer
 
 from tags.models import Tag
@@ -154,4 +154,39 @@ def deletefile(request):
     return JsonResponse({
         'message': message,
         'file': file,
+    })
+
+
+@api_view(['POST'])
+def editfile(request):
+    message = "error"
+    data = request.data.get('_rawValue')
+    file = File.objects.get(id=data.get('id'))
+    account = file.account.id
+
+    form = EditFileForm({
+        'title': data.get('title'),
+        'description': data.get('description'),
+        'price': data.get('price'),
+    }, instance=file)
+
+    if form.is_valid():
+        file_data = form.save()
+        tags = data.get('tags')
+
+        FileTag.objects.filter(file_id=file.id).delete()
+        for tag_id in tags:
+            filetag = FileTag(file_id=file.id, tag_id=tag_id)
+            filetag.save()
+
+        file = FileSerializer(file_data).data
+        files_data = File.objects.filter(account_id=account)
+        files = FileSerializer(files_data, many=True).data
+
+        message = 'success'
+
+    return JsonResponse({
+        'message': message,
+        'files' : files,
+        'file' : file,
     })

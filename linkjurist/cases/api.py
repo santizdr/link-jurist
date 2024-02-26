@@ -193,8 +193,8 @@ def editcase(request):
 
         CaseTag.objects.filter(case_id=case.id).delete()
         for tag_id in tags:
-            posttag = CaseTag(case_id=case.id, tag_id=tag_id)
-            posttag.save()
+            casetag = CaseTag(case_id=case.id, tag_id=tag_id)
+            casetag.save()
 
         case = CaseSerializer(case_data).data
         cases_data = Case.objects.filter(account_id=account)
