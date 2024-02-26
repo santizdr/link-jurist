@@ -1,10 +1,12 @@
 <script setup>
     import { ref } from 'vue'
+    import { useAuthStore } from '@/stores/auth';
     import ConfirmDeleteUser from '@/components/account/team/ConfirmDeleteUser.vue'
     import EditUserModal from './EditUserModal.vue';
     
     const { props } = defineProps(['user']);
 
+    const authStore = useAuthStore();
     const tags = {
         1: "Derecho penal",
         2: "Derecho civil",
@@ -60,12 +62,14 @@
                                 </div>
                             </div>
                             <div class="column is-narrow">
-                                <a @click="editUser(user.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
-                                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
-                                </a>
-                                <a v-if="!user.is_manager" @click="deleteUser(user.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
-                                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
-                                </a>
+                                <div v-if="user.account === authStore.account.id">
+                                    <a @click="editUser(user.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                                        <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                                    </a>
+                                    <a v-if="!user.is_manager" @click="deleteUser(user.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                                        <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

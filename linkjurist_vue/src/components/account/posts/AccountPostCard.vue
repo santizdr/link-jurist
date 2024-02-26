@@ -43,12 +43,14 @@
                                 <p class="subtitle is-6">{{ post.posted_by_name }}</p>
                             </div>
                             <div class="column is-narrow">
-                                <a @click="editPost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
-                                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
-                                </a>
-                                <a v-if="post.posted_by === authStore.user.id || authStore.user.is_manager" @click="deletePost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
-                                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
-                                </a>
+                                <div v-if="post.account === authStore.account.id">
+                                    <a @click="editPost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                                        <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                                    </a>
+                                    <a v-if="post.posted_by === authStore.user.id || authStore.user.is_manager" @click="deletePost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                                        <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div>

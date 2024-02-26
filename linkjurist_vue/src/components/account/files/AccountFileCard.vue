@@ -61,12 +61,14 @@
               <p class="title is-4">{{ file.title }}</p>
             </div>
             <div class="column is-narrow">
-                <a @click="editFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
-                    <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
-                </a>
-                <a v-if="file.uploaded_by === authStore.user.id || authStore.user.is_manager" @click="deleteFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
-                    <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
-                </a>
+              <div v-if="file.account === authStore.account.id">
+                  <a @click="editFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                      <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
+                  </a>
+                  <a v-if="file.uploaded_by === authStore.user.id || authStore.user.is_manager" @click="deleteFile(file.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
+                      <font-awesome-icon :icon="['fas', 'trash']" class="top-ranking-icon" />
+                  </a>
+                </div>
             </div>
           </div>
           <div>
