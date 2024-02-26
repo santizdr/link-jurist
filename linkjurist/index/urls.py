@@ -7,6 +7,7 @@ urlpatterns = [
     path('accountdetails/', api.accountdetails, name='accountdetails'),
     path('userdetails/', api.userdetails, name='userdetails'),
     path('createpost', api.createpost, name='createpost'),
+    path('editpost/', api.editpost, name='editpost'),
     path('deletepost/', api.deletepost, name='deletepost'),
     path('follow', api.follow, name='follow'),
 ]

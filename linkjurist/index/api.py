@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from django.db.models import Count, Q, Sum
 
 from .models import Post, PostTag
-from .forms import PostForm
+from .forms import PostForm, EditPostForm
 from .serializers import PostSerializer
 
 from account.models import Account, User, Follow
@@ -17,8 +17,6 @@ from cases.serializers import CaseSerializer
 from files.models import File
 from files.serializers import FileSerializer
 
-from index.models import Post
-from index.serializers import PostSerializer
 
 
 @api_view(['GET'])
@@ -181,4 +179,37 @@ def deletepost(request):
     return JsonResponse({
         'message': message,
         'post': post,
+    })
+
+
+@api_view(['POST'])
+def editpost(request):
+    message = "success"
+    data = request.data.get('_rawValue')
+    post = Post.objects.get(id=data.get('id'))
+    account = post.account.id
+    form = EditPostForm({
+        'content': data.get('content'),
+    }, instance=post)
+
+    if form.is_valid():
+        post_data = form.save()
+        tags = data.get('tags')
+
+        PostTag.objects.filter(post_id=post.id).delete()
+        for tag_id in tags:
+            posttag = PostTag(post_id=post.id, tag_id=tag_id)
+            posttag.save()
+
+        post = PostSerializer(post_data).data
+        posts_data = Post.objects.filter(account_id=account)
+        posts = PostSerializer(posts_data, many=True).data
+
+    else: 
+        message = 'error'
+
+    return JsonResponse({
+        'message': message,
+        'post': post,
+        'posts': posts,
     })

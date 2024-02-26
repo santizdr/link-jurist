@@ -7,6 +7,7 @@
     const { props } = defineProps(['user']);
 
     const authStore = useAuthStore();
+
     const tags = {
         1: "Derecho penal",
         2: "Derecho civil",
@@ -27,7 +28,7 @@
         deleteUserModal.value = true;
     }
 
-    function editUser(id) {
+    function editUser() {
         editUserModal.value = true;
     }
 

@@ -2,7 +2,6 @@
     import axios from 'axios';
     import { ref } from 'vue'
     import { useAuthStore } from '@/stores/auth';
-    import TagsInput from '@/components/home/TagsInput.vue'
 
     const emit = defineEmits(['closeEditUserModal'])
     const props = defineProps(['editUserModal', 'user']);

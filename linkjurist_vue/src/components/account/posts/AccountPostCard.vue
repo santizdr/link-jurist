@@ -1,7 +1,8 @@
 <script setup>
     import { ref } from 'vue'
     import { useAuthStore } from '@/stores/auth';
-    import ConfirmDeletePost from './ConfirmDeletePost.vue';
+    import ConfirmDeletePost from '@/components/account/posts/ConfirmDeletePost.vue';
+    import EditPostModal from '@/components/account/posts/EditPostModal.vue';
 
     const authStore = useAuthStore();
     const { props } = defineProps(['post']);
@@ -15,6 +16,8 @@
         6: "Derecho internacional",
     }
 
+    const resetKey = ref(0);
+
     const deletePostModal = ref(false);
     const editPostModal = ref(false);
     const deleteId = ref(null);
@@ -23,6 +26,17 @@
         deleteId.value = id;
         deletePostModal.value = true;
     }
+
+    function editPost() {
+        editPostModal.value = true;
+    }
+
+    function handleCloseEditModal() {
+        resetKey.value += 1;
+
+        editPostModal.value = false;
+    }
+
 </script>
 
 <template>
@@ -44,7 +58,7 @@
                             </div>
                             <div class="column is-narrow">
                                 <div v-if="post.account === authStore.account.id">
-                                    <a @click="editPost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
+                                    <a v-if="post.posted_by === authStore.user.id || authStore.user.is_manager" @click="editPost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text mx-1">
                                         <font-awesome-icon :icon="['fas', 'pen']" class="top-ranking-icon" />
                                     </a>
                                     <a v-if="post.posted_by === authStore.user.id || authStore.user.is_manager" @click="deletePost(post.id)" class="button secondary-bg-color has-text-weight-semibold white-text">
@@ -78,4 +92,5 @@
         <hr>   
     </div>
     <ConfirmDeletePost :deletePostModal="deletePostModal" @close-delete-post-modal="deletePostModal = false" :id="deleteId" />
+    <EditPostModal :key="resetKey" :editPostModal="editPostModal" @close-edit-post-modal="handleCloseEditModal()" :post="post"/>
 </template>
