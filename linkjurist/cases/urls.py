@@ -10,4 +10,5 @@ urlpatterns = [
     path('searchcases/', api.searchcases, name='searchcases'),
     path('filtercases/', api.filtercases, name='filtercases'),
     path('deletecase/', api.deletecase, name='deletecase'),
+    path('editcase/', api.editcase, name='editcase'),
 ]

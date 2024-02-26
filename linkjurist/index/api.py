@@ -188,6 +188,7 @@ def editpost(request):
     data = request.data.get('_rawValue')
     post = Post.objects.get(id=data.get('id'))
     account = post.account.id
+    
     form = EditPostForm({
         'content': data.get('content'),
     }, instance=post)

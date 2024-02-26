@@ -80,7 +80,6 @@
         if (error.value.field === '' && error.value.message === '') {
             await axios.post("/api/editaccount/", form)
                 .then(response => {
-                    console.log(response.data);
                     this.authStore.setAccountInfo(response.data.account);
                     handleCloseModal();
                 })

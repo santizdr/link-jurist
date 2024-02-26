@@ -3,9 +3,11 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
-from .forms import CaseForm, ApplyForm
+from .forms import CaseForm, ApplyForm, EditCaseForm
 from .models import Case, Apply, CaseTag
 from .serializers import ApplySerializer, CaseSerializer
+
+from account.models import Account
 
 
 @api_view(['POST'])
@@ -169,3 +171,39 @@ def deletecase(request):
         'case': case,
     })
 
+
+@api_view(['POST'])
+def editcase(request):
+    message = "error"
+    data = request.data.get('_rawValue')
+    case = Case.objects.get(id=data.get('id'))
+    account = case.account.id
+
+    form = EditCaseForm({
+        'title': data.get('title'),
+        'description': data.get('description'),
+        'type': data.get('type'),
+        'expiry_date': data.get('expiryDate'),
+        'percent': data.get('percent'),
+    }, instance=case)
+
+    if form.is_valid():
+        case_data = form.save()
+        tags = data.get('tags')
+
+        CaseTag.objects.filter(case_id=case.id).delete()
+        for tag_id in tags:
+            posttag = CaseTag(case_id=case.id, tag_id=tag_id)
+            posttag.save()
+
+        case = CaseSerializer(case_data).data
+        cases_data = Case.objects.filter(account_id=account)
+        cases = CaseSerializer(cases_data, many=True).data
+
+        message = 'success'
+
+    return JsonResponse({
+        'message': message,
+        'cases' : cases,
+        'case' : case,
+    })
