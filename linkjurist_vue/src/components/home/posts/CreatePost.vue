@@ -6,8 +6,6 @@
     import { useIndexStore } from '@/stores/index';
     import { useRouter } from 'vue-router'
 
-    import TagsInput from '@/components/home/TagsInput.vue'
-
     const router = useRouter();
 
     const authStore = useAuthStore();

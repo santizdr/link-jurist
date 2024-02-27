@@ -2,7 +2,9 @@
     import { ref } from 'vue'
     import axios from 'axios';
     import { useAuthStore } from '@/stores/auth';
+    import { useRouter } from 'vue-router'
 
+    const router = useRouter();
     const authStore = useAuthStore();
 
     const emit = defineEmits(['closeDeleteFileModal'])
@@ -26,6 +28,9 @@
                 authStore.files = response.data.file;
                 alert.value.message = "Has eliminado al usuario";
                 alert.value.class = "span-success";
+                if (router.currentRoute.value.fullPath.includes("user")){
+                    this.detailsStore.fetchUserData(this.authStore.user.id);
+                }
                 handleCloseModal();
             } else {
                 alert.value.message = "Se ha producido un error";

@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
+import { createApp, setTransitionHooks } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -15,6 +15,27 @@ import { fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, f
 library.add(fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, faUser, faScaleBalanced, faUpload, faDownload, faEye, faArrowRight, faEuroSign, faPercent, faHeart, faMinus, faClock, faCheck, faXmark, faPen, faTrash, faKeyboard )
 
 const pinia = createPinia()
+
+pinia.use((context) => {
+    const accessToken = window.localStorage.getItem("user.access");
+    const refreshToken = window.localStorage.getItem("user.refresh");
+
+    if (accessToken && refreshToken) {
+        if(context.store.$id === "auth") {
+            axios.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
+            context.store.initStore();
+            axios.get("/api/me")
+                .then(response => {
+                    console.log(response);
+                    context.store.setStoreInfo(response.data);
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                })
+        }
+    }
+})
+
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 
 axios.defaults.baseURL = 'http://localhost:8000'

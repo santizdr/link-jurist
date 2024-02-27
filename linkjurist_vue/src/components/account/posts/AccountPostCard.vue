@@ -3,9 +3,12 @@
     import { useAuthStore } from '@/stores/auth';
     import ConfirmDeletePost from '@/components/account/posts/ConfirmDeletePost.vue';
     import EditPostModal from '@/components/account/posts/EditPostModal.vue';
+    import { useRouter } from 'vue-router'
+
+    const router = useRouter();
 
     const authStore = useAuthStore();
-    const { props } = defineProps(['post']);
+    const props = defineProps(['post']);
 
     const tags = {
         1: "Derecho penal",
@@ -32,9 +35,7 @@
     }
 
     function handleCloseEditModal() {
-        resetKey.value += 1;
-
-        editPostModal.value = false;
+        router.go();
     }
 
 </script>
@@ -42,7 +43,6 @@
 <template>
     <div>
         <div class="card my-5 mx-2">
-
             <div class="card-content">
                 <div class="media">
                     <!-- <div class="media-left">

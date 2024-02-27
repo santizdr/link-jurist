@@ -2,7 +2,9 @@
     import { ref } from 'vue'
     import axios from 'axios';
     import { useAuthStore } from '@/stores/auth';
+    import { useRouter } from 'vue-router'
 
+    const router = useRouter();
     const authStore = useAuthStore();
 
     const emit = defineEmits(['closeDeletePostModal'])
@@ -24,6 +26,9 @@
         .then(response => {
             if(response.data.message === "success") {
                 authStore.posts = response.data.post;
+                if (router.currentRoute.value.fullPath.includes("user")){
+                    router.push("/user/" + authStore.user.id);
+                }
                 alert.value.message = "Has eliminado la publicación";
                 alert.value.class = "span-success";
                 handleCloseModal();

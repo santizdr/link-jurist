@@ -1,13 +1,11 @@
 <script setup>
     import axios from 'axios';
     import { ref } from 'vue'
-    import { useAuthStore } from '@/stores/auth';
+    import { useRouter } from 'vue-router'
 
+    const router = useRouter();
     const emit = defineEmits(['closeEditPostModal'])
     const props = defineProps(['editPostModal', 'post']);
-
-    const authStore = useAuthStore();
-    const account_id = authStore.account.id;
 
     const alert = ref({
         message: "",
@@ -46,10 +44,9 @@
                 .then(response => {
                     if(response.data.message === "success") {
                         this.authStore.setPostsInfo(response.data.posts);
-
-                        form.value.content = response.data.post.content;
-                        form.value.tags = response.data.post.tags;
-
+                        if (router.currentRoute.value.fullPath.includes("user")){
+                            this.detailsStore.fetchUserData(this.authStore.user.id);
+                        }
                         handleCloseModal();
                     } else {
                         alert.value.message = "Se ha producido un error al añadir el usuario";
@@ -94,7 +91,6 @@
                         </div>
                     </article>  
                 </div>          
-                <h2 class="subtitle mt-3">Añade un usuario a tu cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span></h2>
                 <div class="field">
                     <div class="control">
                         <textarea class="textarea" :class="{ 'input-error' : error.field === 'content' }" v-model="form.content"></textarea>
