@@ -2,9 +2,12 @@
   import { ref } from 'vue'
   import axios from 'axios';
   import { useAuthStore } from '@/stores/auth';
+  import { useRouter } from 'vue-router'
   import AccountShowFileModal from '@/components/account/files/AccountShowFileModal.vue';
   import ConfirmDeleteFile from '@/components/account/files/ConfirmDeleteFile.vue';
   import EditFileModal from '@/components/account/files/EditFileModal.vue';
+
+  const router = useRouter();
 
   const authStore = useAuthStore();
 
@@ -58,9 +61,7 @@
   }
 
   function handleCloseEditModal() {
-    resetKey.value += 1;
-
-    editFileModal.value = false;
+      router.go();
   }
 </script>
 
