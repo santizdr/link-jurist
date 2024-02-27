@@ -15,8 +15,6 @@ from cases.serializers import CaseSerializer, ApplySerializer
 from index.models import Post
 from index.serializers import PostSerializer
 
-from tags.models import Tag
-
 
 @api_view(['GET'])
 def me(request):
@@ -101,6 +99,7 @@ def user(request):
             'email': data.get('email'),
             'firstname': data.get('firstname'),
             'lastname': data.get('lastname'),
+            'description': data.get('description'),
             'password1': data.get('password1'),
             'password2': data.get('password2'),
         })
@@ -112,15 +111,19 @@ def user(request):
             'email': data.get('email'),
             'firstname': data.get('firstname'),
             'lastname': data.get('lastname'),
+            'description': data.get('description'),
         }, instance=user)
 
     if form.is_valid():
         user_data = form.save()
+        user_id = user_data.id
         tags = data.get('tags')
+        
+        if user != "":
+            UserTag.objects.filter(user_id=user_id).delete()
 
-        UserTag.objects.filter(user_id=user).delete()
         for tag_id in tags:
-            usertag = UserTag(user_id=user.id, tag_id=tag_id)
+            usertag = UserTag(user_id=user_id, tag_id=tag_id)
             usertag.save()
 
         user = UserSerializer(user_data).data

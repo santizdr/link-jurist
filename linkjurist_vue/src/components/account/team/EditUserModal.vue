@@ -25,6 +25,7 @@
         email: props.user.email,
         firstname: props.user.firstname,
         lastname: props.user.lastname,
+        description: props.user.description,
         tags: props.user.tags,
     });
 
@@ -95,7 +96,7 @@
                 <p class="modal-card-title">Editar usuario</p>
                 <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
             </header>
-            <section class="modal-card-body">
+            <section class="section modal-card-body scrollable-div">
                 <div v-if="alert.message !== ''" class="my-3">
                     <article class="message">
                         <div class="message-header"  :class="alert.class">
@@ -104,7 +105,7 @@
                         </div>
                     </article>  
                 </div>          
-                <h2 class="subtitle mt-3">Añade un usuario a tu cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span></h2>
+                <h2 class="subtitle mt-3">Editar usuario de tu cuenta de <span class="secondary-text-color has-text-weight-semibold">Link Jurist</span></h2>
                 <div class="field">
                     <label class="label">Nombre</label>
                     <div class="control">
@@ -126,6 +127,13 @@
                     <div class="control">
                         <input class="input" :class="{ 'input-error' : error.field === 'email' }" type="email" v-model="form.email">
                         <span v-if="error.field === 'email'" class="has-text-danger"> {{ error.message }}</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Descripción</label>
+                    <div class="control">
+                        <textarea class="textarea" v-model="form.description"></textarea>
                     </div>
                 </div>
 

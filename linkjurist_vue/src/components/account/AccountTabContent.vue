@@ -159,6 +159,6 @@
         </div>
     </div>
     <FileUploadModal :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
-    <CreateUserModal :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
+    <CreateUserModal :acc="authStore.account.id" :showUserModal="showUserModal" @close-user-modal="showUserModal = false" />
     <CaseCreateModal :showCaseModal="showCaseModal" @close-case-modal="showCaseModal = false" />
 </template>

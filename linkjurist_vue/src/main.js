@@ -26,7 +26,6 @@ pinia.use((context) => {
             context.store.initStore();
             axios.get("/api/me")
                 .then(response => {
-                    console.log(response);
                     context.store.setStoreInfo(response.data);
                 })
                 .catch(error => {
