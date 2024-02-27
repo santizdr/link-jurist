@@ -142,7 +142,6 @@
             <form class="mx-3" @submit.prevent="submitForm()">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Publicar un caso</p>
-                    <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
                 </header>
                 <section class="modal-card-body">    
                     <div class="field">
@@ -197,13 +196,17 @@
                         <a @click="selectTag(6)" class="mr-3 mb-2 button tag-6 black-text" :class="{ 'has-text-weight-semibold selected-tag' : form.tags.includes(6) }">Derecho internacional</a>
                     </div>
                 </section>
-                <footer class="modal-card-foot">
-                    <div class="control">
-                        <button @click.prevent="submitForm()" class="button secondary-form-button">Confirmar</button>
-                    </div> 
+                <footer class="modal-card-foot modal-footer-btns">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <a @click="handleCloseModal()" class="button primary-form-button">Cancelar</a>
+                        </div>
+                        <div class="control">
+                            <a @click="submitForm()" class="button secondary-form-button">Confirmar</a>
+                        </div>
+                    </div>
                 </footer>
             </form>
         </div>
-      <button @click="handleCloseModal()" class="modal-close is-large" aria-label="close"></button>
     </div>
 </template>

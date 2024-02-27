@@ -45,13 +45,12 @@
             <form class="mx-3" @submit.prevent="submitForm()">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Ventana de confirmación</p>
-                    <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
                 </header>
                 <section class="modal-card-body">    
                     <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar el usuario de la cuenta?</p>
                     <p class="subtitle is-5 my-2">Esto implica la eliminación de sus publicaciones y de los escritos que ha subido.</p>
                 </section>
-                <footer class="modal-card-foot">
+                <footer class="modal-card-foot modal-footer-btns">
                     <div class="field is-grouped">
                         <div class="control">
                             <a @click="handleCloseModal()" class="button primary-form-button">Cancelar</a>

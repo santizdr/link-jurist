@@ -10,8 +10,8 @@
 
     const { props } = defineProps(['account']);
 
+    const resetKey = ref(0);
     const editAccountModal = ref(false);
-    const editId = ref(null);
 
     const alert = ref({
         message: "",
@@ -23,9 +23,10 @@
         alert.value.class = "";
     }
 
-    function editAccount(id) {
-      editId.value = id;
+    function editAccount() {
       editAccountModal.value = true;
+
+      resetKey.value++;
   }
 
     function follow() {
@@ -91,6 +92,6 @@
             </div>
         </div>
     </div>
-    <EditAccountModal :editAccountModal="editAccountModal" @close-edit-account-modal="editAccountModal = false" :account="account" />
+    <EditAccountModal :key="resetKey" :editAccountModal="editAccountModal" @close-edit-account-modal="editAccountModal = false" :account="account" />
 
 </template>

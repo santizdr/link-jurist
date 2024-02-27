@@ -2,9 +2,11 @@
     import axios from 'axios';
     import { ref } from 'vue'
     import { useAuthStore } from '@/stores/auth';
+    import { useRouter } from 'vue-router';
 
     const emit = defineEmits(['closeEditFileModal'])
     const props = defineProps(['editFileModal', 'file']);
+    const router = useRouter();
 
     const authStore = useAuthStore();
     const account_id = authStore.account.id;
@@ -53,7 +55,7 @@
                         form.value.price = response.data.file.price;
                         form.value.tags = response.data.file.tags;
 
-                        handleCloseModal();
+                        router.go();
                     } else {
                         alert.value.message = "Se ha producido un error al añadir el usuario";
                         alert.value.class = "span-error";
@@ -63,11 +65,6 @@
                     console.log("Error: ", error);
                 })
         }
-    }
-
-    function handleChangeSelect() {
-        error.value.field = "";
-        error.value.message = "";
     }
     
     function selectTag(id) {
@@ -91,7 +88,6 @@
         <form @submit.prevent="submitForm()">    
             <header class="modal-card-head">
                 <p class="modal-card-title">Editar escrito</p>
-                <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
             </header>
             <section class="modal-card-body">
                 <div v-if="alert.message !== ''" class="my-3">
@@ -137,14 +133,17 @@
                     <a @click="selectTag(6)" class="mr-3 mb-2 button tag-6 black-text" :class="{ 'has-text-weight-semibold selected-tag' : props.file.tags.includes(6) }">Derecho internacional</a>
                 </div>
             </section>
-            <footer class="modal-card-foot">
-                <div class="control">
-                    <button @click.prevent="submitForm()" class="button secondary-form-button">Confirmar</button>
-                </div> 
+            <footer class="modal-card-foot modal-footer-btns">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <a @click="handleCloseModal()" class="button primary-form-button">Cancelar</a>
+                    </div>
+                    <div class="control">
+                        <a @click="submitForm()" class="button secondary-form-button">Confirmar</a>
+                    </div>
+                </div>
             </footer>
         </form>
-
     </div>
-  <button @click="handleCloseModal()" class="modal-close is-large" aria-label="close"></button>
 </div>
 </template>

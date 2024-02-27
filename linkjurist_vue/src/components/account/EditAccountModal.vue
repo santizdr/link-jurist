@@ -9,17 +9,6 @@
     const props = defineProps(['account', 'editAccountModal']);
 
     function handleCloseModal() {
-        form.value.name = "";
-        form.value.description = "";
-        form.value.slogan = "";
-        form.value.phonenumber = "";
-        form.value.web = "";
-        form.value.email = "";
-        form.value.address = "";
-        form.value.cp = "";
-        form.value.locality = "";
-        form.value.country = "";
-
         emit('closeEditAccountModal');
     }
 
@@ -81,6 +70,7 @@
             await axios.post("/api/editaccount/", form)
                 .then(response => {
                     this.authStore.setAccountInfo(response.data.account);
+
                     handleCloseModal();
                 })
                 .catch(error => {
@@ -97,9 +87,8 @@
             <form class="mx-3" @submit.prevent="submitForm()">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Editar cuenta</p>
-                    <a @click="handleCloseModal()" class="delete" aria-label="close"></a>
                 </header>
-                <section class="section modal-card-body scrollable-div">
+                <section class="modal-card-body scrollable-div">
                     <div class="columns is-centered">
                         <div class="column is-four-fifths-desktop">
                             <div class="field">

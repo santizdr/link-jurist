@@ -35,7 +35,7 @@
     }
 
     function handleCloseEditModal() {
-        router.go();
+        editPostModal.value = false;
     }
 
 </script>

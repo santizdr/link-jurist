@@ -60,9 +60,6 @@
       editFileModal.value = true;
   }
 
-  function handleCloseEditModal() {
-      router.go();
-  }
 </script>
 
 <template>
@@ -110,5 +107,5 @@
   </div>  
   <AccountShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
   <ConfirmDeleteFile :deleteFileModal="deleteFileModal" @close-delete-file-modal="deleteFileModal = false" :id="deleteId" />
-  <EditFileModal :key="resetKey" :editFileModal="editFileModal" @close-edit-file-modal="handleCloseEditModal()" :file="file"/>
+  <EditFileModal :key="resetKey" :editFileModal="editFileModal" @close-edit-file-modal="editFileModal = false" :file="file"/>
 </template>
