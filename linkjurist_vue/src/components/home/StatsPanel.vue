@@ -1,6 +1,8 @@
 <script setup>
     import { useAuthStore } from '@/stores/auth';
     const authStore = useAuthStore();
+
+    const props = defineProps(['stats'])
 </script>
 
 <template>
@@ -15,21 +17,21 @@
             <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de publicaciones:
             </h1>
-            <p>Visualizaciones totales: 14502</p>
-            <p>Likes totales: 9793</p>
+            <p>Visualizaciones totales: {{ props.stats.post_visualizations }}</p>
+            <p>Likes totales: {{ props.stats.post_likes }}</p>
         </div>
         <div class="my-3">
             <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de casos:
             </h1>
-            <p>Visualizaciones totales: 17085</p>
-            <p>Aplicaciones totales: 9602</p>
+            <p>Visualizaciones totales: {{ props.stats.case_visualizations }}</p>
+            <p>Aplicaciones totales: {{ props.stats.case_applications }}</p>
         </div>
         <div class="my-3">
             <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de escritos:
             </h1>
-            <p>Descargas totales: 8587</p>
+            <p>Descargas totales: {{ props.stats.file_downloads }}</p>
         </div>
     </div>
 

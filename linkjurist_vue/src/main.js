@@ -22,7 +22,10 @@ pinia.use((context) => {
 
     if (accessToken && refreshToken) {
         if(context.store.$id === "auth") {
+            const account_id = window.localStorage.getItem("account.id");
+
             axios.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
+            context.store.account.id = account_id;
             context.store.initStore();
             axios.get("/api/me")
                 .then(response => {

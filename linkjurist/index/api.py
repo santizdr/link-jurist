@@ -22,7 +22,6 @@ from files.serializers import FileSerializer
 @api_view(['GET'])
 def index(request):
     id = request.query_params.get('id')
-
     contacts = []
     contact_suggestions = []
     posts = []
@@ -33,6 +32,19 @@ def index(request):
     suggestions_data = Account.objects.exclude(id__in=contact_ids).exclude(id=id).annotate(num_following=Count('following')).order_by('-num_following')[:5]
     contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
     
+    case_visualizations = Case.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
+    case_applications = Case.objects.filter(account_id=id).aggregate(total_applications=Sum('applications'))['total_applications']
+    file_downloads = File.objects.filter(account_id=id).aggregate(total_downloads=Sum('downloads'))['total_downloads']
+    post_visualizations = Post.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
+    post_likes = Post.objects.filter(account_id=id).aggregate(total_likes=Sum('likes'))['total_likes']
+    stats = {
+        "case_visualizations": case_visualizations,
+        "case_applications": case_applications,
+        "file_downloads": file_downloads,
+        "post_visualizations": post_visualizations,
+        "post_likes": post_likes,
+    }
+
     if contact_ids.count() == 0:
         post_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
         post_suggestions = PostSerializer(post_suggestions_data, many=True).data
@@ -50,6 +62,7 @@ def index(request):
         "contact_suggestions": contact_suggestions,
         "posts": posts,
         "post_suggestions": post_suggestions,
+        "stats": stats,
     })
 
 

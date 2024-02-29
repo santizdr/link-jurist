@@ -1,6 +1,8 @@
 <script setup>
+  import { ref } from 'vue';
   import { useAuthStore } from '@/stores/auth';
-  
+  import { useIndexStore } from '@/stores/index';
+
   import WelcomePanel from '@/components/home/WelcomePanel.vue';
   import CreatePost from '@/components/home/posts/CreatePost.vue';
   import PostsList from '@/components/home/posts/PostsList.vue';
@@ -8,6 +10,8 @@
   import OtherAccounts from '@/components/home/OtherAccounts.vue';
 
   const authStore = useAuthStore();
+  const indexStore = useIndexStore();
+
 </script>
 
 
@@ -16,7 +20,7 @@
     <div class="columns is-centered">
       <!-- CARTEL DE BIENVENIDA -->
       <div v-if="authStore.user.isAuthenticated" class="column is-one-fifth-desktop">
-        <StatsPanel />
+        <StatsPanel :stats="indexStore.stats"/>
       </div>
       <div v-if="authStore.user.isAuthenticated" class="column is-two-fifths-desktop">
         <CreatePost />

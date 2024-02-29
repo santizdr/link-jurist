@@ -14,6 +14,7 @@ import AccountView from '../views/AccountView.vue'
 import UserView from '../views/UserView.vue'
 import AccountDetails from '../views/AccountDetails.vue'
 import AccountProfile from '../views/AccountProfile.vue'
+import { inject } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
