@@ -10,7 +10,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "35",
             "account": 1,
             "tags": [1]
         }
@@ -26,7 +25,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "25",
             "account": 1,
             "tags": [2]
         }
@@ -42,7 +40,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "40",
             "account": 2,
             "tags": [2]
         }
@@ -58,7 +55,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "45",
             "account": 3,
             "tags": [6]
         }
@@ -74,7 +70,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "40",
             "account": 4,
             "tags": [5]
         }
@@ -90,7 +85,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "30",
             "account": 5,
             "tags": [2, 4]
         }
@@ -106,7 +100,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "45",
             "account": 6,
             "tags": [3]
         }
@@ -122,7 +115,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "50",
             "account": 6,
             "tags": [5]
         }
@@ -138,7 +130,6 @@
             "expiry_date": "2024-03-02",
             "applications": 4,
             "visualizations": 8,
-            "percent": "30",
             "account": 7,
             "tags": [2]
         }
@@ -154,7 +145,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "20",
             "account": 7,
             "tags": []
         }
@@ -170,7 +160,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "30",
             "account": 8,
             "tags": [1]
         }
@@ -186,7 +175,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "25",
             "account": 9,
             "tags": [2]
         }
@@ -202,7 +190,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "15",
             "account": 10,
             "tags": [1]
         }
@@ -218,7 +205,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "35",
             "account": 11,
             "tags": [3, 6]
         }
@@ -234,7 +220,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "25",
             "account": 11,
             "tags": [4, 5]
         }
@@ -250,7 +235,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "50",
             "account": 12,
             "tags": [4, 6]
         }
@@ -266,7 +250,6 @@
             "expiry_date": "2024-03-02",
             "applications": 0,
             "visualizations": 0,
-            "percent": "20",
             "account": 12,
             "tags": []
         }

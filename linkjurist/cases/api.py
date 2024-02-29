@@ -23,7 +23,6 @@ def postcase(request):
         'description': data.get('description'),
         'type': data.get('type'),
         'expiry_date': data.get('expiryDate'),
-        'percent': data.get('percent'),
     })
 
     if form.is_valid():
@@ -184,7 +183,6 @@ def editcase(request):
         'description': data.get('description'),
         'type': data.get('type'),
         'expiry_date': data.get('expiryDate'),
-        'percent': data.get('percent'),
     }, instance=case)
 
     if form.is_valid():

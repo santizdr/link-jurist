@@ -28,7 +28,6 @@
         description: '',
         type: '',
         expiryDate: '',
-        percent: "",
         tags: [],
     });
 
@@ -62,12 +61,6 @@
         } else if (!validateDate(form.value.expiryDate)) {
             error.value.field = "expiryDate";
             error.value.message = "La fecha de expiración debe ser posterior al día de hoy";
-        } else if (form.value.percent === '') {
-            error.value.field = "percent";
-            error.value.message = "El campo comisión no puede estar vacío";
-        } else if (!validatePercent(form.value.percent)) {
-            error.value.field = "percent";
-            error.value.message = "El formato de la comisión debe ser dos dígitos numéricos";
         }
 
         if (error.value.field === '' && error.value.message === '') {
@@ -91,7 +84,6 @@
         form.value.description = "";
         form.value.type = "";
         form.value.date = "";
-        form.value.percent = "";
         form.value.expiryDate = "";
         form.value.tags = [];
 
@@ -113,11 +105,6 @@
         } else {
             return false;
         }
-    }
-
-    function validatePercent(percent) {
-        var regex = /^\d{2}$/;
-        return regex.test(percent);
     }
 
     function handleChangeSelect() {
@@ -175,16 +162,6 @@
                             <input class="input is-fullwidth" :class="{ 'input-error' : error.field === 'expiryDate' }" type="date" v-model="form.expiryDate">
                         </div>
                         <span v-if="error.field === 'expiryDate'" class="has-text-danger"> {{ error.message }}</span>
-                    </div>
-                    <div class="field">
-                        <label class="label">Comisión</label>
-                        <p class="control has-icons-right">
-                            <input class="input" :class="{ 'input-error' : error.field === 'percent' }" type="text" v-model="form.percent">
-                            <span class="icon is-right">
-                                <font-awesome-icon :icon="['fas', 'percent']" class="tabs-icon mr-2" />
-                            </span>
-                            <span v-if="error.field === 'percent'" class="has-text-danger"> {{ error.message }}</span>
-                        </p>
                     </div>
                     Añade especialidades
                     <div class="my-1">

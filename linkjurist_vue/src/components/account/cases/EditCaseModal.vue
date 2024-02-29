@@ -25,7 +25,6 @@
         description: props.caso.description,
         type: props.caso.type,
         expiryDate: props.caso.expiry_date,
-        percent: props.caso.percent,
         tags: props.caso.tags,
     });
 
@@ -54,7 +53,6 @@
                         form.value.description = response.data.case.description;
                         form.value.type = response.data.case.type;
                         form.value.expiryDate = response.data.case.expiry_date;
-                        form.value.percent = response.data.case.percent;
 
                         form.value.tags = response.data.case.tags;
 
@@ -137,16 +135,6 @@
                         <input class="input is-fullwidth" :class="{ 'input-error' : error.field === 'expiryDate' }" type="date" v-model="form.expiryDate">
                     </div>
                     <span v-if="error.field === 'expiryDate'" class="has-text-danger"> {{ error.message }}</span>
-                </div>
-                <div class="field">
-                    <label class="label">Comisión</label>
-                    <p class="control has-icons-right">
-                        <input class="input" :class="{ 'input-error' : error.field === 'percent' }" type="text" v-model="form.percent">
-                        <span class="icon is-right">
-                            <font-awesome-icon :icon="['fas', 'percent']" class="tabs-icon mr-2" />
-                        </span>
-                        <span v-if="error.field === 'percent'" class="has-text-danger"> {{ error.message }}</span>
-                    </p>
                 </div>
                 <hr>
                 Añade especialidades

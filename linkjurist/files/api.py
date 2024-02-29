@@ -32,8 +32,6 @@ def uploadfile(request):
     files = []
     message = 'success'
     form = FileForm(request.POST, request.FILES)
-    print(request.POST)
-    print(form.errors)
     if form.is_valid():
         
         tags_str = request.POST.get('tags')
