@@ -63,7 +63,6 @@ export const useDetailsStore = defineStore("details", {
                 params: {id: id}
               }
             ).then(response => {
-                console.log(response.data)
                 this.user = response.data.user;
               })
               .catch(error => {

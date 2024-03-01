@@ -10,4 +10,5 @@ urlpatterns = [
     path('editpost/', api.editpost, name='editpost'),
     path('deletepost/', api.deletepost, name='deletepost'),
     path('follow', api.follow, name='follow'),
+    path('likepost', api.likepost, name='likepost')
 ]

@@ -1,6 +1,13 @@
 <script setup>
-    const { props } = defineProps(['post']);
+    import axios from 'axios';
+    import { ref } from 'vue';
+    import { useAuthStore } from '@/stores/auth';
 
+    const authStore = useAuthStore();
+    const props = defineProps(['post']);
+    const emit = defineEmits(['updateLikes'])
+
+    
     const tags = {
         1: "Derecho penal",
         2: "Derecho civil",
@@ -9,12 +16,62 @@
         5: "Derecho administrativo",
         6: "Derecho internacional",
     }
+
+    const alert = ref({
+        message: "",
+        class: "",
+    });
+
+    function closeAlert() {
+        alert.value.message = "";
+        alert.value.class = "";
+    }
+
+    function like(id) {
+        const data = {
+            'id': id,
+            'me': authStore.user.id,
+        };
+
+        const counter = ref(props.post.likes)
+        
+        axios.post("/api/likepost", data)
+        .then(response => {
+            if(response.data.message === "liked") {
+                counter.value++;
+                alert.value.message = "Te gusta esta publicación";
+                alert.value.class = "span-success";
+            } else if (response.data.message === "delete") {
+                counter.value--;
+                alert.value.message = "Me gusta eliminado";
+                alert.value.class = "span-error";
+            } else {
+                console.log("Se ha producido un error");
+                alert.value.message = "Se ha producido un error al asignar el me gusta";
+                alert.value.class = "span-error";
+            }
+            emit('updateLikes', id, counter.value);
+        })
+        .catch(error => {
+            console.log("Error: ", error);
+            alert.value.message = "Se ha producido un error al asignar el me gusta";
+            alert.value.class = "span-error";
+        })
+    }
 </script>
 
 <template>
     <div>
         <div class="card my-5 mx-2">
             <div class="card-content">
+                <div v-if="alert.message !== ''" class="my-3">
+                    <article class="message">
+                        <div class="message-header"  :class="alert.class">
+                            <p>{{ alert.message }}</p>
+                            <a @click="closeAlert()" class="delete" aria-label="delete"></a>
+                        </div>
+                    </article>  
+                </div> 
                 <div class="media">
                     <!-- <div class="media-left">
                         <figure class="image is-48x48">
@@ -43,7 +100,7 @@
                         </div>
                         <div class="is-narrow">
                             <div class="has-text-right case-file-stats mr-4">
-                                <span class="secondary-text-color mx-3">{{ post.likes }} <font-awesome-icon class="mx-1"  :icon="['fas', 'heart']" /></span>
+                                <span @click="like(post.id)" class="secondary-text-color mx-3">{{ post.likes }} <font-awesome-icon class="mx-1"  :icon="['fas', 'heart']" /></span>
                             </div>
                         </div>
                     </div>

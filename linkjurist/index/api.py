@@ -3,8 +3,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from django.db.models import Count, Q, Sum
 
-from .models import Post, PostTag
-from .forms import PostForm, EditPostForm
+from .models import Post, PostTag, PostLike
+from .forms import PostForm, EditPostForm, PostLikeForm
 from .serializers import PostSerializer
 
 from account.models import Account, User, Follow
@@ -21,6 +21,7 @@ from files.serializers import FileSerializer
 
 @api_view(['GET'])
 def index(request):
+    me = request.query_params.get('id')
     id = request.query_params.get('id')
     contacts = []
     contact_suggestions = []
@@ -36,7 +37,7 @@ def index(request):
     case_applications = Case.objects.filter(account_id=id).aggregate(total_applications=Sum('applications'))['total_applications']
     file_downloads = File.objects.filter(account_id=id).aggregate(total_downloads=Sum('downloads'))['total_downloads']
     post_visualizations = Post.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
-    post_likes = Post.objects.filter(account_id=id).aggregate(total_likes=Sum('likes'))['total_likes']
+    post_likes = PostLike.objects.filter(user=id).aggregate(total_likes=Sum('id'))['total_likes']
     stats = {
         "case_visualizations": case_visualizations,
         "case_applications": case_applications,
@@ -46,15 +47,15 @@ def index(request):
     }
 
     if contact_ids.count() == 0:
-        post_suggestions_data = Post.objects.annotate(total_likes=Sum('likes')).order_by('-total_likes')
-        post_suggestions = PostSerializer(post_suggestions_data, many=True).data
+        post_suggestions_data = Post.objects.annotate(total_likes=Count('postlike')).order_by('-total_likes')
+        post_suggestions = PostSerializer(post_suggestions_data, many=True, context={me: me}).data
 
     else:
         contacts_data = Account.objects.filter(id__in=contact_ids)
         contacts = ContactsSerializer(contacts_data, many=True).data
 
         posts_data = Post.objects.filter(Q(account__id__in=contact_ids))
-        posts = PostSerializer(posts_data, many=True).data
+        posts = PostSerializer(posts_data, many=True, context={me: me}).data
 
 
     return JsonResponse({
@@ -226,4 +227,33 @@ def editpost(request):
         'message': message,
         'post': post,
         'posts': posts,
+    })
+
+
+@api_view(['POST'])
+def likepost(request):
+    id = request.data.get('id')
+    me = request.data.get('me')
+
+    like = PostLike.objects.filter(post_id=id, user_id=me)
+
+    if like.exists():
+        like.delete()
+        message = 'delete'
+
+    else: 
+        form = PostLikeForm({
+            'user': me,
+            'post': id,
+        })
+
+        if form.is_valid():
+            form.save()
+            message = 'liked'
+
+        else: 
+            message = 'error'
+
+    return JsonResponse({
+        'message': message,
     })
