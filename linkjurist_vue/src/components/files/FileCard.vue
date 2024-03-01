@@ -6,7 +6,8 @@
 
   const authStore = useAuthStore();
 
-  const { props } = defineProps(['file']);
+  const emit = defineEmits(['updateDownloads']);
+  const props = defineProps(['file']);
 
   const showFileModal = ref(false);
   const fileSrc = ref(null);
@@ -38,6 +39,13 @@
     5: "Derecho administrativo",
     6: "Derecho internacional",
   }
+
+  function handleCloseModal(purchased) {
+    showFileModal.value = false;
+    if(purchased) {
+      emit('updateDownloads', props.file.id)
+    }
+  }
 </script>
 
 <template>
@@ -45,32 +53,32 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">            
-          <p class="title is-4">{{ file.title }}</p>
+          <p class="title is-4">{{ props.file.title }}</p>
           <p class="subtitle is-5 secondary-text-color">
-            <RouterLink :to="'/account/' + file.account" class="black-text ">{{ file.account_name }}</RouterLink>
+            <RouterLink :to="'/account/' + props.file.account" class="black-text ">{{ props.file.account_name }}</RouterLink>
           </p>
           <div>
-            <span v-for="tag in file.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
+            <span v-for="tag in props.file.tags" class="tag is-medium mr-2" :class="'tag-' + tag">{{ tags[tag] }}</span>
           </div>
         </div>
       </div>
       <div class="content">
-          <p class="default-font-size"><span class="secondary-text-color">Descripción: </span>{{ file.description }}</p>
+          <p class="default-font-size"><span class="secondary-text-color">Descripción: </span>{{ props.file.description }}</p>
           <p><span class="secondary-text-color">Precio: </span>{{ file.price }}</p> 
           <div class="columns is-vcentered">
           <div class="column">
-            <a @click="openFile(file.id, authStore.account.id)" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
+            <a @click="openFile(props.file.id, authStore.account.id)" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
               <font-awesome-icon :icon="['fas', 'download']" class="top-ranking-icon mr-2" />Comprar
             </a>
           </div>
           <div class="is-narrow">
             <div class="has-text-right case-file-stats mr-4">
-              <span class="secondary-text-color">{{ file.downloads }} <font-awesome-icon class="mx-1" :icon="['fas', 'download']" /></span>
+              <span class="secondary-text-color">{{ props.file.downloads }} <font-awesome-icon class="mx-1" :icon="['fas', 'download']" /></span>
             </div>
           </div>
           </div>
       </div>
     </div>
   </div>  
-  <ShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
+  <ShowFileModal :fileid="props.file.id" :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="handleCloseModal" />
 </template>

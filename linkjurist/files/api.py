@@ -19,7 +19,7 @@ from tags.models import Tag
 @api_view(['GET'])
 def files(request):
     id = request.query_params.get('id')
-    files_data = File.objects.all().exclude(id=id)
+    files_data = File.objects.all().exclude(id=id).order_by('-downloads')
     files = FileSerializer(files_data, many=True, context={'account': id}).data
 
     return JsonResponse({
@@ -68,6 +68,14 @@ def getfile(request):
     else: 
         preview = create_preview(file.file)
         return FileResponse(preview, as_attachment=True, content_type='application/pdf')
+
+
+@api_view(['GET'])
+def purchasefile(request, id):
+    file = get_object_or_404(File, id=id)
+    file.downloads += 1
+    file.save()
+    return FileResponse(file.file, as_attachment=True, content_type='application/pdf')
 
 
 def create_preview(file):
