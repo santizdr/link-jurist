@@ -26,7 +26,6 @@ class ApplySerializer(serializers.ModelSerializer):
     case_post_date = serializers.SerializerMethodField()
     case_expiry_date = serializers.SerializerMethodField()
     case_applications = serializers.SerializerMethodField()
-    case_visualizations = serializers.SerializerMethodField()
 
     def get_case_title(self, obj):
         return obj.case.title
@@ -43,8 +42,6 @@ class ApplySerializer(serializers.ModelSerializer):
     def get_case_applications(self, obj):
         return obj.case.applications
     
-    def get_case_visualizations(self, obj):
-        return obj.case.visualizations
     
     class Meta:
         model = Apply

@@ -74,7 +74,6 @@
           </div>
 
             <div class="column is-narrow has-text-right case-file-stats mr-4">
-              <span class="secondary-text-color mx-3">{{ caso.visualizations }} <font-awesome-icon class="mx-1" :icon="['fas', 'eye']" /></span>
               <span class="secondary-text-color mx-3">{{ caso.applications }} <font-awesome-icon class="mx-1" :icon="['fas', 'arrow-right']" /></span>
             </div>
           </div>

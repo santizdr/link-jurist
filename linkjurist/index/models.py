@@ -6,7 +6,6 @@ from tags.models import Tag
 class Post(models.Model):    
     content = models.TextField(null=False, max_length=512)    
     post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
-    visualizations = models.PositiveIntegerField(null=False, default=0)
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=False)

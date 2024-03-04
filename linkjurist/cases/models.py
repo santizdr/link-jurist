@@ -33,5 +33,4 @@ class Apply(models.Model):
 
     status = models.CharField(null=False, choices=STATUSES, default="PENDING")
     applicant = models.ForeignKey(Account, related_name='applicant', on_delete=models.CASCADE)
-
     case = models.ForeignKey(Case, on_delete=models.CASCADE, null=False)

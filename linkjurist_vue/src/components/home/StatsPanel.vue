@@ -17,14 +17,12 @@
             <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de publicaciones:
             </h1>
-            <p>Visualizaciones totales: {{ props.stats.post_visualizations }}</p>
             <p>Likes totales: {{ props.stats.post_likes }}</p>
         </div>
         <div class="my-3">
             <h1 class="is-size-6 has-text-weight-semibold my-2">
                 Estadísticas de casos:
             </h1>
-            <p>Visualizaciones totales: {{ props.stats.case_visualizations }}</p>
             <p>Aplicaciones totales: {{ props.stats.case_applications }}</p>
         </div>
         <div class="my-3">

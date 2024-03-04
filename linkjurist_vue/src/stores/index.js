@@ -8,12 +8,9 @@ export const useIndexStore = defineStore("index", {
         posts: [],
         post_suggestions: [],
         stats: {
-          case_visualizations: null,
           case_applications: null,
           post_likes: null,
-          cases_visualizations: null,
-          cases_likes: null,
-          downloads: null,
+          file_downloads: null,
         }
     }),
 

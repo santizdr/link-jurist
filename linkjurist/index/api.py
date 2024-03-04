@@ -11,7 +11,7 @@ from account.models import Account, User, Follow
 from account.serializers import UserSerializer, AccountSerializer, ContactsSerializer, UserDetailsSerializer
 from account.forms import FollowForm
 
-from cases.models import Case
+from cases.models import Case, Apply
 from cases.serializers import CaseSerializer
 
 from files.models import File
@@ -33,18 +33,30 @@ def index(request):
     suggestions_data = Account.objects.exclude(id__in=contact_ids).exclude(id=id).annotate(num_following=Count('following')).order_by('-num_following')[:5]
     contact_suggestions = ContactsSerializer(suggestions_data, many=True).data
     
-    case_visualizations = Case.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
-    case_applications = Case.objects.filter(account_id=id).aggregate(total_applications=Sum('applications'))['total_applications']
-    file_downloads = File.objects.filter(account_id=id).aggregate(total_downloads=Sum('downloads'))['total_downloads']
-    post_visualizations = Post.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
-    post_likes = PostLike.objects.filter(user=id).aggregate(total_likes=Sum('id'))['total_likes']
+    # case_visualizations = Case.objects.filter(account_id=id).aggregate(total_visualizations=Sum('visualizations'))['total_visualizations']
+    account_cases = Case.objects.filter(account_id=id)
+    case_applications = 0
+    if len(account_cases) > 0: 
+        for c in account_cases:
+            case_applications += Apply.objects.filter(case_id=c.id).count()
+
+    account_files = File.objects.filter(account_id=id)
+    file_downloads = 0
+    if len(account_files) > 0: 
+        file_downloads = File.objects.filter(account_id=id).aggregate(total_downloads=Sum('downloads'))['total_downloads']
+
+    account_posts = Post.objects.filter(account_id=id)
+    post_likes = 0
+    if len(account_posts) > 0: 
+        for p in account_posts:
+            post_likes += PostLike.objects.filter(post_id=p.id).count()
+            
     stats = {
-        "case_visualizations": case_visualizations,
         "case_applications": case_applications,
         "file_downloads": file_downloads,
-        "post_visualizations": post_visualizations,
         "post_likes": post_likes,
     }
+
 
     if contact_ids.count() == 0:
         post_suggestions_data = Post.objects.annotate(total_likes=Count('postlike')).order_by('-total_likes')
