@@ -12,7 +12,6 @@ class Case(models.Model):
     post_date = models.DateField(null=False, auto_now=False, auto_now_add=True)
     expiry_date = models.DateField(null=False, auto_now=False, auto_now_add=False)
     applications = models.PositiveIntegerField(null=False, default=0)
-    visualizations = models.PositiveIntegerField(null=False, default=0)
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=False)
     tags = models.ManyToManyField(Tag, through='CaseTag', related_name='cases')
