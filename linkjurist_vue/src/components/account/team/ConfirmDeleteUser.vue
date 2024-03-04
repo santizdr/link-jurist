@@ -48,7 +48,7 @@
                 </header>
                 <section class="modal-card-body">    
                     <p class="subtitle is-5 my-2">¿Estas seguro de que quieres eliminar el usuario de la cuenta?</p>
-                    <p class="subtitle is-5 my-2">Esto implica la eliminación de sus publicaciones y de los escritos que ha subido.</p>
+                    <p class="subtitle is-5 my-2">Las publicaciones, casos y escritos del usuario se transferirán al administrador de la cuenta.</p>
                 </section>
                 <footer class="modal-card-foot modal-footer-btns">
                     <div class="field is-grouped">

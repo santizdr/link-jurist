@@ -189,9 +189,11 @@ def deleteuser(request):
     id = request.data.get('id')
     user = get_object_or_404(User, id=id)
     account_id = user.account.id
+    manager_id = User.objects.filter(account_id=account_id).filter(is_manager=True)[0]
+    print(manager_id)
 
-    Post.objects.filter(posted_by=user).delete()
-    File.objects.filter(uploaded_by=user).delete()
+    Post.objects.filter(posted_by=user).update(posted_by_id=manager_id)
+    File.objects.filter(uploaded_by=user).update(uploaded_by=manager_id)
     UserTag.objects.filter(user_id=user).delete()
 
     user.delete()
