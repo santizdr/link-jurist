@@ -97,7 +97,7 @@ export const useAuthStore = defineStore("auth", {
             this.user.firstname = data.user.firstname;
             this.user.lastname = data.user.lastname;
             this.user.email = data.user.email;
-            this.user.description = data.user.description;
+            this.user.description = data.user.description.replace(/\n/g, '<br>');
             this.user.is_manager = data.user.is_manager;
             this.user.tags = data.user.tags;
 
@@ -138,7 +138,7 @@ export const useAuthStore = defineStore("auth", {
 
             this.account.id = account.id;
             this.account.name = account.name;
-            this.account.description = account.description;
+            this.account.description = account.description.replace(/\n/g, '<br>');
             this.account.slogan = account.slogan;
             this.account.web = account.web;
             this.account.email = account.email;

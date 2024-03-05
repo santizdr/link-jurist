@@ -45,7 +45,17 @@ export const useDetailsStore = defineStore("details", {
                 }
             }
           ).then(response => {
-                this.account = response.data.account;
+                this.account.name = response.data.account.name;
+                this.account.description = response.data.account.description.replace(/\n/g, '<br>');
+                this.account.slogan = response.data.account.slogan;
+                this.account.web = response.data.account.web;
+                this.account.email = response.data.account.email;
+                this.account.phonenumber = response.data.account.phonenumber;
+                this.account.address = response.data.account.address;
+                this.account.cp = response.data.account.cp;
+                this.account.locality = response.data.account.locality;
+                this.account.country = response.data.account.country;
+    
                 this.follow = response.data.follow;
                 this.team = response.data.team;
                 this.posts = response.data.posts;

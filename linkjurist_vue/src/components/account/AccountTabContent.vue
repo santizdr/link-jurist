@@ -53,7 +53,7 @@
             <hr>
             <h1 class="title is-3">Sobre nosotros</h1>
             <div class="column is-full">
-                <p class="is-size-5 my-1">{{ viewData.account.description }}</p>
+                <p class="is-size-5 my-1" v-html="viewData.account.description"></p>
             </div>
         </div>
 
