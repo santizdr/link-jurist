@@ -16,7 +16,7 @@
     import ApplicationCard from '@/components/account/applications/ApplicationCard.vue'
     import ApplicationsFilter from '@/components/account/applications/ApplicationsFilter.vue'
 
-    const props  = defineProps(['viewData', 'activeTab']);
+    const props = defineProps(['viewData', 'activeTab']);
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
 
@@ -25,10 +25,18 @@
     const showCaseModal = ref(false);
     const applicationsType = ref("all");
 
+    const viewData = ref(props.viewData);
     function filterApplications(val) {
         applicationsType.value = val;
     }
 
+    function handleUpdateLikes(post_id, likes) {
+        const index = viewData.value.posts.findIndex(post => post.id === post_id);
+        
+        if (index !== -1) {
+            viewData.value.posts[index].likes = likes;
+        } 
+    }
 </script>
 
 <template>
@@ -93,7 +101,7 @@
                 </div>
                 <div v-else>
                     <div v-if="viewData.posts.length > 0" class="scrollable-div">
-                        <PostCard v-for="post in viewData.posts" :key="post.id" :post="post" /> 
+                        <PostCard v-for="post in viewData.posts" :key="post.id" :post="post" @update-likes="handleUpdateLikes"/> 
                     </div>
                     <div v-else>
                         <p class="is-size-5 my-1">Aún no hay publicaciones en esta cuenta</p>
