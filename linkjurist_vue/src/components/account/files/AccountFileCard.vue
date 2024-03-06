@@ -11,7 +11,8 @@
 
   const authStore = useAuthStore();
 
-  const { props } = defineProps(['file']);
+  const emit = defineEmits(['updateDownloads']);
+  const props = defineProps(['file']);
 
   const showFileModal = ref(false);
   const fileSrc = ref(null);
@@ -51,6 +52,13 @@
         })
   }
 
+  function handleCloseModal(purchased) {
+    showFileModal.value = false;
+    if(purchased) {
+      emit('updateDownloads', props.file.id)
+    }
+  }
+
   function deleteFile(id) {
       deleteId.value = id;
       deleteFileModal.value = true;
@@ -59,7 +67,6 @@
   function editFile() {
       editFileModal.value = true;
   }
-
 </script>
 
 <template>
@@ -105,7 +112,7 @@
       </div>
     </div>
   </div>  
-  <AccountShowFileModal :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="showFileModal = false" />
+  <AccountShowFileModal :fileid="file.id" :file="fileSrc" :showFileModal="showFileModal" @close-file-modal="handleCloseModal" />
   <ConfirmDeleteFile :deleteFileModal="deleteFileModal" @close-delete-file-modal="deleteFileModal = false" :id="deleteId" />
   <EditFileModal :key="resetKey" :editFileModal="editFileModal" @close-edit-file-modal="editFileModal = false" :file="file"/>
 </template>

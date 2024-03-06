@@ -26,6 +26,7 @@
     const applicationsType = ref("all");
 
     const viewData = ref(props.viewData);
+
     function filterApplications(val) {
         applicationsType.value = val;
     }
@@ -37,6 +38,15 @@
             viewData.value.posts[index].likes = likes;
         } 
     }
+
+    function handleUpdateDownloads(file_id) {
+        const index = viewData.value.files.findIndex(file => file.id === file_id);
+
+        if (index !== -1) {
+            const downloads = viewData.value.files[index].downloads;
+            viewData.value.files[index].downloads = downloads + 1;
+        }
+    } 
 </script>
 
 <template>
@@ -145,7 +155,7 @@
             <div class="mx-3">
                 <h1 class="title is-3">Nuestros escritos</h1>
                 <div v-if="viewData.files.length > 0" class="scrollable-div">
-                    <AccountFileCard v-for="file in viewData.files" :key="file.id" :file="file" />
+                    <AccountFileCard v-for="file in viewData.files" :key="file.id" :file="file" @update-downloads="handleUpdateDownloads" />
                 </div>
                 <div v-else>
                     <p class="is-size-5 my-1">Aún no hay escritos</p>
