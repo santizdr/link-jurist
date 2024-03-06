@@ -1,9 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from django.db.models import Avg
 
-from .models import User, Account, UserTag
-from .forms import SignupForm, AccountForm, AddUserForm, EditUserForm
+from .models import User, Account, UserTag, Review
+from .forms import SignupForm, AccountForm, AddUserForm, EditUserForm, ReviewForm
 from .serializers import UserSerializer, AccountSerializer
 
 from files.models import File
@@ -240,3 +241,40 @@ def editaccount(request):
         'message': message,
         'account' : account,
     })
+
+
+@api_view(['POST'])
+def review(request):
+    data = request.data.get('_rawValue')
+    message = 'success'
+    review = Review.objects.filter(posted_by=data.get('posted_by')).filter(posted_to=data.get('account'))
+    rating = Review.objects.filter(posted_to=data.get('account')).aggregate(avg_rating=Avg('rating'))['avg_rating']
+    if (rating is not None):
+        rating = round(rating)
+
+    if review.exists():
+        form = ReviewForm({
+            'posted_by': data.get('posted_by'),
+            'posted_to': data.get('account'),
+            'rating': data.get('rating'),
+        }, instance=review[0])
+
+    else: 
+        form = ReviewForm({
+            'posted_by': data.get('posted_by'),
+            'posted_to': data.get('account'),
+            'rating': data.get('rating'),
+        })
+        
+    if form.is_valid():
+        form.save()
+        rating = round(Review.objects.filter(posted_to=data.get('account')).aggregate(avg_rating=Avg('rating'))['avg_rating'])
+
+    else: 
+        message = "error"
+
+    return JsonResponse({
+        'message': message,
+        'rating': rating,
+    })
+

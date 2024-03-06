@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import User, Account
+from django.db.models import Avg
+from .models import User, Account, Review
 from index.models import Post
 from index.serializers import PostSerializer
 from files.models import File
@@ -23,10 +24,16 @@ class UserSerializer(serializers.ModelSerializer):
     
 
 class AccountSerializer(serializers.ModelSerializer):
+    rating = serializers.SerializerMethodField()
+
     class Meta:
         model = Account
         fields = '__all__'
 
+    def get_rating(self, obj):
+        rating = Review.objects.filter(posted_to=obj).aggregate(avg_rating=Avg('rating'))
+        return rating['avg_rating']    
+    
 
 class ContactsSerializer(serializers.ModelSerializer):
     class Meta:

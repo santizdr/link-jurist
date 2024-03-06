@@ -15,6 +15,7 @@
     import CreatePost from '@/components/home/posts/CreatePost.vue'
     import ApplicationCard from '@/components/account/applications/ApplicationCard.vue'
     import ApplicationsFilter from '@/components/account/applications/ApplicationsFilter.vue'
+    import CreateReview from '@/components/account/CreateReview.vue';
 
     const props = defineProps(['viewData', 'activeTab']);
     const authStore = useAuthStore();
@@ -72,6 +73,10 @@
             <h1 class="title is-3">Sobre nosotros</h1>
             <div class="column is-full">
                 <p class="is-size-5 my-1" v-html="viewData.account.description"></p>
+            </div>
+            <div v-if="authStore.account.id !== viewData.account.id" class="mx-3">
+                <hr>
+                <CreateReview :account="viewData.account.id" />
             </div>
         </div>
 

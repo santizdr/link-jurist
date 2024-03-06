@@ -4,6 +4,7 @@
     import { useAuthStore } from '@/stores/auth';
     import { useDetailsStore } from '@/stores/details';
     import EditAccountModal from './EditAccountModal.vue';
+import { acceptHMRUpdate } from 'pinia';
 
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
@@ -82,7 +83,14 @@
                     </a>
                 </div>
             </div>
-            <div v-if="authStore.account.id !== account.id">
+            <div class="mb-4">
+                <span><font-awesome-icon :icon="[account.rating >= 1 ? 'fas' : 'far', 'star']" class="review-icon mr-2" /></span>
+                <span><font-awesome-icon :icon="[account.rating >= 2 ? 'fas' : 'far', 'star']" class="review-icon mr-2" /></span>
+                <span><font-awesome-icon :icon="[account.rating >= 3 ? 'fas' : 'far', 'star']" class="review-icon mr-2" /></span>
+                <span><font-awesome-icon :icon="[account.rating >= 4 ? 'fas' : 'far', 'star']" class="review-icon mr-2" /></span>
+                <span><font-awesome-icon :icon="[account.rating >= 5 ? 'fas' : 'far', 'star']" class="review-icon mr-2" /></span>
+            </div>
+            <div class="my-2" v-if="authStore.account.id !== account.id">
                 <a v-if="!detailsStore.follow" @click.prevent="follow()" class="button secondary-bg-color has-text-weight-semibold white-text is-responsive navbar-button" style="width: 150px;">
                     <font-awesome-icon :icon="['fas', 'plus']" class="top-ranking-icon mr-2" />Seguir
                 </a>

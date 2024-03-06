@@ -21,6 +21,7 @@ export const useAuthStore = defineStore("auth", {
         account: {
             id: null,
             name: null,
+            rating: null,
             description: null,
             slogan: null,
             web: null,
@@ -138,6 +139,7 @@ export const useAuthStore = defineStore("auth", {
 
             this.account.id = account.id;
             this.account.name = account.name;
+            this.account.rating = parseInt(account.rating);
             this.account.description = account.description.replace(/\n/g, '<br>');
             this.account.slogan = account.slogan;
             this.account.web = account.web;
@@ -150,6 +152,7 @@ export const useAuthStore = defineStore("auth", {
 
             localStorage.setItem("account.id", this.account.id);
             localStorage.setItem("account.name", this.account.name);
+            localStorage.setItem("account.rating", this.account.rating);
             localStorage.setItem("account.description", this.account.description);
             localStorage.setItem("account.slogan", this.account.slogan);
             localStorage.setItem("account.web", this.account.web);
@@ -216,6 +219,7 @@ export const useAuthStore = defineStore("auth", {
 
             this.account.id = null;
             this.account.name = null;
+            this.account.rating = null;
             this.account.description = null;
             this.account.slogan = null;
             this.account.web = null;
@@ -234,6 +238,7 @@ export const useAuthStore = defineStore("auth", {
 
             localStorage.setItem("account.id", "");
             localStorage.setItem("account.name", "");
+            localStorage.setItem("account.rating", "");
             localStorage.setItem("account.description", "");
             localStorage.setItem("account.slogan", "");
             localStorage.setItem("account.web", "");

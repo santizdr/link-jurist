@@ -81,7 +81,7 @@
 }
 
 .ranking-icon {
-    color: var(--primary-color);
+    color: var(--main-color);
     font-size: 16px;
 }
 
@@ -166,4 +166,9 @@
 
 .modal-footer-btns {
     justify-content: flex-end;
+}
+
+.review-icon {
+    font-size: 26px;
+    color: var(--secondary-color);
 }

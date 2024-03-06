@@ -45,7 +45,9 @@ export const useDetailsStore = defineStore("details", {
                 }
             }
           ).then(response => {
+                this.account.id = response.data.account.id;
                 this.account.name = response.data.account.name;
+                this.account.rating = parseInt(response.data.account.rating);
                 this.account.description = response.data.account.description.replace(/\n/g, '<br>');
                 this.account.slogan = response.data.account.slogan;
                 this.account.web = response.data.account.web;
@@ -82,6 +84,7 @@ export const useDetailsStore = defineStore("details", {
         clearDetailsInfo() {
             this.account.id = null;
             this.account.name = null;
+            this.account.rating = null;
             this.account.description = null;
             this.account.slogan = null;
             this.account.web = null;
@@ -107,6 +110,7 @@ export const useDetailsStore = defineStore("details", {
 
             localStorage.setItem("account.id", "");
             localStorage.setItem("account.name", "");
+            localStorage.setItem("account.rating", "");
             localStorage.setItem("account.description", "");
             localStorage.setItem("account.slogan", "");
             localStorage.setItem("account.web", "");

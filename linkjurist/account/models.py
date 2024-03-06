@@ -1,6 +1,7 @@
 import uuid
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from tags.models import Tag
 
@@ -77,3 +78,12 @@ class Follow(models.Model):
 
     class Meta:
         unique_together = ('follower', 'following')
+
+
+class Review(models.Model):
+    posted_by = models.ForeignKey(User, related_name='posted_by', on_delete=models.CASCADE)
+    posted_to = models.ForeignKey(Account, related_name='posted_to', on_delete=models.CASCADE)
+    rating = models.IntegerField(null=False, validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+    class Meta:
+        unique_together = ('posted_by', 'posted_to')

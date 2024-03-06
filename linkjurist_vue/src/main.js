@@ -10,9 +10,10 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, faUser, faScaleBalanced, faUpload, faDownload, faEye, faArrowRight, faEuroSign, faHeart, faMinus, faClock, faCheck, faXmark, faPen, faTrash, faKeyboard} from '@fortawesome/free-solid-svg-icons'
+import { faStar as solidStar, fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, faUser, faScaleBalanced, faUpload, faDownload, faEye, faArrowRight, faEuroSign, faHeart, faMinus, faClock, faCheck, faXmark, faPen, faTrash, faKeyboard } from '@fortawesome/free-solid-svg-icons'
+import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
 
-library.add(fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, faUser, faScaleBalanced, faUpload, faDownload, faEye, faArrowRight, faEuroSign, faHeart, faMinus, faClock, faCheck, faXmark, faPen, faTrash, faKeyboard )
+library.add(fa1, fa2, fa3, fa4, fa5, faGlobe, faEnvelope, faPlus, faInfo, faFile, faUser, faScaleBalanced, faUpload, faDownload, faEye, faArrowRight, faEuroSign, faHeart, faMinus, faClock, faCheck, faXmark, faPen, faTrash, faKeyboard, solidStar, regularStar )
 
 const pinia = createPinia()
 

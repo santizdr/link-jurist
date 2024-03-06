@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
-from .models import Account, User, Follow
+from .models import Account, User, Follow, Review
 
 
 class SignupForm(UserCreationForm):
@@ -32,3 +32,9 @@ class FollowForm(forms.ModelForm):
     class Meta:
         model = Follow
         fields = ('follower', 'following')
+        
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ('posted_by', 'posted_to', 'rating')
