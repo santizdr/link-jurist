@@ -108,7 +108,7 @@
                 <h1 class="title is-3">Nuestras publicaciones</h1>
                 <div v-if="authStore.account.id === viewData.account.id">
                     <div v-if="viewData.posts.length > 0" class="scrollable-div">
-                        <AccountPostCard v-for="post in viewData.posts" :key="post.id" :post="post" /> 
+                        <AccountPostCard v-for="post in viewData.posts" :key="post.id" :post="post" @update-likes="handleUpdateLikes" /> 
                     </div>
                     <div v-else>
                         <p class="is-size-5 my-1">Aún no has realizado ninguna publicación</p>
@@ -116,7 +116,7 @@
                 </div>
                 <div v-else>
                     <div v-if="viewData.posts.length > 0" class="scrollable-div">
-                        <PostCard v-for="post in viewData.posts" :key="post.id" :post="post" @update-likes="handleUpdateLikes"/> 
+                        <PostCard v-for="post in viewData.posts" :key="post.id" :post="post" @update-likes="handleUpdateLikes" /> 
                     </div>
                     <div v-else>
                         <p class="is-size-5 my-1">Aún no hay publicaciones en esta cuenta</p>
