@@ -23,7 +23,7 @@
     <div class="columns">
         <div class="column is-one-fifth">
             <figure class="image is-256x256">
-            <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
+            <img :src="user.image" alt="Placeholder image">
             </figure>
         </div>
         <div class="column is-four-fifth">

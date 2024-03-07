@@ -3,8 +3,7 @@
     import axios from 'axios'
     import { useAuthStore } from '@/stores/auth';
     import { useDetailsStore } from '@/stores/details';
-    import EditAccountModal from './EditAccountModal.vue';
-import { acceptHMRUpdate } from 'pinia';
+    import EditAccountModal from '@/components/account/EditAccountModal.vue';
 
     const authStore = useAuthStore();
     const detailsStore = useDetailsStore();
@@ -60,7 +59,7 @@ import { acceptHMRUpdate } from 'pinia';
     <div class="columns">
         <div class="column is-one-fifth">
             <figure class="image is-256x256">
-            <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
+            <img :src="account.image" alt="Placeholder image">
             </figure>
         </div>
         <div class="column is-four-fifth">
@@ -101,5 +100,4 @@ import { acceptHMRUpdate } from 'pinia';
         </div>
     </div>
     <EditAccountModal :key="resetKey" :editAccountModal="editAccountModal" @close-edit-account-modal="editAccountModal = false" :account="account" />
-
 </template>

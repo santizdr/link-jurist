@@ -15,6 +15,7 @@ export const useDetailsStore = defineStore("details", {
             cp: null,
             locality: null,
             country: null,
+            image: null,
         },
         user: {
             id: null,
@@ -57,7 +58,8 @@ export const useDetailsStore = defineStore("details", {
                 this.account.cp = response.data.account.cp;
                 this.account.locality = response.data.account.locality;
                 this.account.country = response.data.account.country;
-    
+                this.account.image = response.data.account.image;
+
                 this.follow = response.data.follow;
                 this.team = response.data.team;
                 this.posts = response.data.posts;
@@ -94,7 +96,8 @@ export const useDetailsStore = defineStore("details", {
             this.account.cp = null;
             this.account.locality = null;
             this.account.country = null;
-      
+            this.account.image = null;
+
             this.user.id = null;
             this.user.account_name = null;
             this.user.email = null;
@@ -120,6 +123,7 @@ export const useDetailsStore = defineStore("details", {
             localStorage.setItem("account.cp", "");
             localStorage.setItem("account.locality", "");
             localStorage.setItem("account.country", "");
+            localStorage.setItem("account.image", "");
 
             localStorage.setItem("user.id", "");
             localStorage.setItem("user.email", "");

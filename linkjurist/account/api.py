@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from django.db.models import Avg
 
 from .models import User, Account, UserTag, Review
-from .forms import SignupForm, AccountForm, AddUserForm, EditUserForm, ReviewForm
+from .forms import SignupForm, AccountForm, AddUserForm, EditUserForm, ReviewForm, ImageForm
 from .serializers import UserSerializer, AccountSerializer
 
 from files.models import File
@@ -277,4 +277,3 @@ def review(request):
         'message': message,
         'rating': rating,
     })
-

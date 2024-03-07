@@ -12,7 +12,8 @@
             "address": "C/ Arfe",
             "cp": "41012",
             "locality": "Sevilla",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1gvRz5MtbIvwxXzBYH5EPRoQorhQe_uvh/view?usp=drive_link"
         }
     },
     {    
@@ -28,7 +29,8 @@
             "address": "Av. Diagonal",
             "cp": "08001",
             "locality": "Barcelona",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1APnYGGbxnc8dk0y5onVYXYh3ERgfG2VH/view?usp=drive_link"
         }
     },
     {    
@@ -44,7 +46,8 @@
             "address": "Plaza de la Virgen",
             "cp": "46001",
             "locality": "Valencia",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1mUjUktFes9f9hLk9WOmlNDe04SHVxB_k/view?usp=drive_link"
         }
     },
     {    
@@ -60,7 +63,8 @@
             "address": "Paseo de la Castellana",
             "cp": "28046",
             "locality": "Madrid",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1ysziiWM2T5D9KRBgqa2HVDNz80vxNu69/view?usp=drive_link"
         }
     },
     {    
@@ -76,7 +80,8 @@
             "address": "Gran Vía",
             "cp": "48001",
             "locality": "Bilbao",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1LZvyq2CxmV49I5Q2v60qTOlhCUw0NxOW/view?usp=drive_link"
         }
     },
     {    
@@ -92,7 +97,8 @@
             "address": "Calle Larios",
             "cp": "29015",
             "locality": "Málaga",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1tE2DWFfAIj46Oxv4gqc61AdW9s7y7O4M/view?usp=drive_link"
         }
     },
     {    
@@ -108,7 +114,8 @@
             "address": "Avenida de la Constitución",
             "cp": "41004",
             "locality": "Sevilla",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1L9lzBib5rgW_2w9CLw60Ccn3lPKVOkdI/view?usp=drive_link"
         }
     },
     {    
@@ -124,7 +131,8 @@
             "address": "Paseo del Prado",
             "cp": "28014",
             "locality": "Madrid",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1KtXQ2rXKI2R_PswHG7Y3xwgU0RXFCHz2/view?usp=drive_link"
         }
     },
     {
@@ -140,7 +148,8 @@
             "address": "Calle Gran Vía",
             "cp": "28013",
             "locality": "Madrid",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1Jh52mMNVLIZjDj0aG0MT9Mg0GXPWcLbZ/view?usp=drive_link"
         }
     },
     {
@@ -156,7 +165,8 @@
             "address": "Calle Paz",
             "cp": "46001",
             "locality": "Valencia",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1ZKTRPd4OhdRW2bu0VKGagjXKIjH2aZo3/view?usp=drive_link"
         }
     },
     {
@@ -172,7 +182,8 @@
             "address": "Rambla de Catalunya",
             "cp": "08008",
             "locality": "Barcelona",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1YLf9IbX8gnd80nXJz_VQqfbSluGVcHgZ/view?usp=drive_link"
         }
     },
     {
@@ -188,7 +199,8 @@
             "address": "Plaza Nueva",
             "cp": "41001",
             "locality": "Sevilla",
-            "country": "España"
+            "country": "España",
+            "image": "https://drive.google.com/file/d/1qjsKv476WP7sn4q8m_04vBjxN9BeJK2m/view?usp=drive_link"
         }
     },
 
@@ -202,6 +214,7 @@
             "password": "hashed_password",
             "description": "Abogado con más de 10 años de experiencia en el ámbito jurídico, especializado en derecho penal. He trabajado en casos de gran complejidad, logrando resultados exitosos para mis clientes. Mi enfoque se centra en la defensa de los derechos individuales y la justicia. Actualmente, formo parte del equipo de JMC Legal, un despacho comprometido con la excelencia y la integridad en la práctica legal.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/C5603AQGBMkcHrelGEQ/profile-displayphoto-shrink_200_200/0/1628090003076?e=1715212800&v=beta&t=214m8CXWhqQnKMhl_Zoc2TC-_mp-omWz9P--iz1vjCs",
             "account": 1,
             "tags": [1, 2]
         }
@@ -217,6 +230,7 @@
             "description": "Especialista en derecho corporativo y transacciones comerciales. Con una sólida formación y experiencia, he asesorado a empresas en diversas industrias para lograr acuerdos legales sólidos y cumplir con los requisitos normativos. En Prudencio Sáez y asociados, estoy comprometida con brindar soluciones legales estratégicas para el éxito empresarial.",
             "is_manager": true,
             "account": 1,
+            "image": "https://media.licdn.com/dms/image/C4D03AQHkcOmCBISwgg/profile-displayphoto-shrink_200_200/0/1657724506073?e=1715212800&v=beta&t=fv6MCNOf_aDuqgWZh5mwzvKxHaXsI0RYYGQwoolexEQ",
             "tags": []
         }
     },
@@ -230,6 +244,7 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico y propiedad intelectual. He trabajado con empresas tecnológicas emergentes, proporcionando asesoramiento legal en contratos, licencias y protección de activos intelectuales. Mi pasión por la tecnología se combina con un enfoque legal sólido en Prudencio Sáez y Asociados.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQG-OsTekZ37Tg/profile-displayphoto-shrink_200_200/0/1700733906422?e=1715212800&v=beta&t=z_j097mbxsQRbJNGwEJ-8BLOl7LzNYrGra0zVMGwsVY",
             "account": 1,
             "tags": [5]
         }
@@ -244,6 +259,7 @@
             "password": "hashed_password",
             "description": "Abogada especializada en derecho de familia y sucesiones en Gómez & Asociados Abogados. Mi enfoque está en brindar apoyo legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para garantizar que los clientes atraviesen procesos legales difíciles con la menor carga posible.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/C4E03AQHo3rSxSHt-QA/profile-displayphoto-shrink_200_200/0/1561994757413?e=1715212800&v=beta&t=-Xn5dK7_PGKeUI81itUd8SO2HPbTjJKcDNKldq_eiFA",
             "account": 2,
             "tags": [4]
         }
@@ -258,6 +274,7 @@
             "password": "hashed_password",
             "description": "Consultora legal en LegalEase Consultancy, con experiencia en fusiones y adquisiciones. Mi enfoque se centra en brindar asesoramiento estratégico a empresas en crecimiento. Trabajo en estrecha colaboración con líderes empresariales para facilitar transacciones exitosas y garantizar el cumplimiento normativo.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQECpq9aKvQEeg/profile-displayphoto-shrink_200_200/0/1678372347204?e=1715212800&v=beta&t=R4NesqH_70JTi4J329AEWs5dcqr81XNSzfkBPtsiQZU",
             "account": 2,
             "tags": [3, 5]
         }
@@ -272,6 +289,7 @@
             "password": "hashed_password",
             "description": "Abogada en Gómez Abogados, con enfoque en derecho de familia y sucesiones. Mi objetivo es brindar asesoramiento legal sensible y resolver disputas de manera eficiente. En nuestro bufete, nos esforzamos por mantener una comunicación transparente y centrarnos en las necesidades individuales de cada cliente.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/D4E03AQHCZVVUa291VQ/profile-displayphoto-shrink_200_200/0/1675756103413?e=1715212800&v=beta&t=gh1bOLCMFQuLfVtdK7C8KCOSPJ8UlQL7nmqHkVv2iqk",
             "account": 3,
             "tags": []
         }
@@ -286,6 +304,7 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico en Gómez Abogadoss. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/C5603AQH8ffiJsqVgxg/profile-displayphoto-shrink_200_200/0/1541259105256?e=1715212800&v=beta&t=vA_nUr-KmobiV9UEopcYc9l0NzKO9dUlLzR1pXRKKmc",
             "account": 3,
             "tags": [2, 3, 6]
         }
@@ -300,6 +319,7 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho tecnológico en JurisTech Innovations. Mi experiencia abarca contratos tecnológicos, propiedad intelectual y cumplimiento normativo. Enfrento los desafíos legales del mundo digital con una perspectiva innovadora y un profundo conocimiento de las últimas tecnologías.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/D4D03AQHnlEPp4wgxzg/profile-displayphoto-shrink_200_200/0/1704292340140?e=1715212800&v=beta&t=phjWFtztpWUob-RcjfI1nu_HjM5hGQKSk6PnMA0PwU8",
             "account": 4,
             "tags": [1, 3, 6]
         }
@@ -314,6 +334,7 @@
             "password": "hashed_password",
             "description": "Consultora legal en LegalEase Consultancy, especializada en fusiones y adquisiciones. Mi enfoque se centra en proporcionar asesoramiento estratégico y soluciones legales eficientes para empresas en expansión. Trabajo para garantizar transacciones exitosas y cumplimiento normativo.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/C4D03AQF6wk-xrP3wVw/profile-displayphoto-shrink_200_200/0/1572859438833?e=1715212800&v=beta&t=eaxVsVA5gQ3j6Y9IX58u_Swex9rJIfvJ008dvXdcgKI",
             "account": 5,
             "tags": []
         }
@@ -328,6 +349,7 @@
             "password": "hashed_password",
             "description": "Abogado en Martínez Legal Solutions, especializado en derecho de familia y sucesiones. Mi objetivo es proporcionar asesoramiento legal compasivo y efectivo en casos de divorcio, custodia y herencias. Trabajo para asegurar que cada cliente reciba atención individualizada y soluciones personalizadas.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/C4E03AQH1NiHHJYeheQ/profile-displayphoto-shrink_200_200/0/1649962124744?e=1715212800&v=beta&t=ugRyq72aPK7zasTQL_1KZN-AGzUZBsKt4Xu-ppLgSPY",
             "account": 6,
             "tags": [2, 5]
         }
@@ -342,6 +364,7 @@
             "password": "hashed_password",
             "description": "Abogada en TechJuris Consultancy, con experiencia en propiedad intelectual y contratos tecnológicos. Mi enfoque se centra en proteger los activos intelectuales de nuestros clientes y proporcionar soluciones legales innovadoras para desafíos tecnológicos en constante evolución.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/D4D03AQHuVXgw7T1O3A/profile-displayphoto-shrink_200_200/0/1702810434332?e=1715212800&v=beta&t=VL5LNDCLmHBr94mcpHpFlUExxZd63tT_YA333MVPogs",
             "account": 7,
             "tags": [4]
         }
@@ -356,6 +379,7 @@
             "password": "hashed_password",
             "description": "Abogada especializada en derecho tecnológico en TechJuris Consultancy. Mi enfoque se centra en resolver desafíos legales relacionados con la tecnología, desde contratos tecnológicos hasta ciberseguridad. Trabajo para ofrecer soluciones innovadoras y adaptadas a las necesidades de nuestros clientes.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/C5603AQFsB9jepzDtSg/profile-displayphoto-shrink_200_200/0/1633884003210?e=1715212800&v=beta&t=xdExUwRrTcPns-aGgbr3D_VklqKX820ilinPapqRGKU",
             "account": 7,
             "tags": [5, 6]
         }
@@ -370,6 +394,7 @@
             "password": "hashed_password",
             "description": "Abogada en LegalHarbor Advisors, especializada en derecho empresarial y fusiones y adquisiciones. Mi objetivo es brindar asesoramiento legal estratégico y orientación financiera para lograr transacciones exitosas y el éxito a largo plazo de nuestros clientes.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/C4D03AQH28JwZ6NiuEQ/profile-displayphoto-shrink_200_200/0/1599482362406?e=1715212800&v=beta&t=j4zuqn5ZdphrcynNOPIQr9s-kQFJig0sgJ5ekTFp4fA",
             "account": 8,
             "tags": [1, 3, 4]
         }
@@ -384,6 +409,7 @@
             "password": "hashed_password",
             "description": "Abogado en LegalHarbor Advisors, especializado en derecho civil y familiar. Mi enfoque se centra en brindar asesoramiento legal integral y resolver disputas de manera efectiva. Trabajo para proteger los derechos de mis clientes en situaciones legales desafiantes.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/C4D03AQE_hY_FEsq9zw/profile-displayphoto-shrink_200_200/0/1515857492561?e=1715212800&v=beta&t=AmmS_h_ETpbrkQD1Axt-DcGKNW6Q3Gf0gTWOtZLOGO0",
             "account": 8,
             "tags": [3]
         }
@@ -398,6 +424,7 @@
             "password": "hashed_password",
             "description": "Abogado especializado en propiedad intelectual en Gomez Abogados Sevilla. Mi experiencia se centra en la protección de derechos de autor, marcas registradas y patentes. Trabajo para brindar asesoramiento legal sólido y estratégico en un mundo cada vez más digitalizado.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/D4D03AQEDkvCXJCUgqQ/profile-displayphoto-shrink_200_200/0/1706829865961?e=1715212800&v=beta&t=B9FhX3SJAgSsKn0Axe_UbU3oqAIZ6iH6bLaEzD5n_Oo",
             "account": 11,
             "tags": [5]
         }
@@ -412,6 +439,7 @@
             "password": "hashed_password",
             "description": "Especialista en arbitraje en Arbitraje Empresarial Andaluz. Mi enfoque se centra en facilitar la resolución rápida y justa de disputas comerciales. Trabajo para proporcionar procesos de arbitraje transparentes y efectivos, permitiendo a las empresas resolver conflictos de manera colaborativa.",
             "is_manager": true,
+            "image": "https://media.licdn.com/dms/image/D4D03AQHggB0lCFqceg/profile-displayphoto-shrink_200_200/0/1681397696987?e=1715212800&v=beta&t=WReiU894l-xwqnn4bJDlla-lQHB9oYHj5QTXhXWDJKI",
             "account": 12,
             "tags": [6]
         }
@@ -426,6 +454,7 @@
             "password": "hashed_password",
             "description": "Mediador empresarial en Arbitraje Empresarial Andaluz. Mi objetivo es facilitar acuerdos justos y equitativos en disputas empresariales. Trabajo para promover la resolución colaborativa de conflictos, contribuyendo al éxito a largo plazo de las empresas.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQFqglmzt9xR1A/profile-displayphoto-shrink_200_200/0/1664561583917?e=1715212800&v=beta&t=nLms07s08F2rcVFnTorV9tE7bm8r6eSPbFd20iZaVxw",
             "account": 12,
             "tags": [4]
         }
@@ -440,6 +469,7 @@
             "password": "hashed_password",
             "description": "Abogada especializada en litigios en Arbitraje Empresarial Andaluz. Mi enfoque se centra en representar a las empresas en disputas comerciales y litigios. Trabajo para garantizar que los intereses de mis clientes estén protegidos y abogar por soluciones justas.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQGsoq_sf0biQg/profile-displayphoto-shrink_200_200/0/1690293743377?e=1715212800&v=beta&t=y_BBBuXfzIoHcWVusnFDhthVWgl1ECnWIsrGjPpLK5w",
             "account": 12,
             "tags": []
         }
@@ -454,6 +484,7 @@
             "password": "hashed_password",
             "description": "Abogada en Prudencio Sáez y asociados, especializada en derecho mercantil. Mi enfoque se centra en ofrecer asesoramiento legal integral y resolutivo a empresas y particulares. Trabajo para adaptar nuestras soluciones legales a las necesidades específicas de cada cliente.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQEZvcKIgZd_Hg/profile-displayphoto-shrink_200_200/0/1669575493498?e=1715212800&v=beta&t=N_DCE04wtFwvAeHonImEOk6Sp6Tb1D6v7OQwjBcVSxY",
             "account": 1,
             "tags": []
         }
@@ -468,6 +499,7 @@
             "password": "hashed_password",
             "description": "Abogado especializado en derecho inmobiliario en Prudencio Sáez y asociados. Mi misión es proporcionar asesoramiento experto en transacciones inmobiliarias y resolver desafíos legales en este campo. Trabajo para garantizar la seguridad y éxito en las operaciones inmobiliarias de nuestros clientes.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/C5603AQEm3Zk0COCdjw/profile-displayphoto-shrink_200_200-alternative/0/1529589314431?e=1715212800&v=beta&t=eTGLP8C91hFSs8YLc-uppTRWd6M5hiBMLIjfdbD_vPE",
             "account": 1,
             "tags": [1, 4, 5]
         }
@@ -482,6 +514,7 @@
             "password": "hashed_password",
             "description": "Consultor legal en Prudencio Sáez y asociados. Mi papel es proporcionar análisis y asesoramiento estratégico en cuestiones legales complejas. Trabajo para garantizar que nuestros clientes reciban soluciones innovadoras y adaptadas a sus necesidades.",
             "is_manager": false,
+            "image": "https://media.licdn.com/dms/image/D4D03AQEDkvCXJCUgqQ/profile-displayphoto-shrink_200_200/0/1706829865961?e=1715212800&v=beta&t=B9FhX3SJAgSsKn0Axe_UbU3oqAIZ6iH6bLaEzD5n_Oo",
             "account": 1,
             "tags": [2, 4]
         }

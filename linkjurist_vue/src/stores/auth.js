@@ -31,6 +31,7 @@ export const useAuthStore = defineStore("auth", {
             cp: null,
             locality: null,
             country: null,
+            image: null,
         },
         team: [],
         posts: [],
@@ -149,6 +150,7 @@ export const useAuthStore = defineStore("auth", {
             this.account.cp = account.cp;
             this.account.locality = account.locality;
             this.account.country = account.country;
+            this.account.image = account.image;
 
             localStorage.setItem("account.id", this.account.id);
             localStorage.setItem("account.name", this.account.name);
@@ -162,6 +164,7 @@ export const useAuthStore = defineStore("auth", {
             localStorage.setItem("account.cp", this.account.cp);
             localStorage.setItem("account.locality", this.account.locality);
             localStorage.setItem("account.country", this.account.country);
+            localStorage.setItem("account.image", this.account.image);
         },
         setTeamInfo(team) {
             console.log("Set team info: ", team);

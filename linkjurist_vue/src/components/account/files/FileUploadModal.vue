@@ -33,15 +33,6 @@
         resetKey.value += 1;
     };
 
-    function handleSelectTag(id) {
-        const index = form.value.tags.indexOf(id);
-        if (index === -1) {
-            form.value.tags.push(id);
-        } else {
-            form.value.tags.splice(index, 1);
-        }
-    }
-
     function submitForm() {
         error.value = {
             field: "",

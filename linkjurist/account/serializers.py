@@ -1,3 +1,4 @@
+import os
 from rest_framework import serializers
 from django.db.models import Avg
 from .models import User, Account, Review
@@ -13,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'is_manager')
+        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'is_manager', 'image')
 
     def get_account_name(self, obj):
         if obj.account is not None:
@@ -38,7 +39,7 @@ class AccountSerializer(serializers.ModelSerializer):
 class ContactsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ('id', 'name', 'web', 'locality')
+        fields = ('id', 'name', 'web', 'locality', 'image')
 
 
 class UserDetailsSerializer(serializers.ModelSerializer):
@@ -48,7 +49,7 @@ class UserDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'posts', 'files')
+        fields = ('id' ,'email', 'firstname', 'lastname', 'description', 'tags', 'account', 'account_name', 'posts', 'files', 'image')
 
     def get_account_name(self, obj):
         return obj.account.name

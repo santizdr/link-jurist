@@ -38,3 +38,9 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('posted_by', 'posted_to', 'rating')
+
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ('image', )

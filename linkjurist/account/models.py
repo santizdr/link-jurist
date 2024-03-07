@@ -6,6 +6,10 @@ from django.db import models
 from tags.models import Tag
 
 
+def account_directory_path(instance, image):
+    return f'imgs/{instance.id}/{image}'
+
+
 class Account(models.Model):
     name = models.CharField(unique=True, max_length=128)    
     description = models.TextField()
@@ -17,6 +21,7 @@ class Account(models.Model):
     locality = models.CharField(max_length=256, blank=True)
     country = models.CharField(max_length=256, blank=True)
     phonenumber = models.CharField(max_length=256, blank=True)
+    image = models.URLField(null=False, default="")
 
     def __str__(self):
         return str(self.name)
@@ -47,7 +52,7 @@ class User(AbstractBaseUser):
     password = models.CharField(max_length=128)
     description = models.TextField(blank=True)
     is_manager = models.BooleanField(default=False)
-    user_img = models.ImageField(upload_to='user_images/', blank=True, null=True)
+    image = models.URLField(null=False, default="")
 
     account = models.ForeignKey(Account, null=True, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, through='UserTag', related_name='users')
