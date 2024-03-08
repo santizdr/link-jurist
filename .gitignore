@@ -19,7 +19,7 @@ __pycache__/
 local_settings.py
 
 # Media
-media/uploads/
+linkjurist/media/uploads/
 
 # Static files
 static/
