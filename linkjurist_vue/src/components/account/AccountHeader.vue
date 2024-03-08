@@ -59,7 +59,22 @@
     <div class="columns">
         <div class="column is-one-fifth">
             <figure class="image is-256x256">
-            <img :src="account.image" alt="Placeholder image">
+                <!-- <img :src="'/api/serve_img/' + account.id" alt="Placeholder image"> -->
+                <!-- <img alt="Placeholder image" :src="'data:image/png;base64,' + image_base64"> -->
+                <img v-if="account.id === 1" src='https://i.postimg.cc/rKnzPC6T/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 2" src='https://i.postimg.cc/xd8Xb7H1/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 3" src='https://i.postimg.cc/yYrxCj2q/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 4" src='https://i.postimg.cc/Bjn7q3wD/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 5" src='https://i.postimg.cc/Wt7Qj5bB/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 6" src='https://i.postimg.cc/9FdyYvkm/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 7" src='https://i.postimg.cc/PPNxGpQk/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 8" src='https://i.postimg.cc/vDZ89gj6/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 9" src='https://i.postimg.cc/XpybcwgX/9.png' alt='logo'/>
+                <img v-else-if="account.id === 10" src='https://i.postimg.cc/vgBR19BY/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 11" src='https://i.postimg.cc/1Vqj6KZQ/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 12" src='https://i.postimg.cc/HrHhc5Zq/logo.png' alt='logo'/>
+                <img v-else-if="account.id === 13" src='https://i.postimg.cc/qzWgrswd/inverted-SUMMA-LEGAL-logo.png' alt='logo'/>
+                <img v-else src="https://bulma.io/images/placeholders/256x256.png" alt="logo">
             </figure>
         </div>
         <div class="column is-four-fifth">
