@@ -19,7 +19,7 @@ __pycache__/
 local_settings.py
 
 # Media
-media/
+media/uploads/
 
 # Static files
 static/
